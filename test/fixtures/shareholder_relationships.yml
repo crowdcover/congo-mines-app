@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  multinational_company_id: 
+  congolese_company_id: 
+  shareholder_id: 
+
+two:
+  multinational_company_id: 
+  congolese_company_id: 
+  shareholder_id: 

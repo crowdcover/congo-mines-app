@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  acronym: MyString
+  contact: MyString
+  website: MyString
+  listed: MyString
+  'on': MyString
+  stock: MyString
+  market: false
+  stock_information: MyString
+  stock_symbol: MyString
+
+two:
+  name: MyString
+  acronym: MyString
+  contact: MyString
+  website: MyString
+  listed: MyString
+  'on': MyString
+  stock: MyString
+  market: false
+  stock_information: MyString
+  stock_symbol: MyString

@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  congolese_company_id: 
+  year: 1
+  number_of_direct_employees_expats: 1
+  number_of_direct_employees_congolese: 1
+  number_of_subcontractors_expats: 1
+  number_of_subcontractors_congolese: 1
+  establishment: MyString
+  of_community_funds: false
+  dates_of_public_consultation_as_part_of_the_environmental_impact: MyString
+  study_dates: MyString
+  link_to_environmental_impact_study: MyString
+  link_to_sustainable_development_plan_and_or_community_agreement: MyString
+  existence_of_a_platform_for_community_dialogue: false
+  amount_Invested_in: MyString
+  _social_programmes: 1
+
+two:
+  congolese_company_id: 
+  year: 1
+  number_of_direct_employees_expats: 1
+  number_of_direct_employees_congolese: 1
+  number_of_subcontractors_expats: 1
+  number_of_subcontractors_congolese: 1
+  establishment: MyString
+  of_community_funds: false
+  dates_of_public_consultation_as_part_of_the_environmental_impact: MyString
+  study_dates: MyString
+  link_to_environmental_impact_study: MyString
+  link_to_sustainable_development_plan_and_or_community_agreement: MyString
+  existence_of_a_platform_for_community_dialogue: false
+  amount_Invested_in: MyString
+  _social_programmes: 1

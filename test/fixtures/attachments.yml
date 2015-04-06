@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  asset: 
+  attachment_id: 
+  position: 1
+
+two:
+  asset: 
+  attachment_id: 
+  position: 1

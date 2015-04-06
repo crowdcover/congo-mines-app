@@ -1,0 +1,2 @@
+module EnvAndSocialObligationsHelper
+end

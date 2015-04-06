@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  drc_company: MyString
+  partnership_with_the_portfolio_companies_of_the_state: MyString
+  state: MyString
+  private_direct: MyString
+  private_indirect: MyString
+  year: 1
+
+two:
+  drc_company: MyString
+  partnership_with_the_portfolio_companies_of_the_state: MyString
+  state: MyString
+  private_direct: MyString
+  private_indirect: MyString
+  year: 1

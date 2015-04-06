@@ -1,0 +1,163 @@
+fr:
+  activerecord:
+    models:
+      active_scaffold/tableless: active_scaffold/tableless  #g
+      attachment: attachment  #g
+      author: author  #g
+      congolese_company: congolese_company HOUNDDOD  #g
+      env_and_social_obligation: env_and_social_obligation  #g
+      habtm_stock_exchange_countries: habtm_stock_exchange_countries  #g
+      habtm_stock_exchanges: habtm_stock_exchanges  #g
+      multinational_company: multinational_company  #g
+      post: post  #g
+      production_export: production_export  #g
+      report: report  #g
+      shareholder: shareholder  #g
+      shareholder_relationship: shareholder_relationship  #g
+      source: source  #g
+      stock_exchange: stock_exchange  #g
+      stock_exchange_country: stock_exchange_country  #g
+      tax_obligation: tax_obligation  #g
+
+    attributes:
+      attachment:
+        asset_content_type: asset_content_type  #g
+        asset_file_name: asset_file_name  #g
+        asset_file_size: asset_file_size  #g
+        asset_updated_at: asset_updated_at  #g
+        attachable: :activerecord.models.attachable  #g
+        attachable_type: attachable_type  #g
+        name: name  #g
+        position: position  #g
+
+      author:
+        description: description  #g
+        name: name  #g
+
+      congolese_company:
+        acronym: acronym TEST  #g
+        contact: contact  #g
+        env_and_social_obligations: env_and_social_obligations  #g
+        export_value: export_value  #g
+        grade_percent: grade_percent  #g
+        legal_regime: legal_regime  #g
+        legal_status: legal_status  #g
+        metal_content: metal_content  #g
+        name: name  #g
+        nrc: nrc  #g
+        production_exports: production_exports  #g
+        production_year: production_year  #g
+        project_phase: project_phase  #g
+        project_type: project_type  #g
+        rccm: rccm  #g
+        shareholder_relationships: shareholder_relationships  #g
+        shareholders: shareholders  #g
+        tax_obligations: tax_obligations  #g
+        tonnage: tonnage  #g
+        type_of_product: type_of_product  #g
+        website: website  #g
+
+      env_and_social_obligation:
+        amount_Invested_in: amount_Invested_in  #g
+        congolese_company: :activerecord.models.congolese_company  #g
+        dates_of_public_consultation_as_part_of_the_env_impact: dates_of_public_consultation_as_part_of_the_env_impact  #g
+        establishment: establishment  #g
+        existence_of_a_platform_for_community_dialogue: existence_of_a_platform_for_community_dialogue  #g
+        link_to_environmental_impact_study: link_to_environmental_impact_study  #g
+        link_to_sustainable_dev_plan_and_or_community_agreement: link_to_sustainable_dev_plan_and_or_community_agreement  #g
+        number_of_direct_employees_congolese: number_of_direct_employees_congolese  #g
+        number_of_direct_employees_expats: number_of_direct_employees_expats  #g
+        number_of_subcontractors_congolese: number_of_subcontractors_congolese  #g
+        number_of_subcontractors_expats: number_of_subcontractors_expats  #g
+        of_community_funds: of_community_funds  #g
+        social_programmes: social_programmes  #g
+        study_dates: study_dates  #g
+        year: year  #g
+
+      habtm_stock_exchange_countries:
+        left_side: :activerecord.models.left_side  #g
+        stock_exchange_country: :activerecord.models.stock_exchange_country  #g
+
+      habtm_stock_exchanges:
+        left_side: :activerecord.models.left_side  #g
+        stock_exchange: :activerecord.models.stock_exchange  #g
+
+      multinational_company:
+        acronym: acronym  #g
+        congolese_companies: congolese_companies  #g
+        contact: contact  #g
+        listed: listed  #g
+        market: market  #g
+        name: name  #g
+
+        shareholder_relationships: shareholder_relationships  #g
+        shareholders: shareholders  #g
+        stock: stock  #g
+        stock_exchange_countries: stock_exchange_countries  #g
+        stock_exchanges: stock_exchanges  #g
+        stock_information: stock_information  #g
+        stock_symbol: stock_symbol  #g
+        website: website  #g
+
+      production_export:
+        congolese_company: :activerecord.models.congolese_company  #g
+        export_value: export_value  #g
+        grade: grade  #g
+        metal_content: metal_content  #g
+        tonnage: tonnage  #g
+        type_of_product: type_of_product  #g
+        year: year  #g
+
+      report:
+        attachments: attachments  #g
+        author: :activerecord.models.author  #g
+        congo_site_ID: congo_site_ID  #g
+        organization: organization  #g
+        post_date: post_date  #g
+        source: :activerecord.models.source  #g
+        summary: summary  #g
+        title: title  #g
+
+      shareholder:
+        congolese_companies: congolese_companies  #g
+        drc_company: drc_company  #g
+        multinational_companies: multinational_companies  #g
+        partnership_with_the_portfolio_companies_of_the_state: partnership_with_the_portfolio_companies_of_the_state  #g
+        private_direct: private_direct  #g
+        private_indirect: private_indirect  #g
+        shareholder_relationships: shareholder_relationships  #g
+        state: state  #g
+        year: year  #g
+
+      shareholder_relationship:
+        congolese_company: :activerecord.models.congolese_company  #g
+        multinational_company: :activerecord.models.multinational_company  #g
+        shareholder: :activerecord.models.shareholder  #g
+
+      source:
+        description: description  #g
+        name: name  #g
+
+      stock_exchange:
+        name: name  #g
+
+      stock_exchange_country:
+        name: name  #g
+
+      tax_obligation:
+        amount_for_transfer_of_shares: amount_for_transfer_of_shares  #g
+        congolese_company: :activerecord.models.congolese_company  #g
+        declared_IBP: declared_IBP  #g
+        declared_customs_duty_on_imports: declared_customs_duty_on_imports  #g
+        declared_royalties: declared_royalties  #g
+        formula_of: formula_of  #g
+        formula_of_annuity_or_rent_to_pay: formula_of_annuity_or_rent_to_pay  #g
+        other_contractual_flows_reported: other_contractual_flows_reported  #g
+        recipient_of_the_contractual_cash_flows: recipient_of_the_contractual_cash_flows  #g
+        royalties: royalties  #g
+        royalties_payable: royalties_payable  #g
+        signature_bonus_declared: signature_bonus_declared  #g
+        signature_bonus_payable: signature_bonus_payable  #g
+        surface_rights_declared: surface_rights_declared  #g
+        total_amount_paid_according_to_company_EITI_declaration: total_amount_paid_according_to_company_EITI_declaration  #g
+        year: year  #g

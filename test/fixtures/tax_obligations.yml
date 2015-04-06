@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  congolese_company_id: 
+  signature_bonus_payable: 1
+  formula_of: MyString
+  royalties_payable: MyString
+  formula_of_annuity_or_rent_to_pay: MyString
+  amount_for_transfer_of_shares: 1
+  recipient_of_the_contractual_cash_flows: MyString
+  year: 1
+  total_amount_paid_according_to_company_EITI_declaration: 1
+  royalties: 1
+  declared_IBP: 1
+  declared_customs_duty_on_imports: 1
+  surface_rights_declared: 1
+  signature_bonus_declared: 1
+  declared_royalties: 1
+  other_contractual_flows_reported: MyString
+
+two:
+  congolese_company_id: 
+  signature_bonus_payable: 1
+  formula_of: MyString
+  royalties_payable: MyString
+  formula_of_annuity_or_rent_to_pay: MyString
+  amount_for_transfer_of_shares: 1
+  recipient_of_the_contractual_cash_flows: MyString
+  year: 1
+  total_amount_paid_according_to_company_EITI_declaration: 1
+  royalties: 1
+  declared_IBP: 1
+  declared_customs_duty_on_imports: 1
+  surface_rights_declared: 1
+  signature_bonus_declared: 1
+  declared_royalties: 1
+  other_contractual_flows_reported: MyString

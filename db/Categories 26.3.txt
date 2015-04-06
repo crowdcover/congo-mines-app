@@ -1,0 +1,59 @@
+﻿Type de document
+	Articles de presse
+	Cartes
+	Communiqués et lettres
+	Contrats
+  Documents d’entreprises et publications boursières
+  Guides et manuels
+  Listes, tableaux et statistiques
+  Lois, normes et réglements
+  Rapports et analyses
+  Site internet
+  Statuts et actes de constitution
+  Synthèses et résumés
+Type de source
+	Cabinets juridiques, techniques et d’audit
+	Entreprises minières
+	Etat congolais (autorité centrale)
+	Etat congolais (autorités provinciales)
+	Etats étrangers
+	Groupes multi-partites
+	Institutions internationales
+	Instituts et chercheurs académiques
+	Presse
+	Société civile internationale
+	Société civile locale
+Thèmes
+	Aspects financiers et fiscaux
+		Budget
+		Fiscalité minière
+		Projets minerais & infrastructures
+		Recettes du secteur minier
+		Rétrocession
+	Aspects sociaux et environnementaux
+		Emploi
+		Mines et environnement
+		Mines, communautés locales et droits humains
+	Contrats et titres miniers
+		Allocation des titres miniers
+		Conclusion des contrats miniers
+	Introduction au secteur minier
+		Aperçu du secteur minier
+		Histoire du secteur minier
+		Législation minière
+	Gouvernance, transparence et réformes du secteur
+		Gestion des entreprises étatiques
+		Revision du Code Minier
+		Revisitation des contrats miniers
+		Transparence des Industries Extractives
+	Opérations minières
+		Exploitation et Exportation
+		Géologie et exploration
+		Secteur artisanal
+  Traçabilité
+Provinces
+	Katanga
+	Province Orientale
+	Provinces du Kasai
+	Provinces du Kivu
+  

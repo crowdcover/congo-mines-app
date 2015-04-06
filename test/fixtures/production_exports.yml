@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  congolese_company_id: 
+  year: 1
+  type_of_product: MyString
+  tonnage: MyString
+  grade: 1
+  metal_content: MyString
+  export_value: 9.99
+
+two:
+  congolese_company_id: 
+  year: 1
+  type_of_product: MyString
+  tonnage: MyString
+  grade: 1
+  metal_content: MyString
+  export_value: 9.99
