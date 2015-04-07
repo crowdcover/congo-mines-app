@@ -13,6 +13,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'tinymce-rails'
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'slim-rails'
 
 
 group :development, :test do
