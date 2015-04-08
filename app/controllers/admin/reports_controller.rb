@@ -1,4 +1,4 @@
-class ReportsController < ApplicationController
+class Admin::ReportsController < ApplicationController
   active_scaffold :"report" do |config|
  
     config.create.multipart = 'local' 

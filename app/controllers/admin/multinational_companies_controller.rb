@@ -1,4 +1,4 @@
-class MultinationalCompaniesController < ApplicationController
+class Admin::MultinationalCompaniesController < ApplicationController
   active_scaffold :"multinational_company" do |config|
     config.label = 'Multinational Companies'    
     config.columns.exclude(:shareholder_relationships, :congolese_companies,

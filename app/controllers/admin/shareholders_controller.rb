@@ -1,4 +1,4 @@
-class ShareholdersController < ApplicationController
+class Admin::ShareholdersController < ApplicationController
   active_scaffold :"shareholder" do |config|
   
     #config.columns[:congolese_companies].options = {:draggable_lists => true}

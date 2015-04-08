@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+class Admin::CategoriesController < ApplicationController
   active_scaffold :"category" do |config|
     config.columns = [:name, :children, :reports]  
   end

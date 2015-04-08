@@ -1,4 +1,4 @@
-class ProductionExportsController < ApplicationController
+class Admin::ProductionExportsController < ApplicationController
   active_scaffold :"production_export" do |config|
   
   config.columns.exclude( :created_at, :updated_at)

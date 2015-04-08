@@ -1,4 +1,4 @@
-class CongoleseCompaniesController < ApplicationController
+class Admin::CongoleseCompaniesController < ApplicationController
   active_scaffold :"congolese_company" do |config|
     
     config.label = 'Congolese/ DRC Companies'

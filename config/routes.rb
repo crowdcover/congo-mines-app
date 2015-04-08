@@ -1,24 +1,26 @@
 Rails.application.routes.draw do
-  resources :report_relations do as_routes end
-  resources :categories do as_routes end
-  resources :sources do as_routes end
-  resources :authors do as_routes end
-  resources :attachments do as_routes end
-  resources :reports do 
-    as_routes 
-    as_nested_resources :attachments
+
+  namespace :admin do
+    resources :report_relations do as_routes end
+    resources :categories do as_routes end
+    resources :sources do as_routes end
+    resources :authors do as_routes end
+    resources :attachments do as_routes end
+    resources :reports do 
+      as_routes 
+      as_nested_resources :attachments
+    end
+    resources :stock_exchange_countries do as_routes end
+    resources :stock_exchanges do as_routes end
+    resources :shareholder_relationships do as_routes end
+    resources :multinational_companies do as_routes end
+    resources :shareholders do as_routes end
+    resources :env_and_social_obligations do as_routes end
+    resources :tax_obligations do as_routes end
+    resources :production_exports do as_routes end
+    resources :congolese_companies do as_routes end
   end
-  resources :stock_exchange_countries do as_routes end
-  resources :stock_exchanges do as_routes end
-  resources :shareholder_relationships do as_routes end
-  resources :multinational_companies do as_routes end
-  resources :shareholders do as_routes end
-  resources :env_and_social_obligations do as_routes end
-  resources :tax_obligations do as_routes end
-  resources :production_exports do as_routes end
-  resources :congolese_companies do as_routes end
-  
-  root 'congolese_companies#index'
+  root 'admin/congolese_companies#index'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

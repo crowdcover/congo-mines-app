@@ -1,4 +1,4 @@
-class EnvAndSocialObligationsController < ApplicationController
+class Admin::EnvAndSocialObligationsController < ApplicationController
 
   active_scaffold :"env_and_social_obligation" do |config|
     config.label = 'Environmental and Social Obligations'

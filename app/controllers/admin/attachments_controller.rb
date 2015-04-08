@@ -1,4 +1,4 @@
-class AttachmentsController < ApplicationController
+class Admin::AttachmentsController < ApplicationController
   active_scaffold :"attachment" do |config|
 
     #config.columns.exclude(:asset_updated_at, :created_at, :updated_at, 
