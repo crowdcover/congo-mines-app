@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   root 'admin/congolese_companies#index'
 
   # initial route for #home; probably will need to change root to this
-  get 'static_pages/home'
+  get '/home', to: 'static_pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
