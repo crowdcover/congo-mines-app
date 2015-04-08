@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 
 
 //  require underscore
@@ -37,3 +38,5 @@ jQuery(document).on("focus", "input.date_picker", function(){
     return true;
 });
 */
+
+$(function(){ $(document).foundation(); });

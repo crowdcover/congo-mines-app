@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'static_pages/home'
+
   namespace :admin do
     resources :report_relations do as_routes end
     resources :categories do as_routes end
     resources :sources do as_routes end
     resources :authors do as_routes end
     resources :attachments do as_routes end
-    resources :reports do 
-      as_routes 
+    resources :reports do
+      as_routes
       as_nested_resources :attachments
     end
     resources :stock_exchange_countries do as_routes end
@@ -21,7 +23,10 @@ Rails.application.routes.draw do
     resources :congolese_companies do as_routes end
   end
   root 'admin/congolese_companies#index'
-  
+
+  # initial route for #home; probably will need to change root to this
+  get 'static_pages/home'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
