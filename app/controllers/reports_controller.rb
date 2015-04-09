@@ -1,11 +1,13 @@
 class ReportsController < ApplicationController
 
   def show
+    @report = Report.find(params[:id])
+    render :json
   end
 
   def index
     @report = Report.all
-    render :json
+    render :index
   end
 
   private

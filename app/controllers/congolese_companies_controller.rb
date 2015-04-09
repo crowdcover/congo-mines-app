@@ -5,7 +5,7 @@ class CongoleseCompaniesController < ApplicationController
 
   def index
     @congolese_company = CongoleseCompany.all
-    render :json
+    render :index
   end
 
   private
