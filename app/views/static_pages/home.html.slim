@@ -1,2 +1,56 @@
-h1 StaticPages#home
-p Find me in app/views/static_pages/home.html.slim
+== render 'layouts/header'
+
+div.content
+
+div.row
+  div.large-12.columns
+    h1 Featured Documents
+
+div.divider
+div.row
+
+/ {% include documents.html columns=2 %}
+/! documents.html
+
+
+/ {% include search.html %}
+/! search.html
+
+/ banner
+div.banner
+div.row
+  div.large-9.columns
+    h2 View our collection of Documents
+  div.large-3.columns
+    a href="#library"
+      button Visit Library
+
+div.content
+div.row
+  div.large-12.columns
+    h1 Categories
+div.divider
+div.row
+  div.large-12.columns.text-center
+    div.category
+      = image_tag 'icon.png'
+      h3 EITI Compliance
+    div.category
+      = image_tag 'icon.png'
+      h3 Mining Code Legal Framework
+    div.category
+      = image_tag 'icon.png'
+      h3 Sicomines
+  div.large-12.columns.text-center
+    div.category
+      = image_tag 'icon.png'
+      h3 Government Asset Sales
+    div.category
+      = image_tag 'icon.png'
+      h3 Human Rights & Mining
+
+
+
+== render 'layouts/copyright'
+
+== render 'layouts/footer'
