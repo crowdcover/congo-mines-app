@@ -1,11 +1,13 @@
 class CongoleseCompaniesController < ApplicationController
 
   def show
+    @congolese_company = CongoleseCompany.find(params[:id])
+    render :show
   end
 
   def index
-    @congolese_company = CongoleseCompany.all
-    render :index
+    @congolese_companies = CongoleseCompany.all
+    render json: @congolese_companies
   end
 
   private

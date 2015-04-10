@@ -1,0 +1,90 @@
+div.search
+  div.row
+    div.large-12.columns.text-center
+      h1 CongoMines Document Library
+      p lorem ipsum fusce ante lectus sed lacus
+
+  div.divider
+  div.row
+    div.large-9.columns
+      input type="text" placeholder="Search Documents" /
+    div.large-3.columns
+      button Search Library
+    div.large-12.columns
+      a#hideshow value="wee" + Advanced Search
+
+  div.divider
+  div#advanced
+    div.row
+      div.large-12.columns
+        h3 Document Theme
+          form action=""
+            label: input type="checkbox" name="themes" value="resources" /
+              | Resources
+            label: input type="checkbox" name="themes" value="environment" /
+              | Environment
+            label: input type="checkbox" name="themes" value="budget" /
+              | Budget
+            label: input type="checkbox" name="themes" value="miningops" /
+              | Mining Operations
+        br
+            label
+              input name="themes" type="checkbox" value="resources" >/
+              | Resources
+            label
+              input name="themes" type="checkbox" value="environment" >/
+              | Environment
+            label
+              input name="themes" type="checkbox" value="budget" >/
+              | Budget
+            label
+              input name="themes" type="checkbox" value="miningops" >/
+              | Mining Operations
+
+    div.row
+      div.large-12.columns
+        h3 Document Type
+        form action=""
+          label: input name="types" type="checkbox" value="press" >/
+            | Press Release
+          label
+            input name="types" type="checkbox" value="projectdocs" >/
+            | Project Docs
+          label
+            input name="types" type="checkbox" value="reports" >/
+            | Reports
+          label
+            input name="types" type="checkbox" value="lawstandards" >/
+            | Law/Standards
+          label
+            input name="types" type="checkbox" value="presentation" >/
+            | Presentation
+    div.row
+      div.large-12.columns
+        h3 Source Type
+        form action=""
+          label
+            input name="source" type="checkbox" value="companies" >/
+            | Companies
+          label
+            input name="source" type="checkbox" value="committees" >/
+            | Committees
+          label
+            input name="source" type="checkbox" value="civilsociety" >/
+            | Civil Society
+          label
+            input name="source" type="checkbox" value="government" >/
+            | Government
+
+    div.row
+      div.large-6.columns
+        h3 DRC Company
+        input placeholder="" type="text" /
+      div.large-6.columns
+        h3 Shareholder Company
+        input.searchicon placeholder="" type="text" /
+
+    div.divider
+    div.row
+      div.large-12.columns
+        button Submit

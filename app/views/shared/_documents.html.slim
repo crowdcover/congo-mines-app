@@ -1,0 +1,9 @@
+- (1..columns).each do |col|
+  div.class="large-#{= 12 / col} columns"
+    article.divborder
+      h3.inline: a href="#{= document_url(document)}" Document Title
+      h4 Author Name
+      p
+        span.meta Date / Jan 24, 2015
+      p summary
+      a href="#{= document_url(document)}": button Read More

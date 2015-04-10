@@ -2,11 +2,12 @@ class ReportsController < ApplicationController
 
   def show
     @report = Report.find(params[:id])
-    render :json
+    render json: @report
   end
 
   def index
-    @report = Report.all
+    @reports = Report.all
+    # render json: @reports
     render :index
   end
 
