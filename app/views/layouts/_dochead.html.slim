@@ -1,0 +1,27 @@
+head
+  meta charset="utf-8"
+  meta name="viewport" content="width=device-width, initial-scale=1.0"
+
+  title CongoMines
+
+  = stylesheet_link_tag "foundation_and_overrides"
+  = stylesheet_link_tag "style"
+  link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css"
+  link href="http://fonts.googleapis.com/css?family=Nunito:400,300,700" rel="stylesheet" type="text/css"
+  = javascript_include_tag "vendor/modernizr.js"
+  script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+  link href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" rel="stylesheet"
+  link href="http://cdn.datatables.net/plug-ins/f2c75b7247b/integration/foundation/dataTables.foundation.css" rel="stylesheet"
+
+
+  div#fb-root
+  javascript:
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=279149918780729&version=v2.3";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+  script async="" defer="" src="https://apis.google.com/js/platform.js"

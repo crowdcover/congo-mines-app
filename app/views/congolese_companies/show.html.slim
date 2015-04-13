@@ -34,44 +34,44 @@ div.row
   div.large-12.columns
 
     section.accordion
-    div
-      input#ac-1 name="accordion-1" type="checkbox"
-      label for="ac-1" General Information
-      article.ac-large
-        div.large-3.columns
-          h4 NRC
-          h4 RCCM
-          h4 Legal Status
-          h4 Legal Regime
-        div.large-3.columns
-          h4.value Lorem Ipsum
-          h4.value Lorem Ipsum
-          h4.value Lorem Ipsum
-          h4.value Lorem Ipsum
-        div.large-3.columns
-          h4 Project Type
-          h4 Project Phase
-          h4 Contact
-          h4 Website
-        div.large-3.columns
-          h4.value Lorem Ipsum
-          h4.value Lorem Ipsum
-          h4.value Lorem Ipsum
-          h4.value Lorem Ipsum
-    div
-      input#ac-2 name="accordion-1" type="checkbox"
-      label for="ac-2" Production & Export
-      article.ac-medium
-        p Lorem
+      div
+        input#ac-1 name="accordion-1" type="checkbox"
+        label for="ac-1" General Information
+        article.ac-large
+          div.large-3.columns
+            h4 NRC
+            h4 RCCM
+            h4 Legal Status
+            h4 Legal Regime
+          div.large-3.columns
+            h4.value = @congolese_company.nrc
+            h4.value = @congolese_company.rccm
+            h4.value = @congolese_company.legal_status
+            h4.value = @congolese_company.legal_regime
+          div.large-3.columns
+            h4 Project Type
+            h4 Project Phase
+            h4 Contact
+            h4 Website
+          div.large-3.columns
+            h4.value = @congolese_company.project_type
+            h4.value = @congolese_company.project_phase
+            h4.value = @congolese_company.contact
+            h4.value = @congolese_company.website
+      div
+        input#ac-2 name="accordion-1" type="checkbox"
+        label for="ac-2" Production & Export
+        article.ac-medium
+          p Lorem
 
-    div
-      input#ac-3 name="accordion-1" type="checkbox"
-      label for="ac-3" Tax Obligations
-      article class="ac-large"
-        p Lorem
+      div
+        input#ac-3 name="accordion-1" type="checkbox"
+        label for="ac-3" Tax Obligations
+        article class="ac-large"
+          p Lorem
 
-    div
-      input#ac-4 name="accordion-1" type="checkbox"
-      label for="ac-4" Environment & Social Obligations
-      article.ac-large
-        p Lorem
+      div
+        input#ac-4 name="accordion-1" type="checkbox"
+        label for="ac-4" Environment & Social Obligations
+        article.ac-large
+          p Lorem

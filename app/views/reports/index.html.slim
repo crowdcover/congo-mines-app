@@ -8,7 +8,7 @@ div.content
 
   div.row
     = render partial: "shared/documents", locals: {reports: @reports, columns: 2}
-  / @reports.unshift(2)
+  / @reports.shift(2)
   / need ruby code to: render documents, columns = 2
 
   div.divider

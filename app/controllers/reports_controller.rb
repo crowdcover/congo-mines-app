@@ -8,6 +8,7 @@ class ReportsController < ApplicationController
   end
 
   def index
+    # sort by most recent
     @reports = Report.all
     # render json: @reports
     render :index
@@ -15,7 +16,7 @@ class ReportsController < ApplicationController
 
   private
   def report_params
-    params.require(:report).permit(:title, :date, :summary, :congolese_companies,
-      :attachments, :source)
+    params.require(:report).permit(:title, :date, :summary, :post_date, :cm_url,
+      :congolese_companies, :attachments, :source)
   end
 end
