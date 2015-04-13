@@ -11,7 +11,7 @@
  * file per style scope.
  *
  *= require jquery-ui
- *= require active_scaffold
+
  *= require jquery-ui/core
  *= require jquery-ui/sortable
  *= require jquery-ui/datepicker

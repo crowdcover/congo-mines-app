@@ -15,6 +15,7 @@ class ReportsController < ApplicationController
 
   private
   def report_params
-    params.require(:report).permit(:title, :date, :summary, :congolese_companies)
+    params.require(:report).permit(:title, :date, :summary, :congolese_companies,
+      :attachments, :source)
   end
 end

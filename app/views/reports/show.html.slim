@@ -1,0 +1,65 @@
+div.content
+  div.row
+    div.large-12.columns
+      h2.ftr EITI Report 2011
+      / title
+
+  div.row
+    / organization
+    div.large-3.columns: h3 Organization
+    div.large-9.columns
+      / organization name
+      h4 KPMG - Independent Contractor
+      / post_date
+      p.meta December 30, 2013
+      /summary
+      div EITI Report revealing payments made by mining companies, and payments received by the DRC Government. It was written by the independnet contractor KPMB as part of the implementation of the EITI in the DRC.
+/     delete for now
+/      p For more information:
+/      ul
+/        a href="#": li Read EITI Annual Work Plan 2014
+/        a href="#": li Read Sicomines Project Forms
+
+  div.divider
+  div.row
+    div.large-3.columns: h3 Download
+    div.large-9.columns
+    / links to 0 or more associated attachments
+      ul
+        a href="#": li EITI Report
+        a href="#": li Supplementary materials
+        a href="#": li Images
+
+div.grey
+  div.row
+    div.large-3.columns: h3 Company
+    div.large-9.columns
+      p:i None
+
+  div.divider
+  div.row
+    div.large-3.columns: h3 Article Theme
+    div.large-9.columns
+      ul
+        / -@report.theme(categories?).each do |th|
+        a href="#": li Fiscal Transparency
+        a href="#": li Theme1
+        a href="#": li Theme2
+
+  div.divider
+    div.row
+      div.large-3.columns: h3 Article Type
+      div.large-9.columns
+        ul
+          / - @report.article_type.each
+          a href="#": li Audit Report
+
+  div.divider
+  div.row
+    div.large-3.columns: h3 Source Type
+    div.large-9.columns
+      ul
+        a href="#": li Consulting Firm
+        a href="#": li Source Type
+
+  = render "shared/banner"
