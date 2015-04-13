@@ -11,10 +11,9 @@ div.row
 
 / {% include documents.html columns=2 %}
 /! documents.html
+= render partial: "shared/documents", locals: {reports: Report.all, columns: 2}
 
-
-/ {% include search.html %}
-/! search.html
+= render "shared/search"
 
 / banner
 div.banner

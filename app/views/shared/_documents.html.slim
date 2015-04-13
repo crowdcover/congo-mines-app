@@ -1,9 +1,12 @@
 - (1..columns).each do |col|
-  div.class="large-#{= 12 / col} columns"
+  div class="columns #{'large-' + (12 / col).to_s}"
     article.divborder
-      h3.inline: a href="#{= document_url(document)}" Document Title
+      h3.inline: a href="#{report_url(reports[col])}" = reports[col].title
       h4 Author Name
+        / reports[col].author.name
       p
-        span.meta Date / Jan 24, 2015
-      p summary
-      a href="#{= document_url(document)}": button Read More
+        span.meta Date /
+          = reports[col].date
+          /Jan 24, 2015
+      p = reports[col].summary
+      a href="#{report_url(reports[col])}": button Read More

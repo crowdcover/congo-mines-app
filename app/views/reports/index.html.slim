@@ -1,4 +1,4 @@
-== render 'shared/search'
+= render 'shared/search'
 
 div.content
 
@@ -7,4 +7,17 @@ div.content
       h2.ftr Recommended Documents
 
   div.row
+    = render partial: "shared/documents", locals: {reports: @reports, columns: 2}
+  / @reports.unshift(2)
   / need ruby code to: render documents, columns = 2
+
+  div.divider
+  div.row
+    div.large-12.columns
+    h2.ftr All Documents
+
+  div.row
+    = render partial: "shared/documents", locals: {reports: @reports, columns: 4}
+
+  div.row
+    = render partial: "shared/documents", locals: {reports: @reports, columns: 4}
