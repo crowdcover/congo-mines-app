@@ -1,0 +1,14 @@
+- (1..columns).each do |col|
+  div class="columns #{'large-' + (12 / columns).to_s}"
+    article.divborder
+      h3.inline: a href="#{report_url(reports[col])}" = reports[col].title
+      h4
+        = reports[col].source.name
+      / reports[col].author.name
+      p
+        span.meta
+          = reports[col].post_date
+          / Jan 24, 2015
+      p = reports[col].summary
+      div: small: a href="#{reports[col].cm_url}" original page
+      a href="#{report_url(reports[col])}": button Read More

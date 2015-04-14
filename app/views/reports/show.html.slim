@@ -1,0 +1,62 @@
+div.content
+  div.row
+    div.large-12.columns
+      h2.ftr EITI Report 2011
+
+  div.row
+    div.large-3.columns: h3 Organization
+    div.large-9.columns
+      h4 = @report.source.name
+      p.meta = @report.post_date
+      div = @report.summary
+      /     delete for now
+      /      p For more information:
+      /      ul
+      /        a href="#": li Read EITI Annual Work Plan 2014
+      /        a href="#": li Read Sicomines Project Forms
+
+  div.divider
+  div.row
+    div.large-3.columns: h3 Download
+    div.large-9.columns
+      ul
+        - @report.attachments.each do |a|
+          li: a href="#" = a.asset_file_name
+
+        / a href="#": li Supplementary materials
+        / a href="#": li Images
+
+div.grey
+  div.row
+    div.large-3.columns: h3 Company
+    div.large-9.columns
+      - @report.congolese_companies.each do |company|
+        p: i = company.name
+
+  div.divider
+  div.row
+    div.large-3.columns: h3 Article Theme
+    div.large-9.columns
+      ul
+        / -@report.theme(categories?).each do |th|
+        a href="#": li Fiscal Transparency
+        a href="#": li Theme1
+        a href="#": li Theme2
+
+  div.divider
+    div.row
+      div.large-3.columns: h3 Article Type
+      div.large-9.columns
+        ul
+          / - @report.article_type.each
+          a href="#": li Audit Report
+
+  div.divider
+  div.row
+    div.large-3.columns: h3 Source Type
+    div.large-9.columns
+      ul
+        a href="#": li Consulting Firm
+        a href="#": li Source Type
+
+  = render "shared/banner"

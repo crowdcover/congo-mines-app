@@ -1,4 +1,4 @@
-== render 'layouts/header'
+/= render 'layouts/header'
 
 div.content
 
@@ -8,49 +8,46 @@ div.row
 
 div.divider
 div.row
-
-/ {% include documents.html columns=2 %}
-/! documents.html
+  = render partial: "shared/documents", locals: {reports: Report.all, columns: 2}
 
 
-/ {% include search.html %}
-/! search.html
+= render "shared/search"
 
 / banner
 div.banner
-div.row
-  div.large-9.columns
-    h2 View our collection of Documents
-  div.large-3.columns
-    a href="#library"
-      button Visit Library
+  div.row
+    div.large-9.columns
+      h2 View our collection of Documents
+    div.large-3.columns
+      a href="#{reports_url}"
+        button Visit Library
 
 div.content
-div.row
-  div.large-12.columns
-    h1 Categories
-div.divider
-div.row
-  div.large-12.columns.text-center
-    div.category
-      = image_tag 'icon.png'
-      h3 EITI Compliance
-    div.category
-      = image_tag 'icon.png'
-      h3 Mining Code Legal Framework
-    div.category
-      = image_tag 'icon.png'
-      h3 Sicomines
-  div.large-12.columns.text-center
-    div.category
-      = image_tag 'icon.png'
-      h3 Government Asset Sales
-    div.category
-      = image_tag 'icon.png'
-      h3 Human Rights & Mining
+  div.row
+    div.large-12.columns
+      h1 Categories
+  div.divider
+  div.row
+    div.large-12.columns.text-center
+      div.category
+        = image_tag 'icon.png'
+        h3 EITI Compliance
+      div.category
+        = image_tag 'icon.png'
+        h3 Mining Code Legal Framework
+      div.category
+        = image_tag 'icon.png'
+        h3 Sicomines
+    div.large-12.columns.text-center
+      div.category
+        = image_tag 'icon.png'
+        h3 Government Asset Sales
+      div.category
+        = image_tag 'icon.png'
+        h3 Human Rights & Mining
 
 
 
-== render 'layouts/copyright'
+/= render 'layouts/copyright'
 
-== render 'layouts/footer'
+/= render 'layouts/footer'

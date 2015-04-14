@@ -1,17 +1,22 @@
 class ReportsController < ApplicationController
 
   def show
-    @report = Report.find(params[:id])
-    render :json
+    @report = Report.includes(:attachments, :source, :author, :categories,
+      :congolese_companies).find(params[:id])
+    # render json: @report
+    render :show
   end
 
   def index
-    @report = Report.all
+    # sort by most recent
+    @reports = Report.all
+    # render json: @reports
     render :index
   end
 
   private
   def report_params
-    params.require(:report).permit(:title, :organization, :summary)
+    params.require(:report).permit(:title, :date, :summary, :post_date, :cm_url,
+      :congolese_companies, :attachments, :source)
   end
 end

@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require common
 //= require foundation
 
 
@@ -39,4 +40,6 @@ jQuery(document).on("focus", "input.date_picker", function(){
 });
 */
 
-$(function(){ $(document).foundation(); });
+$(function(){ $(document).foundation();
+  app.initCommon();
+});

@@ -1,15 +1,21 @@
 doctype html
-html
-  head
-    meta charset="utf-8"
-    meta name="viewport" content="width=device-width, initial-scale=1.0"
+html.no-js lang="en"
 
-    title Congo Mines
-    = stylesheet_link_tag "application"
-    = javascript_include_tag "vendor/modernizr"
-    = javascript_include_tag "application" 'data-turbolinks-track' => true
-    = csrf_meta_tags
+  = render "layouts/dochead"
 
   body
+    = render "layouts/header"
+
 
     == yield
+
+
+    = render 'layouts/copyright'
+    = render 'layouts/footer'
+
+/    script src="#{= javascript_include_tag "vendor/jquery.js"}"
+/    script src="#{= javascript_include_tag "common.js"}"
+/    script src="#{= javascript_include_tag "foundation.min.js"}"
+/    javascript:
+/      $(document).foundation();
+/      app.initCommon();
