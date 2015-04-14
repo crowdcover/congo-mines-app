@@ -1,5 +1,5 @@
 class Admin::DrcCompaniesController < ApplicationController
-  active_scaffold :"congolese_company" do |config|
+  active_scaffold :"drc_company" do |config|
     
     config.label = 'Congolese/ DRC Companies'
     config.columns.exclude( :created_at, :updated_at, :shareholder_relationships, :report_relations, :reports)
