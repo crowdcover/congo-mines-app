@@ -1,7 +1,7 @@
 class CreateProductionExports < ActiveRecord::Migration
   def change
     create_table :production_exports do |t|
-      t.references :congolese_company, index: true
+      t.references :drc_company, index: true
       t.integer :year
       t.string :type_of_product
       t.string :tonnage

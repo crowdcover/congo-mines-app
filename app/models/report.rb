@@ -11,7 +11,7 @@ class Report < ActiveRecord::Base
   has_many :categories, through: :report_categories
 
   has_many :report_relations
-  has_many :congolese_companies, through: :report_relations
+  has_many :drc_companies, through: :report_relations
 
 
 end

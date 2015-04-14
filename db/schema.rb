@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150330111304) do
+ActiveRecord::Schema.define(version: 20150413153314) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20150330111304) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "congolese_companies", force: :cascade do |t|
+  create_table "drc_companies", force: :cascade do |t|
     t.string   "name"
     t.string   "acronym"
     t.string   "nrc"
@@ -55,52 +55,47 @@ ActiveRecord::Schema.define(version: 20150330111304) do
     t.string   "project_type"
     t.string   "project_phase"
     t.string   "legal_regime"
-    t.string   "production_year"
-    t.string   "type_of_product"
-    t.string   "tonnage"
-    t.string   "grade_percent"
-    t.string   "metal_content"
-    t.string   "export_value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "employees", force: :cascade do |t|
+    t.integer  "drc_company_id"
+    t.integer  "year"
+    t.integer  "direct_expat"
+    t.integer  "direct_congolese"
+    t.integer  "subcontractor_expat"
+    t.integer  "subcontractor_congolese"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "employees", ["drc_company_id"], name: "index_employees_on_drc_company_id"
 
   create_table "env_and_social_obligations", force: :cascade do |t|
-    t.integer  "congolese_company_id"
-    t.integer  "year"
-    t.integer  "number_of_direct_employees_expats"
-    t.integer  "number_of_direct_employees_congolese"
-    t.integer  "number_of_subcontractors_expats"
-    t.integer  "number_of_subcontractors_congolese"
-    t.string   "establishment"
-    t.boolean  "of_community_funds"
-    t.string   "dates_of_public_consultation_as_part_of_the_env_impact"
-    t.string   "study_dates"
-    t.string   "link_to_environmental_impact_study"
-    t.string   "link_to_sustainable_dev_plan_and_or_community_agreement"
-    t.boolean  "existence_of_a_platform_for_community_dialogue"
-    t.string   "amount_invested_in"
-    t.integer  "social_programmes"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "drc_company_id"
+    t.boolean "community_fund"
+    t.date    "enviro_impact_date"
+    t.string  "enviro_impact_link"
+    t.string  "sustainable_dev_plan"
+    t.boolean "community_dialogue_platform"
+    t.integer "social_investment"
   end
 
-  add_index "env_and_social_obligations", ["congolese_company_id"], name: "index_env_and_social_obligations_on_congolese_company_id"
+  add_index "env_and_social_obligations", ["drc_company_id"], name: "index_env_and_social_obligations_on_drc_company_id"
 
-  create_table "multinational_companies", force: :cascade do |t|
-    t.string   "name"
-    t.string   "acronym"
-    t.string   "contact"
-    t.string   "website"
-    t.string   "listed"
-    t.string   "on"
-    t.string   "stock"
-    t.boolean  "market"
-    t.string   "stock_information"
-    t.string   "stock_symbol"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "flows_payable_under_contracts", force: :cascade do |t|
+    t.integer  "drc_company_id"
+    t.integer  "signature_bonus"
+    t.integer  "royalties"
+    t.integer  "annuity"
+    t.integer  "transfer_of_shares"
+    t.string   "contract_cash_recipient"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
+
+  add_index "flows_payable_under_contracts", ["drc_company_id"], name: "index_flows_payable_under_contracts_on_drc_company_id"
 
   create_table "multinational_companies_stock_exchange_countries", id: false, force: :cascade do |t|
     t.integer "multinational_company_id"
@@ -113,7 +108,7 @@ ActiveRecord::Schema.define(version: 20150330111304) do
   end
 
   create_table "production_exports", force: :cascade do |t|
-    t.integer  "congolese_company_id"
+    t.integer  "drc_company_id"
     t.integer  "year"
     t.string   "type_of_product"
     t.string   "tonnage"
@@ -124,7 +119,7 @@ ActiveRecord::Schema.define(version: 20150330111304) do
     t.datetime "updated_at"
   end
 
-  add_index "production_exports", ["congolese_company_id"], name: "index_production_exports_on_congolese_company_id"
+  add_index "production_exports", ["drc_company_id"], name: "index_production_exports_on_drc_company_id"
 
   create_table "report_categories", force: :cascade do |t|
     t.integer  "category_id"
@@ -137,11 +132,11 @@ ActiveRecord::Schema.define(version: 20150330111304) do
   add_index "report_categories", ["report_id"], name: "index_report_categories_on_report_id"
 
   create_table "report_relations", force: :cascade do |t|
-    t.integer "congolese_company_id"
+    t.integer "drc_company_id"
     t.integer "report_id"
   end
 
-  add_index "report_relations", ["congolese_company_id"], name: "index_report_relations_on_congolese_company_id"
+  add_index "report_relations", ["drc_company_id"], name: "index_report_relations_on_drc_company_id"
   add_index "report_relations", ["report_id"], name: "index_report_relations_on_report_id"
 
   create_table "reports", force: :cascade do |t|
@@ -161,27 +156,30 @@ ActiveRecord::Schema.define(version: 20150330111304) do
   add_index "reports", ["source_id"], name: "index_reports_on_source_id"
 
   create_table "shareholder_relationships", force: :cascade do |t|
-    t.integer  "multinational_company_id"
-    t.integer  "congolese_company_id"
+    t.integer  "drc_company_id"
     t.integer  "shareholder_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "shareholder_relationships", ["congolese_company_id"], name: "index_shareholder_relationships_on_congolese_company_id"
-  add_index "shareholder_relationships", ["multinational_company_id"], name: "index_shareholder_relationships_on_multinational_company_id"
-  add_index "shareholder_relationships", ["shareholder_id"], name: "index_shareholder_relationships_on_shareholder_id"
-
-  create_table "shareholders", force: :cascade do |t|
-    t.string   "drc_company"
-    t.string   "partnership_with_the_portfolio_companies_of_the_state"
-    t.string   "state"
-    t.string   "private_direct"
-    t.string   "private_indirect"
+    t.integer  "percentage"
     t.integer  "year"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "shareholder_relationships", ["drc_company_id"], name: "index_shareholder_relationships_on_drc_company_id"
+  add_index "shareholder_relationships", ["shareholder_id"], name: "index_shareholder_relationships_on_shareholder_id"
+
+  create_table "shareholders", force: :cascade do |t|
+    t.integer  "drc_company_id"
+    t.string   "name"
+    t.string   "acronym"
+    t.string   "contact"
+    t.string   "website"
+    t.boolean  "stock"
+    t.string   "public_private"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shareholders", ["drc_company_id"], name: "index_shareholders_on_drc_company_id"
 
   create_table "sources", force: :cascade do |t|
     t.string   "name"
@@ -223,26 +221,21 @@ ActiveRecord::Schema.define(version: 20150330111304) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
   create_table "tax_obligations", force: :cascade do |t|
-    t.integer  "congolese_company_id"
-    t.integer  "signature_bonus_payable"
-    t.string   "formula_of"
-    t.string   "royalties_payable"
-    t.string   "formula_of_annuity_or_rent_to_pay"
-    t.integer  "amount_for_transfer_of_shares"
-    t.string   "recipient_of_the_contractual_cash_flows"
+    t.integer  "drc_company_id"
     t.integer  "year"
-    t.integer  "total_amount_paid_according_to_company_EITI_declaration"
+    t.string   "company_name"
+    t.integer  "total_paid"
+    t.integer  "redevance"
+    t.integer  "ibp"
+    t.boolean  "import_customs_duty"
+    t.integer  "surface_rights"
+    t.integer  "signature_bonus"
     t.integer  "royalties"
-    t.integer  "declared_IBP"
-    t.integer  "declared_customs_duty_on_imports"
-    t.integer  "surface_rights_declared"
-    t.integer  "signature_bonus_declared"
-    t.integer  "declared_royalties"
-    t.string   "other_contractual_flows_reported"
+    t.integer  "other"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "tax_obligations", ["congolese_company_id"], name: "index_tax_obligations_on_congolese_company_id"
+  add_index "tax_obligations", ["drc_company_id"], name: "index_tax_obligations_on_drc_company_id"
 
 end

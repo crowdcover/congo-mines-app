@@ -1,6 +1,5 @@
 class ShareholderRelationship < ActiveRecord::Base
-  belongs_to :multinational_company
-  belongs_to :congolese_company
+  belongs_to :drc_company
   belongs_to :shareholder
   
   

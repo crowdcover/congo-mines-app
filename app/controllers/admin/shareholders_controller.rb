@@ -6,7 +6,9 @@ class Admin::ShareholdersController < ApplicationController
     config.columns.exclude(:shareholder_relationships, :created_at, :updated_at)
      
   
-    config.columns[:congolese_companies].form_ui = :select
+    config.columns[:drc_companies].form_ui = :select
+ 
+=begin    
     config.columns[:multinational_companies].form_ui = :select
   
     
@@ -30,6 +32,7 @@ class Admin::ShareholdersController < ApplicationController
       options: ['No state participation','Congolese state', 'Gecamines', 'Sokimo',    
         'MIBA','Sakima','Sodimico','SCIM','Kisenge-Manganese','SIMCO','Cominiere']}
 
+=end
 
   end
 end

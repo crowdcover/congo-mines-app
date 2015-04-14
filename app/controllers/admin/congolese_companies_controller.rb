@@ -1,8 +1,8 @@
-class Admin::CongoleseCompaniesController < ApplicationController
+class Admin::DrcCompaniesController < ApplicationController
   active_scaffold :"congolese_company" do |config|
     
     config.label = 'Congolese/ DRC Companies'
-    config.columns.exclude( :created_at, :updated_at, :shareholder_relationships)
+    config.columns.exclude( :created_at, :updated_at, :shareholder_relationships, :report_relations, :reports)
    
     config.columns[:legal_status].form_ui = :select
     config.columns[:legal_status].options = {

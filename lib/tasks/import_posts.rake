@@ -177,7 +177,7 @@ namespace :import do
         
         unless found
           puts "Adding Company #{c_text}"
-          cc = CongoleseCompany.find_or_create_by(name: c_text)
+          cc = DrcCompany.find_or_create_by(name: c_text)
           cc.reports << report
           puts cc
         end  

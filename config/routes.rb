@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :employees do as_routes end
+  resources :flows_payable_under_contracts do as_routes end
   get 'static_pages/home'
 
   namespace :admin do

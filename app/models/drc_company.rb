@@ -1,4 +1,5 @@
-class CongoleseCompany < ActiveRecord::Base
+class DrcCompany < ActiveRecord::Base
+
   has_many :production_exports
   has_many :tax_obligations
   has_many :env_and_social_obligations
