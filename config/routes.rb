@@ -17,19 +17,19 @@ Rails.application.routes.draw do
     resources :stock_exchange_countries do as_routes end
     resources :stock_exchanges do as_routes end
     resources :shareholder_relationships do as_routes end
-    resources :multinational_companies do as_routes end
+    # resources :multinational_companies do as_routes end
     resources :shareholders do as_routes end
     resources :env_and_social_obligations do as_routes end
     resources :tax_obligations do as_routes end
     resources :production_exports do as_routes end
-    resources :congolese_companies do as_routes end
+    resources :drc_companies do as_routes end
   end
   root 'admin/congolese_companies#index'
 
   # initial route for #home; probably will need to change root to this
   get '/home', to: 'static_pages#home'
 
-  resources :congolese_companies, only: [:show, :index]
+  resources :drc_companies, only: [:show, :index]
   resources :reports, only: [:show, :index]
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,14 +1,14 @@
-class CongoleseCompaniesController < ApplicationController
+class DrcCompaniesController < ApplicationController
 
   def show
-    @congolese_company = CongoleseCompany.includes(:tax_obligations,
+    @congolese_company = DrcCompany.includes(:tax_obligations,
       :env_and_social_obligations).find(params[:id])
     # render json: @congolese_company
     render :show
   end
 
   def index
-    @congolese_companies = CongoleseCompany.all
+    @congolese_companies = DrcCompany.all
     render json: @congolese_companies
   end
 
