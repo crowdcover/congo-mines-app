@@ -14,6 +14,11 @@ head
   link href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" rel="stylesheet"
   link href="http://cdn.datatables.net/plug-ins/f2c75b7247b/integration/foundation/dataTables.foundation.css" rel="stylesheet"
 
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
+  = javascript_include_tag 'application', 'data-turbolinks-track'
+  = csrf_meta_tags
+
+
 
   div#fb-root
   javascript:
