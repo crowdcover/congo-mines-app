@@ -17,8 +17,8 @@ gem 'acts-as-taggable-on', '~> 3.4'
 # use Slim and Foundation for template and style
 gem 'slim-rails'
 gem 'foundation-rails'
-gem 'sass', '~> 3.4.0'
-gem 'compass', '~> 1.0'
+#gem 'sass', '~> 3.4.0'
+#gem 'compass', '~> 1.0'
 
 group :development do
   gem 'better_errors'
@@ -41,7 +41,7 @@ gem 'iconv'
 
 # Use SCSS for stylesheets
 # taking this out because of dependency issue with 'foundation-rails'
-# gem 'sass-rails', '~> 4.0.3'
+ gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
