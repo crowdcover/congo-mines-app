@@ -7,7 +7,7 @@ div.content
     div.large-3.columns: h3 Organization
     div.large-9.columns
       h4 = @report.source.name
-      p.meta = @report.post_date
+      p.meta = @report.date_string
       div = @report.summary
       /     delete for now
       /      p For more information:
@@ -21,7 +21,7 @@ div.content
     div.large-9.columns
       ul
         - @report.attachments.each do |a|
-          li: a href="#" = a.asset_file_name
+          li: a href="#{a.asset.url}" = a.asset_file_name 
 
         / a href="#": li Supplementary materials
         / a href="#": li Images
@@ -30,7 +30,7 @@ div.grey
   div.row
     div.large-3.columns: h3 Company
     div.large-9.columns
-      - @report.congolese_companies.each do |company|
+      - @report.drc_companies.each do |company|
         p: i = company.name
 
   div.divider

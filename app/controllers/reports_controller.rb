@@ -2,7 +2,7 @@ class ReportsController < ApplicationController
 
   def show
     @report = Report.includes(:attachments, :source, :author, :categories,
-      :congolese_companies).find(params[:id])
+      :drc_companies).find(params[:id])
     # render json: @report
     render :show
   end
@@ -17,6 +17,6 @@ class ReportsController < ApplicationController
   private
   def report_params
     params.require(:report).permit(:title, :date, :summary, :post_date, :cm_url,
-      :congolese_companies, :attachments, :source)
+      :drc_companies, :attachments, :source)
   end
 end
