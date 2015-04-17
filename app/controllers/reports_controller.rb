@@ -9,14 +9,14 @@ class ReportsController < ApplicationController
 
   def index
     # sort by most recent
-    @reports = Report.all
+    @reports = Report.all.order('date_string DESC')
+    # @reports = @reports.reverse
+
     # render json: @reports
     render :index
   end
 
   private
   def report_params
-    params.require(:report).permit(:title, :date, :summary, :post_date, :cm_url,
-      :drc_companies, :attachments, :source)
   end
 end

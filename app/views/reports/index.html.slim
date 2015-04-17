@@ -1,5 +1,7 @@
 = render 'shared/search'
 
+- @reports = @reports.to_a
+
 div.content
 
   div.row
@@ -8,7 +10,7 @@ div.content
 
   div.row
     = render partial: "shared/documents", locals: {reports: @reports, columns: 2}
-  / @reports.shift(2)
+  - @reports.shift(2)
   / need ruby code to: render documents, columns = 2
 
   div.divider
@@ -18,6 +20,8 @@ div.content
 
   div.row
     = render partial: "shared/documents", locals: {reports: @reports, columns: 4}
+  - @reports.shift(4)
 
   div.row
     = render partial: "shared/documents", locals: {reports: @reports, columns: 4}
+  - @reports.shift(4)
