@@ -15,9 +15,9 @@
  *= require jquery-ui/core
  *= require jquery-ui/sortable
  *= require jquery-ui/datepicker
- *  require_tree .
  *= require_self
- *= require style
  *= require foundation_and_overrides
+ *= require style
+ *  require_tree .
 
 */
