@@ -21,7 +21,7 @@ div.content
     div.large-9.columns
       ul
         - @report.attachments.each do |a|
-          li: a href="#{a.asset.url}" = a.asset_file_name 
+          li: a href="#{a.asset.url}" = a.asset_file_name
 
         / a href="#": li Supplementary materials
         / a href="#": li Images
@@ -59,4 +59,4 @@ div.grey
         a href="#": li Consulting Firm
         a href="#": li Source Type
 
-  = render "shared/banner"
+  / = render "shared/banner"

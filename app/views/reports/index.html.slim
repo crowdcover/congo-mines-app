@@ -1,6 +1,8 @@
 = render 'shared/search'
 
 - @reports = @reports.to_a
+  / if going to paginate, need to see if need to keep as ActiveRecord::Relation
+  / or if Array works
 
 div.content
 
@@ -11,7 +13,6 @@ div.content
   div.row
     = render partial: "shared/documents", locals: {reports: @reports, columns: 2}
   - @reports.shift(2)
-  / need ruby code to: render documents, columns = 2
 
   div.divider
   div.row

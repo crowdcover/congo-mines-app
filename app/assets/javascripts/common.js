@@ -1,5 +1,3 @@
----
----
 (function(){
   var app = {
     initCommon: function(){

@@ -544,7 +544,8 @@ strong, b {
 }
 
 .search input:after {
-	background: url('../img/search.png');
+background-image: image-url('search.png');
+/*	background: url('../img/search.png'); */
 }
 
 #advanced {
@@ -552,9 +553,10 @@ strong, b {
 }
 
 .searchicon {
-	background-image: url('../img/search.png');
-    background-position: 420px 18px;
-    background-repeat: no-repeat;
+	background-image: image-url('search.png');
+/*	background-image: url('../img/search.png'); */
+  background-position: 420px 18px;
+  background-repeat: no-repeat;
 }
 input[type=checkbox] {
 	padding: 0px 5px!important;
@@ -684,7 +686,11 @@ input[type=checkbox]:hover {
 	color: #32acde;
 	border-color: #32acde;
 	transition: color 0.2s ease-in-out;
-	background: url('../img/arrow_down.png') no-repeat center right;
+/* background-edits
+	background: url('../img/arrow_down.png') no-repeat center right; */
+	background-image: image-url('arrow_down.png');
+	background-repeat: no-repeat;
+	background-position: center right;
 
 }
 .accordion label:hover:after,
@@ -695,10 +701,15 @@ input[type=checkbox]:hover {
 	height: 35px;
 	right: 0px;
 	top: 22px;
-	background: transparent url('../img/arrow_right.png') no-repeat center center;
+/*	background-edits
+	background: transparent url('../img/arrow_right.png') no-repeat center center; */
+	background-image: image-url('arrow_right.png');
+	background-repeat: no-repeat;
+	background-position: center center;
 }
 .accordion input:checked + label:hover:after{
-background-image: url('../img/arrow_down.png');
+/* background-image: url('../img/arrow_down.png'); */
+background-image: image-url('arrow_down.png');
 }
 .accordion input{
 	display: none;
@@ -820,20 +831,29 @@ background-image: url('../img/arrow_down.png');
 /* Map and Data Rules */
 
 h3.map-marker {
-        background-color:  rgb(96, 175, 222);
+	background-color:  rgb(96, 175, 222);
 }
 table.mine-table thead th {
-        background: #60afde!important;
+	background: #60afde!important;
 }
 
 table.mine-table thead th.sorting_asc {
+	/* background-edits
     background: #66A9BD url('../img/sort_asc.white.png') no-repeat right center !important;
+	*/
+	background: #66A9BD image-url('sort_asc.white.png') no-repeat right center !important;
 }
 
 table.mine-table thead th.sorting_desc {
+	/* background-edits
     background: #66A9BD url('../img/sort_desc.white.png') no-repeat right center !important;
+	*/
+	background: #66A9BD image-url('sort_desc.white.png') no-repeat right center !important;
 }
 
 table.mine-table thead th.sorting {
+	/* background-edits
     background: #66A9BD url('../img/sort_both.png') no-repeat right center !important;
+	*/
+	background: #66A9BD image-url('sort_both.png') no-repeat right center !important;
 }
