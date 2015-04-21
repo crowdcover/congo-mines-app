@@ -24,7 +24,7 @@
 //= require turbolinks
 
 //= require active_scaffold
-//= require_tree .
+// require_tree .
 
 /*
 

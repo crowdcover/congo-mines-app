@@ -1,4 +1,4 @@
-class Admin::ReportsController < ApplicationController
+class Admin::ReportsController  < Admin::Auth # ApplicationController
   active_scaffold :"report" do |config|
  
     config.create.multipart = 'local' 
@@ -12,6 +12,6 @@ class Admin::ReportsController < ApplicationController
     config.columns[:source].form_ui = :select
 
     config.columns = [:author, :source, :title, :post_date,
-     :date_string, :summary, :categories, :attachments, :congolese_companies, :cm_url]
+     :date_string, :summary, :categories, :attachments, :drc_companies, :cm_url]
   end
 end

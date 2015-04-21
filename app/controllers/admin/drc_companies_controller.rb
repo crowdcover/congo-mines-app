@@ -1,4 +1,4 @@
-class Admin::DrcCompaniesController < ApplicationController
+class Admin::DrcCompaniesController  < Admin::Auth # ApplicationController
   active_scaffold :"drc_company" do |config|
     
     config.label = 'Congolese/ DRC Companies'

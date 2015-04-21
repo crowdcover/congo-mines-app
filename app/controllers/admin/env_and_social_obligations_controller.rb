@@ -1,4 +1,4 @@
-class Admin::EnvAndSocialObligationsController < ApplicationController
+class Admin::EnvAndSocialObligationsController  < Admin::Auth #ApplicationController
 
   active_scaffold :"env_and_social_obligation" do |config|
     config.label = 'Environmental and Social Obligations (community relations)'
