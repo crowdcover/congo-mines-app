@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  drc_company_id: 
+  mine_type: MyString
+  permit_type: MyString
+  permit_number: MyString
+  proven_reserves: MyString
+  probable_reserves: MyString
+  proven_probable_reserves: MyString
+  measured_resources: MyString
+  indicated_resources: MyString
+  inferred_resources: MyString
+  source: MyString
+
+two:
+  name: MyString
+  drc_company_id: 
+  mine_type: MyString
+  permit_type: MyString
+  permit_number: MyString
+  proven_reserves: MyString
+  probable_reserves: MyString
+  proven_probable_reserves: MyString
+  measured_resources: MyString
+  indicated_resources: MyString
+  inferred_resources: MyString
+  source: MyString

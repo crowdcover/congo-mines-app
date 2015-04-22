@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
-
   get 'static_pages/home'
 
   namespace :admin do
+    resources :social_projects do as_routes end
+    resources :processing_infrastructures do as_routes end
+    resources :deposits do as_routes end
+
     resources :employees do as_routes end
     resources :flows_payable_under_contracts do as_routes end
     resources :report_relations do as_routes end

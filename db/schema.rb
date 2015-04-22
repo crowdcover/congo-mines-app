@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413153314) do
+ActiveRecord::Schema.define(version: 20150422204210) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -43,6 +43,27 @@ ActiveRecord::Schema.define(version: 20150413153314) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "deposits", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "drc_company_id"
+    t.string   "mine_type"
+    t.string   "permit_type"
+    t.string   "permit_number"
+    t.string   "proven_reserves"
+    t.string   "probable_reserves"
+    t.string   "proven_probable_reserves"
+    t.string   "measured_resources"
+    t.string   "indicated_resources"
+    t.string   "inferred_resources"
+    t.string   "source"
+    t.decimal  "lat",                      precision: 15, scale: 10
+    t.decimal  "lng",                      precision: 15, scale: 10
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
+  end
+
+  add_index "deposits", ["drc_company_id"], name: "index_deposits_on_drc_company_id"
 
   create_table "drc_companies", force: :cascade do |t|
     t.string   "name"
@@ -106,6 +127,17 @@ ActiveRecord::Schema.define(version: 20150413153314) do
     t.integer "multinational_company_id"
     t.integer "stock_exchange_id"
   end
+
+  create_table "processing_infrastructures", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "drc_company_id"
+    t.decimal  "lat",            precision: 15, scale: 10
+    t.decimal  "lng",            precision: 15, scale: 10
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
+
+  add_index "processing_infrastructures", ["drc_company_id"], name: "index_processing_infrastructures_on_drc_company_id"
 
   create_table "production_exports", force: :cascade do |t|
     t.integer  "drc_company_id"
@@ -180,6 +212,22 @@ ActiveRecord::Schema.define(version: 20150413153314) do
   end
 
   add_index "shareholders", ["drc_company_id"], name: "index_shareholders_on_drc_company_id"
+
+  create_table "social_projects", force: :cascade do |t|
+    t.integer  "drc_company_id"
+    t.string   "company"
+    t.string   "project_type"
+    t.integer  "amount_planned"
+    t.integer  "amount_spent"
+    t.string   "stage"
+    t.text     "description"
+    t.decimal  "lat",            precision: 15, scale: 10
+    t.decimal  "lng",            precision: 15, scale: 10
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
+
+  add_index "social_projects", ["drc_company_id"], name: "index_social_projects_on_drc_company_id"
 
   create_table "sources", force: :cascade do |t|
     t.string   "name"

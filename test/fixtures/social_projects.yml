@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  drc_company_id: 
+  company: MyString
+  project_type: MyString
+  amount_planned: 1
+  amount_spent: 1
+  stage: MyString
+  description: MyText
+
+two:
+  drc_company_id: 
+  company: MyString
+  project_type: MyString
+  amount_planned: 1
+  amount_spent: 1
+  stage: MyString
+  description: MyText
