@@ -30,8 +30,9 @@ div.grey
   div.row
     div.large-3.columns: h3 Company
     div.large-9.columns
-      - @report.drc_companies.each do |company|
-        p: i = company.name
+      - if @report.drc_companies
+        - @report.drc_companies.each do |company|
+          p: i = company.name
 
   div.divider
   / get categories
@@ -42,25 +43,48 @@ div.grey
     div.large-3.columns: h3 Article Theme
     div.large-9.columns
       ul
-        / -@report.theme(categories?).each do |th|
-        a href="#": li Fiscal Transparency
-        a href="#": li Theme1
-        a href="#": li Theme2
+        - article_theme = @report.categories.select do |cat|
+          - cat.ancestors.include?(Category.find(26))
+        - if article_theme
+          - article_theme.each do |subtheme|
+            li: a href="#" = subtheme.name
+        - else
+          li: i none
 
   div.divider
-    div.row
-      div.large-3.columns: h3 Article Type
-      div.large-9.columns
-        ul
-          / - @report.article_type.each
-          a href="#": li Audit Report
+  div.row
+    div.large-3.columns: h3 Article Type
+    div.large-9.columns
+      ul
+        - article_type = @report.categories.select do |cat|
+          - cat.parent == Category.find_by_name("Type de document")
+        - if article_type
+          - article_type.each do |subtype|
+            li: a href="#" = subtype.name
 
   div.divider
   div.row
     div.large-3.columns: h3 Source Type
     div.large-9.columns
       ul
-        a href="#": li Consulting Firm
-        a href="#": li Source Type
+        - source_type = @report.categories.select do |cat|
+          - cat.parent == Category.find_by_name("Type de source")
+        - if source_type
+          - source_type.each do |subtype|
+            li: a href="#" = subtype.name
+
+
+  div.divider
+  div.row
+    div.large-3.columns: h3 Provinces
+    div.large-9.columns
+      ul
+        - provinces = @report.categories.select do |cat|
+          - cat.parent == Category.find_by_name("Provinces")
+        - if provinces
+          - provinces.each do |province|
+            li: a href="#" = province.name
+        - else
+          li: i none
 
   / = render "shared/banner"
