@@ -12,9 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require common
+//= require jquery.dataTables.min
+//= require dataTables.foundation
 //= require foundation
-
+//= require slidx
+//= require common
+//= require map
 
 //  require underscore
 //= require jquery-ui
@@ -42,4 +45,7 @@ jQuery(document).on("focus", "input.date_picker", function(){
 
 $(function(){ $(document).foundation();
   app.initCommon();
+  if (mapPage) {
+    app.initMap();
+  }
 });

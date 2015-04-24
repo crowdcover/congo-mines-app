@@ -10,7 +10,7 @@ class ReportsController < ApplicationController
   def index
     # sort by most recent
     @reports = Report.all.order('date_string DESC')
-    # @reports = @reports.reverse
+    # Report.featured
 
     # render json: @reports
     render :index

@@ -1,5 +1,3 @@
----
----
 (function(){
   var app = {
     initCommon: function(){
@@ -54,7 +52,8 @@
 
 
         var mineIcon = L.icon({
-            iconUrl: '{{site.baseurl}}/img/mine.30.png',
+            // asset path
+            iconUrl: '/assets/mine.30.png',
             iconSize: [30, 30],
             popupAnchor: [0, -30]
         });
@@ -62,7 +61,8 @@
 
         var minesLayer;
 
-        $.getJSON("{{site.baseurl}}/data/mines.json", function(data) {
+        // asset path
+        $.getJSON("/assets/data/mines.json", function(data) {
             minesLayer = L.geoJson(data, {
               onEachFeature: onEachFeature
             });
@@ -94,15 +94,15 @@
       table_data = $.map(feature_array, function(d){ return d.properties;});
 
       $('.mine-table').DataTable({
-          "paging":   false,
+          "paging": false,
           "info": false,
-          "searching":false,
+          "searching": false,
           "columns": [
                 { "data": "name" },
                 { "data": "company" },
                 { "data": "type" },
                 { "data": "reserves.proven" },
-                { "data": "resource.measured"}
+                { "data": "resource.measured" }
             ],
           "data": table_data
           }
