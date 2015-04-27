@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150422204210) do
+ActiveRecord::Schema.define(version: 20150427132625) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -182,6 +182,7 @@ ActiveRecord::Schema.define(version: 20150422204210) do
     t.integer  "source_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "actual_post_date"
   end
 
   add_index "reports", ["author_id"], name: "index_reports_on_author_id"
