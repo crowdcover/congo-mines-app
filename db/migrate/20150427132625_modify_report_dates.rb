@@ -23,7 +23,9 @@ class ModifyReportDates < ActiveRecord::Migration
         rept_parts = report.date_string.split("\s")
       
         if rept_parts.length == 1
-          report_actual_post_date = Date.parse("jan,1, #{rept_parts.first}") 
+          puts "DATE LOOKS LIKE JUST YEAR!"
+          report.actual_post_date = Date.parse("jan,1, #{rept_parts.first}") 
+          report.save
         else
           
           rept_parts.each do |p|
@@ -50,6 +52,5 @@ class ModifyReportDates < ActiveRecord::Migration
         report.save
       end  
     end
-  
   end    
 end
