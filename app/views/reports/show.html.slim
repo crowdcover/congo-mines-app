@@ -32,7 +32,7 @@ div.grey
     div.large-9.columns
       - if @report.drc_companies
         - @report.drc_companies.each do |company|
-          p: i = company.name
+          p: i: a href="#{drc_company_url(company)}" = company.name
 
   div.divider
   / get categories
