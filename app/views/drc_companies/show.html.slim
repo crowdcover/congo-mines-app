@@ -68,22 +68,22 @@ div.row
             h4.value = @drc_company.website
 
           div
-            div.large-12.columns
+            div.large-10.columns
               h4 Employees
-            div
-            div.large-4.columns
-              h4 Year (many, or just most recent?)
-              h4 Direct Expat Employees
-              h4 Direct Congolese Employees
-              h4 Expat Subcontractors
-              h4 Congolese Subcontractors
-            - unless @drc_company.employees.empty?
-              div.large-8.columns
-                h4 = @drc_company.employees.year
-                h4 = @drc_company.employees.direct_expat
-                h4 = @drc_company.employees.direct_congolese
-                h4 = @drc_company.employees.subcontractor_expat
-                h4 = @drc_company.employees.subcontractor_congolese
+          div
+          div.large-4.columns
+            h4 Year (many, or just most recent?)
+            h4 Direct Expat Employees
+            h4 Direct Congolese Employees
+            h4 Expat Subcontractors
+            h4 Congolese Subcontractors
+          - unless @drc_company.employees.empty?
+            div.large-8.columns
+              h4 = @drc_company.employees.year
+              h4 = @drc_company.employees.direct_expat
+              h4 = @drc_company.employees.direct_congolese
+              h4 = @drc_company.employees.subcontractor_expat
+              h4 = @drc_company.employees.subcontractor_congolese
 
       div
         input#ac-2 name="accordion-1" type="checkbox"
@@ -110,10 +110,71 @@ div.row
         input#ac-3 name="accordion-1" type="checkbox"
         label for="ac-3" Tax Obligations
         article class="ac-large"
-          p Lorem
+          div.row
+            div.large-12.columns
+              h4 Flows Payable Under Contracts
+          div.row
+            div.large-6.columns
+              h4 Signature Bonus
+              h4 Royalties
+              h4 Annuity
+              h4 Transfer of Shares
+              h4 Contract Cash Recipient
+            - unless @drc_company.flows_payable_under_contracts.empty?
+              div.large-6.columns
+                h4 = @drc_company.flows_payable_under_contracts.first.signature_bonus
+                h4 = @drc_company.flows_payable_under_contracts.first.royalties
+                h4 = @drc_company.flows_payable_under_contracts.first.annuity
+                h4 = @drc_company.flows_payable_under_contracts.first.transfer_of_shares
+                h4 = @drc_company.flows_payable_under_contracts.first.contract_cash_payment
+          div.row
+            div.large-12.columns
+              h4 Tax Obligations
+          div.row
+            div.large-6.columns
+              h4 Year
+              h4 Total Paid
+              h4 Redevance
+              h4 IBP
+              h4 Import Customs Duty
+              h4 Surface Rights
+              h4 Signature Bonus
+              h4 Royalties
+              h4 Other
+            - @drc_company.tax_obligations.each do |tax_ob|
+              - unless tax_ob.nil?
+                div.large-6.columns
+                  h4 = tax_ob.year
+                  h4 = tax_ob.total_paid
+                  h4 = tax_ob.redevance
+                  h4 = tax_ob.ibp
+                  h4 = tax_ob.import_customs_duty
+                  h4 = tax_ob.surface_rights
+                  h4 = tax_ob.signature_bonus
+                  h4 = tax_ob.royalties
+                  h4 = tax_ob.other
 
       div
         input#ac-4 name="accordion-1" type="checkbox"
         label for="ac-4" Environment & Social Obligations
         article.ac-large
-          p Lorem
+          div.row
+            div.large-12.columns
+              h4 Environmental and Social Obligations
+          div.row
+            div.large-6.columns
+              h4 Community Fund
+              h4 Environmental Impact Date
+              h4 Environmental Impact Link
+              h4 Sustainability Development Plan
+              h4 Community Dialogue Platform
+              h4 Social Investment
+            - @drc_company.env_and_social_obligations.each do |env_soc|
+              - unless env_soc.nil?
+                div.large-6.columns
+                  h4 = env_soc.community_fund
+                  h4 = env_soc.enviro_impact_date
+                  h4 = env_soc.enviro_impact_link
+                  h4 = env_soc.sustainable_dev_plan
+                  h4 = env_soc.community_dialogue_platform
+                  h4 = env_soc.social_investment

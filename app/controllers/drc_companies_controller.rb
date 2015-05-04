@@ -3,7 +3,8 @@ class DrcCompaniesController < ApplicationController
 
   def show
     @drc_company = DrcCompany.includes(:tax_obligations, :employees,
-      :env_and_social_obligations, :production_exports).find(params[:id])
+      :env_and_social_obligations, :flows_payable_under_contracts,
+      :production_exports).find(params[:id])
     # render json: @congolese_company
     # map_page = true
     render :show
