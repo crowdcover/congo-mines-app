@@ -216,7 +216,7 @@ strong, b {
 .header {
 	width: 100%;
 	height: 300px;
-	background-image: url('headerbg.jpg');
+	background-image: image-url('headerbg.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	text-align: center;
@@ -444,7 +444,7 @@ strong, b {
 	background: linear-gradient(rgba(50, 172, 222, 0.65), rgba(50, 172, 222, 0.65)),url('../img/feat.jpg');
 	*/
 	background: linear-gradient(rgba(50, 172, 222, 0.65), rgba(50, 172, 222, 0.65));
-	background-image: url('feat.jpg');
+	background-image: image-url('feat.jpg');
 	background-size: 100%;
 	text-align: center;
 	color: #fff;
@@ -485,7 +485,7 @@ strong, b {
 	/* background-edit
 	background: linear-gradient(rgba(50, 172, 222, 0.65), rgba(50, 172, 222, 0.65)), url('../img/feat.jpg'); */
 	background: linear-gradient(rgba(50, 172, 222, 0.65), rgba(50, 172, 222, 0.65));
-	background-image: url('feat.jpg');
+	background-image: image-url('feat.jpg');
 	background-size: cover;
 	text-align: center;
 	color: #fff;
