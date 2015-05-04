@@ -2,8 +2,8 @@ class DrcCompaniesController < ApplicationController
   before_filter :get_map_page, only: :show
 
   def show
-    @drc_company = DrcCompany.includes(:tax_obligations,
-      :env_and_social_obligations).find(params[:id])
+    @drc_company = DrcCompany.includes(:tax_obligations, :employees,
+      :env_and_social_obligations, :production_exports).find(params[:id])
     # render json: @congolese_company
     # map_page = true
     render :show
@@ -11,7 +11,8 @@ class DrcCompaniesController < ApplicationController
 
   def index
     @drc_companies = DrcCompany.all
-    render json: @drc_companies
+    # render json: @drc_companies
+    render :index
   end
 
   private

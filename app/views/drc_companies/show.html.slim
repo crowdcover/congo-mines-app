@@ -66,11 +66,45 @@ div.row
             h4.value = @drc_company.project_phase
             h4.value = @drc_company.contact
             h4.value = @drc_company.website
+
+          div
+            div.large-12.columns
+              h4 Employees
+            div
+            div.large-4.columns
+              h4 Year (many, or just most recent?)
+              h4 Direct Expat Employees
+              h4 Direct Congolese Employees
+              h4 Expat Subcontractors
+              h4 Congolese Subcontractors
+            - unless @drc_company.employees.empty?
+              div.large-8.columns
+                h4 = @drc_company.employees.year
+                h4 = @drc_company.employees.direct_expat
+                h4 = @drc_company.employees.direct_congolese
+                h4 = @drc_company.employees.subcontractor_expat
+                h4 = @drc_company.employees.subcontractor_congolese
+
       div
         input#ac-2 name="accordion-1" type="checkbox"
         label for="ac-2" Production & Export
         article.ac-medium
-          p Lorem
+          div.large-6.columns
+            h4 Year
+            h4 Type of Product
+            h4 Tonnage
+            h4 Grade
+            h4 Metal Content
+            h4 Export Value
+          - @drc_company.production_exports.each do |pe|
+            - unless pe.nil?
+              div.large-6.columns
+                h4 = pe.year
+                h4 = pe.type_of_product
+                h4 = pe.tonnage
+                h4 = pe.grade
+                h4 = pe.metal_content
+                h4 = pe.export_value
 
       div
         input#ac-3 name="accordion-1" type="checkbox"

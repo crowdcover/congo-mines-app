@@ -9,10 +9,12 @@ class DrcCompany < ActiveRecord::Base
 
   has_many :report_relations
   has_many :reports, through: :report_relations
-  
+
   has_many :social_projects
   has_many :processing_infrastructures
   has_many :deposits
+
+  has_many :employees
 
   validates_presence_of :name #, :legal_status, :project_phase, :project_type, :acronym, :contact
 

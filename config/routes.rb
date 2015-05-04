@@ -28,17 +28,17 @@ Rails.application.routes.draw do
     resources :production_exports do as_routes end
     resources :drc_companies do as_routes end
   end
-  
-  # initial route for #home; probably will need to change root to this
+
+  #root 'admin/drc_companies#index'
+  root 'static_pages#home'
+
   get '/home', to: 'static_pages#home'
   get '/admin', to: 'admin/drc_companies#index'
 
   resources :drc_companies, only: [:show, :index]
   resources :reports, only: [:show, :index]
 
-  #root 'admin/drc_companies#index'
-  root 'static_pages#home'  
-
+  resource :search
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

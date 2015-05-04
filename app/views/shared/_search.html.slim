@@ -1,56 +1,60 @@
 div.search
-  div.row
-    div.large-12.columns.text-center
-      h1 CongoMines Document Library
-      p lorem ipsum fusce ante lectus sed lacus
-
-  div.divider
-  div.row
-    div.large-9.columns
-      input type="text" placeholder="Search Documents" /
-    div.large-3.columns
-      button Search Library
-    div.large-12.columns
-      a#hideshow value="wee" + Advanced Search
-
-  div.divider
-  div#advanced
-    div.row
-      div.large-12.columns
-        h3 Document Theme
-        form action=""
-          label: input type="checkbox" name="themes" value="resources" Resources
-          label: input type="checkbox" name="themes" value="environment" Environment
-          label: input type="checkbox" name="themes" value="budget" Budget
-          label: input type="checkbox" name="themes" value="miningops" Mining Operations
+  form action="#{search_url}" method="get"
+    input type="hidden" name="authenticity_token" value="#{form_authenticity_token}"
 
     div.row
-      div.large-12.columns
-        h3 Document Type
-        form action=""
-          label: input type="checkbox" name="types" value="press" Press Release
-          label: input type="checkbox" name="types" value="projectdocs" Project Docs
-          label: input type="checkbox" name="types" value="reports" Reports
-          label: input type="checkbox" name="types" value="lawstandards" Law/Standards
-          label: input type="checkbox" name="types" value="presentation" Presentation
-    div.row
-      div.large-12.columns
-        h3 Source Type
-        form action=""
-          label: input type="checkbox" name="source" value="companies" Companies
-          label: input type="checkbox" name="source" value="committees" Committees
-          label: input type="checkbox" name="source" value="civilsociety" Civil Society
-          label: input type="checkbox" name="source" value="government" Government
-
-    div.row
-      div.large-6.columns
-        h3 DRC Company
-        input placeholder="" type="text" /
-      div.large-6.columns
-        h3 Shareholder Company
-        input.searchicon placeholder="" type="text" /
+      div.large-12.columns.text-center
+        h1 CongoMines Document Library
+        p lorem ipsum fusce ante lectus sed lacus
 
     div.divider
     div.row
+      div.large-9.columns
+        input type="text" name="search" placeholder="Search Documents" /
+        /text_field_tag :search, params[:search]
+      div.large-3.columns
+        button Search Library
       div.large-12.columns
-        button Submit
+        a#hideshow value="wee" + Advanced Search
+
+    div.divider
+    div#advanced
+      div.row
+        div.large-12.columns
+          h3 Document Theme
+          form action=""
+            label: input type="checkbox" name="themes" value="resources" Resources
+            label: input type="checkbox" name="themes" value="environment" Environment
+            label: input type="checkbox" name="themes" value="budget" Budget
+            label: input type="checkbox" name="themes" value="miningops" Mining Operations
+
+      div.row
+        div.large-12.columns
+          h3 Document Type
+          form action=""
+            label: input type="checkbox" name="types" value="press" Press Release
+            label: input type="checkbox" name="types" value="projectdocs" Project Docs
+            label: input type="checkbox" name="types" value="reports" Reports
+            label: input type="checkbox" name="types" value="lawstandards" Law/Standards
+            label: input type="checkbox" name="types" value="presentation" Presentation
+      div.row
+        div.large-12.columns
+          h3 Source Type
+          form action=""
+            label: input type="checkbox" name="source" value="companies" Companies
+            label: input type="checkbox" name="source" value="committees" Committees
+            label: input type="checkbox" name="source" value="civilsociety" Civil Society
+            label: input type="checkbox" name="source" value="government" Government
+
+      div.row
+        div.large-6.columns
+          h3 DRC Company
+          input placeholder="" type="text" /
+        div.large-6.columns
+          h3 Shareholder Company
+          input.searchicon placeholder="" type="text" /
+
+      div.divider
+      div.row
+        div.large-12.columns
+          button Submit
