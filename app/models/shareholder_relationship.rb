@@ -3,7 +3,7 @@ class ShareholderRelationship < ActiveRecord::Base
   belongs_to :shareholder
   
   
-  #def to_label
-  #  "#{shareholder.drc_company}"
-  #end
+  def to_label
+    drc_company.name
+  end
 end

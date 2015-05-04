@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150427132625) do
+ActiveRecord::Schema.define(version: 20150504180509) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -195,6 +195,7 @@ ActiveRecord::Schema.define(version: 20150427132625) do
     t.integer  "year"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "direct_shareholder"
   end
 
   add_index "shareholder_relationships", ["drc_company_id"], name: "index_shareholder_relationships_on_drc_company_id"
@@ -210,6 +211,9 @@ ActiveRecord::Schema.define(version: 20150427132625) do
     t.string   "public_private"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "stock_countries"
+    t.string   "stock_exchange"
+    t.string   "stock_symbol"
   end
 
   add_index "shareholders", ["drc_company_id"], name: "index_shareholders_on_drc_company_id"

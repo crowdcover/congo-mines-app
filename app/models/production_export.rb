@@ -3,7 +3,7 @@ class ProductionExport < ActiveRecord::Base
   
   #validates_presence_of :year
   
- # def to_label
- #   year
-  #end
+  def to_label
+    try(:type_of_product)
+  end
 end
