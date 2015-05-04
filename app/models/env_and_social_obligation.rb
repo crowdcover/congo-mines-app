@@ -4,6 +4,6 @@ class EnvAndSocialObligation < ActiveRecord::Base
   #validates :amount_Ivested_in, numericality: true
   
   def to_label
-    year
+    try(:enviro_impact_date)
   end
 end

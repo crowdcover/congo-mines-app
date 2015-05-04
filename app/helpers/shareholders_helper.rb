@@ -1,16 +1,16 @@
 module ShareholdersHelper
 
+
 =begin
 
   def options_for_association_conditions(association)
-    if association.name == :congolese_company
+    if association.name == :shareholder_relationships
         {'congolese_companes_shareholders.shareholder_id' => @record.shareholder_id}
     else
       super
     end
   end
-  
-
+ 
 
   def date_of_birth_search_column(record, html_options)
     selected = html_options.delete :value

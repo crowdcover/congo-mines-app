@@ -1,12 +1,12 @@
 class Admin::ShareholdersController  < Admin::Auth # ApplicationController
   active_scaffold :"shareholder" do |config|
   
-    #config.columns[:congolese_companies].options = {:draggable_lists => true}
+    #config.columns[:drc_companies].options = {:draggable_lists => true}
   
-    config.columns.exclude(:shareholder_relationships, :created_at, :updated_at)
+    config.columns.exclude(:drc_companies, :created_at, :updated_at)
      
   
-    config.columns[:drc_companies].form_ui = :select
+    #config.columns[:drc_companies].form_ui = :select
  
 =begin    
     config.columns[:multinational_companies].form_ui = :select
