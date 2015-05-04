@@ -4,16 +4,20 @@ fr:
       active_scaffold/tableless: active_scaffold/tableless  #g
       attachment: attachment  #g
       author: author  #g
-      congolese_company: congolese_company HOUNDDOD  #g
+      category: category  #g
+      deposit: deposit  #g
+      drc_company: TEST drc_company  #g
+      employee: employee  #g
       env_and_social_obligation: env_and_social_obligation  #g
-      habtm_stock_exchange_countries: habtm_stock_exchange_countries  #g
-      habtm_stock_exchanges: habtm_stock_exchanges  #g
-      multinational_company: multinational_company  #g
-      post: post  #g
+      flows_payable_under_contract: flows_payable_under_contract  #g
+      processing_infrastructure: processing_infrastructure  #g
       production_export: production_export  #g
       report: report  #g
+      report_category: report_category  #g
+      report_relation: report_relation  #g
       shareholder: shareholder  #g
       shareholder_relationship: shareholder_relationship  #g
+      social_project: social_project  #g
       source: source  #g
       stock_exchange: stock_exchange  #g
       stock_exchange_country: stock_exchange_country  #g
@@ -34,73 +38,88 @@ fr:
         description: description  #g
         name: name  #g
 
-      congolese_company:
-        acronym: acronym TEST  #g
+      category:
+        aasm_state: aasm_state  #g
+        children: children  #g
+        name: name  #g
+        parent: :activerecord.models.parent  #g
+        position: position  #g
+        report_categories: report_categories  #g
+        reports: reports  #g
+
+      deposit:
+        drc_company: :activerecord.models.drc_company  #g
+        indicated_resources: indicated_resources  #g
+        inferred_resources: inferred_resources  #g
+        lat: lat  #g
+        lng: lng  #g
+        measured_resources: measured_resources  #g
+        mine_type: mine_type  #g
+        name: name  #g
+        permit_number: permit_number  #g
+        permit_type: permit_type  #g
+        probable_reserves: probable_reserves  #g
+        proven_probable_reserves: proven_probable_reserves  #g
+        proven_reserves: proven_reserves  #g
+        source: source  #g
+
+      drc_company:
+        acronym: this is a test # acronym  #g
         contact: contact  #g
+        deposits: deposits  #g
+        employees: employees  #g
         env_and_social_obligations: env_and_social_obligations  #g
-        export_value: export_value  #g
-        grade_percent: grade_percent  #g
+        flows_payable_under_contracts: flows_payable_under_contracts  #g
         legal_regime: legal_regime  #g
         legal_status: legal_status  #g
-        metal_content: metal_content  #g
         name: name  #g
         nrc: nrc  #g
+        processing_infrastructures: processing_infrastructures  #g
         production_exports: production_exports  #g
-        production_year: production_year  #g
         project_phase: project_phase  #g
         project_type: project_type  #g
         rccm: rccm  #g
+        report_relations: report_relations  #g
+        reports: reports  #g
         shareholder_relationships: shareholder_relationships  #g
         shareholders: shareholders  #g
+        social_projects: social_projects  #g
         tax_obligations: tax_obligations  #g
-        tonnage: tonnage  #g
-        type_of_product: type_of_product  #g
         website: website  #g
 
-      env_and_social_obligation:
-        amount_Invested_in: amount_Invested_in  #g
-        congolese_company: :activerecord.models.congolese_company  #g
-        dates_of_public_consultation_as_part_of_the_env_impact: dates_of_public_consultation_as_part_of_the_env_impact  #g
-        establishment: establishment  #g
-        existence_of_a_platform_for_community_dialogue: existence_of_a_platform_for_community_dialogue  #g
-        link_to_environmental_impact_study: link_to_environmental_impact_study  #g
-        link_to_sustainable_dev_plan_and_or_community_agreement: link_to_sustainable_dev_plan_and_or_community_agreement  #g
-        number_of_direct_employees_congolese: number_of_direct_employees_congolese  #g
-        number_of_direct_employees_expats: number_of_direct_employees_expats  #g
-        number_of_subcontractors_congolese: number_of_subcontractors_congolese  #g
-        number_of_subcontractors_expats: number_of_subcontractors_expats  #g
-        of_community_funds: of_community_funds  #g
-        social_programmes: social_programmes  #g
-        study_dates: study_dates  #g
+      employee:
+        direct_congolese: direct_congolese  #g
+        direct_expat: direct_expat  #g
+        drc_company: :activerecord.models.drc_company  #g
+        subcontractor_congolese: subcontractor_congolese  #g
+        subcontractor_expat: subcontractor_expat  #g
         year: year  #g
 
-      habtm_stock_exchange_countries:
-        left_side: :activerecord.models.left_side  #g
-        stock_exchange_country: :activerecord.models.stock_exchange_country  #g
+      env_and_social_obligation:
+        community_dialogue_platform: community_dialogue_platform  #g
+        community_fund: community_fund  #g
+        drc_company: :activerecord.models.drc_company  #g
+        enviro_impact_date: enviro_impact_date  #g
+        enviro_impact_link: enviro_impact_link  #g
+        social_investment: social_investment  #g
+        sustainable_dev_plan: sustainable_dev_plan  #g
 
-      habtm_stock_exchanges:
-        left_side: :activerecord.models.left_side  #g
-        stock_exchange: :activerecord.models.stock_exchange  #g
+      flows_payable_under_contract:
+        annuity: annuity  #g
+        contract_cash_recipient: contract_cash_recipient  #g
+        drc_company: :activerecord.models.drc_company  #g
+        royalties: royalties  #g
+        signature_bonus: signature_bonus  #g
+        transfer_of_shares: transfer_of_shares  #g
 
-      multinational_company:
-        acronym: acronym  #g
-        congolese_companies: congolese_companies  #g
-        contact: contact  #g
-        listed: listed  #g
-        market: market  #g
+      processing_infrastructure:
+        drc_company: :activerecord.models.drc_company  #g
+        lat: lat  #g
+        lng: lng  #g
         name: name  #g
 
-        shareholder_relationships: shareholder_relationships  #g
-        shareholders: shareholders  #g
-        stock: stock  #g
-        stock_exchange_countries: stock_exchange_countries  #g
-        stock_exchanges: stock_exchanges  #g
-        stock_information: stock_information  #g
-        stock_symbol: stock_symbol  #g
-        website: website  #g
-
       production_export:
-        congolese_company: :activerecord.models.congolese_company  #g
+        drc_company: :activerecord.models.drc_company  #g
         export_value: export_value  #g
         grade: grade  #g
         metal_content: metal_content  #g
@@ -109,34 +128,64 @@ fr:
         year: year  #g
 
       report:
+        actual_post_date: actual_post_date  #g
         attachments: attachments  #g
         author: :activerecord.models.author  #g
-        congo_site_ID: congo_site_ID  #g
+        categories: categories  #g
+        cm_url: cm_url  #g
+        date_string: date_string  #g
+        drc_companies: drc_companies  #g
         organization: organization  #g
         post_date: post_date  #g
+        report_categories: report_categories  #g
+        report_relations: report_relations  #g
         source: :activerecord.models.source  #g
         summary: summary  #g
         title: title  #g
 
+      report_category:
+        category: :activerecord.models.category  #g
+        report: :activerecord.models.report  #g
+
+      report_relation:
+        drc_company: :activerecord.models.drc_company  #g
+        report: :activerecord.models.report  #g
+
       shareholder:
-        congolese_companies: congolese_companies  #g
-        drc_company: drc_company  #g
-        multinational_companies: multinational_companies  #g
-        partnership_with_the_portfolio_companies_of_the_state: partnership_with_the_portfolio_companies_of_the_state  #g
-        private_direct: private_direct  #g
-        private_indirect: private_indirect  #g
+        acronym: acronym  #g
+        contact: contact  #g
+        drc_companies: drc_companies  #g
+        name: name  #g
+        public_private: public_private  #g
         shareholder_relationships: shareholder_relationships  #g
-        state: state  #g
-        year: year  #g
+        stock: stock  #g
+        stock_countries: stock_countries  #g
+        stock_exchange: stock_exchange  #g
+        stock_symbol: stock_symbol  #g
+        website: website  #g
 
       shareholder_relationship:
-        congolese_company: :activerecord.models.congolese_company  #g
-        multinational_company: :activerecord.models.multinational_company  #g
+        direct_shareholder: direct_shareholder  #g
+        drc_company: :activerecord.models.drc_company  #g
+        percentage: percentage  #g
         shareholder: :activerecord.models.shareholder  #g
+        year: year  #g
+
+      social_project:
+        amount_planned: amount_planned  #g
+        amount_spent: amount_spent  #g
+        company: company  #g
+        description: description  #g
+        drc_company: :activerecord.models.drc_company  #g
+        lat: lat  #g
+        lng: lng  #g
+        project_type: project_type  #g
+        stage: stage  #g
 
       source:
         description: description  #g
         name: name  #g
+        reports: reports  #g
 
       stock_exchange:
         name: name  #g
@@ -145,19 +194,219 @@ fr:
         name: name  #g
 
       tax_obligation:
-        amount_for_transfer_of_shares: amount_for_transfer_of_shares  #g
-        congolese_company: :activerecord.models.congolese_company  #g
-        declared_IBP: declared_IBP  #g
-        declared_customs_duty_on_imports: declared_customs_duty_on_imports  #g
-        declared_royalties: declared_royalties  #g
-        formula_of: formula_of  #g
-        formula_of_annuity_or_rent_to_pay: formula_of_annuity_or_rent_to_pay  #g
-        other_contractual_flows_reported: other_contractual_flows_reported  #g
-        recipient_of_the_contractual_cash_flows: recipient_of_the_contractual_cash_flows  #g
+        company_name: company_name  #g
+        drc_company: :activerecord.models.drc_company  #g
+        ibp: ibp  #g
+        import_customs_duty: import_customs_duty  #g
+        other: other  #g
+        redevance: redevance  #g
         royalties: royalties  #g
-        royalties_payable: royalties_payable  #g
-        signature_bonus_declared: signature_bonus_declared  #g
-        signature_bonus_payable: signature_bonus_payable  #g
-        surface_rights_declared: surface_rights_declared  #g
-        total_amount_paid_according_to_company_EITI_declaration: total_amount_paid_according_to_company_EITI_declaration  #g
+        signature_bonus: signature_bonus  #g
+        surface_rights: surface_rights  #g
+        total_paid: total_paid  #g
         year: year  #g
+  date:
+    abbr_day_names:
+    - dim
+    - lun
+    - mar
+    - mer
+    - jeu
+    - ven
+    - sam
+    abbr_month_names:
+    - 
+    - jan.
+    - fév.
+    - mar.
+    - avr.
+    - mai
+    - juin
+    - juil.
+    - août
+    - sept.
+    - oct.
+    - nov.
+    - déc.
+    day_names:
+    - dimanche
+    - lundi
+    - mardi
+    - mercredi
+    - jeudi
+    - vendredi
+    - samedi
+    formats:
+      default: "%d/%m/%Y"
+      short: "%e %b"
+      long: "%e %B %Y"
+    month_names:
+    - 
+    - janvier
+    - février
+    - mars
+    - avril
+    - mai
+    - juin
+    - juillet
+    - août
+    - septembre
+    - octobre
+    - novembre
+    - décembre
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: environ une heure
+        other: environ %{count} heures
+      about_x_months:
+        one: environ un mois
+        other: environ %{count} mois
+      about_x_years:
+        one: environ un an
+        other: environ %{count} ans
+      almost_x_years:
+        one: presqu'un an
+        other: presque %{count} ans
+      half_a_minute: une demi-minute
+      less_than_x_minutes:
+        zero: moins d'une minute
+        one: moins d'une minute
+        other: moins de %{count} minutes
+      less_than_x_seconds:
+        zero: moins d'une seconde
+        one: moins d'une seconde
+        other: moins de %{count} secondes
+      over_x_years:
+        one: plus d'un an
+        other: plus de %{count} ans
+      x_days:
+        one: 1 jour
+        other: "%{count} jours"
+      x_minutes:
+        one: 1 minute
+        other: "%{count} minutes"
+      x_months:
+        one: 1 mois
+        other: "%{count} mois"
+      x_seconds:
+        one: 1 seconde
+        other: "%{count} secondes"
+    prompts:
+      day: Jour
+      hour: Heure
+      minute: Minute
+      month: Mois
+      second: Seconde
+      year: Année
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: doit être accepté(e)
+      blank: doit être rempli(e)
+      present: doit être vide
+      confirmation: ne concorde pas avec %{attribute}
+      empty: doit être rempli(e)
+      equal_to: doit être égal à %{count}
+      even: doit être pair
+      exclusion: n'est pas disponible
+      greater_than: doit être supérieur à %{count}
+      greater_than_or_equal_to: doit être supérieur ou égal à %{count}
+      inclusion: n'est pas inclus(e) dans la liste
+      invalid: n'est pas valide
+      less_than: doit être inférieur à %{count}
+      less_than_or_equal_to: doit être inférieur ou égal à %{count}
+      not_a_number: n'est pas un nombre
+      not_an_integer: doit être un nombre entier
+      odd: doit être impair
+      record_invalid: 'La validation a échoué : %{errors}'
+      restrict_dependent_destroy:
+        one: 'Suppression impossible: un autre enregistrement est lié'
+        many: 'Suppression impossible: d''autres enregistrements sont liés'
+      taken: n'est pas disponible
+      too_long:
+        one: est trop long (pas plus d'un caractère)
+        other: est trop long (pas plus de %{count} caractères)
+      too_short:
+        one: est trop court (au moins un caractère)
+        other: est trop court (au moins %{count} caractères)
+      wrong_length:
+        one: ne fait pas la bonne longueur (doit comporter un seul caractère)
+        other: ne fait pas la bonne longueur (doit comporter %{count} caractères)
+      other_than: doit être différent de %{count}
+    template:
+      body: 'Veuillez vérifier les champs suivants : '
+      header:
+        one: 'Impossible d''enregistrer ce(tte) %{model} : 1 erreur'
+        other: 'Impossible d''enregistrer ce(tte) %{model} : %{count} erreurs'
+  helpers:
+    select:
+      prompt: Veuillez sélectionner
+    submit:
+      create: Créer un(e) %{model}
+      submit: Enregistrer ce(tte) %{model}
+      update: Modifier ce(tte) %{model}
+  number:
+    currency:
+      format:
+        delimiter: " "
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "€"
+    format:
+      delimiter: " "
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: milliard
+          million: million
+          quadrillion: million de milliards
+          thousand: millier
+          trillion: billion
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: octet
+            other: octets
+          gb: Go
+          kb: ko
+          mb: Mo
+          tb: To
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: " et "
+      two_words_connector: " et "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      default: "%d %B %Y %Hh %Mmin %Ss"
+      long: "%A %d %B %Y %Hh%M"
+      short: "%d %b %Hh%M"
+    pm: pm
