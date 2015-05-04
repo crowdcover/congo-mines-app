@@ -248,7 +248,7 @@ DEPENDENCIES
   binding_of_caller
   coffee-rails (~> 4.0.0)
   debugger2!
-  foundation-rails (= 5.4.5)
+  foundation-rails
   i18n_generators
   iconv
   jbuilder

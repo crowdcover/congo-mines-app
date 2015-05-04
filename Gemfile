@@ -17,10 +17,10 @@ gem 'acts-as-taggable-on', '~> 3.4'
 # use Slim and Foundation for template and style
 gem 'slim-rails'
 #gem 'foundation-rails'
-gem 'foundation-rails', '5.4.5'
+gem 'foundation-rails'#, '5.4.5'
 #gem 'sass', '~> 3.4.0'
 #gem 'compass', '~> 1.0'
-
+ 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
