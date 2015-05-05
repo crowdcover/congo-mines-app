@@ -4,8 +4,7 @@
 development2:
   adapter: postgresql
   database: openstreetmap
-  username: houndweb
-  password: webapp
+  username: jamesconkling
 #  username: openstreetmap
 #  password: openstreetmap
   host: localhost
@@ -25,8 +24,7 @@ development:
 test:
   adapter: postgresql
   database: osm_test
-  username: houndweb
-  password: webapp
+  username: jamesconkling
 #  username: osm_test
 #  password: osm_test
 #  host: localhost
@@ -35,8 +33,7 @@ test:
 production:
   adapter: postgresql
   database: osm
-  username: houndweb
-  password: webapp
+  username: jamesconkling
 #  username: osm
 #  password: osm
 #  host: localhost

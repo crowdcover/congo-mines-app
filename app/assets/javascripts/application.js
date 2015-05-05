@@ -28,25 +28,4 @@
 //= require turbolinks
 
 //= require active_scaffold
-// require_tree .
-
-/*
-
-jQuery(document).on("focus", "input.date_picker", function(){
-    var date_picker = jQuery(this);
-    if (typeof(date_picker.datepicker) == 'function') {
-      if (!date_picker.hasClass('hasDatepicker')) {
-        date_picker.datepicker();
-        date_picker.trigger('focus');
-      }
-    }
-    return true;
-});
-*/
-
-$(function(){ $(document).foundation();
-  app.initCommon();
-  if (mapPage) {
-    app.initMap();
-  }
-});
+//= require_tree .
