@@ -8,7 +8,7 @@ class Admin::Auth  < ActionController::Base # < ActionController::Base
 
   before_action :set_locale
   def set_locale
-    I18n.locale =  params[:locale] || I18n.default_locale
+    I18n.locale =  params[:locale] || I18n.default_locale  #:fr
   end
 
 end  

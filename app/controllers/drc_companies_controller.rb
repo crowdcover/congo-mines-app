@@ -15,6 +15,11 @@ class DrcCompaniesController < ApplicationController
     # render json: @drc_companies
     render :index
   end
+  
+  def get_geodata
+    #get_geodata_drc_company_path(@drc_company)
+    @drc_company = DrcCompany.find(params[:id]).includes(:deposits, :social_projects, :processing_infrastructures)
+  end
 
   private
   def get_map_page
@@ -23,4 +28,6 @@ class DrcCompaniesController < ApplicationController
 
   def drc_company_params
   end
+  
+
 end
