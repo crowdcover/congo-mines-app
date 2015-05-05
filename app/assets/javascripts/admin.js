@@ -1,7 +1,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require common
+// require common
 
 //= require jquery-ui
 // require jquery-ui/sortable
