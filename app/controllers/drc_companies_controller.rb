@@ -11,7 +11,7 @@ class DrcCompaniesController < ApplicationController
   end
 
   def index
-    @drc_companies = DrcCompany.all
+    @drc_companies = DrcCompany.all.page params[:page]
     # render json: @drc_companies
     render :index
   end

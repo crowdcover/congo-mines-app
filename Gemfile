@@ -20,7 +20,7 @@ gem 'slim-rails'
 gem 'foundation-rails' #, '5.4.5'
 #gem 'sass', '~> 3.4.0'
 #gem 'compass', '~> 1.0'
- 
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -63,8 +63,12 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
+# search with sunspot/solr
 gem 'sunspot_rails'
 gem 'sunspot_solr'
+
+# pagination with kaminari
+gem 'kaminari'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

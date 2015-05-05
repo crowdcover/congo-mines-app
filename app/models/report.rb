@@ -13,6 +13,7 @@ class Report < ActiveRecord::Base
   has_many :report_relations
   has_many :drc_companies, through: :report_relations
 
+  paginates_per 10
 
   searchable do
     text :title, :organization, :summary

@@ -1,6 +1,6 @@
 = render 'shared/search'
 
-- @reports = @reports.to_a
+/- @reports = @reports.to_a
   / if going to paginate, need to see if need to keep as ActiveRecord::Relation
   / or if Array works
 
@@ -11,8 +11,9 @@ div.content
       h2.ftr Recommended Documents
 
   div.row
-    = render partial: "shared/documents", locals: {reports: @reports, columns: 2}
-  - @reports.shift(2)
+    - reports_line_1 = @reports[0..1]
+    = render partial: "shared/documents", locals: {reports: reports_line_1, columns: 2}
+    /- @reports.shift(2)
 
   div.divider
   div.row
@@ -20,9 +21,14 @@ div.content
       h2.ftr All Documents
 
   div.row
-    = render partial: "shared/documents", locals: {reports: @reports, columns: 4}
-  - @reports.shift(4)
+    - reports_line_2 = @reports[2..5]
+    = render partial: "shared/documents", locals: {reports: reports_line_2, columns: 4}
+    /- @reports.shift(4)
 
   div.row
-    = render partial: "shared/documents", locals: {reports: @reports, columns: 4}
-  - @reports.shift(4)
+    - reports_line_3 = @reports[6..9]
+    = render partial: "shared/documents", locals: {reports: reports_line_3, columns: 4}
+    /- @reports.shift(4)
+
+  div.row
+    = paginate @reports

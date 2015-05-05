@@ -1,4 +1,4 @@
-- (1..columns).each do |col|
+- (0...columns).each do |col|
   div class="columns #{'large-' + (12 / columns).to_s}"
     article.divborder
       h3.inline: a href="#{report_url(reports[col])}" = reports[col].title

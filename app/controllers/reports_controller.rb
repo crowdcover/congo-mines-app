@@ -9,7 +9,7 @@ class ReportsController < ApplicationController
 
   def index
     # sort by most recent
-    @reports = Report.all.order('actual_post_date DESC')
+    @reports = Report.all.order('actual_post_date DESC').page params[:page]
     # Report.featured
 
     # render json: @reports

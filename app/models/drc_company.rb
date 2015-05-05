@@ -21,5 +21,6 @@ class DrcCompany < ActiveRecord::Base
 
   validates_presence_of :name #, :legal_status, :project_phase, :project_type, :acronym, :contact
 
+  paginates_per 30
 
 end
