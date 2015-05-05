@@ -28,7 +28,7 @@ class Report < ActiveRecord::Base
 
     # pulling source
     text :source do
-      source.name
+      source.try(:name) 
     end
   end
 end
