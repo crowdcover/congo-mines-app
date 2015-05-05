@@ -1,15 +1,14 @@
-div class="header"
+div class="header clearfix"
 
   div class="menu"
     div class="row"
-      div class="logo": a href="http://www.cartercenter.org" = image_tag 'carter2.png'
-      div class="logo3": a href="/home" = image_tag 'logo.png'
+      div class="small-12 medium-3 columns cm-logo": a href="/home" = image_tag 'logo.png'
 
-      div class="navigation"
+      div class="small-12 medium-6 columns navigation"
         ul
           li: a href="#" About
           li: a href="#{reports_url}" Library
           li: a href="#{drc_companies_url}" Companies
           li: a href="#map" Map
 
-      div class="logo2": a href="/home" = image_tag 'logo.png'
+      div class="medium-3 hide-for-small-only columns cc-logo": a href="http://www.cartercenter.org" = image_tag 'carter2.png'
