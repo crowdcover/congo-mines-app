@@ -8,10 +8,10 @@ class Admin::ReportsController  < Admin::Auth # ApplicationController
     config.columns[:actual_post_date].form_ui = :date_picker
     config.columns[:actual_post_date].options = {options: [[changeYear: true]]}
     
-    config.columns[:author].form_ui = :select
-    config.columns[:source].form_ui = :select
+    #config.columns[:author].form_ui = :select
+    #config.columns[:source].form_ui = :select
 
-    config.columns = [:author, :source, :title, :actual_post_date,
+    config.columns = [:source, :title, :actual_post_date,
       :summary, :categories, :attachments, :drc_companies, :cm_url]
   end
 end
