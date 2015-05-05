@@ -3,7 +3,7 @@ $(function(){
 
   var app = {
     initCommon: function(){
-      mainbottom = $('.menu').offset().top;
+      mainbottom = $('.content').offset().top
 
       $(window).on('scroll', this.showStickyHeader);
 
