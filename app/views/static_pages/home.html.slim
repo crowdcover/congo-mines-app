@@ -1,7 +1,3 @@
-/= render 'layouts/header'
-
-div.content
-
 div.row
   div.large-12.columns
     h1 Featured Documents
@@ -13,8 +9,7 @@ div.row
 
 = render "shared/search"
 
-/ banner
-/div.banner
+
   div.row
     div.large-9.columns
       h2 View our collection of Documents
@@ -22,7 +17,6 @@ div.row
       a href="#{reports_url}"
         button Visit Library
 
-div.content
   div.row
     div.large-12.columns
       h1 Categories
@@ -45,9 +39,3 @@ div.content
       div.category
         = image_tag 'icon.png'
         h3 Human Rights & Mining
-
-
-
-/= render 'layouts/copyright'
-
-/= render 'layouts/footer'

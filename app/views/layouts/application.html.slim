@@ -6,8 +6,8 @@ html.no-js lang="en"
   body
     = render "layouts/header"
 
-
-    == yield
+    div.content
+      == yield
 
 
     = render 'layouts/copyright'

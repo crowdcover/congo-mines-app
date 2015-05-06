@@ -1,39 +1,37 @@
-div.content
+div.row
+  div.large-12.columns
+    p = @drc_company.name
 
-  div.row
-    div.large-12.columns
-      p = @drc_company.name
+div#map
+  / add a js var so that it knows it's the map?
+  / js or ruby?
 
-  div#map
-    / add a js var so that it knows it's the map?
-    / js or ruby?
+/- map_page = true
 
-  /- map_page = true
+/javascript:
+  var mapPage = true;
 
-  /javascript:
-    var mapPage = true;
+div.row
+  div.large-12.columns
+    /p Lorem
 
-  div.row
-    div.large-12.columns
-      /p Lorem
+    table.mine-table
+      thead
+        tr
+          th Name
+          th Company
+          th Type
+          th Proven Reserves
+          th Measured Resource
+      tbody
+        tr
+          td
+          td
+          td
+          td
+          td
 
-      table.mine-table
-        thead
-          tr
-            th Name
-            th Company
-            th Type
-            th Proven Reserves
-            th Measured Resource
-        tbody
-          tr
-            td
-            td
-            td
-            td
-            td
-
-      /p Lorem
+    /p Lorem
 
 /= render "shared/banner"
 
