@@ -37,6 +37,10 @@ h5, h6 {
 	color: #a4a4a4;
 }
 
+.quiet {
+  color: #aaa !important;
+}
+
 a.active { color: #60afde !important; }
 
 p {
@@ -381,15 +385,11 @@ strong, b {
 
 
 .content {
-	padding: 40px 0;
   }
   .content h1 {
   	text-align: center;
   	color: #32acde;
-  }
-  .content .ftr {
-  	color: #bebebe;
-  	margin-bottom: 25px;
+    margin: 1em 0;
   }
   .content .inline {
   	padding-right: 10px;
@@ -488,7 +488,7 @@ strong, b {
 }
 
 .search, .grey {
-	padding: 40px 0;
+	padding-bottom: 20px;
 	background: #f1f1f1;
   }
   .search h1, .grey h1 {
