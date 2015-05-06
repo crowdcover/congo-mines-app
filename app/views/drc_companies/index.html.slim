@@ -3,11 +3,11 @@ div.row
     h1.quiet All Companies
 
 - @drc_companies.each do |company|
-  div.row
-    div.large-4.columns
-      h4 Company Name
-    div.large-8.columns
-      a href="#{drc_company_url(company)}": h4 = company.name
+  div.row.company
+    h4
+      a href="#{drc_company_url(company)}" = company.name
+      span.quiet = company.acronym
+
 
 div.row
   div.large-12.columns
