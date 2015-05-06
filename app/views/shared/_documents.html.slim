@@ -3,11 +3,8 @@
     article.divborder
       div.document-container
         h3.inline: a href="#{report_url(reports[col])}" = reports[col].title
-        h4
-          = reports[col].source.name
-        p
-          span.meta
-            = reports[col].date_string
+        h4 = reports[col].source.name
+        p: span.meta = reports[col].date_string
         / p = truncate(reports[col].summary, length: 220)
         p = reports[col].summary
 
