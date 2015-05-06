@@ -241,7 +241,12 @@ strong, b {
     padding-top: 100px;
     padding-bottom: 40px;
   }
-  .header .logo {
+  .header .menu {
+    width: 100%;
+    margin-top: 140px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    background-color: transparent;
   }
   .header a:hover img {
     opacity: 0.7;
@@ -278,37 +283,28 @@ strong, b {
   .header .navigation ul li a:hover {
     color: #fff;
   }
+  .menu.fixed[data-magellan-expedition] {
+    background-color: rgba(50, 53, 56, 0.95);
+    transition: background ease-in-out 0.2s;
+    // top: 0;
+    // height: 90px;
+    // z-index: 999;
+    padding-top: 30px;
+    margin: 0;
+  }
+  .menu.fixed[data-magellan-expedition] .cc-logo img {
+    display: none;
+  }
+  .menu.fixed[data-magellan-expedition] .cm-logo img {
+    height: 60px;
+    margin-top: -18px;
+  }
 
-.menu {
-	width: 100%;
-	padding-top: 190px;
-}
 
 .mp {
   padding-top: 30px!important;
 }
 
-.past-main {
-  background-color: rgba(50, 53, 56, 0.95);
-  color:#444;
-  transition: background ease-in-out 0.2s;
-  position: fixed;
-  top: 0;
-  height: 90px;
-  z-index: 999;
-  padding-top: 30px;
-  }
-  .past-main .logo img, .past-main .logo2 img {
-    display: none;
-  }
-  .past-main .logo3 {
-    display: block;
-  }
-  .past-main .logo3 img {
-    float: left;
-    max-width: 100px;
-    margin-top: -20px;
-  }
 
 .footer {
   width: 100%;
@@ -760,11 +756,14 @@ label {
 @media all and (max-width: 640px) {
 
   .menu {
-    padding-top: 0;
+    margin-top: 0 !important;
     }
     .header .cm-logo img {
       width: 90px;
       margin: 10px;
+    }
+    .menu.fixed[data-magellan-expedition]{
+      display: none;
     }
 
 	.banner {
