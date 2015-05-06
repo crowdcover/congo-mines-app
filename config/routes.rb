@@ -34,10 +34,11 @@ Rails.application.routes.draw do
 
   get '/home', to: 'static_pages#home'
   get '/admin', to: 'admin/drc_companies#index'
+  get '/about', to: 'static_pages#about'
 
   resources :drc_companies  do  #, only: [:show, :index]
     member do
-      get 'get_geodata'      
+      get 'get_geodata'
     end
   end
   resources :reports, only: [:show, :index]
