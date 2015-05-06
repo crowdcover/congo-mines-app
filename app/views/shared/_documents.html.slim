@@ -9,6 +9,6 @@
         span.meta
           = reports[col].date_string
           / Jan 24, 2015
-      p = reports[col].summary
+      p = truncate(reports[col].summary, length: 150)
       div: small: a href="#{reports[col].cm_url}" original page
       a href="#{report_url(reports[col])}": button Read More
