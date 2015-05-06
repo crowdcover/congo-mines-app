@@ -311,6 +311,12 @@ strong, b {
 }
 
 
+.pagination {
+  text-align: center;
+  padding: 8px 0;
+}
+
+
 .mp {
   padding-top: 30px!important;
 }
@@ -318,7 +324,6 @@ strong, b {
 
 .footer {
   width: 100%;
-  height: 450px;
   padding: 40px 0;
   background: #323538;
 }
@@ -730,7 +735,7 @@ label {
 @media all and (max-width: 1080px) {
 
 	.footer {
-		height: 750px;
+		// height: 750px;
 	}
 
 	.footer h4 {
