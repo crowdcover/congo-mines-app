@@ -324,7 +324,7 @@ strong, b {
 
 .footer {
   width: 100%;
-  padding: 40px 0;
+  padding: 20px 0;
   background: #323538;
 }
   .footer a .fa {
@@ -734,10 +734,6 @@ label {
 
 @media all and (max-width: 1080px) {
 
-	.footer {
-		// height: 750px;
-	}
-
 	.footer h4 {
 		text-align: center;
 	}
@@ -804,4 +800,9 @@ table.mine-table thead th.sorting {
     background: #66A9BD url('../img/sort_both.png') no-repeat right center !important;
 	*/
 	background: #66A9BD image-url('sort_both.png') no-repeat right center !important;
+}
+
+.fb_iframe_widget span {
+  vertical-align: top!important;
+  margin-top: 2px;
 }

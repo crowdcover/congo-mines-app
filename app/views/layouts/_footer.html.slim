@@ -17,26 +17,26 @@ div.footer
 
     div.large-4.columns
       h4 Stay Connected
-      a href="#": i.fa.fa-twitter
-      a href="#": i.fa.fa-facebook
-      a href="#": i.fa.fa-github
+      a href="https://twitter.com/congomines": i.fa.fa-twitter
+      a href="https://github.com/crowdcover/congo-mines-app": i.fa.fa-github
       div.divider
-      a[href="https://twitter.com/share" class="twitter-share-button"
-        data-via="congomines"] Tweet
-      javascript:
-        !function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location)?'http':'https';
-          if (!d.getElementById(id)) {
-            js = d.createElement(s);
-            js.id = id;
-            js.src = p + "://platform.twitter.com/widgets.js";
-            fjs.parentNode.insertBefore(js, fjs);
-          }
-        }(document, "script", "twitter-wjs");
-      div[class="g-plusone" data-size="medium" data-annotation="inline" data-width="120"]
-      div[class="fb-share-button" data-href="http://www.congomines.org/" data-layout="button_count"]
+      div
+        a[href="https://twitter.com/share" class="twitter-share-button" data-via="congomines"] Tweet
+        javascript:
+          !function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location)?'http':'https';
+            if (!d.getElementById(id)) {
+              js = d.createElement(s);
+              js.id = id;
+              js.src = p + "://platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js, fjs);
+            }
+          }(document, "script", "twitter-wjs");
+      div
+        div[class="g-plusone" data-size="medium" data-annotation="inline" data-width="120"]
+      div
+        div[class="fb-share-button" data-href="http://www.congomines.org/" data-layout="button_count"]
 
-    div.divider
     div.row
       div.large-6.columns: p © Copyright 2015 - CongoMines
       div.large-6.columns
