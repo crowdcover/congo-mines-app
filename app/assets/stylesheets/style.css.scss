@@ -315,6 +315,10 @@ strong, b {
   padding: 20px 0;
 }
 
+.company-stats {
+  padding: 20px 0;
+}
+
 
 .pagination {
   text-align: center;
@@ -703,16 +707,15 @@ label {
   	-ms-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
   	transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
   }
-// .accordion input:checked ~ article.ac-small{
-// 	height: auto;
-// }
-// .accordion input:checked ~ article.ac-medium{
-// 	height: auto;
-// }
-// .accordion input:checked ~ article.ac-large{
-// 	height: auto;
-// }
-
+.accordion input:checked ~ article.ac-small{
+  height: 140px;
+}
+.accordion input:checked ~ article.ac-medium{
+  height: 180px;
+}
+.accordion input:checked ~ article.ac-large{
+  height: 230px;
+}
 
 .sidebar_menu {
   background: rgba(51, 48, 48, 0.85);

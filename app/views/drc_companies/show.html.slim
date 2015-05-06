@@ -35,147 +35,147 @@ div.row
 
 /= render "shared/banner"
 
-div.grey
-div.row
-  div.large-12.columns
+div.grey.company-stats
+  div.row
+    div.large-12.columns
 
-    section.accordion
-      div
-        input#ac-1 name="accordion-1" type="checkbox"
-        label for="ac-1" General Information
-        article.ac-large
-          div.large-3.columns
-            h4 NRC
-            h4 RCCM
-            h4 Legal Status
-            h4 Legal Regime
-          div.large-3.columns
-            h4.value = @drc_company.nrc
-            h4.value = @drc_company.rccm
-            h4.value = @drc_company.legal_status
-            h4.value = @drc_company.legal_regime
-          div.large-3.columns
-            h4 Project Type
-            h4 Project Phase
-            h4 Contact
-            h4 Website
-          div.large-3.columns
-            h4.value = @drc_company.project_type
-            h4.value = @drc_company.project_phase
-            h4.value = @drc_company.contact
-            h4.value = @drc_company.website
+      section.accordion
+        div
+          input#ac-1 name="accordion-1" type="checkbox"
+          label for="ac-1" General Information
+          article.ac-large
+            div.large-3.columns
+              h4 NRC
+              h4 RCCM
+              h4 Legal Status
+              h4 Legal Regime
+            div.large-3.columns
+              h4.value = @drc_company.nrc
+              h4.value = @drc_company.rccm
+              h4.value = @drc_company.legal_status
+              h4.value = @drc_company.legal_regime
+            div.large-3.columns
+              h4 Project Type
+              h4 Project Phase
+              h4 Contact
+              h4 Website
+            div.large-3.columns
+              h4.value = @drc_company.project_type
+              h4.value = @drc_company.project_phase
+              h4.value = @drc_company.contact
+              h4.value = @drc_company.website
 
-          div
-            div.large-12.columns
-              h4 Employees
-          div
-          div.large-4.columns
-            h4 Year (many, or just most recent?)
-            h4 Direct Expat Employees
-            h4 Direct Congolese Employees
-            h4 Expat Subcontractors
-            h4 Congolese Subcontractors
-          - unless @drc_company.employees.empty?
-            div.large-8.columns
-              h4 = @drc_company.employees.year
-              h4 = @drc_company.employees.direct_expat
-              h4 = @drc_company.employees.direct_congolese
-              h4 = @drc_company.employees.subcontractor_expat
-              h4 = @drc_company.employees.subcontractor_congolese
+            div
+              div.large-12.columns
+                h4 Employees
+            div
+            div.large-4.columns
+              h4 Year (many, or just most recent?)
+              h4 Direct Expat Employees
+              h4 Direct Congolese Employees
+              h4 Expat Subcontractors
+              h4 Congolese Subcontractors
+            - unless @drc_company.employees.empty?
+              div.large-8.columns
+                h4 = @drc_company.employees.year
+                h4 = @drc_company.employees.direct_expat
+                h4 = @drc_company.employees.direct_congolese
+                h4 = @drc_company.employees.subcontractor_expat
+                h4 = @drc_company.employees.subcontractor_congolese
 
-      div
-        input#ac-2 name="accordion-1" type="checkbox"
-        label for="ac-2" Production & Export
-        article.ac-medium
-          div.large-6.columns
-            h4 Year
-            h4 Type of Product
-            h4 Tonnage
-            h4 Grade
-            h4 Metal Content
-            h4 Export Value
-          - @drc_company.production_exports.each do |pe|
-            - unless pe.nil?
-              div.large-6.columns
-                h4 = pe.year
-                h4 = pe.type_of_product
-                h4 = pe.tonnage
-                h4 = pe.grade
-                h4 = pe.metal_content
-                h4 = pe.export_value
-
-      div
-        input#ac-3 name="accordion-1" type="checkbox"
-        label for="ac-3" Tax Obligations
-        article class="ac-large"
-          div.row
-            div.large-12.columns
-              h4 Flows Payable Under Contracts
-          div.row
-            div.large-6.columns
-              h4 Signature Bonus
-              h4 Royalties
-              h4 Annuity
-              h4 Transfer of Shares
-              h4 Contract Cash Recipient
-            - unless @drc_company.flows_payable_under_contracts.empty?
-              div.large-6.columns
-                h4 = @drc_company.flows_payable_under_contracts.first.signature_bonus
-                h4 = @drc_company.flows_payable_under_contracts.first.royalties
-                h4 = @drc_company.flows_payable_under_contracts.first.annuity
-                h4 = @drc_company.flows_payable_under_contracts.first.transfer_of_shares
-                h4 = @drc_company.flows_payable_under_contracts.first.contract_cash_payment
-          div.row
-            div.large-12.columns
-              h4 Tax Obligations
-          div.row
+        div
+          input#ac-2 name="accordion-1" type="checkbox"
+          label for="ac-2" Production & Export
+          article.ac-medium
             div.large-6.columns
               h4 Year
-              h4 Total Paid
-              h4 Redevance
-              h4 IBP
-              h4 Import Customs Duty
-              h4 Surface Rights
-              h4 Signature Bonus
-              h4 Royalties
-              h4 Other
-            - @drc_company.tax_obligations.each do |tax_ob|
-              - unless tax_ob.nil?
+              h4 Type of Product
+              h4 Tonnage
+              h4 Grade
+              h4 Metal Content
+              h4 Export Value
+            - @drc_company.production_exports.each do |pe|
+              - unless pe.nil?
                 div.large-6.columns
-                  h4 = tax_ob.year
-                  h4 = tax_ob.total_paid
-                  h4 = tax_ob.redevance
-                  h4 = tax_ob.ibp
-                  h4 = tax_ob.import_customs_duty
-                  h4 = tax_ob.surface_rights
-                  h4 = tax_ob.signature_bonus
-                  h4 = tax_ob.royalties
-                  h4 = tax_ob.other
+                  h4 = pe.year
+                  h4 = pe.type_of_product
+                  h4 = pe.tonnage
+                  h4 = pe.grade
+                  h4 = pe.metal_content
+                  h4 = pe.export_value
 
-      div
-        input#ac-4 name="accordion-1" type="checkbox"
-        label for="ac-4" Environment & Social Obligations
-        article.ac-large
-          div.row
-            div.large-12.columns
-              h4 Environmental and Social Obligations
-          div.row
-            div.large-6.columns
-              h4 Community Fund
-              h4 Environmental Impact Date
-              h4 Environmental Impact Link
-              h4 Sustainability Development Plan
-              h4 Community Dialogue Platform
-              h4 Social Investment
-            - @drc_company.env_and_social_obligations.each do |env_soc|
-              - unless env_soc.nil?
+        div
+          input#ac-3 name="accordion-1" type="checkbox"
+          label for="ac-3" Tax Obligations
+          article class="ac-large"
+            div.row
+              div.large-12.columns
+                h4 Flows Payable Under Contracts
+            div.row
+              div.large-6.columns
+                h4 Signature Bonus
+                h4 Royalties
+                h4 Annuity
+                h4 Transfer of Shares
+                h4 Contract Cash Recipient
+              - unless @drc_company.flows_payable_under_contracts.empty?
                 div.large-6.columns
-                  h4 = env_soc.community_fund
-                  h4 = env_soc.enviro_impact_date
-                  h4 = env_soc.enviro_impact_link
-                  h4 = env_soc.sustainable_dev_plan
-                  h4 = env_soc.community_dialogue_platform
-                  h4 = env_soc.social_investment
+                  h4 = @drc_company.flows_payable_under_contracts.first.signature_bonus
+                  h4 = @drc_company.flows_payable_under_contracts.first.royalties
+                  h4 = @drc_company.flows_payable_under_contracts.first.annuity
+                  h4 = @drc_company.flows_payable_under_contracts.first.transfer_of_shares
+                  h4 = @drc_company.flows_payable_under_contracts.first.contract_cash_payment
+            div.row
+              div.large-12.columns
+                h4 Tax Obligations
+            div.row
+              div.large-6.columns
+                h4 Year
+                h4 Total Paid
+                h4 Redevance
+                h4 IBP
+                h4 Import Customs Duty
+                h4 Surface Rights
+                h4 Signature Bonus
+                h4 Royalties
+                h4 Other
+              - @drc_company.tax_obligations.each do |tax_ob|
+                - unless tax_ob.nil?
+                  div.large-6.columns
+                    h4 = tax_ob.year
+                    h4 = tax_ob.total_paid
+                    h4 = tax_ob.redevance
+                    h4 = tax_ob.ibp
+                    h4 = tax_ob.import_customs_duty
+                    h4 = tax_ob.surface_rights
+                    h4 = tax_ob.signature_bonus
+                    h4 = tax_ob.royalties
+                    h4 = tax_ob.other
+
+        div
+          input#ac-4 name="accordion-1" type="checkbox"
+          label for="ac-4" Environment & Social Obligations
+          article.ac-large
+            div.row
+              div.large-12.columns
+                h4 Environmental and Social Obligations
+            div.row
+              div.large-6.columns
+                h4 Community Fund
+                h4 Environmental Impact Date
+                h4 Environmental Impact Link
+                h4 Sustainability Development Plan
+                h4 Community Dialogue Platform
+                h4 Social Investment
+              - @drc_company.env_and_social_obligations.each do |env_soc|
+                - unless env_soc.nil?
+                  div.large-6.columns
+                    h4 = env_soc.community_fund
+                    h4 = env_soc.enviro_impact_date
+                    h4 = env_soc.enviro_impact_link
+                    h4 = env_soc.sustainable_dev_plan
+                    h4 = env_soc.community_dialogue_platform
+                    h4 = env_soc.social_investment
 
 javascript:
   $(function() {
