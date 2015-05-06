@@ -1,7 +1,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-// require common
+//= require chosen-jquery 
+//= require scaffold
 
 //= require jquery-ui
 // require jquery-ui/sortable

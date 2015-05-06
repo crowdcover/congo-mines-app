@@ -10,6 +10,8 @@ class Admin::ReportsController  < Admin::Auth # ApplicationController
     
     #config.columns[:author].form_ui = :select
     #config.columns[:source].form_ui = :select
+    
+    config.columns[:categories].form_ui = :chosen
 
     config.columns = [:source, :title, :actual_post_date,
       :summary, :categories, :attachments, :drc_companies, :cm_url]

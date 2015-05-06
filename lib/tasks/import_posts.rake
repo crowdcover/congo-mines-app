@@ -76,7 +76,7 @@ namespace :import do
   # congo_site_ID|post_title|post_content|post_excerpt|category|post_tag|post_author|post_status|comment_status|permis_contrats|apercu_contact|organization|_edit_last|author|_edit_lock|doc_year|language|doc_month|doc_day|link|structure|gisements|production_exportation|recettes|_oembed_f30561fb916b7fd8b19930dd919f0e2d
  
 
-  desc "Import posts from mysql out fle"
+  desc "Import posts from CongoMines.org wordpress site."
   task import_wp_posts: :environment do
     require 'rubygems'
     require 'nokogiri'
@@ -119,6 +119,7 @@ namespace :import do
       
        unless organization.blank?
         organization.strip!
+        organization = organization.titleize
         puts "Organization: " + organization
        end	
 
@@ -176,6 +177,7 @@ namespace :import do
         end
         
         unless found
+          c_text = c_text.titleize
           puts "Adding Company #{c_text}"
           cc = DrcCompany.find_or_create_by(name: c_text)
           cc.reports << report

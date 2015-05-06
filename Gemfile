@@ -6,6 +6,8 @@ gem 'active_scaffold'
 gem 'acts_as_list'
 gem 'acts_as_tree'
 gem 'active_scaffold_sortable'
+gem 'chosen-rails'
+
 gem 'pg' #, group: :production
 gem "paperclip", "~> 4.2"
 gem 'rails_12factor', group: :production
@@ -16,10 +18,9 @@ gem 'acts-as-taggable-on', '~> 3.4'
 
 # use Slim and Foundation for template and style
 gem 'slim-rails'
-#gem 'foundation-rails'
 gem 'foundation-rails' #, '5.4.5'
-#gem 'sass', '~> 3.4.0'
-#gem 'compass', '~> 1.0'
+
+gem "compass-rails", github: "Compass/compass-rails", branch: "master"
 
 group :development do
   gem 'better_errors'
@@ -34,10 +35,8 @@ group :development, :test do
     gem 'debugger2', :git => "git://github.com/ko1/debugger2.git"
 end
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-#gem 'rails', '4.1.0'
-gem 'rails', '4.2.1'
 
+gem 'rails', '4.2.1'
 gem 'iconv'
 
 # Use SCSS for stylesheets
