@@ -1,24 +1,18 @@
-div.row
-  div.large-12.columns
-    h1 Featured Documents
+div.content
+  div.row
+    div.large-12.columns
+      h1 Featured Documents
 
-div.row
-  = render partial: "shared/documents", locals: {reports: @reports, columns: 2}
+  div.row
+    = render partial: "shared/documents", locals: {reports: @reports, columns: 4}
 
 
 = render "shared/search"
 
-
-  div.row
-    div.large-9.columns
-      h2 View our collection of Documents
-    div.large-3.columns
-      a href="#{reports_url}"
-        button Visit Library
-
+div.content
   div.row
     div.large-12.columns
-      h1 Categories
+      h1 Topics
   div.divider
   div.row
     div.large-12.columns.text-center
@@ -31,7 +25,6 @@ div.row
       div.category
         = image_tag 'icon.png'
         h3 Sicomines
-    div.large-12.columns.text-center
       div.category
         = image_tag 'icon.png'
         h3 Government Asset Sales
