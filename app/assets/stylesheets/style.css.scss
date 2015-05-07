@@ -101,10 +101,6 @@ strong, b {
   margin-right: 1.275rem;
 }
 
-.divborder {
-	border-right: 1px solid #eee;
-}
-
 .maptop {
 	height: 150px!important;
 	padding-top: 60px!important;
@@ -303,12 +299,58 @@ strong, b {
   }
 
 
+$title-font-size: 1.4rem;
+$title-line-height: 1.4;
+$title-lines-to-show: 2;
+
+$source-font-size: 1.1rem;
+$source-line-height: 1.2;
+$source-lines-to-show: 1;
+
+$p-font-size: 0.85rem;
+$p-line-height: 1.5;
+$date-lines-to-show: 1;
+$summary-lines-to-show: 6;
+
 .document-container {
-  height: 280px;
-  overflow: hidden;
-  margin-bottom: 12px;
-  padding-right: 12px;
-}
+  }
+  // line-clamp w/ ellipsis by Martin Wolf: http://codepen.io/martinwolf/pen/qlFdp
+  // excuse the hack--browsers can't truncate multi-line text without some persuation
+  .document-container .doc-title,
+  .document-container .doc-source,
+  .document-container .doc-date,
+  .document-container .doc-summary {
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    //margin: 0 auto !important;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .document-container .doc-title {
+    height: $title-font-size*$title-line-height*$title-lines-to-show;
+    font-size: $title-font-size !important;
+    line-height: $title-line-height !important;
+    -webkit-line-clamp: $title-lines-to-show;
+  }
+  .document-container .doc-source {
+    height: $source-font-size*$source-line-height*$source-lines-to-show;
+    font-size: $source-font-size !important;
+    line-height: $source-line-height !important;
+    -webkit-line-clamp: $source-lines-to-show;
+  }
+  .document-container .doc-date {
+    height: $p-font-size*$p-line-height*$date-lines-to-show;
+    font-size: $p-font-size !important;
+    line-height: $p-line-height !important;
+    -webkit-line-clamp: $date-lines-to-show;
+  }
+  .document-container .doc-summary {
+    height: $p-font-size*$p-line-height*$summary-lines-to-show;
+    font-size: $p-font-size !important;
+    line-height: $p-line-height !important;
+    -webkit-line-clamp: $summary-lines-to-show;
+  }
 
 
 .company{
@@ -402,9 +444,6 @@ strong, b {
   	text-align: center;
   	color: #32acde;
     margin: 1em 0;
-  }
-  .content .inline {
-  	padding-right: 10px;
   }
   .content .meta {
   	color: #c7c7c7;
