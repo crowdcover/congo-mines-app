@@ -13,6 +13,9 @@ html.no-js lang="en"
     = render 'layouts/copyright'
     = render 'layouts/footer'
 
-
-    - if @map_page
-      = javascript_include_tag 'http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js'
+    javascript:
+      $(function() {
+        $(document).foundation();
+        app.initCommon();
+        //console.log('running needed js on all pages');
+      });
