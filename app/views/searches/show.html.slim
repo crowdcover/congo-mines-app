@@ -2,16 +2,14 @@
 / will need to paginate
 /- @search = @search.to_a
 
-div.content
+div.row
+  div.large-12.columns
+    h2.ftr Search Result Documents
 
-  div.row
-    div.large-12.columns
-      h2.ftr Search Result Documents
+div.row
+  = render partial: "shared/documents", locals: {reports: @reports, columns: 4}
+  /- @search.shift(4)
 
-  div.row
-    = render partial: "shared/documents", locals: {reports: @reports, columns: 4}
-    /- @search.shift(4)
-
-  div.row
-    /= render partial: "shared/documents", locals: {reports: @search, columns: 4}
-    /- @search.shift(4)
+div.row
+  /= render partial: "shared/documents", locals: {reports: @search, columns: 4}
+  /- @search.shift(4)
