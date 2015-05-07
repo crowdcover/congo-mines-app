@@ -1,23 +1,14 @@
-div.row
+div.row.pvm
   div.large-12.columns
-    h2.ftr EITI Report 2011
+    h2.quiet.mvm = @report.title
 
-div.row
   div.large-3.columns: h3 Organization
   div.large-9.columns
     h4 = @report.source.name
     p.meta = @report.date_string
     div = @report.summary
-    /     delete for now
-    /      p For more information:
-    /      ul
-    /        a href="#": li Read EITI Annual Work Plan 2014
-    /        a href="#": li Read Sicomines Project Forms
 
-div.divider
-div.row
-  div.large-3.columns: h3 Download
-  div.large-9.columns
+    h4.mtm Download
     ul
       - @report.attachments.each do |a|
         li: a href="#{a.asset.url}" = a.asset_file_name
@@ -26,20 +17,20 @@ div.row
       / a href="#": li Images
 
 div.grey
-  div.row
-    div.large-3.columns: h3 Company
+  div.row.keyline-bottom.ptm
+    div.large-3.columns: h3.dark Company
     div.large-9.columns
       - if @report.drc_companies
-        - @report.drc_companies.each do |company|
-          p: i: a href="#{drc_company_url(company)}" = company.name
+        ul
+          - @report.drc_companies.each do |company|
+            li: a href="#{drc_company_url(company)}" = company.name
 
-  div.divider
   / get categories
   / get themes, art type, src type
   / for each one, unless empty?, show the whole thing
   / for each link list the lowest item
-  div.row
-    div.large-3.columns: h3 Article Theme
+  div.row.keyline-bottom.ptm
+    div.large-3.columns: h3.dark Article Theme
     div.large-9.columns
       ul
         - article_theme = @report.categories.select do |cat|
@@ -50,9 +41,8 @@ div.grey
         - else
           li: i none
 
-  div.divider
-  div.row
-    div.large-3.columns: h3 Article Type
+  div.row.keyline-bottom.ptm
+    div.large-3.columns: h3.dark Article Type
     div.large-9.columns
       ul
         - article_type = @report.categories.select do |cat|
@@ -61,9 +51,8 @@ div.grey
           - article_type.each do |subtype|
             li: a href="#" = subtype.name
 
-  div.divider
-  div.row
-    div.large-3.columns: h3 Source Type
+  div.row.keyline-bottom.ptm
+    div.large-3.columns: h3.dark Source Type
     div.large-9.columns
       ul
         - source_type = @report.categories.select do |cat|
@@ -73,9 +62,8 @@ div.grey
             li: a href="#" = subtype.name
 
 
-  div.divider
-  div.row
-    div.large-3.columns: h3 Provinces
+  div.row.ptm
+    div.large-3.columns: h3.dark Provinces
     div.large-9.columns
       ul
         - provinces = @report.categories.select do |cat|
