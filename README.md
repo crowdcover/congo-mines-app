@@ -9,4 +9,5 @@ Rails app for the CongoMines project
 #  Start solr or search and admin will not work.
 ### rake sunspot:solr:start
 
-
+to stop solr
+### rake sunspot:solr:stop
