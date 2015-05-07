@@ -6,8 +6,7 @@ div.search
       div.large-12.columns.text-center
         h1 CongoMines Document Library
 
-    div.divider
-    div.row
+    div.row.collapse
       div.large-9.columns
         input type="text" name="query" placeholder="Search Documents" /
         /text_field_tag :search, params[:search]
@@ -15,6 +14,9 @@ div.search
         button Search Library
       div.large-12.columns
         a#hideshow value="wee" + Browse
+
+
+
 
     div#advanced
       div.row
