@@ -40,6 +40,9 @@ h5, h6 {
 .quiet {
   color: #aaa !important;
 }
+.dark {
+  color: #222 !important;
+}
 
 a.active { color: #60afde !important; }
 
@@ -519,7 +522,7 @@ strong, b {
   }
   .search input {
   	border: 2px solid #fff;
-  	padding: 30px 25px;
+  	padding: 29px 25px;
   	font-family: 'Open Sans', sans-serif;
   	font-weight: 200;
   	box-shadow: none;
@@ -532,6 +535,9 @@ strong, b {
   }
   .search input:after {
     background-image: image-url('search.png');
+  }
+  .search button {
+    padding: 20px 30px;
   }
 
 #advanced {
