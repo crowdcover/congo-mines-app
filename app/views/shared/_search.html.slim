@@ -6,7 +6,8 @@ div.search.pbl
       div.large-12.columns.text-center
         h1 CongoMines Document Library
 
-    div.row.collapse
+    div.divider
+    div.row
       div.large-9.columns
         input type="text" name="query" placeholder="Search Documents" /
         /text_field_tag :search, params[:search]
@@ -15,10 +16,23 @@ div.search.pbl
       div.large-12.columns
         a#hideshow value="wee" + Browse
 
-
-
+    div.divider
 
     div#advanced
+
+      div.row
+        div.large-12.columns
+          button.button.dropdown[href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false"]
+            | Thème
+            ul#drop1.f-dropdown data-dropdown-content aria-hidden="true"
+
+      div.row
+        div.large-12.columns
+        button.button.dropdown[href="#" data-dropdown="drop2" aria-controls="drop2" aria-expanded="false"]
+          | Type de Document
+          ul#drop2.f-dropdown data-dropdown-content aria-hidden="true"
+
+
       div.row
         div.large-12.columns
           h3 Document Theme

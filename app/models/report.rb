@@ -25,10 +25,14 @@ class Report < ActiveRecord::Base
     # text :categories do
     #   categories.map(&:name)
     # end
+    # how about using pluck? categories.pluck(:id, :name)
+    text :categories do
+      categories.map { |category| [category.name, category.id] }
+    end
 
     # pulling source
     text :source do
-      source.try(:name) 
+      source.try(:name)
     end
   end
 end
