@@ -1,4 +1,4 @@
-div.row.pvm
+div.row.pvl
   div.large-12.columns
     h2.quiet.mvm = @report.title
 
@@ -14,16 +14,14 @@ div.row.pvm
 
     div = @report.summary
 
-div.grey.pvm
+div.grey.pvl
   div.row.keyline-bottom.ptm
     div.large-3.columns: h3.dark Company
     div.large-9.columns
       - if @report.drc_companies
-        ul.inline-list
+        ul.inline-list.divide
           - @report.drc_companies.each do |company|
-            li
-              a href="#{drc_company_url(company)}" = company.name
-              span |
+            li: a href="#{drc_company_url(company)}" = company.name
 
   / get categories
   / get themes, art type, src type
@@ -32,7 +30,7 @@ div.grey.pvm
   div.row.keyline-bottom.ptm
     div.large-3.columns: h3.dark Article Theme
     div.large-9.columns
-      ul
+      ul.inline-list.divide
         - article_theme = @report.categories.select do |cat|
           - cat.ancestors.include?(Category.find(26))
         - if article_theme
@@ -44,7 +42,7 @@ div.grey.pvm
   div.row.keyline-bottom.ptm
     div.large-3.columns: h3.dark Article Type
     div.large-9.columns
-      ul
+      ul.inline-list.divide
         - article_type = @report.categories.select do |cat|
           - cat.parent == Category.find_by_name("Type de document")
         - if article_type
@@ -54,7 +52,7 @@ div.grey.pvm
   div.row.keyline-bottom.ptm
     div.large-3.columns: h3.dark Source Type
     div.large-9.columns
-      ul
+      ul.inline-list.divide
         - source_type = @report.categories.select do |cat|
           - cat.parent == Category.find_by_name("Type de source")
         - if source_type
@@ -62,10 +60,10 @@ div.grey.pvm
             li: a href="#" = subtype.name
 
 
-  div.row.ptm
+  div.row.keyline-bottom.ptm
     div.large-3.columns: h3.dark Provinces
     div.large-9.columns
-      ul
+      ul.inline-list.divide
         - provinces = @report.categories.select do |cat|
           - cat.parent == Category.find_by_name("Provinces")
         - if provinces
