@@ -42,7 +42,9 @@ h5, h6 {
 .center { text-align: center; }
 .text-left { text-align: left; }
 
-a.active { color: #60afde !important; }
+a { color: #32acde; }
+  a:hover { color: #0078a0; }
+  a.active { color: #60afde !important; }
 
 p {
 	font-family: 'Open Sans', sans-serif;

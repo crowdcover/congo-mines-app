@@ -14,14 +14,16 @@ div.row.pvm
 
     div = @report.summary
 
-div.grey
+div.grey.pvm
   div.row.keyline-bottom.ptm
     div.large-3.columns: h3.dark Company
     div.large-9.columns
       - if @report.drc_companies
-        ul
+        ul.inline-list
           - @report.drc_companies.each do |company|
-            li: a href="#{drc_company_url(company)}" = company.name
+            li
+              a href="#{drc_company_url(company)}" = company.name
+              span |
 
   / get categories
   / get themes, art type, src type
