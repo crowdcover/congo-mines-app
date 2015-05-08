@@ -1,0 +1,14 @@
+<div class="document-container">
+  <% (0...columns).each do |col| %>
+    <% break if reports[col].nil? %>
+    <article class="columns small-12 keyline-right mbl <%= 'medium-' + (12 / columns).to_s %>">
+      <h3 class="doc-title">
+        <a href="<%= report_url(reports[col]) %>"><%= reports[col].title %></a>
+      </h3>
+      <h4 class="doc-source"><%= reports[col].source.name %></h4>
+      <p class="doc-date"><%= reports[col].date_string %></p>
+      <p class="doc-summary"><%= truncate(reports[col].summary, length: 300) %></p>
+      <a href="<%= report_url(reports[col]) %>">Read More</a>
+    </article>
+  <% end %>
+</div>
