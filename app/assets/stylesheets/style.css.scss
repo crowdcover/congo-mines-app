@@ -40,6 +40,7 @@ h5, h6 {
 .quiet { color: #aaa !important; }
 .dark { color: #222 !important; }
 .center { text-align: center; }
+.left { text-align: left; }
 
 a.active { color: #60afde !important; }
 
@@ -358,7 +359,7 @@ $summary-lines-to-show: 6;
 }
 
 .company-stats {
-  padding: 20px 0;
+  padding: 0 20px 60px;
 }
 
 
@@ -539,7 +540,6 @@ $summary-lines-to-show: 6;
 }
 
 .search, .grey {
-	padding-bottom: 20px;
 	background: #f1f1f1;
   }
   .search h1, .grey h1 {
@@ -655,109 +655,144 @@ label {
   	font-weight: 200;
   }
 
+.accordion li.accordion-navigation > a {
+  position: relative;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5em;
+  color: #666;
+  border-bottom: 1px solid #666;
+  transition: all 0.2s ease-in-out;
+  padding-top: 2rem;
+  }
+  .accordion li.accordion-navigation > a:hover,
+  .accordion li.accordion-navigation.active > a {
+    color: #32acde;
+    border-color: #32acde;
+  }
+  .accordion li.accordion-navigation > a:hover:after,
+  .accordion li.accordion-navigation.active > a:after {
+    content: '';
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    right: 0;
+    top: 30px;
+    background: transparent image-url('arrow_right.png') no-repeat center center;
+  }
+  .accordion li.accordion-navigation.active > a:after {
+    background-image: image-url('arrow_down.png');
+  }
+  // foundation css overwrites
+  .accordion li.accordion-navigation a,
+  .accordion .accordion-navigation.active > a,
+  .accordion .accordion-navigation > a:hover,
+  .accordion .accordion-navigation > .content.active {
+    background-color: transparent;
+  }
 
-.accordion {
-	width: 100%;
-	margin: 10px auto 30px auto;
-	text-align: left;
-  }
-  .accordion h4 {
-  	font-family: 'Open Sans', sans-serif;
-  	font-weight: 400;
-  	font-size: 1.1em;
-  	color: #c0c0c0;
-  	padding: 5px 0;
-  }
+// .accordion {
+// 	width: 100%;
+// 	margin: 10px auto 30px auto;
+// 	text-align: left;
+//   }
+//   .accordion h4 {
+//   	font-family: 'Open Sans', sans-serif;
+//   	font-weight: 400;
+//   	font-size: 1.1em;
+//   	color: #c0c0c0;
+//   	padding: 5px 0;
+//   }
+//   .value {
+//   	color: #32acde!important;
+//   	font-weight: 200!important;
+//   }
+//   .accordion label{
+//   	font-family: 'Open Sans', sans-serif;
+//   	font-weight: 200;
+//   	padding: 5px 0px;
+//   	position: relative;
+//   	z-index: 20;
+//   	display: block;
+//   	width: 100%;
+//   	cursor: pointer;
+//   	color: #656565;
+//   	line-height: 2.5em;
+//   	font-size: 1.5em;
+//   	border-bottom: 1px solid #656565;
+//   }
+//   .accordion label:hover{
+//   	color: #32acde;
+//   	border-color: #32acde;
+//   	transition: all 0.2s ease-in-out;
+//   }
+//   .accordion input:checked + label,
+//   .accordion input:checked + label:hover{
+//   	color: #32acde;
+//   	border-color: #32acde;
+//   	transition: color 0.2s ease-in-out;
+//   	background-image: image-url('arrow_down.png');
+//   	background-repeat: no-repeat;
+//   	background-position: center right;
+//   }
+//   .accordion label:hover:after,
+//   .accordion input:checked + label:hover:after{
+//   	content: '';
+//   	position: absolute;
+//   	width: 35px;
+//   	height: 35px;
+//   	right: 0px;
+//   	top: 22px;
+//   /*	background-edits
+//   	background: transparent url('../img/arrow_right.png') no-repeat center center; */
+//   	background-image: image-url('arrow_right.png');
+//   	background-repeat: no-repeat;
+//   	background-position: center center;
+//   }
+//   .accordion input:checked + label:hover:after{
+//   /* background-image: url('../img/arrow_down.png'); */
+//   background-image: image-url('arrow_down.png');
+//   }
+//   .accordion input{
+//   	display: none;
+//   }
+//   .accordion article{
+//   	margin-top: 15px;
+//   	overflow: hidden;
+//   	height: 0px;
+//   	position: relative;
+//   	z-index: 10;
+//   	-webkit-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+//   	-moz-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+//   	-o-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+//   	-ms-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+//   	transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+//   }
+//   .accordion article p{
+//   	font-family: 'Open Sans', sans-serif;
+//   	font-weight: 200;
+//   	color: #777;
+//   	line-height: 23px;
+//   	font-size: 1em;
+//   	padding: 20px;
+//   }
+//   .accordion input:checked ~ article{
+//   	-webkit-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+//   	-moz-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+//   	-o-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+//   	-ms-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+//   	transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+//   }
+// .accordion input:checked ~ article.ac-small{
+//   height: 140px;
+// }
+// .accordion input:checked ~ article.ac-medium{
+//   height: 180px;
+// }
+// .accordion input:checked ~ article.ac-large{
+//   height: 230px;
+// }
 
-  .value {
-  	color: #32acde!important;
-  	font-weight: 200!important;
-  }
-  .accordion label{
-  	font-family: 'Open Sans', sans-serif;
-  	font-weight: 200;
-  	padding: 5px 0px;
-  	position: relative;
-  	z-index: 20;
-  	display: block;
-  	width: 100%;
-  	cursor: pointer;
-  	color: #656565;
-  	line-height: 2.5em;
-  	font-size: 1.5em;
-  	border-bottom: 1px solid #656565;
-  }
-  .accordion label:hover{
-  	color: #32acde;
-  	border-color: #32acde;
-  	transition: all 0.2s ease-in-out;
-  }
-  .accordion input:checked + label,
-  .accordion input:checked + label:hover{
-  	color: #32acde;
-  	border-color: #32acde;
-  	transition: color 0.2s ease-in-out;
-  	background-image: image-url('arrow_down.png');
-  	background-repeat: no-repeat;
-  	background-position: center right;
-  }
-  .accordion label:hover:after,
-  .accordion input:checked + label:hover:after{
-  	content: '';
-  	position: absolute;
-  	width: 35px;
-  	height: 35px;
-  	right: 0px;
-  	top: 22px;
-  /*	background-edits
-  	background: transparent url('../img/arrow_right.png') no-repeat center center; */
-  	background-image: image-url('arrow_right.png');
-  	background-repeat: no-repeat;
-  	background-position: center center;
-  }
-  .accordion input:checked + label:hover:after{
-  /* background-image: url('../img/arrow_down.png'); */
-  background-image: image-url('arrow_down.png');
-  }
-  .accordion input{
-  	display: none;
-  }
-  .accordion article{
-  	margin-top: 15px;
-  	overflow: hidden;
-  	height: 0px;
-  	position: relative;
-  	z-index: 10;
-  	-webkit-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-  	-moz-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-  	-o-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-  	-ms-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-  	transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
-  }
-  .accordion article p{
-  	font-family: 'Open Sans', sans-serif;
-  	font-weight: 200;
-  	color: #777;
-  	line-height: 23px;
-  	font-size: 1em;
-  	padding: 20px;
-  }
-  .accordion input:checked ~ article{
-  	-webkit-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-  	-moz-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-  	-o-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-  	-ms-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-  	transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
-  }
-.accordion input:checked ~ article.ac-small{
-  height: 140px;
-}
-.accordion input:checked ~ article.ac-medium{
-  height: 180px;
-}
-.accordion input:checked ~ article.ac-large{
-  height: 230px;
-}
+.accordion 
 
 .sidebar_menu {
   background: rgba(51, 48, 48, 0.85);

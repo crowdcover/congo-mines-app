@@ -1,6 +1,8 @@
 div.row
   div.large-12.columns
-    p = @drc_company.name
+    h1.left
+      span = @drc_company.name 
+      span.quiet = @drc_company.acronym
 
 div#map
 
@@ -27,11 +29,10 @@ div.grey.company-stats
   div.row
     div.large-12.columns
 
-      section.accordion
-        div
-          input#ac-1 name="accordion-1" type="checkbox"
-          label for="ac-1" General Information
-          article.ac-large
+      ul.accordion[data-accordion data-options="multi_expand:true"]
+        li.accordion-navigation
+          a[href="#accordion-general"] General Information
+          div#accordion-general.content.clearfix[onclick="event.cancelBubble = true;"]
             div.large-3.columns
               h4 NRC
               h4 RCCM
@@ -52,7 +53,6 @@ div.grey.company-stats
               h4.value = @drc_company.project_phase
               h4.value = @drc_company.contact
               h4.value = @drc_company.website
-
             div
               div.large-12.columns
                 h4 Employees
@@ -71,10 +71,9 @@ div.grey.company-stats
                 h4 = @drc_company.employees.subcontractor_expat
                 h4 = @drc_company.employees.subcontractor_congolese
 
-        div
-          input#ac-2 name="accordion-1" type="checkbox"
-          label for="ac-2" Production & Export
-          article.ac-medium
+        li.accordion-navigation
+          a[href="#accordion-production"] Production & Export
+          div#accordion-production.content.clearfix[onclick="event.cancelBubble = true;"]
             div.large-6.columns
               h4 Year
               h4 Type of Product
@@ -92,10 +91,9 @@ div.grey.company-stats
                   h4 = pe.metal_content
                   h4 = pe.export_value
 
-        div
-          input#ac-3 name="accordion-1" type="checkbox"
-          label for="ac-3" Tax Obligations
-          article class="ac-large"
+        li.accordion-navigation
+          a[href="#accordion-tax"] Tax Obligations
+          div#accordion-tax.content.clearfix[onclick="event.cancelBubble = true;"]
             div.row
               div.large-12.columns
                 h4 Flows Payable Under Contracts
@@ -140,10 +138,9 @@ div.grey.company-stats
                     h4 = tax_ob.royalties
                     h4 = tax_ob.other
 
-        div
-          input#ac-4 name="accordion-1" type="checkbox"
-          label for="ac-4" Environment & Social Obligations
-          article.ac-large
+        li.accordion-navigation
+          a[href="#accordion-enviro"] Environmental & Social Obligations
+          div#accordion-enviro.content.clearfix[onclick="event.cancelBubble = true;"]
             div.row
               div.large-12.columns
                 h4 Environmental and Social Obligations
@@ -165,7 +162,12 @@ div.grey.company-stats
                     h4 = env_soc.community_dialogue_platform
                     h4 = env_soc.social_investment
 
+
 javascript:
   $(function() {
     app.initMap();
+
+    $(".accordion").on("click", "li", function (event) {
+       $(this).find(".content").slideToggle(300);
+     });
   });
