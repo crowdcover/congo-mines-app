@@ -40,7 +40,7 @@ h5, h6 {
 .quiet { color: #aaa !important; }
 .dark { color: #222 !important; }
 .center { text-align: center; }
-.left { text-align: left; }
+.text-left { text-align: left; }
 
 a.active { color: #60afde !important; }
 
@@ -297,6 +297,20 @@ strong, b {
   .menu.fixed[data-magellan-expedition] .cm-logo img {
     height: 60px;
     margin-top: -18px;
+  }
+
+
+div.about p,
+div.about ul {
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+  }
+  div.about ul {
+    margin-left: 1.1rem;
+    list-style-type: disc;
+  }
+  div.about li {
+    font-size: 0.9rem;
   }
 
 
