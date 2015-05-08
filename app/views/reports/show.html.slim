@@ -6,15 +6,13 @@ div.row.pvm
   div.large-9.columns
     h4 = @report.source.name
     p.meta = @report.date_string
-    div = @report.summary
 
     h4.mtm Download
-    ul
+    ul.mbl
       - @report.attachments.each do |a|
-        li: a href="#{a.asset.url}" = a.asset_file_name
+        li.docicon: a href="#{a.asset.url}" = a.asset_file_name
 
-      / a href="#": li Supplementary materials
-      / a href="#": li Images
+    div = @report.summary
 
 div.grey
   div.row.keyline-bottom.ptm
