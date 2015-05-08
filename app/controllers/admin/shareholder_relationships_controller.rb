@@ -2,5 +2,10 @@ class Admin::ShareholderRelationshipsController  < Admin::Auth # ApplicationCont
   active_scaffold :"shareholder_relationship" do |config|
     
     config.columns.exclude(:drc_companies, :created_at, :updated_at)
+    config.columns = [:percentage, :year, :drc_company]
+    
+    # Shareholder, Percentage, Year, 
+    #Direct Shareholder (rename as Direct Shareholding Company
+    #config.columns[:
   end
 end

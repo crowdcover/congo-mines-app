@@ -13,6 +13,8 @@ pickle-email-*.html
 *~
 *.DS_Store
 
+solr/*
+
 config/database.yml
 
 .ruby-version
