@@ -1,10 +1,25 @@
 class Admin::DrcCompaniesController  < Admin::Auth # ApplicationController
+  
+  
   active_scaffold :"drc_company" do |config|
     
     config.label = 'Congolese/ DRC Companies'
+    config.list.per_page = 25 
+    config.list.sorting = { :name => :asc }   
+
+    config.columns = [:name, :acronym,  :nrc, :rccm,:contact, :website,
+      :legal_status, :project_type, :project_phase, :legal_regime]
+    
+    
+    config.update.columns = [:name, :acronym,  :nrc, :rccm,:contact, :website,
+      :legal_status, :project_type, :project_phase, :legal_regime,
+      :tax_obligations, :production_exports, :shareholder_relationships, :employees, 
+      :env_and_social_obligations, :deposits, :processing_infrastructures, :social_projects]
+    
     
     config.nested.add_link(:reports, label: 'Documents')
-    config.columns.exclude( :created_at, :updated_at, :shareholders, :report_relations, :reports)
+    
+    #config.columns.exclude( :created_at, :updated_at, :shareholders, :report_relations, :reports)
    
     config.columns[:legal_status].form_ui = :select
     config.columns[:legal_status].options = {
