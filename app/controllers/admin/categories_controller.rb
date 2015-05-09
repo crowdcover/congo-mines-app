@@ -1,6 +1,7 @@
 class Admin::CategoriesController < Admin::Auth #< ApplicationController
+
   active_scaffold :"category" do |config|
-    config.columns = [:name, :reports]  
+    config.columns = [:name]  
     config.nested.add_scoped_link(:children)  #nested link to children
   end
  
