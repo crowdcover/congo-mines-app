@@ -7,7 +7,7 @@ class Admin::ReportsController  < Admin::Auth # ApplicationController
     config.update.multipart = 'local' 
     
     config.list.sorting = { :actual_post_date => :desc }   
-    config.columns = [:title, :recommended, :summary, :source, :actual_post_date]
+    config.columns = [:title, :recommended, :summary, :source, :actual_post_date, :categories]
  
     config.columns[:actual_post_date].label = 'Publication Date' 
     config.columns[:actual_post_date].form_ui = :date_picker
@@ -16,7 +16,10 @@ class Admin::ReportsController  < Admin::Auth # ApplicationController
     #config.columns[:author].form_ui = :select
     #config.columns[:source].form_ui = :select
     
+    config.columns[:source].form_ui = :chosen
     config.columns[:categories].form_ui = :chosen
+    
+    config.columns[:summary].form_ui = :text_editor
     
   end
 end

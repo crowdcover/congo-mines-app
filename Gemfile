@@ -7,6 +7,7 @@ gem 'acts_as_list'
 gem 'acts_as_tree'
 gem 'active_scaffold_sortable'
 gem 'chosen-rails'
+gem 'tinymce-rails'
 
 gem 'pg' #, group: :production
 gem "paperclip", "~> 4.2"

@@ -3,6 +3,8 @@
 //= require jquery_ujs
 //= require chosen-jquery 
 //= require scaffold
+// require tinymce
+//= require tinymce-jquery
 
 //= require jquery-ui
 // require jquery-ui/sortable
