@@ -40,9 +40,11 @@ h5, h6 {
 .quiet { color: #aaa !important; }
 .dark { color: #222 !important; }
 .center { text-align: center; }
-.left { text-align: left; }
+.text-left { text-align: left; }
 
-a.active { color: #60afde !important; }
+a { color: #32acde; }
+  a:hover { color: #0078a0; }
+  a.active { color: #60afde !important; }
 
 p {
 	font-family: 'Open Sans', sans-serif;
@@ -92,14 +94,47 @@ strong, b {
 .keyline-top { border-top: 1px solid #ccc; }
 .keyline-bottom { border-bottom: 1px solid #ccc; }
 
+ul.bulleted {
+  margin-bottom: 1.25rem;
+  margin-left: 1.1rem !important;
+  list-style-type: disc !important;
+  }
 
-.divider {
-	padding: 10px 0;
-}
+li.docicon {
+  position: relative;
+  margin-left: 24px;
+  }
+  li.docicon:before {
+    content: '';
+    background: image-url('document_gray.png') no-repeat center center;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 4px;
+    left: -24px;
+  }
 
 .inline-list > li {
   margin-left: 0;
-  margin-right: 1.275rem;
+  margin-right: 2rem;
+  }
+  .inline-list.divide > li {
+    position: relative;
+  }
+  .inline-list.divide > li:after {
+    content: '|';
+    color: #AAA;
+    position: absolute;
+    right: -20px;
+    top: 0;
+  }
+  .inline-list.divide > li:last-child:after {
+    content: '';
+  }
+
+
+.divider {
+	padding: 10px 0;
 }
 
 .maptop {

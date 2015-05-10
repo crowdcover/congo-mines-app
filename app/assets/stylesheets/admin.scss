@@ -16,7 +16,15 @@
  *= require jquery-ui/sortable
  *= require jquery-ui/datepicker
  *= require chosen
+ 
  *  require_tree .
  *= require_self
 
 */
+
+.active-scaffold input.text-input-big{
+  font: bold 13px arial;
+  letter-spacing: -1px;
+  border: solid 4px #a08a31;
+  width: 500px;
+} 

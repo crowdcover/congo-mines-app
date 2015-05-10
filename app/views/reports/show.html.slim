@@ -1,4 +1,4 @@
-div.row.pvm
+div.row.pvl
   div.large-12.columns
     h2.quiet.mvm = @report.title
 
@@ -6,22 +6,20 @@ div.row.pvm
   div.large-9.columns
     h4 = @report.source.name
     p.meta = @report.date_string
-    div = @report.summary
 
     h4.mtm Download
-    ul
+    ul.mbl
       - @report.attachments.each do |a|
-        li: a href="#{a.asset.url}" = a.asset_file_name
+        li.docicon: a href="#{a.asset.url}" = a.asset_file_name
 
-      / a href="#": li Supplementary materials
-      / a href="#": li Images
+    div = @report.summary
 
-div.grey
+div.grey.pvl
   div.row.keyline-bottom.ptm
     div.large-3.columns: h3.dark Company
     div.large-9.columns
       - if @report.drc_companies
-        ul
+        ul.inline-list.divide
           - @report.drc_companies.each do |company|
             li: a href="#{drc_company_url(company)}" = company.name
 
@@ -32,7 +30,7 @@ div.grey
   div.row.keyline-bottom.ptm
     div.large-3.columns: h3.dark Article Theme
     div.large-9.columns
-      ul
+      ul.inline-list.divide
         - article_theme = @report.categories.select do |cat|
           - cat.ancestors.include?(Category.find(26))
         - if article_theme
@@ -44,7 +42,7 @@ div.grey
   div.row.keyline-bottom.ptm
     div.large-3.columns: h3.dark Article Type
     div.large-9.columns
-      ul
+      ul.inline-list.divide
         - article_type = @report.categories.select do |cat|
           - cat.parent == Category.find_by_name("Type de document")
         - if article_type
@@ -54,7 +52,7 @@ div.grey
   div.row.keyline-bottom.ptm
     div.large-3.columns: h3.dark Source Type
     div.large-9.columns
-      ul
+      ul.inline-list.divide
         - source_type = @report.categories.select do |cat|
           - cat.parent == Category.find_by_name("Type de source")
         - if source_type
@@ -62,10 +60,10 @@ div.grey
             li: a href="#" = subtype.name
 
 
-  div.row.ptm
+  div.row.keyline-bottom.ptm
     div.large-3.columns: h3.dark Provinces
     div.large-9.columns
-      ul
+      ul.inline-list.divide
         - provinces = @report.categories.select do |cat|
           - cat.parent == Category.find_by_name("Provinces")
         - if provinces
