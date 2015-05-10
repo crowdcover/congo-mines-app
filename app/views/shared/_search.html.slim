@@ -57,11 +57,22 @@ div.search.pbl
 
       div.row
         div.large-6.columns
-          h3 DRC Company
-          input placeholder="" type="text" /
+          /label for="drc_company" DRC Company
+          select#drc_company name="search[:drc_company]"
+            option value="#{nil}" DRC Company
+            - drc_companies = DrcCompany.all
+            - drc_companies.each do |c|
+              option value="#{c.id}" = c.name
+
         div.large-6.columns
-          h3 Shareholder Company
-          input.searchicon placeholder="" type="text" /
+          /label for="shareholder_company" Shareholder Company
+          select#shareholder_company name="search[:shareholder_company]"
+            option value="#{nil}" Shareholder Company
+
+        javascript:
+          $(function() {
+            $("#drc_company").select2();
+          });
 
       div.row
         div.large-12.columns
