@@ -1,5 +1,4 @@
 class DrcCompaniesController < ApplicationController
-  before_filter :get_map_page, only: :show
 
   def show
     @drc_company = DrcCompany.includes(:tax_obligations, :employees,
@@ -23,10 +22,6 @@ class DrcCompaniesController < ApplicationController
   end
 
   private
-  def get_map_page
-    @map_page = true
-  end
-
   def drc_company_params
   end
 
