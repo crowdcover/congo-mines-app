@@ -2,17 +2,22 @@
 
 json.type "FeatureCollection"
 
-json.features @drc_companies do |company|
+json.features @drc_company.deposits do |deposit|
   json.type "Feature"
-  json.properties company.deposits do |deposit|
+  json.properties do
     json.name deposit.name
-    json.company deposit.company
-    json.type deposit.type
+    json.drc_company_id deposit.drc_company_id
+    json.mine_type deposit.mine_type
     json.permit_type deposit.permit_type
-    json.permit_name deposit.permit_name
+
+    json.proven_reserves deposit.proven_reserves
+
+    json.measured_resources deposit.measured_resources
   end
-  json.geometry company.deposits do |deposit|
+
+  json.geometry do
     json.type "Point"
-    json.coordinates deposit.lon deposit.lat
+    # json.coordinates json.array! deposit.lat, deposit.lng
+    # json.coordinates deposit.lat, deposit.lng
   end
 end
