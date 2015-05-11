@@ -1,18 +1,16 @@
 class DrcCompaniesController < ApplicationController
-  before_filter :get_map_page, only: :show
 
   def show
     @drc_company = DrcCompany.includes(:tax_obligations, :employees,
       :env_and_social_obligations, :flows_payable_under_contracts,
       :production_exports).find(params[:id])
-    # render json: @congolese_company
-    # map_page = true
     render :show
   end
 
   def index
+    # make one ivar for all companies for select dropdown
+    # make one ivar for paginated list
     @drc_companies = DrcCompany.all.page params[:page]
-    # render json: @drc_companies
     render :index
   end
 
@@ -23,10 +21,6 @@ class DrcCompaniesController < ApplicationController
   end
 
   private
-  def get_map_page
-    @map_page = true
-  end
-
   def drc_company_params
   end
 

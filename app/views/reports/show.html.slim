@@ -32,7 +32,7 @@ div.grey.pvl
     div.large-9.columns
       ul.inline-list.divide
         - article_theme = @report.categories.select do |cat|
-          - cat.ancestors.include?(Category.find(26))
+          - cat.ancestors.include?(Category.find(26)) # find_by_name("Thème")
         - if article_theme
           - article_theme.each do |subtheme|
             li: a href="#" = subtheme.name
@@ -44,7 +44,7 @@ div.grey.pvl
     div.large-9.columns
       ul.inline-list.divide
         - article_type = @report.categories.select do |cat|
-          - cat.parent == Category.find_by_name("Type de document")
+          - cat.parent == Category.find(1) # find_by_name("Type de document")
         - if article_type
           - article_type.each do |subtype|
             li: a href="#" = subtype.name

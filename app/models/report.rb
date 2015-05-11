@@ -26,8 +26,8 @@ class Report < ActiveRecord::Base
     #   categories.map(&:name)
     # end
     # how about using pluck? categories.pluck(:id, :name)
-    text :categories do
-      categories.map { |category| [category.name, category.id] }
+    integer :category_ids, multiple: true, references: Category do
+      categories.map { |category| category.id }
     end
 
     # pulling source

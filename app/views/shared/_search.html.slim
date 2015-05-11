@@ -9,7 +9,7 @@ div.search.pbl
     div.divider
     div.row
       div.large-9.columns
-        input type="text" name="query" placeholder="Search Documents" /
+        input type="text" name="search[:query]" placeholder="Search Documents" /
         /text_field_tag :search, params[:search]
       div.large-3.columns
         button Search Library
@@ -21,52 +21,59 @@ div.search.pbl
     div#advanced
 
       div.row
-        div.large-12.columns
-          button.button.dropdown[href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false"]
-            | Thème
-            ul#drop1.f-dropdown data-dropdown-content aria-hidden="true"
+        div.large-3.columns
+          label for="theme" Thème
+          select#theme name="search[:theme]"
+            option value="#{nil}"
+            - root = Category.find(26)
+            - root.children.each do |subtheme|
+              - subtheme.children.each do |theme|
+                option value="#{theme.id}" = theme.name
 
-      div.row
-        div.large-12.columns
-        button.button.dropdown[href="#" data-dropdown="drop2" aria-controls="drop2" aria-expanded="false"]
-          | Type de Document
-          ul#drop2.f-dropdown data-dropdown-content aria-hidden="true"
+        div.large-3.columns
+          label for="type_document" Type de Document
+          select#type_document name="search[:type_document]"
+            option value="#{nil}"
+            - type_doc = Category.find(1)
+            - type_doc.children.each do |type|
+              option value="#{type.id}" = type.name
 
+        div.large-3.columns
+          label for="type_source" Type de Source
+          select#type_source name="search[:type_source]"
+            option value="#{nil}"
+            - type_src = Category.find(14)
+            - type_src.children.each do |type|
+              option value="#{type.id}" = type.name
 
-      div.row
-        div.large-12.columns
-          h3 Document Theme
-          form action=""
-            label: input type="checkbox" name="themes" value="resources" Resources
-            label: input type="checkbox" name="themes" value="environment" Environment
-            label: input type="checkbox" name="themes" value="budget" Budget
-            label: input type="checkbox" name="themes" value="miningops" Mining Operations
+        div.large-3.columns
+          label for="province" Province
+          select#province name="search[:province]"
+            option value="#{nil}"
+            - province = Category.find(54)
+            - province.children.each do |p|
+              option value="#{p.id}" = p.name
 
-      div.row
-        div.large-12.columns
-          h3 Document Type
-          form action=""
-            label: input type="checkbox" name="types" value="press" Press Release
-            label: input type="checkbox" name="types" value="projectdocs" Project Docs
-            label: input type="checkbox" name="types" value="reports" Reports
-            label: input type="checkbox" name="types" value="lawstandards" Law/Standards
-            label: input type="checkbox" name="types" value="presentation" Presentation
-      div.row
-        div.large-12.columns
-          h3 Source Type
-          form action=""
-            label: input type="checkbox" name="source" value="companies" Companies
-            label: input type="checkbox" name="source" value="committees" Committees
-            label: input type="checkbox" name="source" value="civilsociety" Civil Society
-            label: input type="checkbox" name="source" value="government" Government
 
       div.row
         div.large-6.columns
-          h3 DRC Company
-          input placeholder="" type="text" /
+          label for="drc_company" DRC Company
+          br
+          select#drc_company name="search[:drc_company]"
+            option value="#{nil}"
+            - drc_companies = DrcCompany.all
+            - drc_companies.each do |c|
+              option value="#{c.id}" = c.name
+
         div.large-6.columns
-          h3 Shareholder Company
-          input.searchicon placeholder="" type="text" /
+          /label for="shareholder_company" Shareholder Company
+          select#shareholder_company name="search[:shareholder_company]"
+            option value="#{nil}" Shareholder Company
+
+        javascript:
+          $(function() {
+            $("#drc_company").select2();
+          });
 
       div.row
         div.large-12.columns

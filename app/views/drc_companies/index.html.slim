@@ -2,6 +2,22 @@ div.row
   div.large-12.columns
     h1.quiet All Companies
 
+/select dropdown for company navigation
+/need a button also
+/div.row
+  div.large-6.columns
+    label for="drc_company" DRC Company
+    br
+    select#drc_company name="search[:drc_company]"
+      option value="#{nil}"
+      - drc_companies = DrcCompany.all
+      - drc_companies.each do |c|
+        option value="#{c.id}" = c.name
+  /javascript:
+    $(function() {
+      $("#drc_company").select2();
+    });
+
 - @drc_companies.each do |company|
   div.row.company
     h4
