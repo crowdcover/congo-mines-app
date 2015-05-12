@@ -22,34 +22,34 @@ div.search.pbl
 
       div.row
         div.large-3.columns
-          /label for="theme" Thème
+          label for="theme" Thème
           select#theme name="search[:theme]"
-            option value="#{nil}" Thème
+            option value="#{nil}"
             - root = Category.find(26)
             - root.children.each do |subtheme|
               - subtheme.children.each do |theme|
                 option value="#{theme.id}" = theme.name
 
         div.large-3.columns
-          /label for="type_document" Type de Document
+          label for="type_document" Type de Document
           select#type_document name="search[:type_document]"
-            option value="#{nil}" Type de Document
+            option value="#{nil}"
             - type_doc = Category.find(1)
             - type_doc.children.each do |type|
               option value="#{type.id}" = type.name
 
         div.large-3.columns
-          /label for="type_source" Type de Source
+          label for="type_source" Type de Source
           select#type_source name="search[:type_source]"
-            option value="#{nil}" Type de Source
+            option value="#{nil}"
             - type_src = Category.find(14)
             - type_src.children.each do |type|
               option value="#{type.id}" = type.name
 
         div.large-3.columns
-          /label for="province" Province
+          label for="province" Province
           select#province name="search[:province]"
-            option value="#{nil}" Province
+            option value="#{nil}"
             - province = Category.find(54)
             - province.children.each do |p|
               option value="#{p.id}" = p.name
@@ -57,9 +57,10 @@ div.search.pbl
 
       div.row
         div.large-6.columns
-          /label for="drc_company" DRC Company
-          select#drc_company name="search[:drc_company]"
-            option value="#{nil}" DRC Company
+          label for="drc_company" DRC Company
+          br
+          select#drc_company style="width: 90%" name="search[:drc_company]"
+            option value="#{nil}"
             - drc_companies = DrcCompany.all
             - drc_companies.each do |c|
               option value="#{c.id}" = c.name
@@ -71,7 +72,9 @@ div.search.pbl
 
         javascript:
           $(function() {
-            $("#drc_company").select2();
+            $("#drc_company").select2({
+              allowClear = true;
+            });
           });
 
       div.row
