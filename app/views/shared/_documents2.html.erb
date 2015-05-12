@@ -1,6 +1,6 @@
 <div class="document-container">
   <% (0...columns).each do |col| %>
-    <% break if reports[col].nil? %>
+    <% break if reports.nil? || reports[col].nil? %>
     <article class="columns small-12 keyline-right mbl <%= 'medium-' + (12 / columns).to_s %>">
       <h3 class="doc-title">
         <a href="<%= report_url(reports[col]) %>"><%= reports[col].title %></a>

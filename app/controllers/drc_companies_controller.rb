@@ -4,6 +4,7 @@ class DrcCompaniesController < ApplicationController
     @drc_company = DrcCompany.includes(:tax_obligations, :employees,
       :env_and_social_obligations, :flows_payable_under_contracts,
       :production_exports).find(params[:id])
+    @drc_company_reports = @drc_company.reports.page(params[:page]).per(12)
     render :show
   end
 

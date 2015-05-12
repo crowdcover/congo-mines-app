@@ -42,6 +42,9 @@ Rails.application.routes.draw do
     end
   end
   resources :reports, only: [:show, :index]
+  resources :categories, only: :show do
+    # resources :reports, only: :show
+  end
 
   resource :search
   resource :map
