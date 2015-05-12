@@ -1,7 +1,7 @@
 div.row
   div.large-12.columns
     h1.left
-      span = @drc_company.name 
+      span = @drc_company.name
       span.quiet = @drc_company.acronym
 
 div#map
@@ -162,6 +162,18 @@ div.grey.company-stats
                     h4 = env_soc.community_dialogue_platform
                     h4 = env_soc.social_investment
 
+div.divider
+div.row
+  div.large-12.columns
+    h1.quiet Documents
+
+div.row
+  - 3.times do |t|
+    - reports_line = @drc_company_reports[(4 * t)..((4 * (t + 1) - 1))]
+    = render partial: "shared/documents2", locals: {reports: reports_line, columns: 4}
+
+div.row
+  = paginate @drc_company_reports
 
 javascript:
   $(function() {
