@@ -2,7 +2,7 @@ class SearchesController < ApplicationController
 
   def show
     @search = search(params[:search])
-    @reports = @search.results
+    @reports = @search.results #.page(params[:page])
     # fail
     render :show2
   end
@@ -15,9 +15,10 @@ class SearchesController < ApplicationController
     categories.delete(0) # removing blank categories (to_i turns them to 0)
     Sunspot.search(Report) do
       with(:category_ids).all_of(categories)
+      with(:drc_company_ids, options[":drc_company_id"].to_i)  # all_of? any? any_of?
       keywords options[":query"]
       order_by :actual_post_date, :desc
-      paginate(per_page: 12)
+      paginate(page: params[:page], per_page: 12)
     end
   end
 end
