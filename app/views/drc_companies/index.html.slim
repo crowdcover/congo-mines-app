@@ -1,30 +1,35 @@
-div.row
-  div.large-12.columns
-    h1.quiet All Companies
-
 /select dropdown for company navigation
 /need a button also
-/div.row
-  div.large-6.columns
-    label for="drc_company" DRC Company
-    br
-    select#drc_company name="search[:drc_company]"
-      option value="#{nil}"
-      - drc_companies = DrcCompany.all
-      - drc_companies.each do |c|
-        option value="#{c.id}" = c.name
-  /javascript:
-    $(function() {
-      $("#drc_company").select2();
-    });
-
-- @drc_companies.each do |company|
-  div.row.company
-    h4
-      a href="#{drc_company_url(company)}" = company.name
-      span.quiet = company.acronym
-
 
 div.row
-  div.large-12.columns
-    = paginate @drc_companies
+  form action="../"
+    div.large-6.columns
+      label for="drc_company_nav" DRC Company
+      br
+      select#drc_company_nav style="width: 100%" name="search[:drc_company]"
+        option value="#{nil}"
+        - @all_drc_companies.each do |c|
+          option value="#{drc_company_url(c)}" = c.name
+
+      input type="button" name="Submit" onClick="window.open(drc_company_nav.value, '_self')" value="Go to Company"
+        / take out '_self' argument to open company page in new tab
+      javascript:
+        $(function() {
+          $("#drc_company_nav").select2();
+        });
+
+div.content
+  div.row
+    div.large-12.columns
+      h1.quiet All Companies
+
+  - @drc_companies.each do |company|
+    div.row.company
+      h4
+        a href="#{drc_company_url(company)}" = company.name
+        span.quiet = company.acronym
+
+
+  div.row
+    div.large-12.columns
+      = paginate @drc_companies

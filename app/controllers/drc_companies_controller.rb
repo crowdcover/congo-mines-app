@@ -10,6 +10,7 @@ class DrcCompaniesController < ApplicationController
   def index
     # make one ivar for all companies for select dropdown
     # make one ivar for paginated list
+    @all_drc_companies = DrcCompany.all
     @drc_companies = DrcCompany.all.page params[:page]
     render :index
   end

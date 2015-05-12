@@ -59,7 +59,7 @@ div.search.pbl
         div.large-6.columns
           label for="drc_company" DRC Company
           br
-          select#drc_company name="search[:drc_company]"
+          select#drc_company style="width: 90%" name="search[:drc_company]"
             option value="#{nil}"
             - drc_companies = DrcCompany.all
             - drc_companies.each do |c|
@@ -72,7 +72,9 @@ div.search.pbl
 
         javascript:
           $(function() {
-            $("#drc_company").select2();
+            $("#drc_company").select2({
+              allowClear = true;
+            });
           });
 
       div.row
