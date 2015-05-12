@@ -35,7 +35,7 @@ div.grey.pvl
           - cat.ancestors.include?(Category.find(26)) # find_by_name("Thème")
         - if article_theme
           - article_theme.each do |subtheme|
-            li: a href="#" = subtheme.name
+            li: a href="#{category_url(subtheme)}" = subtheme.name
         - else
           li: i none
 
@@ -47,7 +47,7 @@ div.grey.pvl
           - cat.parent == Category.find(1) # find_by_name("Type de document")
         - if article_type
           - article_type.each do |subtype|
-            li: a href="#" = subtype.name
+            li: a href="#{category_url(subtype)}" = subtype.name
 
   div.row.keyline-bottom.ptm
     div.large-3.columns: h3.dark Source Type
@@ -57,7 +57,7 @@ div.grey.pvl
           - cat.parent == Category.find_by_name("Type de source")
         - if source_type
           - source_type.each do |subtype|
-            li: a href="#" = subtype.name
+            li: a href="#{category_url(subtype)}" = subtype.name
 
 
   div.row.keyline-bottom.ptm
@@ -68,7 +68,7 @@ div.grey.pvl
           - cat.parent == Category.find_by_name("Provinces")
         - if provinces
           - provinces.each do |province|
-            li: a href="#" = province.name
+            li: a href="#{category_url(province)}" = province.name
         - else
           li: i none
 

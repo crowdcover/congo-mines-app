@@ -1,0 +1,16 @@
+div.row
+  div.large-12.columns
+    h1.quiet = @category.name
+
+div.divider
+div.row
+  div.large-12.columns
+    h2.quiet Category Documents
+
+div.row
+  - 3.times do |t|
+    - reports_line = @category_reports[(4 * t)..((4 * (t + 1) - 1))]
+    = render partial: "shared/documents2", locals: {reports: reports_line, columns: 4}
+
+div.row
+  = paginate @category_reports
