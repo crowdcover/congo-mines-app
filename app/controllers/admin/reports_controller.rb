@@ -2,7 +2,7 @@ class Admin::ReportsController  < Admin::Auth # ApplicationController
   active_scaffold :"report" do |config|
 
     config.columns = [:title,  :summary, :recommended, :source, :categories, 
-      :actual_post_date, :drc_companies] 
+      :actual_post_date, :drc_companies, :attachments] 
  
     config.list.per_page    = 25 
     config.create.multipart = 'local' 
