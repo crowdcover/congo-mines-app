@@ -4,6 +4,6 @@ class ShareholderRelationship < ActiveRecord::Base
   
   
   def to_label
-    drc_company.name
+   drc_company.try(:name)
   end
 end
