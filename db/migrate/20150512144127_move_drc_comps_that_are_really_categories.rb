@@ -33,7 +33,7 @@ class MoveDrcCompsThatAreReallyCategories < ActiveRecord::Migration
         'Mines, Communautés Locales Et Droits Humains',
         'Projets Minerais & Infrastructures',
         'Traçabilité',
-        'Listes, Tableaux Et Statistiques',
+        'Listes, Tableaux Et Statistiques', 
         'Contrats Et Avenants', # **(merge w/ Type de document: Contrats
         'Synthèses Et Résumés',
         'Statuts Et Actes De Constitution',
@@ -42,7 +42,36 @@ class MoveDrcCompsThatAreReallyCategories < ActiveRecord::Migration
 
 
       cats_as_companies.each do |c|
-        DrcCompany.where(name: c).first
+        puts "...searching for #{c}"
+        
+        drc_companies = DrcCompany.where(name: c).all
+    
+        puts "puts DRC Company COUNT: #{drc_companies.count}"
+              
+        drc_company = drc_companies.first
+        
+        if drc_company
+          puts "found: #{drc_company.name}"
+          puts "Documents Attached:  #{drc_company.reports.count}"
+          
+          cat = Category.where(name: c)         
+          puts "------------> Found Category #{c}" if cat
+         
+          reports = drc_company.reports
+          
+          drc_company.destroy 
+          reports.each do |r|
+            if r.categories.include?(cat)
+              puts "Report already includes category #{c}" 
+            else
+              r.categories << cat 
+            end
+          end    
+        else
+          puts "No Company found"
+        end  
+        
+       
       end
   
   
