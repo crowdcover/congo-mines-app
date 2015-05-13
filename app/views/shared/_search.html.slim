@@ -24,7 +24,7 @@ div.search.pbl
         div.large-3.columns
           label for="theme" Thème
           select#theme name="search[:theme]"
-            option value="#{nil}"
+            option
             - root = Category.find(26)
             - root.children.each do |subtheme|
               - subtheme.children.each do |theme|
@@ -33,7 +33,7 @@ div.search.pbl
         div.large-3.columns
           label for="type_document" Type de Document
           select#type_document name="search[:type_document]"
-            option value="#{nil}"
+            option
             - type_doc = Category.find(1)
             - type_doc.children.each do |type|
               option value="#{type.id}" = type.name
@@ -41,7 +41,7 @@ div.search.pbl
         div.large-3.columns
           label for="type_source" Type de Source
           select#type_source name="search[:type_source]"
-            option value="#{nil}"
+            option
             - type_src = Category.find(14)
             - type_src.children.each do |type|
               option value="#{type.id}" = type.name
@@ -49,7 +49,7 @@ div.search.pbl
         div.large-3.columns
           label for="province" Province
           select#province name="search[:province]"
-            option value="#{nil}"
+            option
             - province = Category.find(54)
             - province.children.each do |p|
               option value="#{p.id}" = p.name
@@ -59,22 +59,28 @@ div.search.pbl
         div.large-6.columns
           label for="drc_company" DRC Company
           br
-          select#drc_company style="width: 90%" name="search[:drc_company]"
-            option value="#{nil}"
+          select#drc_company style="width: 100%" name="search[:drc_company_id]"
+            option
             - drc_companies = DrcCompany.all
             - drc_companies.each do |c|
               option value="#{c.id}" = c.name
 
         div.large-6.columns
-          /label for="shareholder_company" Shareholder Company
-          select#shareholder_company name="search[:shareholder_company]"
-            option value="#{nil}" Shareholder Company
+          label for="shareholder_company" Shareholder Company
+          select#shareholder_company style="width: 90%" name="search[:shareholder_company]"
+            option
+            - shareholders = Shareholder.all
+            - shareholders.each do |sh|
+              option value="#{sh.id}" = sh.name
+
 
         javascript:
           $(function() {
             $("#drc_company").select2({
-              allowClear = true;
+              placeholder: "",
+              allowClear: true
             });
+            $("#shareholder_company").select2();
           });
 
       div.row
