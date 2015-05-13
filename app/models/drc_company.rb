@@ -17,7 +17,8 @@ class DrcCompany < ActiveRecord::Base
   has_many :employees
 
   # has one?
-  has_many :flows_payable_under_contracts
+  #has_many :flows_payable_under_contracts
+  has_one :flows_payable_under_contract
 
   validates_presence_of :name #, :legal_status, :project_phase, :project_type, :acronym, :contact
 

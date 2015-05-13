@@ -13,7 +13,8 @@ class Admin::DrcCompaniesController  < Admin::Auth # ApplicationController
     
     config.update.columns = [:name, :acronym,  :nrc, :rccm,:contact, :website,
       :legal_status, :project_type, :project_phase, :legal_regime,
-      :tax_obligations, :production_exports, :shareholder_relationships, :employees, 
+      :flows_payable_under_contract, :tax_obligations,  :production_exports, 
+      :shareholder_relationships, :employees, 
       :env_and_social_obligations, :deposits, :processing_infrastructures, :social_projects]
     
     
