@@ -21,11 +21,6 @@ class Report < ActiveRecord::Base
     # this may need to be time, not date
     date :actual_post_date
 
-    # need to make categories facets
-    # text :categories do
-    #   categories.map(&:name)
-    # end
-    # how about using pluck? categories.pluck(:id, :name)
     integer :category_ids, multiple: true, references: Category do
       categories.map { |category| category.id }
     end
@@ -33,6 +28,10 @@ class Report < ActiveRecord::Base
     # pulling source
     text :source do
       source.try(:name)
+    end
+
+    integer :drc_company_ids, multiple: true, references: DrcCompany do
+      drc_companies.map { |drc_company| drc_company.id }
     end
   end
 end
