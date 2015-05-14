@@ -5,6 +5,9 @@ class Admin::ShareholdersController  < Admin::Auth # ApplicationController
 
     #config.columns[:drc_companies].options = {:draggable_lists => true}
     #config.columns[:drc_companies].form_ui = :chosen
-
+    # Export    
+    config.actions.add :export
+    config.export.force_quotes = "true"
+    config.export.force_quotes = "true"
   end
 end

@@ -4,6 +4,12 @@ class Admin::DrcCompaniesController  < Admin::Auth # ApplicationController
   active_scaffold :"drc_company" do |config|
     
     config.label = 'Congolese/ DRC Companies'
+    
+    # Export    
+    config.actions.add :export
+    config.export.force_quotes = "true"
+    config.export.force_quotes = "true"
+    
     config.list.per_page = 25 
     config.list.sorting = { :name => :asc }   
 

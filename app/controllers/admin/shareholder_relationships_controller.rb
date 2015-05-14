@@ -8,6 +8,9 @@ class Admin::ShareholderRelationshipsController  < Admin::Auth # ApplicationCont
     config.columns[:shareholder].form_ui = :chosen
     config.columns[:intermediary_companies].form_ui = :chosen
     
-  
+      # Export    
+    config.actions.add :export
+    config.export.force_quotes = "true"
+    config.export.force_quotes = "true"
   end
 end
