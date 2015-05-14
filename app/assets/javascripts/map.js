@@ -1,6 +1,6 @@
 $(function(){
   $.extend(app,{
-    initMap: function() {
+    initMap: function(geodata) {
         // short circuit if map div is not set up on page
         if(! $('#map').length ){
           return false;
@@ -40,7 +40,11 @@ $(function(){
         var minesLayer;
 
         // asset path
-        $.getJSON("/assets/data/mines.json", function(data) {
+        console.log('in initMap');
+        console.log(this);
+        console.log(geodata);
+
+        $.getJSON(geodata, function(data) { //"/assets/data/mines.json"
             minesLayer = L.geoJson(data, {
               onEachFeature: onEachFeature
             });

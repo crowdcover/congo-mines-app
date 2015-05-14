@@ -2,9 +2,10 @@ class DrcCompaniesController < ApplicationController
 
   def show
     @drc_company = DrcCompany.includes(:tax_obligations, :employees,
-      :env_and_social_obligations, :flows_payable_under_contracts,
+      :env_and_social_obligations, #:flows_payable_under_contracts,
       :production_exports).find(params[:id])
     @drc_company_reports = @drc_company.reports.page(params[:page]).per(12)
+    @drc_company_geodata = get_geodata
     render :show
   end
 
@@ -20,6 +21,7 @@ class DrcCompaniesController < ApplicationController
     #get_geodata_drc_company_path(@drc_company)
     @drc_company = DrcCompany.includes(:deposits, :social_projects,
       :processing_infrastructures).find(params[:id])
+    # render :json
   end
 
   private
