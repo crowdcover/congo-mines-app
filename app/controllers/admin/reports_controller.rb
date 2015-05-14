@@ -22,5 +22,9 @@ class Admin::ReportsController  < Admin::Auth # ApplicationController
 
     #config.columns[:title].css_class = ' form-control input-lg'
     
+    config.actions.add :export
+    config.export.force_quotes = "true"
+    config.export.force_quotes = "true"
+    
   end
 end
