@@ -1,10 +1,13 @@
 <%= javascript_tag do %>
   $(function() {
-    //app.initMap();
+    app.initMap();
+    var geodata_url = "<%= get_geodata_drc_company_path(@drc_company) %>"
 
-    $.ajax({
+    app.loadCompanyData(geodata_url);
+    <!-- $.ajax({
       url: "<%= get_geodata_drc_company_path(@drc_company) %>",
       type: "GET",
+      dataType: 'json',
       success: function(companyGeodata) {
         console.log('got the geodata. inside success callback.');
         console.log(this);
@@ -14,7 +17,7 @@
       }
     });
     console.log('outside of ajax call');
-    console.log(this);
+    console.log(this); -->
   });
 <% end %>
 

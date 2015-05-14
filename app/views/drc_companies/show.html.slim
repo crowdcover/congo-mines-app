@@ -1,6 +1,6 @@
 div.row
   div.large-12.columns
-    p = @drc_company_geodata
+    /p = @drc_company_geodata
 
 div.row
   div.large-12.columns
@@ -108,13 +108,13 @@ div.grey.company-stats
                 h4 Annuity
                 h4 Transfer of Shares
                 h4 Contract Cash Recipient
-              /- unless @drc_company.flows_payable_under_contracts.empty?
+              /- unless @drc_company.flows_payable_under_contract.nil?
                 div.large-6.columns
-                  h4 = @drc_company.flows_payable_under_contracts.first.signature_bonus
-                  h4 = @drc_company.flows_payable_under_contracts.first.royalties
-                  h4 = @drc_company.flows_payable_under_contracts.first.annuity
-                  h4 = @drc_company.flows_payable_under_contracts.first.transfer_of_shares
-                  h4 = @drc_company.flows_payable_under_contracts.first.contract_cash_payment
+                  h4 = @drc_company.flows_payable_under_contract.first.signature_bonus
+                  h4 = @drc_company.flows_payable_under_contract.first.royalties
+                  h4 = @drc_company.flows_payable_under_contract.first.annuity
+                  h4 = @drc_company.flows_payable_under_contract.first.transfer_of_shares
+                  h4 = @drc_company.flows_payable_under_contract.first.contract_cash_payment
             div.row
               div.large-12.columns
                 h4 Tax Obligations
@@ -180,20 +180,12 @@ div.row
   = paginate @drc_company_reports
 
 
-= render "company_map"
-/javascript:
+/= render "company_map"
+javascript:
   $(function() {
     app.initMap();
-    // run jquery ajax
-    // for success callback, run map get geoJson
-    $.ajax({
-      url: "<%= get_geodata_drc_company_path(@drc_company) %>",
-      type: "GET",
-      success: function(geodata) {
-        console.log('got the geodata! looks like:');
-        console.log(geodata);
-      }
-    });
+    var geodataUrl = "#{get_geodata_drc_company_path(@drc_company)}"
+    app.getGeodata(geodataUrl);
 
     $(".accordion").on("click", "li", function (event) {
        $(this).find(".content").slideToggle(300);

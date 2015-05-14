@@ -18,8 +18,7 @@ json.features @drc_company.deposits do |deposit|
   json.geometry do
     json.type "Point"
     json.coordinates do
-      json.array! [deposit.lat, deposit.lng]
+      json.array! [deposit.lng, deposit.lat]
     end
-    # json.coordinates deposit.lat, deposit.lng
   end
 end

@@ -1,6 +1,6 @@
 $(function(){
   $.extend(app,{
-    initMap: function(geodata) {
+    initMap: function() {
         // short circuit if map div is not set up on page
         if(! $('#map').length ){
           return false;
@@ -16,7 +16,8 @@ $(function(){
 
         var baseLayer = L.tileLayer('http://tiles.osm.moabi.org/' + pageConfig.baseLayer.id + '/{z}/{x}/{y}.png');
 
-        var map = L.map('map', {
+        // anything with var 'map' needs to be app.map
+        app.map = L.map('map', {
             layers: baseLayer,
             center: pageConfig.baseLayer.latlon,
             zoom: pageConfig.baseLayer.zoom,
@@ -25,46 +26,81 @@ $(function(){
             maxZoom: 18
         });
 
-        map.zoomControl.setPosition('topleft');
-        L.control.scale().addTo(map);
+        app.map.zoomControl.setPosition('topleft');
+        L.control.scale().addTo(app.map);
 
 
-        var mineIcon = L.icon({
-            // asset path
-            iconUrl: '/assets/mine.30.png',
-            iconSize: [30, 30],
-            popupAnchor: [0, -30]
-        });
-
-
-        var minesLayer;
-
-        // asset path
-        console.log('in initMap');
-        console.log(this);
-        console.log(geodata);
-
-        $.getJSON(geodata, function(data) { //"/assets/data/mines.json"
-            minesLayer = L.geoJson(data, {
-              onEachFeature: onEachFeature
-            });
-
-            minesLayer.addTo(map);
-            app.setUpTable(data);
-          });
+        // var mineIcon = L.icon({
+        //     // asset path
+        //     iconUrl: '/assets/mine.30.png',
+        //     iconSize: [30, 30],
+        //     popupAnchor: [0, -30]
+        // });
+        //
+        //
+        // var minesLayer;
+        //
+        // $.getJSON(/*ajax call url */, function(data) { // "/assets/data/mines.json"
+        //
+        //     minesLayer = L.geoJson(data, {
+        //       onEachFeature: onEachFeature
+        //     });
+        //
+        //     minesLayer.addTo(map);
+        //     app.setUpTable(data);
+        //   });
 
 
         //For Each feature in the GeoJSON define popups, any action etc action
-        function onEachFeature(feature, layer) {
-          var props = feature.properties;
-            var popupContent = "<h3 class='mine-marker'>"+ props.name + "</h3>"+
-                "Company: "+props.company + "<br />"+
-                "Type: " + props.type + "<br />"+
-                "Proven Reserves: "+ props.reserves.proven+ "<br />"+
-                "Source: " + props.source.author;
+        // function onEachFeature(feature, layer) {
+        //   var props = feature.properties;
+        //     var popupContent = "<h3 class='mine-marker'>"+ props.name + "</h3>"+
+        //         "Company: "+props.company + "<br />"+
+        //         "Type: " + props.type + "<br />"+
+        //         "Proven Reserves: "+ props.reserves.proven+ "<br />"+
+        //         "Source: " + props.source.author;
+        //
+        //     layer.bindPopup(popupContent);
+        // }
+    },
 
-            layer.bindPopup(popupContent);
-        }
+    getGeodata: function(url){
+
+      // var mineIcon = L.icon({
+      //     // asset path
+      //     iconUrl: '/assets/mine.30.png',
+      //     iconSize: [30, 30],
+      //     popupAnchor: [0, -30]
+      // });
+
+      var minesLayer;
+
+      $.getJSON(url, function(data){
+        console.log('inside getJSON');
+
+        // app.map.addjson(data)
+        minesLayer = L.geoJson(data, {
+          onEachFeature: onEachFeature
+        });
+        console.log(minesLayer);
+
+        minesLayer.addTo(app.map);
+        app.setUpTable(data);
+      });
+
+      // For Each feature in the GeoJSON define popups, any action etc action
+      // onEachFeature is a leaflet method that can pass to a layer
+      function onEachFeature(feature, layer) {
+        var props = feature.properties;
+          var popupContent = "<h3 class='mine-marker'>"+ props.name + "</h3>"+
+              "Company: "+ props.drc_company_id + "<br />"+
+              "Type: " + props.mine_type + "<br />"+
+              "Proven Reserves: "+ props.proven_reserves+ "<br />"+
+              "Source: " + props.source;
+
+          layer.bindPopup(popupContent);
+      }
+
     },
 
 
