@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512144127) do
+ActiveRecord::Schema.define(version: 20150514092211) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -118,6 +118,13 @@ ActiveRecord::Schema.define(version: 20150512144127) do
 
   add_index "flows_payable_under_contracts", ["drc_company_id"], name: "index_flows_payable_under_contracts_on_drc_company_id"
 
+  create_table "intermediary_companies", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "shareholder_relationship_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
   create_table "multinational_companies_stock_exchange_countries", id: false, force: :cascade do |t|
     t.integer "multinational_company_id"
     t.integer "stock_exchange_country_id"
@@ -188,6 +195,13 @@ ActiveRecord::Schema.define(version: 20150512144127) do
 
   add_index "reports", ["author_id"], name: "index_reports_on_author_id"
   add_index "reports", ["source_id"], name: "index_reports_on_source_id"
+
+  create_table "shareholder_intermediaries", force: :cascade do |t|
+    t.integer  "shareholder_relationship_id"
+    t.integer  "intermediary_company_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
 
   create_table "shareholder_relationships", force: :cascade do |t|
     t.integer  "drc_company_id"

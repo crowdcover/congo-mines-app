@@ -2,6 +2,10 @@ class ShareholderRelationship < ActiveRecord::Base
   belongs_to :drc_company
   belongs_to :shareholder
   
+  has_many :shareholder_intermediaries
+  has_many :intermediary_companies, through: :shareholder_intermediaries
+  
+  validates_presence_of :drc_company_id, :shareholder_id
   
   def to_label
    drc_company.try(:name)
