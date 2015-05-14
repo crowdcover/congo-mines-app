@@ -76,13 +76,13 @@ $(function(){
       var minesLayer;
 
       $.getJSON(url, function(data){
-        console.log('inside getJSON');
+        // console.log('inside getJSON');
 
         // app.map.addjson(data)
         minesLayer = L.geoJson(data, {
           onEachFeature: onEachFeature
         });
-        console.log(minesLayer);
+        // console.log(minesLayer);
 
         minesLayer.addTo(app.map);
         app.setUpTable(data);
@@ -93,7 +93,7 @@ $(function(){
       function onEachFeature(feature, layer) {
         var props = feature.properties;
           var popupContent = "<h3 class='mine-marker'>"+ props.name + "</h3>"+
-              "Company: "+ props.drc_company_id + "<br />"+
+              "Company: "+ props.drc_company + "<br />"+
               "Type: " + props.mine_type + "<br />"+
               "Proven Reserves: "+ props.proven_reserves+ "<br />"+
               "Source: " + props.source;
@@ -111,22 +111,55 @@ $(function(){
       var feature_array = $.makeArray( geoJSON.features )
       table_data = $.map(feature_array, function(d){ return d.properties;});
 
-      $('.mine-table').DataTable({
+      // console.log(feature_array);
+      // console.log('table_data', table_data);
+
+      var titles = [];
+      var tableDataArray = [];
+      // for ( var prop in table_data[0]) {
+      //   titles.push({"title" : prop});
+      // }
+      Object.keys(table_data[0]).forEach( function (val, index, arg) {
+        titles.push({ "title": val });
+      });
+      console.log(titles);
+
+      table_data.forEach( function (val, index, arg) {
+        var oneDataRow = [];
+        for (var prop in val) {
+          oneDataRow.push(val[prop]);
+        }
+        // console.log(oneDataRow);
+        tableDataArray.push(oneDataRow);
+      });
+
+      console.log(tableDataArray);
+
+      $('.mine-table').dataTable({
+          "data" : tableDataArray,
           "paging": false,
           "info": false,
           "searching": false,
-          "columns": [
-                { "data": "name" },
-                { "data": "company" },
-                { "data": "type" },
-                { "data": "reserves.proven" },
-                { "data": "resource.measured" }
-            ],
-          "data": table_data
-          }
-      )
+          "columns": titles
+          // [
+          //   {"title": "name"},
+          //   {"title": "drc_company"},
+          //   {"title": "mine_type"},
+          //   {"title": "permit_type"},
+          //   {"title": "proven_reserves"},
+          //   {"title": "measured_resources"}
+          // ]
+
+          // [ titles ]
+          // [
+          //       { "data": "name" },
+          //       { "data": "drc_company" },
+          //       { "data": "mine_type" },
+          //       { "data": "proven_reserves" },
+          //       { "data": "measured_resources" }
+          //   ]
+      });
+
     }
-
   });
-
 });
