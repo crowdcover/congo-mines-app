@@ -6,7 +6,7 @@ json.features @drc_company.deposits do |deposit|
   json.type "Feature"
   json.properties do
     json.name deposit.name
-    json.drc_company_id deposit.drc_company_id
+    json.drc_company deposit.drc_company.name
     json.mine_type deposit.mine_type
     json.permit_type deposit.permit_type
 
@@ -18,8 +18,7 @@ json.features @drc_company.deposits do |deposit|
   json.geometry do
     json.type "Point"
     json.coordinates do
-      json.array! [deposit.lat, deposit.lng]
+      json.array! [deposit.lng, deposit.lat]
     end
-    # json.coordinates deposit.lat, deposit.lng
   end
 end

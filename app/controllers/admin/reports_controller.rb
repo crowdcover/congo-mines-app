@@ -2,7 +2,7 @@ class Admin::ReportsController  < Admin::Auth # ApplicationController
   active_scaffold :"report" do |config|
 
     config.columns = [:title,  :summary, :recommended, :source, :categories, 
-      :actual_post_date, :drc_companies] 
+      :actual_post_date, :drc_companies, :attachments] 
  
     config.list.per_page    = 25 
     config.create.multipart = 'local' 
@@ -21,6 +21,10 @@ class Admin::ReportsController  < Admin::Auth # ApplicationController
     config.columns[:summary].form_ui = :text_editor
 
     #config.columns[:title].css_class = ' form-control input-lg'
+    
+    config.actions.add :export
+    config.export.force_quotes = "true"
+    config.export.force_quotes = "true"
     
   end
 end

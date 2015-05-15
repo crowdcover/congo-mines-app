@@ -6,8 +6,10 @@ gem 'active_scaffold'
 gem 'acts_as_list'
 gem 'acts_as_tree'
 gem 'active_scaffold_sortable'
+gem 'active_scaffold_export'
 gem 'chosen-rails'
 gem 'tinymce-rails'
+gem 'friendly_id', '~> 5.1.0'
 
 gem 'pg' #, group: :production
 gem "paperclip", "~> 4.2"
