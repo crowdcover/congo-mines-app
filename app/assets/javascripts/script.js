@@ -16,7 +16,7 @@ $(function(){
         $(this).find(".content").slideToggle(300);
       });
 
-      $("#drc_company").add("#shareholder_company").select2({
+      $(".select2-dropdown").select2({
         allowClear: true
       });
     },
