@@ -172,8 +172,4 @@ javascript:
     app.initMap();
     var geodataUrl = "#{get_geodata_drc_company_path(@drc_company)}"
     app.getGeodata(geodataUrl);
-
-    $(".accordion").on("click", "li", function (event) {
-       $(this).find(".content").slideToggle(300);
-     });
   });

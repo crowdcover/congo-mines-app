@@ -4,11 +4,16 @@ $(function(){
   var app = {
     initCommon: function(){
       mainbottom = $('.content').offset().top
+
       $("#hideshow").on('click', function(e){
         e.preventDefault();
         e.stopPropagation();
 
         $("#browse-search").slideToggle(500);
+      });
+
+      $(".accordion").on("click", "li", function (event) {
+        $(this).find(".content").slideToggle(300);
       });
 
       $("#drc_company").add("#shareholder_company").select2({
