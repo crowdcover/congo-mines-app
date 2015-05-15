@@ -5,7 +5,6 @@ class DrcCompaniesController < ApplicationController
       :env_and_social_obligations, :flows_payable_under_contract,
       :production_exports).find(params[:id])
     @drc_company_reports = @drc_company.reports.page(params[:page]).per(12)
-    @drc_company_geodata = get_geodata
     render :show
   end
 
