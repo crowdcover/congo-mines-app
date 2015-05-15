@@ -1,5 +1,21 @@
 $(function(){
-  $.extend(app,{
+  $(document).foundation();
+
+  var app = {
+    initCommon: function(){
+      mainbottom = $('.content').offset().top
+      $("#hideshow").on('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
+        $("#browse-search").slideToggle(500);
+      });
+
+      $("#drc_company").add("#shareholder_company").select2({
+        allowClear: true
+      });
+    },
+
     initMap: function() {
         // short circuit if map div is not set up on page
         if(! $('#map').length ){
@@ -59,7 +75,6 @@ $(function(){
 
     },
 
-
     setUpTable: function(geoJSON){
       var table_data = [];
       var feature_array = $.makeArray( geoJSON.features )
@@ -94,5 +109,24 @@ $(function(){
       });
 
     }
-  });
+
+  };
+
+  window.app = app;
+
 });
+
+
+/*
+
+jQuery(document).on("focus", "input.date_picker", function(){
+    var date_picker = jQuery(this);
+    if (typeof(date_picker.datepicker) == 'function') {
+      if (!date_picker.hasClass('hasDatepicker')) {
+        date_picker.datepicker();
+        date_picker.trigger('focus');
+      }
+    }
+    return true;
+});
+*/

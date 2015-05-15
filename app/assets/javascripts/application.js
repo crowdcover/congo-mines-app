@@ -17,8 +17,7 @@
 //= require dataTables.foundation
 //= require foundation
 //= require slidx
-//= require common
-//= require map
+//= require script
 
 //  require underscore
 //= require jquery-ui
