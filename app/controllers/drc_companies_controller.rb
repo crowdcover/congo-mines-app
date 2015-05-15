@@ -17,11 +17,23 @@ class DrcCompaniesController < ApplicationController
     render :index
   end
 
-  def get_geodata
-    #get_geodata_drc_company_path(@drc_company)
-    @drc_company = DrcCompany.includes(:deposits, :social_projects,
-      :processing_infrastructures).find(params[:id])
-    # render :json
+  # def get_geodata
+  #   #get_geodata_drc_company_path(@drc_company)
+  #   @drc_company = DrcCompany.includes(:deposits, :social_projects,
+  #     :processing_infrastructures).find(params[:id])
+  #   # render :json
+  # end
+
+  def get_deposit_geodata
+    @drc_company = DrcCompany.includes(:deposits).find(params[:id])
+  end
+
+  def get_social_projects_geodata
+    @drc_company = DrcCompany.includes(:social_projects).find(params[:id])
+  end
+
+  def get_processing_infrastructures_geodata
+    @drc_company = DrcCompany.includes(:processing_infrastructures).find(params[:id])
   end
 
   private

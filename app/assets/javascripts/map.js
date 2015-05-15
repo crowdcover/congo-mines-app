@@ -35,11 +35,10 @@ $(function(){
       var minesLayer;
 
       $.getJSON(url, function(data){
-
         minesLayer = L.geoJson(data, {
           onEachFeature: onEachFeature
         });
-
+        
         minesLayer.addTo(app.map);
         app.setUpTable(data);
       });
