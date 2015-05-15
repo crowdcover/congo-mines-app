@@ -89,18 +89,18 @@ div.grey.company-stats
                 h4 Flows Payable Under Contracts
             div.row
               div.large-6.columns
+                h4 Contract Cash Recipient
                 h4 Signature Bonus
                 h4 Royalties
                 h4 Annuity
                 h4 Transfer of Shares
-                h4 Contract Cash Recipient
               /- unless @drc_company.flows_payable_under_contract.nil?
                 div.large-6.columns
+                  h4 = @drc_company.flows_payable_under_contract.first.contract_cash_payment
                   h4 = @drc_company.flows_payable_under_contract.first.signature_bonus
                   h4 = @drc_company.flows_payable_under_contract.first.royalties
                   h4 = @drc_company.flows_payable_under_contract.first.annuity
                   h4 = @drc_company.flows_payable_under_contract.first.transfer_of_shares
-                  h4 = @drc_company.flows_payable_under_contract.first.contract_cash_payment
             div.row
               div.large-12.columns
                 h4 Tax Obligations
