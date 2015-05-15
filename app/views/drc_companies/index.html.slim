@@ -1,31 +1,56 @@
 /select dropdown for company navigation
 /need a button also
 
-div.row
-  form action="../"
-    div.large-6.columns
-      label for="company" DRC Company
-      br
-      select#company.select2-dropdown name="search[:drc_company]"
-        option value="#{nil}"
-        - @all_drc_companies.each do |c|
-          option value="#{drc_company_url(c)}" = c.name
+div.row.keyline-bottom.pbl
+  div.small-12.columns
+    h1.quiet Search Companies and Shareholders
 
-      input type="button" name="Submit" onClick="window.open(drc_company_nav.value, '_self')" value="Go to Company"
+  form action="../"
+    div.small-12.medium-6.columns
+      div.row.collapse
+        label for="company" Companies
+        div.small-10.columns
+          select#company.select2-dropdown name="search[:drc_company]"
+            option value="#{nil}"
+            - @all_drc_companies.each do |c|
+              option value="#{drc_company_url(c)}" = c.name
+
+        div.small-2.columns
+          a.button.postfix[href="#"] X
+
+      /input type="button" name="Submit" onClick="window.open(drc_company_nav.value, '_self')" value="Go to Company"
         / take out '_self' argument to open company page in new tab
 
-div.content
-  div.row
-    div.large-12.columns
-      h1.quiet All Companies
 
-  - @drc_companies.each do |company|
-    div.row.company
-      h4
-        a href="#{drc_company_url(company)}" = company.name
-        span.quiet = company.acronym
+    div.small-12.medium-6.columns
+      div.row.collapse
+        label for="shareholder" Shareholder
+        div.small-10.columns
+          select#shareholder.select2-dropdown name="search[:shareholder]"
+            option value="#{nil}"
+            / - @all_shareholders.each do |c|
+            /   option value="#{shareholder_url(c)}" = c.name
+
+        div.small-2.columns
+          a.button.postfix[href="#"] X
+
+div.row.pvl
+  div.large-6.columns
+    - @drc_companies.each do |company|
+      div.company
+        h4
+          a href="#{drc_company_url(company)}" = company.name
+          span.quiet = company.acronym
+
+  div.large-6.columns
+    - @drc_companies.each do |company|
+      div.company
+        h4
+          a href="#{drc_company_url(company)}" = company.name
+          span.quiet = company.acronym
 
 
-  div.row
-    div.large-12.columns
-      = paginate @drc_companies
+
+div.row
+  div.large-12.columns
+    = paginate @drc_companies
