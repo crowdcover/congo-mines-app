@@ -53,18 +53,21 @@ p {
 }
 
 button {
-  background: #32acde;
   background-color:#32acde!important;
   font-family: 'Open Sans', sans-serif!important;
   padding: 20px 30px;
   font-size: 1em!important;
   font-weight: 200!important;
   outline: 0;
-}
-
-button:hover, button:focus {
-  background-color: #308cb1!important;
-}
+  }
+  button:hover, button:focus {
+    background-color: #308cb1!important;
+  }
+  .postfix {
+    background-color: #32acde;
+    border-color: #308cb1;
+    border-left: 0;
+  }
 
 table {
 	width: 100%;
@@ -596,8 +599,7 @@ $summary-lines-to-show: 6;
   	font-size: 0.9em;
   }
   .search input {
-  	border: 2px solid #fff;
-  	padding: 29px 25px;
+  	border: 1px solid #CCC;
   	font-family: 'Open Sans', sans-serif;
   	font-weight: 200;
   	box-shadow: none;
@@ -612,7 +614,7 @@ $summary-lines-to-show: 6;
     background-image: image-url('search.png');
   }
   .search button {
-    padding: 20px 30px;
+    padding: 9px 20px;
   }
 
 

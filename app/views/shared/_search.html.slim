@@ -7,13 +7,15 @@ div.search.pbl
         h1 CongoMines Document Library
 
     div.row
-      div.large-9.columns
-        input type="text" name="search[:query]" placeholder="Search Documents" /
-        /text_field_tag :search, params[:search]
-      div.large-3.columns
-        button [style="width: 100%"] Search Library
+      div.small-12.columns
+        div.row.collapse
+          div.small-10.columns
+            input type="text" name="search[:query]" placeholder="Search Documents" /
+            /text_field_tag :search, params[:search]
+          div.small-2.columns
+            a.button.postfix[href="a"] Search Library
 
-      div.large-12.columns
+      div.small-12.columns
         a#hideshow value="wee" + Browse
 
     div#browse-search.clearfix
@@ -54,7 +56,7 @@ div.search.pbl
       div.row
         div.large-12.columns
           button Submit
-          
+
 /      div.row
 /        div.large-6.columns
 /          label for="company" DRC Company
