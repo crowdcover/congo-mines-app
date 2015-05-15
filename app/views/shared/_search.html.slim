@@ -51,25 +51,25 @@ div.search.pbl
             - province.children.each do |p|
               option value="#{p.id}" = p.name
 
-
-      div.row
-        div.large-6.columns
-          label for="company" DRC Company
-          br
-          select#company.select2-dropdown name="search[:drc_company_id]"
-            option
-            - drc_companies = DrcCompany.all
-            - drc_companies.each do |c|
-              option value="#{c.id}" = c.name
-
-        div.large-6.columns
-          label for="shareholder" Shareholder Company
-          select#shareholder.select2-dropdown name="search[:shareholder_company]"
-            option
-            - shareholders = Shareholder.all
-            - shareholders.each do |sh|
-              option value="#{sh.id}" = sh.name
-
       div.row
         div.large-12.columns
           button Submit
+          
+/      div.row
+/        div.large-6.columns
+/          label for="company" DRC Company
+/          br
+/          select#company.select2-dropdown name="search[:drc_company_id]"
+/            option
+/            - drc_companies = DrcCompany.all
+/            - drc_companies.each do |c|
+/              option value="#{c.id}" = c.name
+/
+/        div.large-6.columns
+/          label for="shareholder" Shareholder Company
+/          select#shareholder.select2-dropdown name="search[:shareholder_company]"
+/            option
+/            - shareholders = Shareholder.all
+/            - shareholders.each do |sh|
+/              option value="#{sh.id}" = sh.name
+
