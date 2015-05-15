@@ -4,17 +4,22 @@ $(function(){
   var app = {
     initCommon: function(){
       mainbottom = $('.content').offset().top
+      console.log('init')
+      $("#hideshow").on('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
 
-      $("#hideshow").click(function(){
-        $("#advanced").slideToggle(500);
+        $("#browse-search").slideToggle(500);
       });
-    }
+
+      $("#drc_company").add("#shareholder_company").select2({
+        allowClear: true
+      });
+    },
 
   };
 
   window.app = app;
-
-  app.initCommon();
 
 });
 

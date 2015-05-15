@@ -6,20 +6,17 @@ div.search.pbl
       div.large-12.columns.text-center
         h1 CongoMines Document Library
 
-    div.divider
     div.row
       div.large-9.columns
         input type="text" name="search[:query]" placeholder="Search Documents" /
         /text_field_tag :search, params[:search]
       div.large-3.columns
-        button Search Library
+        button [style="width: 100%"] Search Library
+
       div.large-12.columns
         a#hideshow value="wee" + Browse
 
-    div.divider
-
-    div#advanced
-
+    div#browse-search.clearfix
       div.row
         div.large-3.columns
           label for="theme" Thème
@@ -59,7 +56,7 @@ div.search.pbl
         div.large-6.columns
           label for="drc_company" DRC Company
           br
-          select#drc_company style="width: 100%" name="search[:drc_company_id]"
+          select#drc_company name="search[:drc_company_id]"
             option
             - drc_companies = DrcCompany.all
             - drc_companies.each do |c|
@@ -67,21 +64,11 @@ div.search.pbl
 
         div.large-6.columns
           label for="shareholder_company" Shareholder Company
-          select#shareholder_company style="width: 90%" name="search[:shareholder_company]"
+          select#shareholder_company name="search[:shareholder_company]"
             option
             - shareholders = Shareholder.all
             - shareholders.each do |sh|
               option value="#{sh.id}" = sh.name
-
-
-        javascript:
-          $(function() {
-            $("#drc_company").select2({
-              placeholder: "",
-              allowClear: true
-            });
-            $("#shareholder_company").select2();
-          });
 
       div.row
         div.large-12.columns
