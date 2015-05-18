@@ -9,6 +9,6 @@ class Shareholder < ActiveRecord::Base
   #has_many :multinational_companies, through: :shareholder_relationships
   
   #def to_label
-  #  drc_company   
+  #  try(:drc_company)   
   # end   
 end
