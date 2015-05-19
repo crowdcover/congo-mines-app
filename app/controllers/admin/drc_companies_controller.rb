@@ -27,7 +27,7 @@ class Admin::DrcCompaniesController  < Admin::Auth # ApplicationController
       :legal_status, :project_type, :project_phase, :legal_regime]
     
     
-    config.update.columns = [:name, :acronym,  :nrc, :rccm,:contact, :website,
+    config.update.columns = [:name, :description, :acronym,  :nrc, :rccm,:contact, :website,
       :legal_status, :project_type, :project_phase, :legal_regime,
       :flows_payable_under_contract, :tax_obligations,  :production_exports, 
       :shareholder_relationships, :employees, 
@@ -35,8 +35,16 @@ class Admin::DrcCompaniesController  < Admin::Auth # ApplicationController
     
     
     config.nested.add_link(:reports, label: 'Documents')
+
+    config.columns[:tax_obligations].label = 'Tax Payments'
     
-    #config.columns.exclude( :created_at, :updated_at, :shareholders, :report_relations, :reports)
+   
+    config.columns[:legal_regime].form_ui = :select
+    config.columns[:legal_regime].options = {
+      include_blank: 'Select Legal Status',
+      options: ['Convention',
+                'Mining Code 2002',
+                'Revised Mining Code']}
    
     config.columns[:legal_status].form_ui = :select
     config.columns[:legal_status].options = {

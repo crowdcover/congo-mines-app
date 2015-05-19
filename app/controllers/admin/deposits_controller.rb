@@ -4,5 +4,15 @@ class Admin::DepositsController <  Admin::Auth
     config.actions.add :export
     config.export.force_quotes = "true"
     config.export.force_quotes = "true"
+    
+    
+       
+    config.columns[:permit_type].form_ui = :select
+    config.columns[:permit_type].options = {
+      include_blank: 'Select Permit Type', 
+      options: [  'Permis de Recherche',
+        'Permis d’Exploitation',
+        'Permis d’exploitation des Rejets',
+        'Permis d’Exploitation de Petit Mine']}
   end
 end

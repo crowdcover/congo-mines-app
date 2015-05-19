@@ -1,5 +1,7 @@
 class Admin::ShareholdersController  < Admin::Auth # ApplicationController
   active_scaffold :"shareholder" do |config|
+  
+    config.label = 'Shareholder (en dernier ressort)'
 
     config.columns.exclude(:stock, :drc_companies, :created_at, :updated_at)
 
