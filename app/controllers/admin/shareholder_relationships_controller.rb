@@ -12,6 +12,9 @@ class Admin::ShareholderRelationshipsController  < Admin::Auth # ApplicationCont
     config.columns[:shareholder].form_ui = :chosen
     config.columns[:intermediary_companies].form_ui = :chosen
     
+    config.columns[:year].form_ui = :select
+    config.columns[:year].options = {include_blank: 'Select Year', options: (2000..Time.now.year) }
+    
       # Export    
     config.actions.add :export
     config.export.force_quotes = "true"
