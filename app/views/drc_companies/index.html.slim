@@ -1,6 +1,3 @@
-/select dropdown for company navigation
-/need a button also
-
 div.row.keyline-bottom.pbl
   div.small-12.columns
     h1.quiet Search Mining Companies and International Investors
@@ -10,29 +7,32 @@ div.row.keyline-bottom.pbl
       div.row.collapse
         label for="company" Mining Companies Registered in the DRC
         div.small-10.columns
-          select#company.select2-dropdown name="search[:drc_company]"
+          select#company.select2-dropdown name="drc_company_nav"
             option value="#{nil}"
             - @all_drc_companies.each do |c|
               option value="#{drc_company_url(c)}" = c.name
 
         div.small-2.columns
-          a.button.postfix[href="#"] X
+          input.button.postfix [type="button" name="Submit"
+            onClick="window.open(drc_company_nav.value, '_self')" value=="&#x1F50D"]
+          / take out '_self' argument to open company page in new tab
+          /a.button.postfix[href="#"] X
 
-      /input type="button" name="Submit" onClick="window.open(drc_company_nav.value, '_self')" value="Go to Company"
-        / take out '_self' argument to open company page in new tab
 
   form action="../"
     div.small-12.medium-6.columns
       div.row.collapse
         label for="shareholder" International Investors
         div.small-10.columns
-          select#shareholder.select2-dropdown name="search[:shareholder]"
+          select#shareholder.select2-dropdown name="shareholder_nav"
             option value="#{nil}"
             - @all_shareholders.each do |c|
               option value="#{shareholder_url(c)}" = c.name
 
         div.small-2.columns
-          a.button.postfix[href="#"] X
+          input.button.postfix [type="button" name="Submit"
+            onClick="window.open(shareholder_nav.value, '_self')" value=="&#x1F50D"]
+          / a.button.postfix[href="#"] X
 
 div.row.pvl
   div.large-6.columns
