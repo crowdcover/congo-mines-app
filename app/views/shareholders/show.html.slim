@@ -9,26 +9,41 @@ div.content
   div.grey
     div.row
       div.large-12.columns
+        div.large-3.columns
+          h4 Stock
+          h4 Public Private
+          h4 Stock Symbol
+          h4 Stock Exchange
+          h4 Stock Countries
+        div.large-3.columns
+          h4 = @shareholder.stock
+          h4 = @shareholder.public_private
+          h4 = @shareholder.stock_symbol
+          h4 = @shareholder.stock_exchange
+          h4 = @shareholder.stock_countries
+        div.large-3.columns
+          h4 Website
+          h4 Contact
+        div.large-3.columns
+          h4 = @shareholder.website
+          h4 = @shareholder.contact
 
+    div.row
+      div.large-12.columns
         ul.accordion[data-accordion data-options="multi_expand:true"]
           li.accordion-navigation
-            a[href="#accordion-shareholder"] Shareholder Information
-            div#accordion-shareholder.content.clearfix[onclick="event.cancelBubble = true;"]
-              div.large-3.columns
-                h4 Contact
-                h4 Website
-                h4 Stock
-                h4 Public Private
-              div.large-3.columns
-                h4 = @shareholder.contact
-                h4 = @shareholder.website
-                h4 = @shareholder.stock
-                h4 = @shareholder.public_private
-              div.large-3.columns
-                h4 Stock Countries
-                h4 Stock Exchange
-                h4 Stock Symbol
-              div.large-3.columns
-                h4 = @shareholder.stock_countries
-                h4 = @shareholder.stock_exchange
-                h4 = @shareholder.stock_symbol
+            a[href="#accordion-drc_companies"] Holdings in DRC Companies
+            div#accordion-drc_companies.content.clearfix[onclick="event.cancelBubble = true;"]
+              div.row
+                div.large-4.columns
+                  h4 DRC Company
+                  h4 Percentage
+                  h4 Year
+                  h4 Direct Shareholder
+                - @shareholder.shareholder_relationships.each do |sr|
+                  - unless sr.nil?
+                    div.large-8.columns
+                      h4 = sr.drc_company.name
+                      h4 = sr.percentage
+                      h4 = sr.year
+                      h4 = sr.direct_shareholder

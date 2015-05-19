@@ -10,7 +10,7 @@ json.features @drc_company.processing_infrastructures do |p_infra|
   json.geometry do
     json.type "Point"
     json.coordinates do
-      json.array! [deposit.lng, deposit.lat]
+      json.array! [p_infra.lng, p_infra.lat]
     end
   end
 end
