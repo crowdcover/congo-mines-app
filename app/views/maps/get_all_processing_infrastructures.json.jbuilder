@@ -1,6 +1,6 @@
 json.type "FeatureCollection"
 
-json.features @drc_company.processing_infrastructures do |p_infra|
+json.features @processing_infrastructures do |p_infra|
   json.type "Feature"
   json.properties do
     json.name p_infra.name

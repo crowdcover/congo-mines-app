@@ -15,7 +15,7 @@ class SearchesController < ApplicationController
     categories.delete(0) # removing blank categories (to_i turns them to 0)
     Sunspot.search(Report) do
       with(:category_ids).all_of(categories)
-      with(:drc_company_ids, options[":drc_company_id"].to_i)  # all_of? any? any_of?
+      # with(:drc_company_ids, options[":drc_company_id"].to_i)  # all_of? any? any_of?
       keywords options[":query"]
       order_by :actual_post_date, :desc
       paginate(page: params[:page], per_page: 12)

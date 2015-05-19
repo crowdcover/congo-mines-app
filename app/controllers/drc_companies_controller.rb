@@ -11,19 +11,21 @@ class DrcCompaniesController < ApplicationController
   def index
     # make one ivar for all companies for select dropdown
     # make one ivar for paginated list
-    @all_drc_companies = DrcCompany.all
-    @drc_companies = DrcCompany.all.page params[:page]
+    @all_drc_companies = DrcCompany.all.order('name ASC')
+    @drc_companies = DrcCompany.all.order('name ASC').page params[:page]
+    @all_shareholders = Shareholder.all.order('name ASC')
+    @shareholders = Shareholder.all.order('name ASC').page params[:page]
     render :index
   end
 
-  # def get_geodata
-  #   #get_geodata_drc_company_path(@drc_company)
-  #   @drc_company = DrcCompany.includes(:deposits, :social_projects,
-  #     :processing_infrastructures).find(params[:id])
-  #   # render :json
-  # end
+  def get_geodata
+    #get_geodata_drc_company_path(@drc_company)
+    @drc_company = DrcCompany.includes(:deposits, :social_projects,
+      :processing_infrastructures).find(params[:id])
+    # render :json
+  end
 
-  def get_deposit_geodata
+  def get_deposits_geodata
     @drc_company = DrcCompany.includes(:deposits).find(params[:id])
   end
 

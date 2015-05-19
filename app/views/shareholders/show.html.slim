@@ -1,0 +1,34 @@
+div.content
+
+  div.row
+    div.large-12.columns
+      h1.left
+        span = @shareholder.name
+        span.quiet = @shareholder.acronym
+
+  div.grey
+    div.row
+      div.large-12.columns
+
+        ul.accordion[data-accordion data-options="multi_expand:true"]
+          li.accordion-navigation
+            a[href="#accordion-shareholder"] Shareholder Information
+            div#accordion-shareholder.content.clearfix[onclick="event.cancelBubble = true;"]
+              div.large-3.columns
+                h4 Contact
+                h4 Website
+                h4 Stock
+                h4 Public Private
+              div.large-3.columns
+                h4 = @shareholder.contact
+                h4 = @shareholder.website
+                h4 = @shareholder.stock
+                h4 = @shareholder.public_private
+              div.large-3.columns
+                h4 Stock Countries
+                h4 Stock Exchange
+                h4 Stock Symbol
+              div.large-3.columns
+                h4 = @shareholder.stock_countries
+                h4 = @shareholder.stock_exchange
+                h4 = @shareholder.stock_symbol

@@ -21,15 +21,15 @@ div.row.keyline-bottom.pbl
       /input type="button" name="Submit" onClick="window.open(drc_company_nav.value, '_self')" value="Go to Company"
         / take out '_self' argument to open company page in new tab
 
-
+  form action="../"
     div.small-12.medium-6.columns
       div.row.collapse
         label for="shareholder" International Investors
         div.small-10.columns
           select#shareholder.select2-dropdown name="search[:shareholder]"
             option value="#{nil}"
-            / - @all_shareholders.each do |c|
-            /   option value="#{shareholder_url(c)}" = c.name
+            - @all_shareholders.each do |c|
+              option value="#{shareholder_url(c)}" = c.name
 
         div.small-2.columns
           a.button.postfix[href="#"] X
@@ -43,14 +43,17 @@ div.row.pvl
           span.quiet = company.acronym
 
   div.large-6.columns
-    - @drc_companies.each do |company|
+    - @shareholders.each do |shareholder|
       div.company
         h4
-          a href="#{drc_company_url(company)}" = company.name
-          span.quiet = company.acronym
+          a href="#{shareholder_url(shareholder)}" = shareholder.name
+          span.quiet = shareholder.acronym
 
 
 
 div.row
-  div.large-12.columns
+  div.large-6.columns
     = paginate @drc_companies
+
+  div.large-6.columns
+    = paginate @shareholders

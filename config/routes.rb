@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  
+
   get 'static_pages/home'
 
   namespace :admin do
@@ -21,14 +21,14 @@ Rails.application.routes.draw do
     end
     resources :stock_exchange_countries do as_routes end
     resources :stock_exchanges do as_routes end
-    
+
     resources :shareholders do as_routes end
     resources :shareholder_relationships do as_routes end
     resources :intermediary_companies do as_routes end
     resources :shareholder_intermediaries do as_routes end
-    
+
     # resources :multinational_companies do as_routes end
-    
+
     resources :env_and_social_obligations do as_routes end
     resources :tax_obligations do as_routes end
     resources :production_exports do as_routes end
@@ -45,15 +45,25 @@ Rails.application.routes.draw do
   resources :drc_companies  do  #, only: [:show, :index]
     member do
       get 'get_geodata'
+      get 'get_deposits_geodata'
+      get 'get_processing_infrastructures_geodata'
+      get 'get_social_projects_geodata'
     end
   end
   resources :reports, only: [:show, :index]
+  resources :shareholders, only: [:show, :index]
   resources :categories, only: :show do
     # resources :reports, only: :show
   end
 
   resource :search
-  resource :map
+  resource :map do
+    member do
+      get 'get_all_deposits'
+      get 'get_all_processing_infrastructures'
+      get 'get_all_social_projects'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,6 +1,6 @@
 json.type "FeatureCollection"
 
-json.features @drc_company.social_projects do |social|
+json.features @social_projects do |social|
   json.type "Feature"
   json.properties do
     json.drc_company social.drc_company.name

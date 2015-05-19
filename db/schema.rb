@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519121258) do
+ActiveRecord::Schema.define(version: 20150519120324) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -119,19 +119,6 @@ ActiveRecord::Schema.define(version: 20150519121258) do
 
   add_index "flows_payable_under_contracts", ["drc_company_id"], name: "index_flows_payable_under_contracts_on_drc_company_id"
 
-  create_table "friendly_id_slugs", force: :cascade do |t|
-    t.string   "slug",                      null: false
-    t.integer  "sluggable_id",              null: false
-    t.string   "sluggable_type", limit: 50
-    t.string   "scope"
-    t.datetime "created_at"
-  end
-
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
-
   create_table "intermediary_companies", force: :cascade do |t|
     t.string   "name"
     t.integer  "shareholder_relationship_id"
@@ -205,11 +192,9 @@ ActiveRecord::Schema.define(version: 20150519121258) do
     t.datetime "updated_at"
     t.date     "actual_post_date"
     t.boolean  "recommended"
-    t.string   "slug"
   end
 
   add_index "reports", ["author_id"], name: "index_reports_on_author_id"
-  add_index "reports", ["slug"], name: "index_reports_on_slug", unique: true
   add_index "reports", ["source_id"], name: "index_reports_on_source_id"
 
   create_table "shareholder_intermediaries", force: :cascade do |t|
@@ -311,7 +296,7 @@ ActiveRecord::Schema.define(version: 20150519121258) do
     t.integer  "total_paid"
     t.integer  "redevance"
     t.integer  "ibp"
-    t.integer  "import_customs_duty"
+    t.boolean  "import_customs_duty"
     t.integer  "surface_rights"
     t.integer  "signature_bonus"
     t.integer  "royalties"
