@@ -45,8 +45,12 @@ div.footer
         li: a href="mailto:coordo@congomines.org" Contact Us
         li
           a[href="/admin" target="_blank"] Sign In
-          span  |  
           - if @report
+            span  |  
             a[href="#{admin_report_url(@report)}/edit" target="_blank"] Manage
           - if @drc_company
+            span  |  
             a[href="#{admin_drc_company_url(@drc_company)}/edit" target="_blank"] Manage
+          - if @shareholder
+            span  |  
+            a[href="#{admin_shareholder_url(@shareholder)}/edit" target="_blank"] Manage

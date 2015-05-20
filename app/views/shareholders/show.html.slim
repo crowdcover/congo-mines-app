@@ -4,10 +4,13 @@ div.content
     div.large-12.columns
       h1.left
         span = @shareholder.name
-        span.quiet = @shareholder.acronym
+        span.quiet
+          |  (
+          = @shareholder.acronym
+          | )
 
-  div.grey
-    div.row
+  div
+    div.row.pvm
       div.large-12.columns
         div.large-3.columns
           h4 Stock
@@ -28,7 +31,7 @@ div.content
           h4 = @shareholder.website
           h4 = @shareholder.contact
 
-    div.row
+    div.row.pvm
       div.large-12.columns
         ul.accordion[data-accordion data-options="multi_expand:true"]
           li.accordion-navigation
