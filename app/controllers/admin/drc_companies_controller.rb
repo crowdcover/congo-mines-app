@@ -35,6 +35,8 @@ class Admin::DrcCompaniesController  < Admin::Auth # ApplicationController
     
     
     config.nested.add_link(:reports, label: 'Documents')
+    config.nested.add_link(:deposits, label: 'Deposits')
+    
 
     config.columns[:tax_obligations].label = 'Tax Payments'
     
