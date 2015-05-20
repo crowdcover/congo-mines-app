@@ -7,6 +7,8 @@ class ShareholderRelationship < ActiveRecord::Base
   
   #validates_presence_of :drc_company_id, :shareholder_id
   
+ 
+  
   def to_label
     if drc_company.present?
       drc_company.try(:name)   

@@ -20,7 +20,8 @@ class Admin::ReportsController  < Admin::Auth # ApplicationController
     
     config.columns[:summary].form_ui = :text_editor
 
-    #config.columns[:title].css_class = ' form-control input-lg'
+    #config.columns[:title].length = '60'
+    #config.columns[:title].css_class = ' long-title-input'
     
     config.actions.add :export
     config.export.force_quotes = "true"
@@ -28,3 +29,13 @@ class Admin::ReportsController  < Admin::Auth # ApplicationController
     
   end
 end
+
+
+
+
+
+
+
+
+
+
