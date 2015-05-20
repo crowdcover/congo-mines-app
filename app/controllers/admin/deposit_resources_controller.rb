@@ -13,11 +13,10 @@ class Admin::DepositResourcesController < Admin::Auth
     config.columns[:resource].options = {
       include_blank: 'Select Resource', 
       options: ['gold', 'copper', 'cobalt', 'zinc', 'silver', 'tin']}
-   
-   
+     
     config.columns[:metal_content_unit].form_ui = :select
     config.columns[:metal_content_unit].options = {
-      options:   ['Kt', 'Moz']}
+      options: ['Kt', 'Moz']}
       
  
   end
