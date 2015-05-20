@@ -37,15 +37,16 @@ div.footer
       div
         div[class="fb-share-button" data-href="http://www.congomines.org/" data-layout="button_count"]
 
-    div.row
-      div.large-6.columns: p © Copyright 2015 - CongoMines
-      div.large-6.columns
-        ul
+  div.row
+    div.small-12.columns
+      ul.text-center
+        li © 2015 CongoMines
+        li: a href="#{about_url}" About
+        li: a href="mailto:coordo@congomines.org" Contact Us
+        li
+          a[href="/admin" target="_blank"] Sign In
+          span  |  
           - if @report
-            li: a href="#{admin_report_url(@report)}/edit" Manage
+            a[href="#{admin_report_url(@report)}/edit" target="_blank"] Manage
           - if @drc_company
-            li: a href="#{admin_drc_company_url(@drc_company)}/edit" Manage
-          li: a href="/admin" Sign In
-          li: a href="#" Contact Us
-          li: a href="#" Site Map
-          li: a href="#{about_url}" About
+            a[href="#{admin_drc_company_url(@drc_company)}/edit" target="_blank"] Manage
