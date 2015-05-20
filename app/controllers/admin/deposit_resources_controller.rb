@@ -19,8 +19,6 @@ class Admin::DepositResourcesController < Admin::Auth
     config.columns[:metal_content_unit].options = {
       options:   ['Kt', 'Moz']}
       
-    #config.columns[:metal_content_unit].form_ui = :chosen  
-    #config.columns[:resource].form_ui = :chosen
-    #config.columns[:measurement].form_ui = :chosen  
+ 
   end
 end
