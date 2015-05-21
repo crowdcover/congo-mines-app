@@ -1,16 +1,16 @@
 class Report < ActiveRecord::Base
   belongs_to :author
   belongs_to :source
-  has_many :attachments, as: :attachable
+  has_many :attachments, as: :attachable,  dependent: :destroy
 
-  has_many :report_categories
+  has_many :report_categories,  dependent: :destroy
   has_many :categories, through: :report_categories
 
-  has_many :report_relations
+  has_many :report_relations, dependent: :destroy
   has_many :drc_companies, through: :report_relations
 
   #validates_presence_of :title, :summary, :source
- 
+
   paginates_per 10
   searchable do
     text :title, :organization, :summary
