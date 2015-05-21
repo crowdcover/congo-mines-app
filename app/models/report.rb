@@ -9,7 +9,7 @@ class Report < ActiveRecord::Base
   has_many :report_relations
   has_many :drc_companies, through: :report_relations
 
-  validates_presence_of :title, :source, :summary
+  #validates_presence_of :title, :summary, :source
  
   paginates_per 10
   searchable do
@@ -31,4 +31,5 @@ class Report < ActiveRecord::Base
       drc_companies.map { |drc_company| drc_company.id }
     end
   end
+  
 end
