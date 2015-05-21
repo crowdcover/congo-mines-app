@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519120324) do
+ActiveRecord::Schema.define(version: 20150520164009) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -43,6 +43,20 @@ ActiveRecord::Schema.define(version: 20150519120324) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "deposit_resources", force: :cascade do |t|
+    t.integer  "deposit_id"
+    t.string   "measurement"
+    t.string   "resource"
+    t.integer  "tonnage"
+    t.float    "grade"
+    t.integer  "metal_content"
+    t.string   "metal_content_unit"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "deposit_resources", ["deposit_id"], name: "index_deposit_resources_on_deposit_id"
 
   create_table "deposits", force: :cascade do |t|
     t.string   "name"
@@ -134,6 +148,28 @@ ActiveRecord::Schema.define(version: 20150519120324) do
   create_table "multinational_companies_stock_exchanges", id: false, force: :cascade do |t|
     t.integer "multinational_company_id"
     t.integer "stock_exchange_id"
+  end
+
+  create_table "page_categories", force: :cascade do |t|
+    t.integer  "page_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "page_categories", ["category_id"], name: "index_page_categories_on_category_id"
+  add_index "page_categories", ["page_id"], name: "index_page_categories_on_page_id"
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "topic"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
   end
 
   create_table "processing_infrastructures", force: :cascade do |t|
