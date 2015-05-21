@@ -51,7 +51,8 @@ $(function(){
         L.control.scale().addTo(app.map);
     },
 
-    getGeodata: function(url){
+    getGeodata: function(url, setTable){
+      setTable = typeof setTable !== undefined ? setTable : false;
 
       var minesLayer;
 
@@ -59,9 +60,13 @@ $(function(){
         minesLayer = L.geoJson(data, {
           onEachFeature: onEachFeature
         });
-        
+
         minesLayer.addTo(app.map);
-        app.setUpTable(data);
+
+        if (setTable) {
+          app.setUpTable(data);
+        }
+
       });
 
       // For Each feature in the GeoJSON define popups, any action etc action
@@ -92,7 +97,7 @@ $(function(){
       Object.keys(table_data[0]).forEach( function (val, index, arg) {
         titles.push({ "title": val });
       });
-      console.log(titles);
+      // console.log(titles);
 
       table_data.forEach( function (val, index, arg) {
         var oneDataRow = [];
@@ -102,7 +107,7 @@ $(function(){
         tableDataArray.push(oneDataRow);
       });
 
-      console.log(tableDataArray);
+      // console.log(tableDataArray);
 
       $('.mine-table').dataTable({
           "data" : tableDataArray,

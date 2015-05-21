@@ -7,6 +7,7 @@ div.row
       span = @drc_company.name
       span.quiet = @drc_company.acronym
 
+= render "company_map_nav"
 div#map
 
 div.row
@@ -171,5 +172,5 @@ javascript:
   $(function() {
     app.initMap();
     var geodataUrl = "#{get_geodata_drc_company_path(@drc_company)}"
-    app.getGeodata(geodataUrl);
+    app.getGeodata(geodataUrl, true);
   });

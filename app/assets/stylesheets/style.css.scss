@@ -511,6 +511,10 @@ $summary-lines-to-show: 6;
   z-index: 500;
 }
 
+.top-bar .dropdown {
+	z-index: 505;
+}
+
 .content .featured {
   width: 450px;
   height: 350px;
