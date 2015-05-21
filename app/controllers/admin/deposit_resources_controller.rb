@@ -7,7 +7,7 @@ class Admin::DepositResourcesController < Admin::Auth
     config.columns[:measurement].options = {
       include_blank: 'Select Measurement',
       options: ['proven reserves', 'probable reserves', 'proven probable reserves',
-      'measured_resources','indicated_resources','inferred_resources', 'total_resources'] }
+      'measured resources','indicated resources','inferred resources', 'total resources'] }
 
     config.columns[:resource].form_ui = :select
     config.columns[:resource].options = {
