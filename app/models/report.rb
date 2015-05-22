@@ -9,7 +9,9 @@ class Report < ActiveRecord::Base
   has_many :report_relations, dependent: :destroy
   has_many :drc_companies, through: :report_relations
 
-  #validates_presence_of :title, :summary, :source
+  #validates_presence_of :title, :summary
+  #validates :source, presence: true
+
 
   paginates_per 10
   searchable do

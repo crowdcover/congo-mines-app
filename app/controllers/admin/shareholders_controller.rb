@@ -4,7 +4,7 @@ class Admin::ShareholdersController  < Admin::Auth # ApplicationController
     config.label = 'Shareholder (en dernier ressort)'
 
     config.columns.exclude(:stock, :drc_companies, :created_at, :updated_at)
-   
+    config.list.per_page    = 25 
 
     #config.columns[:drc_companies].options = {:draggable_lists => true}
     #config.columns[:drc_companies].form_ui = :chosen
