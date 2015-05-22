@@ -6,7 +6,7 @@
       h1 Recommended Documents
 
   div.row
-    = render partial: "shared/documents2", locals: { reports: @rec_reports, columns: 4 }
+    = render partial: "shared/documents2", locals: { reports: @rec_reports, columns: @rec_reports.count }
     /= render partial: "shared/documents", locals: { reports: @reports, columns: 4 }
 
 

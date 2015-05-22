@@ -7,8 +7,10 @@ class ReportsController < ApplicationController
   end
 
   def index
-    @reports = Report.all.order('actual_post_date DESC').page(params[:page]).per(12)
     @rec_reports = Report.where(recommended: true).order('actual_post_date DESC').page(params[:page]).per(2)
+
+    # need to add that @reports can't include reports in the @rec_reports
+    @reports = Report.all.order('actual_post_date DESC').page(params[:page]).per(12)
 
     #for testing while no reports marked as recommended
     # @rec_reports = Report.all.order('actual_post_date DESC').page(params[:page]).per(2)
