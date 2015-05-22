@@ -1,6 +1,6 @@
 class Admin::ReportsController  < Admin::Auth # ApplicationController
+ 
   active_scaffold :"report" do |config|
-
     config.columns = [:title,  :summary, :recommended, :source, :categories, 
       :actual_post_date, :drc_companies, :attachments] 
  
@@ -18,7 +18,7 @@ class Admin::ReportsController  < Admin::Auth # ApplicationController
     config.columns[:categories].form_ui     = :chosen
     config.columns[:drc_companies].form_ui  = :chosen
     
-    config.columns[:summary].form_ui = :text_editor
+    #config.columns[:summary].form_ui = :text_editor
 
     #config.columns[:title].length = '60'
     #config.columns[:title].css_class = ' long-title-input'
