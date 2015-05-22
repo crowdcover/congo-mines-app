@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   get '/admin', to: 'admin/drc_companies#index'
   get '/about', to: 'static_pages#about'
 
-  resources :drc_companies  do  #, only: [:show, :index]
+  resources :drc_companies, only: [:show, :index] do  #, only: [:show, :index]
     member do
       get 'get_geodata'
       get 'get_deposits_geodata'

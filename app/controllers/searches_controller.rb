@@ -2,7 +2,7 @@ class SearchesController < ApplicationController
 
   def show
     @search = search(params[:search])
-    @reports = @search.results #.page(params[:page])
+    @reports = @search.results
     # fail
     render :show2
   end
