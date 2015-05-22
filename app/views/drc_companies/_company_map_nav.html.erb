@@ -10,9 +10,15 @@
       <li class="has-dropdown">
         <a href="#">Data Layers</a>
         <ul class="dropdown">
-          <li><a href="#">Deposits</a></li>
-          <li><a href="#">Processing Infrastructures</a></li>
-          <li><a href="#">Social Projects</a></li>
+          <li onclick="app.clearMap(); app.getGeodata('<%= get_deposits_geodata_drc_company_path{@drc_company} %>', <%= true %>)">
+            <a href="#">Deposits</a>
+          </li>
+          <li onclick="app.clearMap(); app.getGeodata('<%= get_processing_infrastructures_geodata_drc_company_path{@drc_company} %>', <%= true %>)">
+            <a href="#">Processing Infrastructures</a>
+          </li>
+          <li onclick="app.clearMap(); app.getGeodata('<%= get_social_projects_geodata_drc_company_path{@drc_company} %>', <%= true %>)">
+            <a href="#">Social Projects</a>
+          </li>
         </ul>
       </li>
       <li class="has-dropdown"><a href="#">Basetiles</a>

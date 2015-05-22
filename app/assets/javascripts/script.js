@@ -62,6 +62,7 @@ $(function(){
         });
 
         minesLayer.addTo(app.map);
+        app.map.addedLayer = minesLayer;
 
         if (setTable) {
           app.setUpTable(data);
@@ -87,6 +88,10 @@ $(function(){
     setUpTable: function(geoJSON){
       var table_data = [];
       var feature_array = $.makeArray( geoJSON.features )
+      if (feature_array.length == 0) {
+        return;
+      }
+
       table_data = $.map(feature_array, function(d){ return d.properties;});
 
       var titles = [];
@@ -108,16 +113,47 @@ $(function(){
       });
 
       // console.log(tableDataArray);
+      console.log(app.mapTable);
+      console.log(typeof app.mapTable !== 'undefined');
+      if (typeof app.mapTable !== 'undefined') {
+        console.log('are we doing something?')
+        app.mapTable.fnAddData(tableDataArray);
+      } else {
+        app.mapTable = $('.mine-table').dataTable({
+            "data" : tableDataArray,
+            "paging": false,
+            "info": false,
+            "searching": false,
+            "columns": titles
+        });
+      }
 
-      $('.mine-table').dataTable({
-          "data" : tableDataArray,
-          "paging": false,
-          "info": false,
-          "searching": false,
-          "columns": titles
-      });
 
+      // app.mapTable = $('.mine-table').dataTable({
+      //     "data" : tableDataArray,
+      //     "paging": false,
+      //     "info": false,
+      //     "searching": false,
+      //     "columns": titles
+    },
+
+  clearMap: function() {
+    app.map.addedLayer.clearLayers();
+
+    if ($('.mine-table')) {
+      app.mapTable.fnClearTable();
+      app.mapTable.fnDestroy();
     }
+
+    // if ($('.mine-table')) {
+    //   // console.log('yes has table');
+    //   app.mapTable table = $('.mine-table').dataTable();
+    //   // console.log(table);
+    //   table.fnClearTable();
+    //   // table.fnDestroy();
+    // }
+
+  }
 
   };
 
