@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520164009) do
+ActiveRecord::Schema.define(version: 20150522211441) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -98,12 +98,14 @@ ActiveRecord::Schema.define(version: 20150520164009) do
   create_table "employees", force: :cascade do |t|
     t.integer  "drc_company_id"
     t.integer  "year"
-    t.integer  "direct_expat"
-    t.integer  "direct_congolese"
-    t.integer  "subcontractor_expat"
-    t.integer  "subcontractor_congolese"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "congolese_female"
+    t.integer  "congolese_male"
+    t.integer  "congolese_total"
+    t.integer  "expat_female"
+    t.integer  "expat_male"
+    t.integer  "expat_total"
   end
 
   add_index "employees", ["drc_company_id"], name: "index_employees_on_drc_company_id"
@@ -332,7 +334,7 @@ ActiveRecord::Schema.define(version: 20150520164009) do
     t.integer  "total_paid"
     t.integer  "redevance"
     t.integer  "ibp"
-    t.boolean  "import_customs_duty"
+    t.integer  "import_customs_duty"
     t.integer  "surface_rights"
     t.integer  "signature_bonus"
     t.integer  "royalties"
