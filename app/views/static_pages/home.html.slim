@@ -1,10 +1,13 @@
+/ to test without any reports marked as recommended, comment out the if line below,
+/ and dedent the two div.row blocks (with the associated indented sections just below them)
+- if @rec_reports.count > 0
+  div.row
+    div.large-12.columns
+      h1 Recommended Documents
 
-div.row
-  div.large-12.columns
-    h1 Recommended Documents
-
-div.row
-  = render partial: "shared/documents", locals: {reports: @reports, columns: 4}
+  div.row
+    = render partial: "shared/documents2", locals: { reports: @rec_reports, columns: 4 }
+    /= render partial: "shared/documents", locals: { reports: @reports, columns: 4 }
 
 
 = render "shared/search"
@@ -30,4 +33,3 @@ div.row.mbl
     div.category
       = image_tag 'icon.png'
       h3 Human Rights & Mining
-
