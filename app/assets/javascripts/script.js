@@ -102,7 +102,6 @@ $(function(){
       Object.keys(table_data[0]).forEach( function (val, index, arg) {
         titles.push({ "title": val });
       });
-      console.log(titles);
 
       table_data.forEach( function (val, index, arg) {
         var oneDataRow = [];
@@ -112,56 +111,48 @@ $(function(){
         tableDataArray.push(oneDataRow);
       });
 
-      // console.log(tableDataArray);
-      console.log(app.mapTable);
-      console.log(typeof app.mapTable !== 'undefined');
-      if (typeof app.mapTable !== 'undefined') {
-        console.log('are we doing something?')
-        // app.mapTable.fnAddData(tableDataArray);
-        app.mapTable = $('.mine-table').dataTable({
-            "data" : tableDataArray,
-            "paging": false,
-            "info": false,
-            "searching": false,
-            "columns": titles
-        });
-      } else {
-        app.mapTable = $('.mine-table').dataTable({
-            "data" : tableDataArray,
-            "paging": false,
-            "info": false,
-            "searching": false,
-            "columns": titles
-        });
-      }
+      // if (typeof app.mapTable !== 'undefined') {
+      //   // console.log('are we doing something?')
+      //   // app.mapTable.fnAddData(tableDataArray);
+      //   app.mapTable = $('.mine-table').dataTable({
+      //       "data" : tableDataArray,
+      //       "paging": false,
+      //       "info": false,
+      //       "searching": false,
+      //       "columns": titles
+      //   });
+      // } else {
+      //   app.mapTable = $('.mine-table').dataTable({
+      //       "data" : tableDataArray,
+      //       "paging": false,
+      //       "info": false,
+      //       "searching": false,
+      //       "columns": titles
+      //   });
+      // }
 
-
-      // app.mapTable = $('.mine-table').dataTable({
-      //     "data" : tableDataArray,
-      //     "paging": false,
-      //     "info": false,
-      //     "searching": false,
-      //     "columns": titles
+      app.mapTable = $('.mine-table').dataTable({
+        "data" : tableDataArray,
+        "paging": false,
+        "info": false,
+        "searching": false,
+        "columns": titles
+      });
     },
 
-  clearMap: function() {
-    app.map.addedLayer.clearLayers();
+    clearMap: function() {
+      app.map.addedLayer.clearLayers();
 
-    if ($('.mine-table')) {
-      app.mapTable.fnClearTable();
-      app.mapTable.fnDestroy();
-      $('.mine-table').replaceWith( '<table class="mine-table"></table>' );
+      if (typeof app.mapTable !== 'undefined') {
+        console.log($('.mine-table'));
+        app.mapTable.fnClearTable();
+        app.mapTable.fnDestroy();
+        $('.mine-table').replaceWith( '<table class="mine-table"></table>' );
+      } else {
+        // console.log('no mine-table');
+      }
+
     }
-
-    // if ($('.mine-table')) {
-    //   // console.log('yes has table');
-    //   app.mapTable table = $('.mine-table').dataTable();
-    //   // console.log(table);
-    //   table.fnClearTable();
-    //   // table.fnDestroy();
-    // }
-
-  }
 
   };
 
