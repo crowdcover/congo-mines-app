@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150522211441) do
+ActiveRecord::Schema.define(version: 20150524200201) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -172,7 +172,10 @@ ActiveRecord::Schema.define(version: 20150522211441) do
     t.string   "banner_content_type"
     t.integer  "banner_file_size"
     t.datetime "banner_updated_at"
+    t.integer  "category_id"
   end
+
+  add_index "pages", ["category_id"], name: "index_pages_on_category_id"
 
   create_table "processing_infrastructures", force: :cascade do |t|
     t.string   "name"

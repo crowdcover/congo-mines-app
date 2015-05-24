@@ -74,13 +74,17 @@ $(function(){
       // onEachFeature is a leaflet method that can pass to a layer
       function onEachFeature(feature, layer) {
         var props = feature.properties;
-          var popupContent = "<h3 class='mine-marker'>"+ props.name + "</h3>"+
-              "Company: "+ props.drc_company + "<br />"+
-              "Type: " + props.mine_type + "<br />"+
-              "Proven Reserves: "+ props.proven_reserves+ "<br />"+
-              "Source: " + props.source;
 
-          layer.bindPopup(popupContent);
+        // do if statements for a few different properties
+        // testing with typeof props.(property) !== undefined
+        // for the 3 different geodata types
+        var popupContent = "<h3 class='mine-marker'>"+ props.name + "</h3>"+
+            "Company: "+ props.drc_company + "<br />"+
+            "Type: " + props.mine_type + "<br />"+
+            "Proven Reserves: "+ props.proven_reserves+ "<br />"+
+            "Source: " + props.source;
+
+        layer.bindPopup(popupContent);
       }
 
     },
@@ -144,7 +148,7 @@ $(function(){
       app.map.addedLayer.clearLayers();
 
       if (typeof app.mapTable !== 'undefined') {
-        console.log($('.mine-table'));
+        // console.log($('.mine-table'));
         app.mapTable.fnClearTable();
         app.mapTable.fnDestroy();
         $('.mine-table').replaceWith( '<table class="mine-table"></table>' );
