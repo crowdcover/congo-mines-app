@@ -5,6 +5,8 @@ class Page < ActiveRecord::Base
 
   belongs_to :category
   has_many :reports, through: :category
+  
+  validates_uniqueness_of :topic
 
 
   has_attached_file :banner, 
