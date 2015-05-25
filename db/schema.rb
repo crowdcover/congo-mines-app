@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150524200201) do
+ActiveRecord::Schema.define(version: 20150524210906) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"

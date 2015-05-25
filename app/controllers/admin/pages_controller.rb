@@ -1,9 +1,18 @@
 class Admin::PagesController < Admin::Auth
-  active_scaffold :"page" do |config|
+
+    # not listing/editing topic/ :category,
+  columns =  [:topic, :title,  :content,  :banner]
+  create_columns = columns - [:topic]
   
-    config.columns = [:topic, :title,  :content, :categories, :banner]
+  
+
+  active_scaffold :"page" do |config|
+    config.actions = [:list, :update, :show] 
+    config.list.columns = columns
+    config.update.columns = create_columns
+    config.update.columns = create_columns
     
-    config.columns[:categories].form_ui = :chosen
+    config.columns[:category].form_ui = :chosen
     
     config.columns[:topic].form_ui = :select
     config.columns[:topic].options = {include_blank: 'Select Topic', 
