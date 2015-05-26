@@ -1,10 +1,10 @@
 class ChangeShareholders < ActiveRecord::Migration
   def change
       change_table :shareholders do |t|
-      t.remove  :community_dialogue_platform
+      t.remove  :stock, :public_private
   
-      t.string :community_fund
-      t.string :community_dialogue_platform
+      t.string :stock
+      t.string :public_private
     end
   end
 end
