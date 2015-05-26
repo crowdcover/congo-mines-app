@@ -9,7 +9,7 @@ class Admin::DrcCompaniesController  < Admin::Auth # ApplicationController
     config.actions.add :export
     config.export.force_quotes = "true"
     config.export.force_quotes = "true"
-    config.export.columns = [:name, :acronym,  :nrc, :rccm,:contact, :website,
+    config.export.columns = [:name, :acronym, :description, :nrc, :rccm,:contact, :website,
       :legal_status, :project_type, :project_phase, :legal_regime,
       :flows_payable_under_contract, :tax_obligations,  :production_exports, 
       :shareholder_relationships, :employees, 

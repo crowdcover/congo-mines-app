@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150524210906) do
+ActiveRecord::Schema.define(version: 20150526144027) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -98,26 +98,24 @@ ActiveRecord::Schema.define(version: 20150524210906) do
   create_table "employees", force: :cascade do |t|
     t.integer  "drc_company_id"
     t.integer  "year"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.integer  "congolese_female"
-    t.integer  "congolese_male"
-    t.integer  "congolese_total"
-    t.integer  "expat_female"
-    t.integer  "expat_male"
-    t.integer  "expat_total"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "count"
+    t.string   "contract_type"
+    t.string   "nationality"
+    t.string   "gender"
   end
 
   add_index "employees", ["drc_company_id"], name: "index_employees_on_drc_company_id"
 
   create_table "env_and_social_obligations", force: :cascade do |t|
     t.integer "drc_company_id"
-    t.boolean "community_fund"
     t.date    "enviro_impact_date"
     t.string  "enviro_impact_link"
     t.string  "sustainable_dev_plan"
-    t.boolean "community_dialogue_platform"
     t.integer "social_investment"
+    t.string  "community_fund"
+    t.string  "community_dialogue_platform"
   end
 
   add_index "env_and_social_obligations", ["drc_company_id"], name: "index_env_and_social_obligations_on_drc_company_id"
@@ -271,6 +269,8 @@ ActiveRecord::Schema.define(version: 20150524210906) do
     t.string   "stock_countries"
     t.string   "stock_exchange"
     t.string   "stock_symbol"
+    t.string   "community_fund"
+    t.string   "community_dialogue_platform"
   end
 
   add_index "shareholders", ["drc_company_id"], name: "index_shareholders_on_drc_company_id"

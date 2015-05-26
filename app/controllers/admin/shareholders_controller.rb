@@ -12,5 +12,19 @@ class Admin::ShareholdersController  < Admin::Auth # ApplicationController
     config.actions.add :export
     config.export.force_quotes = "true"
     config.export.force_quotes = "true"
+    
+    config.columns[:stock].form_ui = :select
+    config.columns[:stock].options = {
+      include_blank: '', 
+      options: ['yes', 'no']} 
+   
+   
+   config.columns[:public_private].form_ui = :select
+    config.columns[:public_private].options = {
+      include_blank: 'Select option', 
+      options: ['state', 'state owned enterprise', 'private']} 
+   
+   
+    
   end
 end
