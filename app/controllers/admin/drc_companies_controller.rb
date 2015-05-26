@@ -9,11 +9,12 @@ class Admin::DrcCompaniesController  < Admin::Auth # ApplicationController
     config.actions.add :export
     config.export.force_quotes = "true"
     config.export.force_quotes = "true"
+    
     config.export.columns = [:name, :acronym, :description, :nrc, :rccm,:contact, :website,
       :legal_status, :project_type, :project_phase, :legal_regime,
       :flows_payable_under_contract, :tax_obligations,  :production_exports, 
       :shareholder_relationships, :employees, 
-      :env_and_social_obligations, :deposits, :processing_infrastructures, :social_projects]
+      :env_and_social_obligation, :deposits, :processing_infrastructures, :social_projects]
     
     # you can define a default values for the exporting form
     #config.export.default_deselected_columns = %w(phone address)
@@ -23,13 +24,12 @@ class Admin::DrcCompaniesController  < Admin::Auth # ApplicationController
 
     config.columns = [:name, :acronym,  :nrc, :rccm,:contact, :website,
       :legal_status, :project_type, :project_phase, :legal_regime]
-    
-    
+        
     config.update.columns = [:name, :description, :acronym,  :nrc, :rccm,:contact, :website,
       :legal_status, :project_type, :project_phase, :legal_regime,
       :flows_payable_under_contract, :tax_obligations,  :production_exports, 
       :shareholder_relationships, :employees, 
-      :env_and_social_obligations, :processing_infrastructures, :social_projects]
+      :env_and_social_obligation, :processing_infrastructures, :social_projects]
     
     
     config.nested.add_link(:reports, label: 'Documents')

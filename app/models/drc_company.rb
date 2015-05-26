@@ -2,8 +2,7 @@ class DrcCompany < ActiveRecord::Base
 
   has_many :production_exports, dependent: :destroy
   has_many :tax_obligations, dependent: :destroy
-  has_many :env_and_social_obligations, dependent: :destroy # has one?
-
+ 
   has_many :shareholder_relationships, dependent: :destroy
   has_many :shareholders, through: :shareholder_relationships
 
@@ -16,10 +15,9 @@ class DrcCompany < ActiveRecord::Base
 
   has_many :employees, dependent: :destroy
 
-  # has one?
-  #has_many :flows_payable_under_contracts
   has_one :flows_payable_under_contract, dependent: :destroy
-
+  has_one  :env_and_social_obligation, dependent: :destroy 
+  
   validates_presence_of :name #, :legal_status, :project_phase, :project_type, :acronym, :contact
 
   paginates_per 30
