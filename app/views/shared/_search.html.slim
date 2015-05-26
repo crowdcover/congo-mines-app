@@ -1,6 +1,5 @@
 div.search.pbl
   form action="#{search_url}" method="get"
-    input type="hidden" name="authenticity_token" value="#{form_authenticity_token}"
 
     div.row
       div.large-12.columns.text-center
@@ -74,4 +73,3 @@ div.search.pbl
 /            - shareholders = Shareholder.all
 /            - shareholders.each do |sh|
 /              option value="#{sh.id}" = sh.name
-
