@@ -11,6 +11,7 @@ class Report < ActiveRecord::Base
 
   validates_presence_of :title, :summary, :source_id
 
+
   # Sunspot Index Below
   paginates_per 10
   searchable do
