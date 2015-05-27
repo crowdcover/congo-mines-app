@@ -55,9 +55,9 @@ div.grey.company-stats
               h4 Direct Congolese Employees
               h4 Expat Subcontractors
               h4 Congolese Subcontractors
-            - unless @drc_company.employees.empty?
+            - unless @drc_company.employees.blank?
               div.large-8.columns
-                h4 = @drc_company.employees.year
+                h4 = @drc_company.employees.try(:year)
                 h4 = @drc_company.employees.direct_expat
                 h4 = @drc_company.employees.direct_congolese
                 h4 = @drc_company.employees.subcontractor_expat
