@@ -51,17 +51,18 @@ div.grey.company-stats
             div
             div.large-4.columns
               h4 Year
-              h4 Direct Expat Employees
-              h4 Direct Congolese Employees
-              h4 Expat Subcontractors
-              h4 Congolese Subcontractors
-            - unless @drc_company.employees.blank?
-              div.large-8.columns
-                h4 = @drc_company.employees.try(:year)
-                h4 = @drc_company.employees.direct_expat
-                h4 = @drc_company.employees.direct_congolese
-                h4 = @drc_company.employees.subcontractor_expat
-                h4 = @drc_company.employees.subcontractor_congolese
+              h4 Nationality
+              h4 Contract Type
+              h4 Gender
+              h4 Count
+            - employees = @drc_company.employees.each do |emp|
+              - unless emp.nil?
+                div.large-8.columns
+                  h4 = emp.try(:year)
+                  h4 = emp.nationality
+                  h4 = emp.contract_type
+                  h4 = emp.gender
+                  h4 = emp.count
 
         li.accordion-navigation
           a[href="#accordion-production"] Production & Export
