@@ -30,17 +30,21 @@ div.grey.company-stats
               h4 RCCM
               h4 Legal Status
               h4 Legal Regime
+              h4 Description
             div.large-3.columns
               h4.value = @drc_company.nrc
               h4.value = @drc_company.rccm
               h4.value = @drc_company.legal_status
               h4.value = @drc_company.legal_regime
+              h4.value = @drc_company.description
             div.large-3.columns
+              h4 Permits
               h4 Project Type
               h4 Project Phase
               h4 Contact
               h4 Website
             div.large-3.columns
+              h4.value = @drc_company.permits
               h4.value = @drc_company.project_type
               h4.value = @drc_company.project_phase
               h4.value = @drc_company.contact
