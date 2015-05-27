@@ -25,10 +25,20 @@ div.row
   div.large-12.columns
     h1.quiet Topic Documents
 
-div.row
-  - 3.times do |t|
-    - reports_line = @reports[(4 * t)..((4 * (t + 1) - 1))]
-    = render partial: "shared/documents2", locals: {reports: reports_line, columns: 4}
+- if @reports
+  div.row
+    - 3.times do |t|
+      - reports_line = @reports[(4 * t)..((4 * (t + 1) - 1))]
+      = render partial: "shared/documents2", locals: {reports: reports_line, columns: 4}
 
-div.row
-  = paginate @reports
+  div.row
+    = paginate @reports
+
+- if @drc_company_reports
+  div.row
+    - 3.times do |t|
+      - reports_line = @drc_company_reports[(4 * t)..((4 * (t + 1) - 1))]
+      = render partial: "shared/documents2", locals: {reports: reports_line, columns: 4}
+
+  div.row
+    = paginate @drc_company_reports
