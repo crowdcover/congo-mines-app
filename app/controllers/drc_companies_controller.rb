@@ -2,9 +2,10 @@ class DrcCompaniesController < ApplicationController
 
   def show
     @drc_company = DrcCompany.includes(:tax_obligations, :employees,
-      :env_and_social_obligations, :flows_payable_under_contract,
+      :env_and_social_obligation, :flows_payable_under_contract,
       :production_exports).find(params[:id])
-    @drc_company_reports = @drc_company.reports.page(params[:page]).per(12)
+    @drc_company_reports = @drc_company.reports.order(actual_post_date: :desc)
+                              .page(params[:page]).per(12)
     render :show
   end
 

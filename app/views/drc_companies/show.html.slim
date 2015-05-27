@@ -91,18 +91,18 @@ div.grey.company-stats
                 h4 Flows Payable Under Contracts
             div.row
               div.large-6.columns
-                h4 Contract Cash Recipient
                 h4 Signature Bonus
                 h4 Royalties
                 h4 Annuity
                 h4 Transfer of Shares
-              /- unless @drc_company.flows_payable_under_contract.nil?
+                h4 Contract Cash Recipient
+              - unless @drc_company.flows_payable_under_contract.nil?
                 div.large-6.columns
-                  h4 = @drc_company.flows_payable_under_contract.first.contract_cash_payment
-                  h4 = @drc_company.flows_payable_under_contract.first.signature_bonus
-                  h4 = @drc_company.flows_payable_under_contract.first.royalties
-                  h4 = @drc_company.flows_payable_under_contract.first.annuity
-                  h4 = @drc_company.flows_payable_under_contract.first.transfer_of_shares
+                  h4 = @drc_company.flows_payable_under_contract.signature_bonus
+                  h4 = @drc_company.flows_payable_under_contract.royalties
+                  h4 = @drc_company.flows_payable_under_contract.annuity
+                  h4 = @drc_company.flows_payable_under_contract.transfer_of_shares
+                  h4 = @drc_company.flows_payable_under_contract.contract_cash_recipient
             div.row
               div.large-12.columns
                 h4 Tax Obligations
@@ -144,15 +144,14 @@ div.grey.company-stats
                 h4 Sustainability Development Plan
                 h4 Community Dialogue Platform
                 h4 Social Investment
-              - @drc_company.env_and_social_obligations.each do |env_soc|
-                - unless env_soc.nil?
-                  div.large-6.columns
-                    h4 = env_soc.community_fund
-                    h4 = env_soc.enviro_impact_date
-                    h4 = env_soc.enviro_impact_link
-                    h4 = env_soc.sustainable_dev_plan
-                    h4 = env_soc.community_dialogue_platform
-                    h4 = env_soc.social_investment
+              - unless @drc_company.env_and_social_obligation.nil?
+                div.large-6.columns
+                  h4 = @drc_company.env_and_social_obligation.community_fund
+                  h4 = @drc_company.env_and_social_obligation.enviro_impact_date
+                  h4 = @drc_company.env_and_social_obligation.enviro_impact_link
+                  h4 = @drc_company.env_and_social_obligation.sustainable_dev_plan
+                  h4 = @drc_company.env_and_social_obligation.community_dialogue_platform
+                  h4 = @drc_company.env_and_social_obligation.social_investment
 
 div.divider
 div.row
