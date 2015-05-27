@@ -11,8 +11,8 @@ class Admin::ReportsController  < Admin::Auth # ApplicationController
     config.list.sorting = { :actual_post_date => :desc }
 
     config.columns[:actual_post_date].label   = 'Publication Date' 
-    config.columns[:actual_post_date].form_ui = :date_picker
-    config.columns[:actual_post_date].options = {options: [[changeYear: true]]}
+    #config.columns[:actual_post_date].form_ui = :date_picker
+    #config.columns[:actual_post_date].options = {options: [[changeYear: true]]}
     
     config.columns[:source].form_ui         = :chosen
     config.columns[:categories].form_ui     = :chosen

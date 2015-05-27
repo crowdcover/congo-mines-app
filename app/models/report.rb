@@ -10,10 +10,10 @@ class Report < ActiveRecord::Base
   has_many :drc_companies, through: :report_relations
   # has_many :pages, through: :drc_companies
 
-  #validates_presence_of :title, :summary
-  #validates :source, presence: true
+  validates_presence_of :title, :summary, :source_id
 
 
+  # Sunspot Index Below
   paginates_per 10
   searchable do
     text :title, :organization, :summary
