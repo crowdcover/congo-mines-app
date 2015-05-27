@@ -172,9 +172,11 @@ ActiveRecord::Schema.define(version: 20150527145539) do
     t.integer  "banner_file_size"
     t.datetime "banner_updated_at"
     t.integer  "category_id"
+    t.integer  "drc_company_id"
   end
 
   add_index "pages", ["category_id"], name: "index_pages_on_category_id"
+  add_index "pages", ["drc_company_id"], name: "index_pages_on_drc_company_id"
 
   create_table "processing_infrastructures", force: :cascade do |t|
     t.string   "name"

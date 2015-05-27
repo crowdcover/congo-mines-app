@@ -18,7 +18,9 @@ class Admin::ShareholdersController  < Admin::Auth # ApplicationController
       include_blank: '', 
       options: ['yes', 'no']} 
    
-   
+  
+   config.columns[:shareholder_relationships].allow_add_existing = false
+     
    config.columns[:public_private].form_ui = :select
     config.columns[:public_private].options = {
       include_blank: 'Select option', 
