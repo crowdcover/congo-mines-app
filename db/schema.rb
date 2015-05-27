@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150526144027) do
+ActiveRecord::Schema.define(version: 20150527142914) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -171,9 +171,11 @@ ActiveRecord::Schema.define(version: 20150526144027) do
     t.integer  "banner_file_size"
     t.datetime "banner_updated_at"
     t.integer  "category_id"
+    t.integer  "drc_company_id"
   end
 
   add_index "pages", ["category_id"], name: "index_pages_on_category_id"
+  add_index "pages", ["drc_company_id"], name: "index_pages_on_drc_company_id"
 
   create_table "processing_infrastructures", force: :cascade do |t|
     t.string   "name"
@@ -262,15 +264,13 @@ ActiveRecord::Schema.define(version: 20150526144027) do
     t.string   "acronym"
     t.string   "contact"
     t.string   "website"
-    t.boolean  "stock"
-    t.string   "public_private"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "stock_countries"
     t.string   "stock_exchange"
     t.string   "stock_symbol"
-    t.string   "community_fund"
-    t.string   "community_dialogue_platform"
+    t.string   "stock"
+    t.string   "public_private"
   end
 
   add_index "shareholders", ["drc_company_id"], name: "index_shareholders_on_drc_company_id"
