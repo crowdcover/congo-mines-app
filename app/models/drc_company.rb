@@ -10,6 +10,7 @@ class DrcCompany < ActiveRecord::Base
   has_many :reports, through: :report_relations, dependent: :destroy
 
   has_many :social_projects, dependent: :destroy
+  
   has_many :processing_infrastructures, dependent: :destroy
   has_many :deposits, dependent: :destroy
 
@@ -21,6 +22,8 @@ class DrcCompany < ActiveRecord::Base
   validates_presence_of :name #, :legal_status, :project_phase, :project_type, :acronym, :contact
 
   paginates_per 30
+  
+  
   
   def to_label
     try(:name)

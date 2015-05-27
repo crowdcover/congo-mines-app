@@ -9,10 +9,9 @@ class Report < ActiveRecord::Base
   has_many :report_relations, dependent: :destroy
   has_many :drc_companies, through: :report_relations
 
-  #validates_presence_of :title, :summary
-  #validates :source, presence: true
+  validates_presence_of :title, :summary, :source_id
 
-
+  # Sunspot Index Below
   paginates_per 10
   searchable do
     text :title, :organization, :summary
@@ -33,5 +32,5 @@ class Report < ActiveRecord::Base
       drc_companies.map { |drc_company| drc_company.id }
     end
   end
-  
+
 end

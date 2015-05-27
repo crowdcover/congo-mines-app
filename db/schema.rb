@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150526144027) do
+ActiveRecord::Schema.define(version: 20150527145539) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20150526144027) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
+    t.text     "permits"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -262,15 +263,13 @@ ActiveRecord::Schema.define(version: 20150526144027) do
     t.string   "acronym"
     t.string   "contact"
     t.string   "website"
-    t.boolean  "stock"
-    t.string   "public_private"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "stock_countries"
     t.string   "stock_exchange"
     t.string   "stock_symbol"
-    t.string   "community_fund"
-    t.string   "community_dialogue_platform"
+    t.string   "stock"
+    t.string   "public_private"
   end
 
   add_index "shareholders", ["drc_company_id"], name: "index_shareholders_on_drc_company_id"
@@ -287,6 +286,7 @@ ActiveRecord::Schema.define(version: 20150526144027) do
     t.decimal  "lng",            precision: 15, scale: 10
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
+    t.integer  "year"
   end
 
   add_index "social_projects", ["drc_company_id"], name: "index_social_projects_on_drc_company_id"

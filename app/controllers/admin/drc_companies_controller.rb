@@ -11,7 +11,7 @@ class Admin::DrcCompaniesController  < Admin::Auth # ApplicationController
     config.export.force_quotes = "true"
     
     config.export.columns = [:name, :acronym, :description, :nrc, :rccm,:contact, :website,
-      :legal_status, :project_type, :project_phase, :legal_regime,
+      :legal_status, :project_type, :project_phase, :legal_regime, :permits,
       :flows_payable_under_contract, :tax_obligations,  :production_exports, 
       :shareholder_relationships, :employees, 
       :env_and_social_obligation, :deposits, :processing_infrastructures, :social_projects]
@@ -23,13 +23,17 @@ class Admin::DrcCompaniesController  < Admin::Auth # ApplicationController
     config.list.sorting = { :name => :asc }   
 
     config.columns = [:name, :acronym,  :nrc, :rccm,:contact, :website,
-      :legal_status, :project_type, :project_phase, :legal_regime]
+      :legal_status, :project_type, :project_phase, :legal_regime, :permits]
         
     config.update.columns = [:name, :description, :acronym,  :nrc, :rccm,:contact, :website,
-      :legal_status, :project_type, :project_phase, :legal_regime,
+      :legal_status, :project_type, :project_phase, :legal_regime, :permits,
       :flows_payable_under_contract, :tax_obligations,  :production_exports, 
       :shareholder_relationships, :employees, 
       :env_and_social_obligation, :processing_infrastructures, :social_projects]
+      
+    config.columns[:shareholder_relationships].allow_add_existing = false
+    config.columns[:social_projects].allow_add_existing = false
+
     
     
     config.nested.add_link(:reports, label: 'Documents')
