@@ -8,7 +8,7 @@ class Page < ActiveRecord::Base
 
   belongs_to :drc_company
 
-  validates_uniqueness_of :topic
+  validates_uniqueness_of :topic, if: :topic_changed?
 
 
   has_attached_file :banner,

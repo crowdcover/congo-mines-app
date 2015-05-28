@@ -34,7 +34,7 @@ div.row
   div.row
     = paginate @reports
 
-- if @drc_company_reports
+/- if @drc_company_reports
   div.row
     - 3.times do |t|
       - reports_line = @drc_company_reports[(4 * t)..((4 * (t + 1) - 1))]
