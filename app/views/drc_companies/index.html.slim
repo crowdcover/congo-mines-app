@@ -8,7 +8,7 @@ div.row.keyline-bottom.pbl
         label for="company" Mining Companies Registered in the DRC
         div.small-10.columns
           select#company.select2-dropdown name="drc_company_nav"
-            option value="#{nil}"
+            option
             - @all_drc_companies.each do |c|
               option value="#{drc_company_url(c)}" = c.name
 
@@ -25,7 +25,7 @@ div.row.keyline-bottom.pbl
         label for="shareholder" International Investors
         div.small-10.columns
           select#shareholder.select2-dropdown name="shareholder_nav"
-            option value="#{nil}"
+            option
             - @all_shareholders.each do |c|
               option value="#{shareholder_url(c)}" = c.name
 

@@ -1,10 +1,13 @@
+/ to test without any reports marked as recommended, comment out the if line below,
+/ and dedent the two div.row blocks (with the associated indented sections just below them)
+- if @rec_reports.count > 0
+  div.row
+    div.large-12.columns
+      h1 Recommended Documents
 
-div.row
-  div.large-12.columns
-    h1 Recommended Documents
-
-div.row
-  = render partial: "shared/documents", locals: {reports: @reports, columns: 4}
+  div.row
+    = render partial: "shared/documents2", locals: { reports: @rec_reports, columns: @rec_reports.count }
+    /= render partial: "shared/documents", locals: { reports: @reports, columns: 4 }
 
 
 = render "shared/search"
@@ -16,18 +19,27 @@ div.row.mbl
 
   div.large-12.columns.text-center
     div.category
-      = image_tag 'icon.png'
-      h3 EITI
+      - eiti_page = Page.find_by(category_id: 48)
+      a href="#{page_url(eiti_page) if eiti_page}"
+        = image_tag 'icon.png'
+        h3 EITI Compliance
     div.category
-      = image_tag 'icon.png'
-      h3 Mining Code
+      - mine_code_page = Page.find_by(category_id: 46)
+      a href="#{page_url(mine_code_page) if mine_code_page}"
+        = image_tag 'icon.png'
+        h3 Mining Code
     div.category
-      = image_tag 'icon.png'
-      h3 Minerals for Infrastructure
+      - sicomines_page = Page.find_by(drc_company_id: 74)
+      a href="#{page_url(sicomines_page) if sicomines_page}"
+        = image_tag 'icon.png'
+        h3 Sicomines
     div.category
-      = image_tag 'icon.png'
-      h3 State Owned Enterprises
+      - gov_asset_sales_page = Page.find_by(category_id: 45)
+      a href="#{page_url(gov_asset_sales_page) if gov_asset_sales_page}"
+        = image_tag 'icon.png'
+        h3 Government Asset Sales
     div.category
-      = image_tag 'icon.png'
-      h3 Human Rights & Mining
-
+      - human_rights_page = Page.find_by(category_id: 36)
+      a href="#{page_url(human_rights_page) if human_rights_page}"
+        = image_tag 'icon.png'
+        h3 Human Rights

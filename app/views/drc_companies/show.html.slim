@@ -7,12 +7,14 @@ div.row
       span = @drc_company.name
       span.quiet = @drc_company.acronym
 
+= render "company_map_nav"
 div#map
 
 div.row
   div.large-12.columns
 
-    table.mine-table.display [cellpadding="0" cellspacing="0" border="0"]
+    table.mine-table
+      /.display [cellpadding="0" cellspacing="0" border="0"]
 
 
 div.grey.company-stats
@@ -28,17 +30,21 @@ div.grey.company-stats
               h4 RCCM
               h4 Legal Status
               h4 Legal Regime
+              h4 Description
             div.large-3.columns
               h4.value = @drc_company.nrc
               h4.value = @drc_company.rccm
               h4.value = @drc_company.legal_status
               h4.value = @drc_company.legal_regime
+              h4.value = @drc_company.description
             div.large-3.columns
+              h4 Permits
               h4 Project Type
               h4 Project Phase
               h4 Contact
               h4 Website
             div.large-3.columns
+              h4.value = @drc_company.permits
               h4.value = @drc_company.project_type
               h4.value = @drc_company.project_phase
               h4.value = @drc_company.contact
@@ -49,17 +55,18 @@ div.grey.company-stats
             div
             div.large-4.columns
               h4 Year
-              h4 Direct Expat Employees
-              h4 Direct Congolese Employees
-              h4 Expat Subcontractors
-              h4 Congolese Subcontractors
-            - unless @drc_company.employees.empty?
-              div.large-8.columns
-                h4 = @drc_company.employees.year
-                h4 = @drc_company.employees.direct_expat
-                h4 = @drc_company.employees.direct_congolese
-                h4 = @drc_company.employees.subcontractor_expat
-                h4 = @drc_company.employees.subcontractor_congolese
+              h4 Nationality
+              h4 Contract Type
+              h4 Gender
+              h4 Count
+            - employees = @drc_company.employees.each do |emp|
+              - unless emp.nil?
+                div.large-8.columns
+                  h4 = emp.try(:year)
+                  h4 = emp.nationality
+                  h4 = emp.contract_type
+                  h4 = emp.gender
+                  h4 = emp.count
 
         li.accordion-navigation
           a[href="#accordion-production"] Production & Export
@@ -89,18 +96,18 @@ div.grey.company-stats
                 h4 Flows Payable Under Contracts
             div.row
               div.large-6.columns
-                h4 Contract Cash Recipient
                 h4 Signature Bonus
                 h4 Royalties
                 h4 Annuity
                 h4 Transfer of Shares
-              /- unless @drc_company.flows_payable_under_contract.nil?
+                h4 Contract Cash Recipient
+              - unless @drc_company.flows_payable_under_contract.nil?
                 div.large-6.columns
-                  h4 = @drc_company.flows_payable_under_contract.first.contract_cash_payment
-                  h4 = @drc_company.flows_payable_under_contract.first.signature_bonus
-                  h4 = @drc_company.flows_payable_under_contract.first.royalties
-                  h4 = @drc_company.flows_payable_under_contract.first.annuity
-                  h4 = @drc_company.flows_payable_under_contract.first.transfer_of_shares
+                  h4 = @drc_company.flows_payable_under_contract.signature_bonus
+                  h4 = @drc_company.flows_payable_under_contract.royalties
+                  h4 = @drc_company.flows_payable_under_contract.annuity
+                  h4 = @drc_company.flows_payable_under_contract.transfer_of_shares
+                  h4 = @drc_company.flows_payable_under_contract.contract_cash_recipient
             div.row
               div.large-12.columns
                 h4 Tax Obligations
@@ -142,15 +149,14 @@ div.grey.company-stats
                 h4 Sustainability Development Plan
                 h4 Community Dialogue Platform
                 h4 Social Investment
-              - @drc_company.env_and_social_obligations.each do |env_soc|
-                - unless env_soc.nil?
-                  div.large-6.columns
-                    h4 = env_soc.community_fund
-                    h4 = env_soc.enviro_impact_date
-                    h4 = env_soc.enviro_impact_link
-                    h4 = env_soc.sustainable_dev_plan
-                    h4 = env_soc.community_dialogue_platform
-                    h4 = env_soc.social_investment
+              - unless @drc_company.env_and_social_obligation.nil?
+                div.large-6.columns
+                  h4 = @drc_company.env_and_social_obligation.community_fund
+                  h4 = @drc_company.env_and_social_obligation.enviro_impact_date
+                  h4 = @drc_company.env_and_social_obligation.enviro_impact_link
+                  h4 = @drc_company.env_and_social_obligation.sustainable_dev_plan
+                  h4 = @drc_company.env_and_social_obligation.community_dialogue_platform
+                  h4 = @drc_company.env_and_social_obligation.social_investment
 
 div.divider
 div.row
@@ -170,6 +176,6 @@ div.row
 javascript:
   $(function() {
     app.initMap();
-    var geodataUrl = "#{get_geodata_drc_company_path(@drc_company)}"
-    app.getGeodata(geodataUrl);
+    var geodataUrl = "#{get_deposits_geodata_drc_company_path(@drc_company)}"
+    app.getGeodata(geodataUrl, true);
   });

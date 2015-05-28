@@ -1,16 +1,19 @@
 class Report < ActiveRecord::Base
   belongs_to :author
   belongs_to :source
-  has_many :attachments, as: :attachable
+  has_many :attachments, as: :attachable,  dependent: :destroy
 
-  has_many :report_categories
+  has_many :report_categories,  dependent: :destroy
   has_many :categories, through: :report_categories
 
-  has_many :report_relations
+  has_many :report_relations, dependent: :destroy
   has_many :drc_companies, through: :report_relations
+  # has_many :pages, through: :drc_companies
 
-  validates_presence_of :title, :source, :summary
- 
+  validates_presence_of :title, :summary, :source_id
+
+
+  # Sunspot Index Below
   paginates_per 10
   searchable do
     text :title, :organization, :summary
@@ -31,4 +34,5 @@ class Report < ActiveRecord::Base
       drc_companies.map { |drc_company| drc_company.id }
     end
   end
+
 end

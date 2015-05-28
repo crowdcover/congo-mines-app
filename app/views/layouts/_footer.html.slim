@@ -46,11 +46,11 @@ div.footer
         li
           a[href="/admin" target="_blank"] Sign In
           - if @report
-            span  |  
-            a[href="#{admin_report_url(@report)}/edit" target="_blank"] Manage
+            span  |
+            a[href="#{edit_admin_report_url(@report)}" target="_blank"] Manage
           - if @drc_company
-            span  |  
-            a[href="#{admin_drc_company_url(@drc_company)}/edit" target="_blank"] Manage
+            span  |
+            a[href="#{edit_admin_drc_company_url(@drc_company)}" target="_blank"] Manage
           - if @shareholder
-            span  |  
-            a[href="#{admin_shareholder_url(@shareholder)}/edit" target="_blank"] Manage
+            span  |
+            a[href="#{edit_admin_shareholder_url(@shareholder)}" target="_blank"] Manage

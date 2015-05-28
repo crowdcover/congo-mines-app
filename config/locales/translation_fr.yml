@@ -1,0 +1,253 @@
+fr:
+  activerecord:
+    models:
+      active_scaffold/tableless: active_scaffold/tableless  #g
+      attachment: attachment  #g
+      author: author  #g
+      category: category  #g
+      deposit: deposit  #g
+      deposit_resource: deposit_resource  #g
+      drc_company: drc_company  #g
+      employee: employee  #g
+      env_and_social_obligation: env_and_social_obligation  #g
+      flows_payable_under_contract: flux payable au contrat  #g
+      intermediary_company: intermediary_company  #g
+      page: page  #g
+      page_category: page_category  #g
+      processing_infrastructure: processing_infrastructure  #g
+      production_export: production_export  #g
+      report: report  #g
+      report_category: report_category  #g
+      report_relation: report_relation  #g
+      shareholder: shareholder  #g
+      shareholder_intermediary: shareholder_intermediary  #g
+      shareholder_relationship: shareholder_relationship  #g
+      social_project: social_project  #g
+      source: source  #g
+      stock_exchange: stock_exchange  #g
+      stock_exchange_country: stock_exchange_country  #g
+      tax_obligation: tax_obligation  #g
+
+    attributes:
+      attachment:
+        asset_content_type: asset_content_type  #g
+        asset_file_name: asset_file_name  #g
+        asset_file_size: asset_file_size  #g
+        asset_updated_at: asset_updated_at  #g
+        attachable: :activerecord.models.attachable  #g
+        attachable_type: attachable_type  #g
+        name: name  #g
+        position: position  #g
+
+      author:
+        description: description  #g
+        name: name  #g
+
+      category:
+        aasm_state: aasm_state  #g
+        children: children  #g
+        name: name  #g
+        page: :activerecord.models.page  #g
+        parent: :activerecord.models.parent  #g
+        position: position  #g
+        report_categories: report_categories  #g
+        reports: reports  #g
+
+      deposit:
+        drc_company: :activerecord.models.drc_company  #g
+        indicated_resources: indicated_resources  #g
+        inferred_resources: inferred_resources  #g
+        lat: lat  #g
+        lng: lng  #g
+        measured_resources: measured_resources  #g
+        mine_type: mine_type  #g
+        name: name  #g
+        permit_number: permit_number  #g
+        permit_type: permit_type  #g
+        probable_reserves: probable_reserves  #g
+        proven_probable_reserves: proven_probable_reserves  #g
+        proven_reserves: proven_reserves  #g
+        resources: resources  #g
+        source: source  #g
+
+      deposit_resource:
+        deposit: :activerecord.models.deposit  #g
+        grade: grade  #g
+        measurement: measurement  #g
+        metal_content: metal_content  #g
+        metal_content_unit: metal_content_unit  #g
+        resource: resource  #g
+        tonnage: tonnage  #g
+
+      drc_company:
+        acronym: Acronyme  #g
+        contact: Contact  #g
+        deposits: Deposits  #g
+        description: Description  #g
+        employees: employees  #g
+        env_and_social_obligation: :activerecord.models.env_and_social_obligation  #g
+        flows_payable_under_contract: :activerecord.models.flows_payable_under_contract  #g
+        legal_regime: Régime légal applicable au projet  #g
+        legal_status: Statut juridique de la société  #g
+        name: nom complet de la societe  #g
+        nrc: Numéro Nouveau Registre de Commerce (NRC)  #g
+        processing_infrastructures: processing_infrastructures  #g
+        production_exports: :activerecord.models.production_exports  #g
+        project_phase: Phase du Project  #g
+        project_type: Type de Project  #g
+        rccm: Numéro Registre de Commerce et de Crédit Mobilier (RCCM)  #g
+        report_relations: :activerecord.models.report_relations  #g
+        reports: :activerecord.models.reports  #g
+        shareholder_relationships: :activerecord.models.shareholder_relationships  #g
+        shareholders: :activerecord.models.shareholders  #g
+        social_projects: :activerecord.models.social_projects  #g
+        tax_obligations: :activerecord.models.tax_obligations  #g
+        website: Site internet de la société de droit congolais  #g
+
+      employee:
+        contract_type: contract_type  #g
+        count: count  #g
+        drc_company: :activerecord.models.drc_company  #g
+        gender: gender  #g
+        nationality: nationality  #g
+        year: year  #g
+
+      env_and_social_obligation:
+        community_dialogue_platform: Existence d’une plateforme de dialogue communautaire  #g
+        community_fund: Constitution d’un fond communautaire #g
+        drc_company: :activerecord.models.drc_company  #g
+        enviro_impact_date: Date(s) des consultations populaires pour la réalisation de l’Etude d’Impact Environnementale  #g
+        enviro_impact_link: Lien vers l’Etude d’impact environnementale  #g
+        social_investment: Montant total investi dans le volet social  #g
+        sustainable_dev_plan: Lien vers le Plan de Développement Durable et/ou Cahier de Charge  #g
+
+      flows_payable_under_contract:
+        annuity: Formule de la rente ou du loyer à payer  #g
+        contract_cash_recipient: Bénéficiaire des flux contractuels  #g
+        drc_company: :activerecord.models.drc_company  #g
+        royalties: Formule des royalties à payer  #g
+        signature_bonus: Pas de porte à payer ($) #g
+        transfer_of_shares: montant pour cession d’actif  #g
+
+      intermediary_company:
+        name: name  #g
+        shareholder_intermediaries: shareholder_intermediaries  #g
+        shareholder_relationships: shareholder_relationships  #g
+
+      page:
+        banner_content_type: banner_content_type  #g
+        banner_file_name: banner_file_name  #g
+        banner_file_size: banner_file_size  #g
+        banner_updated_at: banner_updated_at  #g
+        category: :activerecord.models.category  #g
+        content: content  #g
+        reports: reports  #g
+        title: title  #g
+        topic: topic  #g
+
+      page_category:
+        category: :activerecord.models.category  #g
+        page: :activerecord.models.page  #g
+
+      processing_infrastructure:
+        drc_company: :activerecord.models.drc_company  #g
+        lat: lat  #g
+        lng: lng  #g
+        name: name  #g
+
+      production_export:
+        drc_company: :activerecord.models.drc_company  #g
+        export_value: Valeur d'exportation  #g
+        grade: Teneur (%)  #g
+        metal_content: metal_content  #g
+        tonnage: Minerais produits (Mt)  #g
+        type_of_product: Type de Produit  #g
+        year: Année  #g
+
+      report:
+        actual_post_date: actual_post_date  #g
+        attachments: attachments  #g
+        author: :activerecord.models.author  #g
+        categories: categories  #g
+        cm_url: cm_url  #g
+        date_string: date_string  #g
+        drc_companies: drc_companies  #g
+        organization: organization  #g
+        post_date: post_date  #g
+        recommended: recommended  #g
+        report_categories: report_categories  #g
+        report_relations: report_relations  #g
+        source: :activerecord.models.source  #g
+        summary: summary  #g
+        title: title  #g
+
+      report_category:
+        category: :activerecord.models.category  #g
+        report: :activerecord.models.report  #g
+
+      report_relation:
+        drc_company: :activerecord.models.drc_company  #g
+        report: :activerecord.models.report  #g
+
+      shareholder:
+        acronym: acronym  #g
+        community_dialogue_platform: community_dialogue_platform  #g
+        community_fund: community_fund  #g
+        contact: contact  #g
+        drc_companies: drc_companies  #g
+        name: name  #g
+        public_private: public_private  #g
+        shareholder_relationships: shareholder_relationships  #g
+        stock: Cotation boursière  #g
+        stock_countries: Informations boursières  #g
+        stock_exchange: stock_exchange  #g
+        stock_symbol: stock_symbol  #g
+        website: website  #g
+
+      shareholder_intermediary:
+        intermediary_company: :activerecord.models.intermediary_company  #g
+        shareholder_relationship: :activerecord.models.shareholder_relationship  #g
+
+      shareholder_relationship:
+        direct_shareholder: direct_shareholder  #g
+        drc_company: :activerecord.models.drc_company  #g
+        intermediary_companies: intermediary_companies  #g
+        percentage: pourcentage (%)  #g
+        shareholder: :activerecord.models.shareholder  #g
+        shareholder_intermediaries: shareholder_intermediaries  #g
+        year: year  #g
+
+      social_project:
+        amount_planned: amount_planned  #g
+        amount_spent: amount_spent  #g
+        company: company  #g
+        description: description  #g
+        drc_company: :activerecord.models.drc_company  #g
+        lat: lat  #g
+        lng: lng  #g
+        project_type: project_type  #g
+        stage: stage  #g
+
+      source:
+        description: description  #g
+        name: name  #g
+        reports: reports  #g
+
+      stock_exchange:
+        name: name  #g
+
+      stock_exchange_country:
+        name: name  #g
+
+      tax_obligation:
+        company_name: Nom de la société de droit congolais  #g
+        drc_company: :activerecord.models.drc_company  #g
+        ibp: IBP déclaré  #g
+        import_customs_duty: Droit de douane à l’importation déclaré  #g
+        other: Autre flux contractuels  #g
+        redevance: Redevances déclarées  #g
+        royalties: Royalties déclarées  #g
+        signature_bonus: Pas de porte déclaré  #g
+        surface_rights: Droits superficiaires déclarés  #g
+        total_paid: Montant total payé (déclaration entreprise)   #g
+        year: year  #g

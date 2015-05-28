@@ -51,7 +51,8 @@ $(function(){
         L.control.scale().addTo(app.map);
     },
 
-    getGeodata: function(url){
+    getGeodata: function(url, setTable){
+      setTable = typeof setTable !== undefined ? setTable : false;
 
       var minesLayer;
 
@@ -59,22 +60,31 @@ $(function(){
         minesLayer = L.geoJson(data, {
           onEachFeature: onEachFeature
         });
-        
+
         minesLayer.addTo(app.map);
-        app.setUpTable(data);
+        app.map.addedLayer = minesLayer;
+
+        if (setTable) {
+          app.setUpTable(data);
+        }
+
       });
 
       // For Each feature in the GeoJSON define popups, any action etc action
       // onEachFeature is a leaflet method that can pass to a layer
       function onEachFeature(feature, layer) {
         var props = feature.properties;
-          var popupContent = "<h3 class='mine-marker'>"+ props.name + "</h3>"+
-              "Company: "+ props.drc_company + "<br />"+
-              "Type: " + props.mine_type + "<br />"+
-              "Proven Reserves: "+ props.proven_reserves+ "<br />"+
-              "Source: " + props.source;
 
-          layer.bindPopup(popupContent);
+        // do if statements for a few different properties
+        // testing with typeof props.(property) !== undefined
+        // for the 3 different geodata types
+        var popupContent = "<h3 class='mine-marker'>"+ props.name + "</h3>"+
+            "Company: "+ props.drc_company + "<br />"+
+            "Type: " + props.mine_type + "<br />"+
+            "Proven Reserves: "+ props.proven_reserves+ "<br />"+
+            "Source: " + props.source;
+
+        layer.bindPopup(popupContent);
       }
 
     },
@@ -82,6 +92,10 @@ $(function(){
     setUpTable: function(geoJSON){
       var table_data = [];
       var feature_array = $.makeArray( geoJSON.features )
+      if (feature_array.length == 0) {
+        return;
+      }
+
       table_data = $.map(feature_array, function(d){ return d.properties;});
 
       var titles = [];
@@ -92,7 +106,6 @@ $(function(){
       Object.keys(table_data[0]).forEach( function (val, index, arg) {
         titles.push({ "title": val });
       });
-      console.log(titles);
 
       table_data.forEach( function (val, index, arg) {
         var oneDataRow = [];
@@ -102,15 +115,46 @@ $(function(){
         tableDataArray.push(oneDataRow);
       });
 
-      console.log(tableDataArray);
+      // if (typeof app.mapTable !== 'undefined') {
+      //   // console.log('are we doing something?')
+      //   // app.mapTable.fnAddData(tableDataArray);
+      //   app.mapTable = $('.mine-table').dataTable({
+      //       "data" : tableDataArray,
+      //       "paging": false,
+      //       "info": false,
+      //       "searching": false,
+      //       "columns": titles
+      //   });
+      // } else {
+      //   app.mapTable = $('.mine-table').dataTable({
+      //       "data" : tableDataArray,
+      //       "paging": false,
+      //       "info": false,
+      //       "searching": false,
+      //       "columns": titles
+      //   });
+      // }
 
-      $('.mine-table').dataTable({
-          "data" : tableDataArray,
-          "paging": false,
-          "info": false,
-          "searching": false,
-          "columns": titles
+      app.mapTable = $('.mine-table').dataTable({
+        "data" : tableDataArray,
+        "paging": false,
+        "info": false,
+        "searching": false,
+        "columns": titles
       });
+    },
+
+    clearMap: function() {
+      app.map.addedLayer.clearLayers();
+
+      if (typeof app.mapTable !== 'undefined') {
+        // console.log($('.mine-table'));
+        app.mapTable.fnClearTable();
+        app.mapTable.fnDestroy();
+        $('.mine-table').replaceWith( '<table class="mine-table"></table>' );
+      } else {
+        // console.log('no mine-table');
+      }
 
     }
 

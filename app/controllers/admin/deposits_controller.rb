@@ -5,7 +5,7 @@ class Admin::DepositsController <  Admin::Auth
     config.export.force_quotes = "true"
     config.export.force_quotes = "true"
     
-    
+    config.columns.exclude(:created_at, :updated_at)
        
     config.columns[:permit_type].form_ui = :select
     config.columns[:permit_type].options = {

@@ -1,12 +1,12 @@
 = render 'shared/search'
 
-div.row
-  div.large-12.columns
-    h1.quiet Recommended Documents
+- if @rec_reports.count > 0
+  div.row
+    div.large-12.columns
+      h1.quiet Recommended Documents
 
-div.row
-  - reports_line_1 = @reports[0..1]
-  = render partial: "shared/documents", locals: {reports: reports_line_1, columns: 2}
+  div.row
+    = render partial: "shared/documents", locals: {reports: @rec_reports, columns: @rec_reports.count}
 
 div.divider
 div.row
@@ -14,12 +14,15 @@ div.row
     h1.quiet All Documents
 
 div.row
-  - reports_line_2 = @reports[2..5]
-  = render partial: "shared/documents", locals: {reports: reports_line_2, columns: 4}
-
+  - reports_line_1 = @reports[0..3]
+  = render partial: "shared/documents", locals: {reports: reports_line_1, columns: 4}
 
 div.row
-  - reports_line_3 = @reports[6..9]
+  - reports_line_2 = @reports[4..7]
+  = render partial: "shared/documents", locals: {reports: reports_line_2, columns: 4}
+
+div.row
+  - reports_line_3 = @reports[8..11]
   = render partial: "shared/documents", locals: {reports: reports_line_3, columns: 4}
 
 div.row

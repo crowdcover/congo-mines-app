@@ -5,7 +5,7 @@ class ShareholderRelationship < ActiveRecord::Base
   has_many :shareholder_intermediaries
   has_many :intermediary_companies, through: :shareholder_intermediaries
   
-  #validates_presence_of :drc_company_id, :shareholder_id
+  validates_presence_of :drc_company, :shareholder 
   
   def to_label
     if drc_company.present?

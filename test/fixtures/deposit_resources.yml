@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  deposit_id: 
+  mesurement: MyString
+  resource: MyString
+  tonnage: 1
+  grade: 1.5
+  metal_content: 1
+  metal_content_unit: MyString
+
+two:
+  deposit_id: 
+  mesurement: MyString
+  resource: MyString
+  tonnage: 1
+  grade: 1.5
+  metal_content: 1
+  metal_content_unit: MyString

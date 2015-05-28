@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-
   get 'static_pages/home'
 
   namespace :admin do
+    resources :deposit_resources do as_routes end
+    resources :pages do as_routes end
     resources :social_projects do as_routes end
     resources :processing_infrastructures do as_routes end
     resources :deposits do as_routes end
@@ -42,7 +43,7 @@ Rails.application.routes.draw do
   get '/admin', to: 'admin/drc_companies#index'
   get '/about', to: 'static_pages#about'
 
-  resources :drc_companies  do  #, only: [:show, :index]
+  resources :drc_companies, only: [:show, :index] do  #, only: [:show, :index]
     member do
       get 'get_geodata'
       get 'get_deposits_geodata'
@@ -56,7 +57,9 @@ Rails.application.routes.draw do
     # resources :reports, only: :show
   end
 
-  resource :search
+  resources :pages, only: :show
+
+  resource :search, only: :show
   resource :map do
     member do
       get 'get_all_deposits'
