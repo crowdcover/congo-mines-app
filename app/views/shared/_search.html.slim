@@ -19,7 +19,7 @@ div.search.pbl
 
     div#browse-search.clearfix
       div.row
-        div.large-3.columns
+        div.medium-3.columns
           label for="theme" Thème
           select#theme name="search[:theme]"
             option
@@ -28,7 +28,7 @@ div.search.pbl
               - subtheme.children.each do |theme|
                 option value="#{theme.id}" = theme.name
 
-        div.large-3.columns
+        div.medium-3.columns
           label for="type_document" Type de Document
           select#type_document name="search[:type_document]"
             option
@@ -36,7 +36,7 @@ div.search.pbl
             - type_doc.children.each do |type|
               option value="#{type.id}" = type.name
 
-        div.large-3.columns
+        div.medium-3.columns
           label for="type_source" Type de Source
           select#type_source name="search[:type_source]"
             option
@@ -44,7 +44,7 @@ div.search.pbl
             - type_src.children.each do |type|
               option value="#{type.id}" = type.name
 
-        div.large-3.columns
+        div.medium-3.columns
           label for="province" Province
           select#province name="search[:province]"
             option
