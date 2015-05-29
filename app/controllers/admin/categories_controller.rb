@@ -1,8 +1,12 @@
 class Admin::CategoriesController < Admin::Auth #< ApplicationController
 
   active_scaffold :"category" do |config|
-    config.columns = [:name]  
+    
+    config.columns = [:name]
+    config.list.columns = [:name, :reports] 
     config.nested.add_scoped_link(:children)  #nested link to children
+    
+    #config.columns[:name].description = "Enter the users first and last name"
   end
  
 
