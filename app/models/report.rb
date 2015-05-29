@@ -12,7 +12,7 @@ class Report < ActiveRecord::Base
 
   validates_presence_of :title, :summary, :source_id
 
-=begin
+
   # Sunspot Index Below
   paginates_per 10
   searchable do
@@ -34,5 +34,5 @@ class Report < ActiveRecord::Base
       drc_companies.map { |drc_company| drc_company.id }
     end
   end
-=end
+
 end
