@@ -8,6 +8,7 @@ class Report < ActiveRecord::Base
 
   has_many :report_relations, dependent: :destroy
   has_many :drc_companies, through: :report_relations
+  # has_many :pages, through: :drc_companies
 
   validates_presence_of :title, :summary, :source_id
 

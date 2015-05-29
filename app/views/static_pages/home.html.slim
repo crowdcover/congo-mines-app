@@ -29,7 +29,7 @@ div.row.mbl
         = image_tag 'icon.png'
         h3 Mining Code
     div.category
-      - sicomines_page = Page.find_by(category_id: 44)
+      - sicomines_page = Page.find_by(drc_company_id: 74)
       a href="#{page_url(sicomines_page) if sicomines_page}"
         = image_tag 'icon.png'
         h3 Sicomines
