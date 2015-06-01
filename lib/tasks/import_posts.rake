@@ -142,7 +142,7 @@ namespace :import do
         post_date: date, title: entry_title, date_string: entry_date, cm_url: congomines_url )
 
       report.save
-      pp report
+      puts report
 
       puts "Fetching PDFs:"
 
