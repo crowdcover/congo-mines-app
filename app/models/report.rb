@@ -14,8 +14,8 @@ class Report < ActiveRecord::Base
 
 
   # Sunspot Index Below
-  # paginates_per 10
-  
+   #paginates_per 10
+
   searchable do
     text :title, :organization, :summary
 
@@ -35,5 +35,5 @@ class Report < ActiveRecord::Base
       drc_companies.map { |drc_company| drc_company.id }
     end
   end
- 
+
 end
