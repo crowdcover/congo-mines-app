@@ -515,6 +515,10 @@ $summary-lines-to-show: 6;
   z-index: 500;
 }
 
+.dataTables_wrapper {
+  overflow: auto;
+}
+
 .top-bar .dropdown {
 	z-index: 505;
 }
