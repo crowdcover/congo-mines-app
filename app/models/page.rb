@@ -21,5 +21,12 @@ class Page < ActiveRecord::Base
     try(:topic)
   end
 
+  def topic_url
+    self.topic.split.join('_')
+  end
+
+  def to_param
+    "#{id}_#{topic_url}"
+  end
 
 end

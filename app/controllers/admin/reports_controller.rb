@@ -15,7 +15,14 @@ class Admin::ReportsController  < Admin::Auth # ApplicationController
     #config.columns[:actual_post_date].options = {options: [[changeYear: true]]}
     
     config.columns[:source].form_ui         = :chosen
-    config.columns[:categories].form_ui     = :chosen
+    
+    config.columns[:categories].form_ui     =  :chosen
+    config.columns[:categories].options[:optgroup] = true
+
+ 
+    #config.columns[:categories].options = {:draggable_lists => true}
+    
+
     config.columns[:drc_companies].form_ui  = :chosen
     
     #config.columns[:summary].form_ui = :text_editor
