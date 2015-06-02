@@ -75,7 +75,8 @@ namespace :database_utilities do
     
     puts '*' * 40
     puts "Done! The dev sqlite new file is: #{dev_app_dir}/db/development.sqlite3"
-    
+    puts "Update, if it didn't update the database run the command below!"
+    puts "sqlite3 #{dev_app_dir}/db/development.sqlite3 < #{out_file_name}"
 
   end
 

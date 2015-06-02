@@ -35,5 +35,5 @@ class Report < ActiveRecord::Base
       drc_companies.map { |drc_company| drc_company.id }
     end
   end
-
+ 
 end
