@@ -22,26 +22,11 @@ $(function(){
     },
 
     initMap: function() {
-        // short circuit if map div is not set up on page
-        if(! $('#map').length ){
-          return false;
-        }
-
-        var pageConfig = {
-            baseLayer: {
-                id: 'moabi_base',
-                latlon: [-2.877, 22.83],
-                zoom: 5
-            }
-        };
-
-        var baseLayer = L.tileLayer('http://tiles.osm.moabi.org/' + pageConfig.baseLayer.id + '/{z}/{x}/{y}.png');
-
         // anything with var 'map' needs to be app.map
         app.map = L.map('map', {
-            layers: baseLayer,
-            center: pageConfig.baseLayer.latlon,
-            zoom: pageConfig.baseLayer.zoom,
+            layers: L.tileLayer('http://tiles.osm.moabi.org/moabi_base/{z}/{x}/{y}.png'),
+            center: [-2.877, 22.83],
+            zoom: 5,
             scrollWheelZoom: false,
             minZoom: 4,
             maxZoom: 18
@@ -52,12 +37,8 @@ $(function(){
     },
 
     getGeodata: function(url, setTable){
-      setTable = typeof setTable !== undefined ? setTable : false;
-
-      var minesLayer;
-
       $.getJSON(url, function(data){
-        minesLayer = L.geoJson(data, {
+        var minesLayer = L.geoJson(data, {
           onEachFeature: onEachFeature
         });
 
