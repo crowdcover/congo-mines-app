@@ -6,6 +6,9 @@ module ReportsHelper
     link_to(h(record.title), report_url(record), target: "_blank")
   end
 
+  def summary_column(record, column)
+    truncate(record.summary.html_safe, length: 90, escape: false)
+  end
 
 =begin
   ActiveScaffold supports enabling groups in select defining :optgroup in columsn options:
@@ -19,57 +22,57 @@ module ReportsHelper
   config.columns[:column_name].options[:optgroup] = true
 =end
 
-  def active_scaffold_grouped_options(column, select_options, optgroup)    
-    new_select_options = [] 
-   
+  def active_scaffold_grouped_options(column, select_options, optgroup)
+    new_select_options = []
+
     Category.roots.each do |r|
       ary = []
       found_children = false
-      
+
       r.children.each do |c1|
         if c1.children.present?
           found_children = true
-          c1.children.map {|child| ary << ["#{child.parent.name} -> #{child.name}", child.id]} 
+          c1.children.map {|child| ary << ["#{child.parent.name} -> #{child.name}", child.id]}
         else
           ary << ["#{c1.name}", c1.id ]
-        end  
+        end
       end
       new_select_options << [r.name, ary]
     end
-    return  new_select_options #, [@record.categories.pluck(:id)]     
+    return  new_select_options #, [@record.categories.pluck(:id)]
   end
 
 =begin
-  def active_scaffold_grouped_options(column, select_options, optgroup)    
-    new_select_options = [] 
+  def active_scaffold_grouped_options(column, select_options, optgroup)
+    new_select_options = []
     #Category.walk_tree { |cat, level|  puts "CAT #{cat.name} LEVEL #{level}" }
-     
+
     Category.roots.each do |r|
       new_select_options << child_array(r)
     end
     binding.pry
-    
-    return  new_select_options #, [@record.categories.pluck(:id)]     
+
+    return  new_select_options #, [@record.categories.pluck(:id)]
   end
-  
-  
+
+
   def child_array(r, level=0)
     puts "DEPTH #{level}"
-    
-    return r.children.map{ |c| ["#{c.parent.name} -> #{c.name}", c.id] } if level > 0 && r.children.present?
-    
-    return [r.name, r.children.map{ |c| 
-      c.children.present?  ? child_array(c, level+1) : (level > 0) ? ["#{c.parent.name} -> #{c.name}", c.id] :  [c.name, c.id] } ]   
 
-  end    
+    return r.children.map{ |c| ["#{c.parent.name} -> #{c.name}", c.id] } if level > 0 && r.children.present?
+
+    return [r.name, r.children.map{ |c|
+      c.children.present?  ? child_array(c, level+1) : (level > 0) ? ["#{c.parent.name} -> #{c.name}", c.id] :  [c.name, c.id] } ]
+
+  end
 
   # IF MULTIDIM WORKED WITH OPTGROUP
   #def child_array(r, level=0)
   #  puts "DEPTH #{level}"
-  #  return [r.name, r.children.map{ |c| 
-  #    c.children.present? ? child_array(c, level+1) 
-  #      : level > 0 ? ["#{c.parent.name} -> #{c.name}", c.id] :  [c.name, c.id] } ]   
-  #end    
+  #  return [r.name, r.children.map{ |c|
+  #    c.children.present? ? child_array(c, level+1)
+  #      : level > 0 ? ["#{c.parent.name} -> #{c.name}", c.id] :  [c.name, c.id] } ]
+  #end
 
 =end
 

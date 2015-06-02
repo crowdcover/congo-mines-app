@@ -4,7 +4,7 @@
       h3.doc-title: a href="#{report_url(reports[col])}" = reports[col].title
       h4.doc-source = reports[col].source.name
       p.doc-date = reports[col].date_string.nil? ? nil : reports[col].date_string.titleize
-      p.doc-summary = truncate(reports[col].summary, length: 300)
+      p.doc-summary = truncate(reports[col].summary.html_safe, length: 300, escape: false)
       a href="#{report_url(reports[col])}" Read More
 
     / div: small: a href="#{reports[col].cm_url}" original page

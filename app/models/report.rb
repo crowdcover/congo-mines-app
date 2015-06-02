@@ -16,6 +16,7 @@ class Report < ActiveRecord::Base
   # Sunspot Index Below
    #paginates_per 10
 
+
   searchable do
     text :title, :organization, :summary
 

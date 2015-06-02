@@ -9,7 +9,7 @@ div.row
 div.row
   div.large-12.columns
     h2.left Content
-    h3 = @page.content
+    h3 = @page.content.html_safe
 
 div.row
   div.large-4.columns

@@ -29,7 +29,7 @@ class Admin::PagesController < Admin::Auth
         # or "**text** to make something bold.
         #"textpattern"
 
-        plugins: ["link","preview","searchreplace", "charmap", "table"],
+        plugins: ["link","preview","searchreplace", "charmap", "table", "fullscreen"],
         language: 'fr_FR',
         tools: "inserttable",
         #link_list: [
