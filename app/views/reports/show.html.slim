@@ -12,7 +12,7 @@ div.row.pvl
       - @report.attachments.each do |a|
         li.docicon: a href="#{a.asset.url}" = a.asset_file_name
 
-    div = @report.summary
+    div = @report.summary.html_safe
 
 div.grey.pvl
   div.row.keyline-bottom.ptm

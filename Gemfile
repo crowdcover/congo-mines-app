@@ -17,6 +17,7 @@ gem 'rails_12factor', group: :production
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'tinymce-rails'
+gem 'tinymce-rails-langs'
 gem 'acts-as-taggable-on', '~> 3.4'
 
 # use Slim and Foundation for template and style
