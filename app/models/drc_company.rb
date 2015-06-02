@@ -25,10 +25,16 @@ class DrcCompany < ActiveRecord::Base
 
   paginates_per 30
 
-
-
   def to_label
     try(:name)
+  end
+
+  def drc_company_name_url
+    self.name.split.join('_')
+  end
+
+  def to_param
+    "#{id}_#{drc_company_name_url}"
   end
 
 end
