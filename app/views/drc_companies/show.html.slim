@@ -29,48 +29,61 @@ div.grey.company-stats
         li.accordion-navigation
           a[href="#accordion-general"] General Information
           div#accordion-general.content.clearfix[onclick="event.cancelBubble = true;"]
-            div.medium-3.columns
-              h4 NRC
-              h4 RCCM
-              h4 Legal Status
-              h4 Legal Regime
-              h4 Description
-            div.medium-3.columns
-              h4.value = @drc_company.nrc
-              h4.value = @drc_company.rccm
-              h4.value = @drc_company.legal_status
-              h4.value = @drc_company.legal_regime
-              h4.value = @drc_company.description
-            div.medium-3.columns
-              h4 Permits
-              h4 Project Type
-              h4 Project Phase
-              h4 Contact
-              h4 Website
-            div.medium-3.columns
-              h4.value = @drc_company.permits
-              h4.value = @drc_company.project_type
-              h4.value = @drc_company.project_phase
-              h4.value = @drc_company.contact
-              h4.value = @drc_company.website
-            div
-              div.medium-12.columns
-                h4 Employees
-            div
-            div.medium-4.columns
-              h4 Year
-              h4 Nationality
-              h4 Contract Type
-              h4 Gender
-              h4 Count
-            - employees = @drc_company.employees.each do |emp|
-              - unless emp.nil?
-                div.medium-8.columns
-                  h4 = emp.try(:year)
-                  h4 = emp.nationality
-                  h4 = emp.contract_type
-                  h4 = emp.gender
-                  h4 = emp.count
+            div.row.collapse
+              div.small-12.medium-6.columns
+                div.clearfix
+                  h3.small-6.columns.quiet NRC
+                  span.small-6.columns = @drc_company.nrc
+                div.clearfix
+                  h3.small-6.columns.quiet RCCM
+                  span.small-6.columns = @drc_company.rccm
+                div.clearfix
+                  h3.small-6.columns.quiet Legal Status
+                  span.small-6.columns = @drc_company.legal_status
+                div.clearfix
+                  h3.small-6.columns.quiet Legal Regime
+                  span.small-6.columns = @drc_company.legal_regime
+
+              div.small-12.medium-6.columns
+                div.clearfix
+                  h3.small-6.columns.quiet Project Type
+                  span.small-6.columns = @drc_company.project_type
+                div.clearfix
+                  h3.small-6.columns.quiet Project Phase
+                  span.small-6.columns = @drc_company.project_phase
+                div.clearfix
+                  h3.small-6.columns.quiet Contact
+                  span.small-6.columns = @drc_company.contact
+                div.clearfix
+                  h3.small-6.columns.quiet Website
+                  span.small-6.columns = @drc_company.website
+
+            - if @drc_company.description
+              div.row.collapse
+                h3.medium-3.columns.quiet Description
+                p.medium-9.columns.description = @drc_company.description
+
+            - if @drc_company.permits
+              div.row.collapse
+                h3.medium-3.columns.quiet Permits
+                p.medium-9.columns.permits : em = @drc_company.permits
+
+            div.row.collapse
+              h3.medium-3.columns.quiet Employees
+              div.medium-9.columns.employees
+                - employees = @drc_company.employees.each do |emp|
+                  - unless emp.nil?
+                    div.small-12.pbs
+                      h4.small-12.columns.dark = emp.try(:year)
+                      span = emp.count
+                      |  
+                      em = emp.gender
+                      |  
+                      em = emp.nationality 
+                      |  
+                      em = emp.contract_type
+                      |  
+
 
         li.accordion-navigation
           a[href="#accordion-production"] Production & Export
