@@ -60,8 +60,8 @@ fr:
         lat: lat  #g
         lng: lng  #g
         measured_resources: measured_resources  #g
-        mine_type: mine_type  #g
-        name: name  #g
+        mine_type: Type de Mine  #g
+        name: Nom du Gisement ou Site Minier  #g
         permit_number: permit_number  #g
         permit_type: permit_type  #g
         probable_reserves: probable_reserves  #g
@@ -72,24 +72,24 @@ fr:
 
       deposit_resource:
         deposit: :activerecord.models.deposit  #g
-        grade: grade  #g
+        grade: Teneur (%)  #g
         measurement: measurement  #g
-        metal_content: metal_content  #g
-        metal_content_unit: metal_content_unit  #g
+        metal_content: Métal Contenu  #g
+        metal_content_unit: Unite de Mesure  #g
         resource: resource  #g
-        tonnage: tonnage  #g
+        tonnage: Tonnage  #g
 
       drc_company:
         acronym: Acronyme  #g
         contact: Contact  #g
         deposits: Deposits  #g
         description: Description  #g
-        employees: employees  #g
+        employees: Employés  #g
         env_and_social_obligation: :activerecord.models.env_and_social_obligation  #g
         flows_payable_under_contract: :activerecord.models.flows_payable_under_contract  #g
-        legal_regime: Régime légal applicable au projet  #g
-        legal_status: Statut juridique de la société  #g
-        name: nom complet de la societe  #g
+        legal_regime: Régime Légal Applicable au Projet  #g
+        legal_status: Statut Juridique de la Société  #g
+        name: Nom Complet de la Société  #g
         nrc: Numéro Nouveau Registre de Commerce (NRC)  #g
         processing_infrastructures: processing_infrastructures  #g
         production_exports: :activerecord.models.production_exports  #g
@@ -102,7 +102,7 @@ fr:
         shareholders: :activerecord.models.shareholders  #g
         social_projects: :activerecord.models.social_projects  #g
         tax_obligations: :activerecord.models.tax_obligations  #g
-        website: Site internet de la société de droit congolais  #g
+        website: Site Internet de la Société de Droit Congolais  #g
 
       employee:
         contract_type: contract_type  #g
@@ -110,24 +110,24 @@ fr:
         drc_company: :activerecord.models.drc_company  #g
         gender: gender  #g
         nationality: nationality  #g
-        year: year  #g
+        year: Année  #g
 
       env_and_social_obligation:
-        community_dialogue_platform: Existence d’une plateforme de dialogue communautaire  #g
-        community_fund: Constitution d’un fond communautaire #g
+        community_dialogue_platform: Existence d’une Plateforme de Dialogue Communautaire  #g
+        community_fund: Constitution d’un Fond Communautaire #g
         drc_company: :activerecord.models.drc_company  #g
-        enviro_impact_date: Date(s) des consultations populaires pour la réalisation de l’Etude d’Impact Environnementale  #g
-        enviro_impact_link: Lien vers l’Etude d’impact environnementale  #g
-        social_investment: Montant total investi dans le volet social  #g
-        sustainable_dev_plan: Lien vers le Plan de Développement Durable et/ou Cahier de Charge  #g
+        enviro_impact_date: Date(s) des Consultations Populaires pour la Réalisation de l’Etude d’Impact Environnementale  #g
+        enviro_impact_link: Lien Vers l’Etude d’Impact Environnementale  #g
+        social_investment: Montant Total Investi dans le Volet Social ($)  #g
+        sustainable_dev_plan: Lien Vers le Plan de Développement Durable et/ou Cahier de Charge  #g
 
       flows_payable_under_contract:
-        annuity: Formule de la rente ou du loyer à payer  #g
-        contract_cash_recipient: Bénéficiaire des flux contractuels  #g
+        annuity: Formule de la Rente ou du Loyer à Payer ($)  #g
+        contract_cash_recipient: Bénéficiaire des Flux Contractuels  #g
         drc_company: :activerecord.models.drc_company  #g
-        royalties: Formule des royalties à payer  #g
-        signature_bonus: Pas de porte à payer ($) #g
-        transfer_of_shares: montant pour cession d’actif  #g
+        royalties: Formule des Royalties à Payer ($)  #g
+        signature_bonus: Pas de Porte à Payer ($) #g
+        transfer_of_shares: Montant Pour Cession d’Actif ($)  #g
 
       intermediary_company:
         name: name  #g
@@ -153,11 +153,11 @@ fr:
         drc_company: :activerecord.models.drc_company  #g
         lat: lat  #g
         lng: lng  #g
-        name: name  #g
+        name: Nom de i’Installation  #g
 
       production_export:
         drc_company: :activerecord.models.drc_company  #g
-        export_value: Valeur d'exportation  #g
+        export_value: Valeur d'Exportation  #g
         grade: Teneur (%)  #g
         metal_content: metal_content  #g
         tonnage: Minerais produits (Mt)  #g
@@ -198,8 +198,8 @@ fr:
         name: name  #g
         public_private: public_private  #g
         shareholder_relationships: shareholder_relationships  #g
-        stock: Cotation boursière  #g
-        stock_countries: Informations boursières  #g
+        stock: Cotation Boursière  #g
+        stock_countries: Informations Boursières  #g
         stock_exchange: stock_exchange  #g
         stock_symbol: stock_symbol  #g
         website: website  #g
@@ -209,24 +209,24 @@ fr:
         shareholder_relationship: :activerecord.models.shareholder_relationship  #g
 
       shareholder_relationship:
-        direct_shareholder: direct_shareholder  #g
+        direct_shareholder: Actionnaire Direct  #g
         drc_company: :activerecord.models.drc_company  #g
         intermediary_companies: intermediary_companies  #g
-        percentage: pourcentage (%)  #g
+        percentage: Pourcentage (%)  #g
         shareholder: :activerecord.models.shareholder  #g
         shareholder_intermediaries: shareholder_intermediaries  #g
         year: year  #g
 
       social_project:
-        amount_planned: amount_planned  #g
-        amount_spent: amount_spent  #g
-        company: company  #g
+        amount_planned: Montant Prévu Pour le Projet  #g
+        amount_spent: Montant Dépensé Pour le Projet  #g
+        company: Nom de la Société de Droit Congolais  #g
         description: description  #g
         drc_company: :activerecord.models.drc_company  #g
         lat: lat  #g
         lng: lng  #g
-        project_type: project_type  #g
-        stage: stage  #g
+        project_type: Type de Projet  #g
+        stage: Etat de Réalisation du Projet  #g
 
       source:
         description: description  #g
@@ -240,14 +240,14 @@ fr:
         name: name  #g
 
       tax_obligation:
-        company_name: Nom de la société de droit congolais  #g
+        company_name: Nom de la Société de Droit Congolais  #g
         drc_company: :activerecord.models.drc_company  #g
-        ibp: IBP déclaré  #g
-        import_customs_duty: Droit de douane à l’importation déclaré  #g
-        other: Autre flux contractuels  #g
-        redevance: Redevances déclarées  #g
-        royalties: Royalties déclarées  #g
-        signature_bonus: Pas de porte déclaré  #g
-        surface_rights: Droits superficiaires déclarés  #g
-        total_paid: Montant total payé (déclaration entreprise)   #g
-        year: year  #g
+        ibp: IBP Déclaré ($)  #g
+        import_customs_duty: Droit de Douane à l’Importation Déclaré ($)  #g
+        other: Autre Flux Contractuels ($)  #g
+        redevance: Redevances Déclarées ($)  #g
+        royalties: Royalties Déclarées ($)  #g
+        signature_bonus: Pas de Porte Déclaré ($)  #g
+        surface_rights: Droits Superficiaires Déclarés  #g
+        total_paid: Montant Total Payé (Déclaration Entreprise) ($)   #g
+        year: Année  #g
