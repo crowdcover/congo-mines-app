@@ -29,35 +29,35 @@ div.grey.company-stats
         li.accordion-navigation
           a[href="#accordion-general"] General Information
           div#accordion-general.content.clearfix[onclick="event.cancelBubble = true;"]
-            div.large-3.columns
+            div.medium-3.columns
               h4 NRC
               h4 RCCM
               h4 Legal Status
               h4 Legal Regime
               h4 Description
-            div.large-3.columns
+            div.medium-3.columns
               h4.value = @drc_company.nrc
               h4.value = @drc_company.rccm
               h4.value = @drc_company.legal_status
               h4.value = @drc_company.legal_regime
               h4.value = @drc_company.description
-            div.large-3.columns
+            div.medium-3.columns
               h4 Permits
               h4 Project Type
               h4 Project Phase
               h4 Contact
               h4 Website
-            div.large-3.columns
+            div.medium-3.columns
               h4.value = @drc_company.permits
               h4.value = @drc_company.project_type
               h4.value = @drc_company.project_phase
               h4.value = @drc_company.contact
               h4.value = @drc_company.website
             div
-              div.large-12.columns
+              div.medium-12.columns
                 h4 Employees
             div
-            div.large-4.columns
+            div.medium-4.columns
               h4 Year
               h4 Nationality
               h4 Contract Type
@@ -65,7 +65,7 @@ div.grey.company-stats
               h4 Count
             - employees = @drc_company.employees.each do |emp|
               - unless emp.nil?
-                div.large-8.columns
+                div.medium-8.columns
                   h4 = emp.try(:year)
                   h4 = emp.nationality
                   h4 = emp.contract_type
@@ -75,7 +75,7 @@ div.grey.company-stats
         li.accordion-navigation
           a[href="#accordion-production"] Production & Export
           div#accordion-production.content.clearfix[onclick="event.cancelBubble = true;"]
-            div.large-6.columns
+            div.medium-6.columns
               h4 Year
               h4 Type of Product
               h4 Tonnage
@@ -84,7 +84,7 @@ div.grey.company-stats
               h4 Export Value
             - @drc_company.production_exports.each do |pe|
               - unless pe.nil?
-                div.large-6.columns
+                div.medium-6.columns
                   h4 = pe.year
                   h4 = pe.type_of_product
                   h4 = pe.tonnage
@@ -96,27 +96,27 @@ div.grey.company-stats
           a[href="#accordion-tax"] Tax Obligations
           div#accordion-tax.content.clearfix[onclick="event.cancelBubble = true;"]
             div.row
-              div.large-12.columns
+              div.medium-12.columns
                 h4 Flows Payable Under Contracts
             div.row
-              div.large-6.columns
+              div.medium-6.columns
                 h4 Signature Bonus
                 h4 Royalties
                 h4 Annuity
                 h4 Transfer of Shares
                 h4 Contract Cash Recipient
               - unless @drc_company.flows_payable_under_contract.nil?
-                div.large-6.columns
+                div.medium-6.columns
                   h4 = @drc_company.flows_payable_under_contract.signature_bonus
                   h4 = @drc_company.flows_payable_under_contract.royalties
                   h4 = @drc_company.flows_payable_under_contract.annuity
                   h4 = @drc_company.flows_payable_under_contract.transfer_of_shares
                   h4 = @drc_company.flows_payable_under_contract.contract_cash_recipient
             div.row
-              div.large-12.columns
+              div.medium-12.columns
                 h4 Tax Obligations
             div.row
-              div.large-6.columns
+              div.medium-6.columns
                 h4 Year
                 h4 Total Paid
                 h4 Redevance
@@ -128,7 +128,7 @@ div.grey.company-stats
                 h4 Other
               - @drc_company.tax_obligations.each do |tax_ob|
                 - unless tax_ob.nil?
-                  div.large-6.columns
+                  div.medium-6.columns
                     h4 = tax_ob.year
                     h4 = tax_ob.total_paid
                     h4 = tax_ob.redevance
@@ -143,10 +143,10 @@ div.grey.company-stats
           a[href="#accordion-enviro"] Environmental & Social Obligations
           div#accordion-enviro.content.clearfix[onclick="event.cancelBubble = true;"]
             div.row
-              div.large-12.columns
+              div.medium-12.columns
                 h4 Environmental and Social Obligations
             div.row
-              div.large-6.columns
+              div.medium-6.columns
                 h4 Community Fund
                 h4 Environmental Impact Date
                 h4 Environmental Impact Link
@@ -154,7 +154,7 @@ div.grey.company-stats
                 h4 Community Dialogue Platform
                 h4 Social Investment
               - unless @drc_company.env_and_social_obligation.nil?
-                div.large-6.columns
+                div.medium-6.columns
                   h4 = @drc_company.env_and_social_obligation.community_fund
                   h4 = @drc_company.env_and_social_obligation.enviro_impact_date
                   h4 = @drc_company.env_and_social_obligation.enviro_impact_link
