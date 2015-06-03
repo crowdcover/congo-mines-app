@@ -33,8 +33,8 @@ class DrcCompany < ActiveRecord::Base
     self.name.split.join('_')
   end
 
-  def to_param
-    "#{id}_#{drc_company_name_url}"
-  end
+  #def to_param
+  #  "#{id}_#{drc_company_name_url}"
+  #end
 
 end

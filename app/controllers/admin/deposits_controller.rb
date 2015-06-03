@@ -9,18 +9,22 @@ class Admin::DepositsController <  Admin::Auth
 
     #config.columns = [:name, :drc_company_id, :mine_type, :permit_type, :permit_number, :source, :lat, :lng]
 
-    #config.list.columns = [:name, :drc_company_id, :mine_type, :permit_type, :permit_number, :source, :lat, :lng,
-  #    :proven_reserves, :probable_reserves, :proven_probable_reserves,
-  #    :measured_resources, :indicated_resources, :inferred_resources, :total_resources]
+    config.update.columns = [
+      :name, :drc_company_id, :mine_type, :permit_type, :permit_number, :source, :lat, :lng,
+      :measured_resources,:indicated_resources, :inferred_resources, :total_resources,
+      :proven_reserves, :probable_reserves, :total_reserves]
 
+    config.create.columns = [
+        :name, :drc_company_id, :mine_type, :permit_type, :permit_number, :source, :lat, :lng,
+        :measured_resources,:indicated_resources, :inferred_resources, :total_resources,
+        :proven_reserves, :probable_reserves, :total_reserves]
 
     config.columns[:proven_reserves].allow_add_existing = false
     config.columns[:probable_reserves].allow_add_existing = false
-    config.columns[:proven_probable_reserves].allow_add_existing = false
     config.columns[:measured_resources].allow_add_existing = false
-
     config.columns[:indicated_resources].allow_add_existing = false
     config.columns[:inferred_resources].allow_add_existing = false
+    config.columns[:total_reserves].allow_add_existing = false
     config.columns[:total_resources].allow_add_existing = false
 
     config.columns[:permit_type].form_ui = :chosen

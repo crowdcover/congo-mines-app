@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150602224204) do
+ActiveRecord::Schema.define(version: 20150603152002) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -46,9 +46,7 @@ ActiveRecord::Schema.define(version: 20150602224204) do
 
   create_table "deposit_resources", force: :cascade do |t|
     t.string   "measurement"
-    t.integer  "tonnage"
     t.float    "grade"
-    t.integer  "metal_content"
     t.string   "metal_content_unit"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
@@ -56,6 +54,8 @@ ActiveRecord::Schema.define(version: 20150602224204) do
     t.integer  "depoable_id"
     t.string   "depoable_type"
     t.integer  "mineral_resource_id"
+    t.float    "metal_content"
+    t.float    "tonnage"
   end
 
   add_index "deposit_resources", ["depoable_type", "depoable_id"], name: "index_deposit_resources_on_depoable_type_and_depoable_id"

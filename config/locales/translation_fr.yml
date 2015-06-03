@@ -28,6 +28,7 @@ fr:
       stock_exchange_country: stock_exchange_country  #g
       tax_obligation: tax_obligation  #g
 
+
     attributes:
       attachment:
         asset_content_type: asset_content_type  #g
@@ -55,20 +56,20 @@ fr:
 
       deposit:
         drc_company: :activerecord.models.drc_company  #g
-        indicated_resources: indicated_resources  #g
-        inferred_resources: inferred_resources  #g
-        lat: lat  #g
-        lng: lng  #g
-        measured_resources: measured_resources  #g
+        indicated_resources: Indicated Resources  #g
+        inferred_resources: Inferred Resources  #g
+        lat: Lat  #g
+        lng: Lng  #g
+        measured_resources: Measured Resources  #g
         mine_type: Type de Mine  #g
         name: Nom du Gisement ou Site Minier  #g
-        permit_number: permit_number  #g
-        permit_type: permit_type  #g
-        probable_reserves: probable_reserves  #g
-        proven_probable_reserves: proven_probable_reserves  #g
-        proven_reserves: proven_reserves  #g
-        resources: resources  #g
-        source: source  #g
+        permit_number: Permit Number  #g
+        permit_type: Permit Type  #g
+        total_reserves: Total_reserves
+        probable_reserves: Probable Reserves  #g
+        proven_reserves: Proven Reserves  #g
+        resources: Resources  #g
+        source: Source  #g
 
       deposit_resource:
         deposit: :activerecord.models.deposit  #g
@@ -76,7 +77,7 @@ fr:
         measurement: measurement  #g
         metal_content: Métal Contenu  #g
         metal_content_unit: Unite de Mesure  #g
-        resource: resource  #g
+        resource: Resource  #g
         tonnage: Tonnage  #g
 
       drc_company:
