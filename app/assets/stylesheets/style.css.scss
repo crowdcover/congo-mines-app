@@ -406,7 +406,10 @@ $summary-lines-to-show: 6;
 
 .dataTables_wrapper {
   overflow: auto;
-}
+  }
+  .dataTables_wrapper table th {
+    padding: 10px 18px;
+  }
 
 .top-bar .dropdown {
 	z-index: 505;
