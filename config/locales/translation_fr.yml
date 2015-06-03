@@ -65,7 +65,8 @@ fr:
         name: Nom du Gisement ou Site Minier  #g
         permit_number: Permit Number  #g
         permit_type: Permit Type  #g
-        total_reserves: Total_reserves
+        total_reserves: Total Reserves
+        total_resources: Total Resources
         probable_reserves: Probable Reserves  #g
         proven_reserves: Proven Reserves  #g
         resources: Resources  #g
