@@ -5,9 +5,10 @@ div.content
       h1.left
         span = @shareholder.name
         span.quiet
-          |  (
-          = @shareholder.acronym
-          | )
+          - if @shareholder.acronym
+            |  (
+            = @shareholder.acronym
+            | )
 
   div
     div.row.pvm

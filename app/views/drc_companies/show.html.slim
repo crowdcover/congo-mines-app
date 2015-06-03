@@ -6,9 +6,10 @@ div.row
     h1.left
       span = @drc_company.name
       span.quiet 
-        / ugly.  how better to add a space?
-        |   
-        = @drc_company.acronym
+        - if @drc_company.acronym
+          |  (
+          = @drc_company.acronym
+          | )
 
 = render "company_map_nav"
 div#map

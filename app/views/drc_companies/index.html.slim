@@ -40,18 +40,20 @@ div.row.pvl
       div.company
         h4
           a href="#{drc_company_url(company)}" = company.name
-          |  (
-          span.quiet = company.acronym
-          | )
+          - if company.acronym?
+            |  (
+            span.quiet = company.acronym
+            | )
 
   div.large-6.columns
     - @shareholders.each do |shareholder|
       div.company
         h4
           a href="#{shareholder_url(shareholder)}" = shareholder.name
-          |  (
-          span.quiet = shareholder.acronym
-          | )
+          - if shareholder.acronym?
+            |  (
+            span.quiet = shareholder.acronym
+            | )
 
 
 
