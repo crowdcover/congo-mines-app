@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150528233129) do
+ActiveRecord::Schema.define(version: 20150602224204) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -45,18 +45,20 @@ ActiveRecord::Schema.define(version: 20150528233129) do
   end
 
   create_table "deposit_resources", force: :cascade do |t|
-    t.integer  "deposit_id"
     t.string   "measurement"
-    t.string   "resource"
     t.integer  "tonnage"
     t.float    "grade"
     t.integer  "metal_content"
     t.string   "metal_content_unit"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "deposit_type"
+    t.integer  "depoable_id"
+    t.string   "depoable_type"
+    t.integer  "mineral_resource_id"
   end
 
-  add_index "deposit_resources", ["deposit_id"], name: "index_deposit_resources_on_deposit_id"
+  add_index "deposit_resources", ["depoable_type", "depoable_id"], name: "index_deposit_resources_on_depoable_type_and_depoable_id"
 
   create_table "deposits", force: :cascade do |t|
     t.string   "name"
@@ -64,17 +66,11 @@ ActiveRecord::Schema.define(version: 20150528233129) do
     t.string   "mine_type"
     t.string   "permit_type"
     t.string   "permit_number"
-    t.string   "proven_reserves"
-    t.string   "probable_reserves"
-    t.string   "proven_probable_reserves"
-    t.string   "measured_resources"
-    t.string   "indicated_resources"
-    t.string   "inferred_resources"
     t.string   "source"
-    t.decimal  "lat",                      precision: 15, scale: 10
-    t.decimal  "lng",                      precision: 15, scale: 10
-    t.datetime "created_at",                                         null: false
-    t.datetime "updated_at",                                         null: false
+    t.decimal  "lat",            precision: 15, scale: 10
+    t.decimal  "lng",            precision: 15, scale: 10
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   add_index "deposits", ["drc_company_id"], name: "index_deposits_on_drc_company_id"
@@ -139,6 +135,12 @@ ActiveRecord::Schema.define(version: 20150528233129) do
     t.integer  "shareholder_relationship_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+  end
+
+  create_table "mineral_resources", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "multinational_companies_stock_exchange_countries", id: false, force: :cascade do |t|

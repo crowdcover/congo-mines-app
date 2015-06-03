@@ -35,9 +35,7 @@ class String
                 })
         .force_encoding("utf-8")
   end
-end  
+end
 
 # to remove chars
 # chars.normalize(:kd).gsub(/[^\x00-\x7F]/n,'').downcase.to_s
-
-

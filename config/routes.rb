@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
+
   get 'static_pages/home'
 
   namespace :admin do
+    resources :mineral_resources do as_routes end
+    resources :tile_layers do as_routes end
     resources :deposit_resources do as_routes end
     resources :pages do as_routes end
     resources :social_projects do as_routes end
