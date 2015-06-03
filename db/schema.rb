@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603152002) do
+ActiveRecord::Schema.define(version: 20150603183300) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -60,17 +60,23 @@ ActiveRecord::Schema.define(version: 20150603152002) do
 
   add_index "deposit_resources", ["depoable_type", "depoable_id"], name: "index_deposit_resources_on_depoable_type_and_depoable_id"
 
+  create_table "deposit_sources", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "deposits", force: :cascade do |t|
     t.string   "name"
     t.integer  "drc_company_id"
     t.string   "mine_type"
     t.string   "permit_type"
     t.string   "permit_number"
-    t.string   "source"
-    t.decimal  "lat",            precision: 15, scale: 10
-    t.decimal  "lng",            precision: 15, scale: 10
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.decimal  "lat",               precision: 15, scale: 10
+    t.decimal  "lng",               precision: 15, scale: 10
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.integer  "deposit_source_id"
   end
 
   add_index "deposits", ["drc_company_id"], name: "index_deposits_on_drc_company_id"
@@ -251,7 +257,7 @@ ActiveRecord::Schema.define(version: 20150603152002) do
   create_table "shareholder_relationships", force: :cascade do |t|
     t.integer  "drc_company_id"
     t.integer  "shareholder_id"
-    t.integer  "percentage"
+    t.float    "percentage"
     t.integer  "year"
     t.datetime "created_at"
     t.datetime "updated_at"

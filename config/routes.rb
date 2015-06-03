@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
-
   get 'static_pages/home'
 
   namespace :admin do
+    resources :deposit_sources do as_routes end
     resources :mineral_resources do as_routes end
     resources :tile_layers do as_routes end
     resources :deposit_resources do as_routes end
@@ -30,8 +30,6 @@ Rails.application.routes.draw do
     resources :shareholder_relationships do as_routes end
     resources :intermediary_companies do as_routes end
     resources :shareholder_intermediaries do as_routes end
-
-    # resources :multinational_companies do as_routes end
 
     resources :env_and_social_obligations do as_routes end
     resources :tax_obligations do as_routes end
