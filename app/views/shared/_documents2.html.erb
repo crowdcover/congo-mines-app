@@ -7,7 +7,13 @@
       </h3>
       <h4 class="doc-source"><%= reports[col].source.name %></h4>
       <p class="doc-date"><%= reports[col].date_string.nil? ? nil : reports[col].date_string.titleize %></p>
-      <p class="doc-summary"><%= truncate(reports[col].summary.html_safe, length: 300, escape: false) %></p>
+      <% if reports[col].summary.start_with?('<p>') %>
+        <%= truncate(reports[col].summary.sub('<p>', '<p class="doc-summary">'), length: 300, escape: false) %>
+        </p>
+      <% else %>
+        <p class="doc-summary"><%= truncate(reports[col].summary, length: 300, escape: false) %></p>
+      <% end %>
+
       <a href="<%= report_url(reports[col]) %>">Read More</a>
     </article>
   <% end %>
