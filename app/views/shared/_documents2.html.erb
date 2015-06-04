@@ -9,7 +9,7 @@
       <p class="doc-date"><%= reports[col].date_string.nil? ? nil : reports[col].date_string.titleize %></p>
       <% if reports[col].summary.start_with?('<p>') %>
         <%= truncate(reports[col].summary.sub('<p>', '<p class="doc-summary">'), length: 300, escape: false) %>
-        <br/>
+        </p>
       <% else %>
         <p class="doc-summary"><%= truncate(reports[col].summary, length: 300, escape: false) %></p>
       <% end %>
