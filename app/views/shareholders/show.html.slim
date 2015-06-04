@@ -41,16 +41,16 @@ div.grey.pbl
         li.accordion-navigation
           a[href="#accordion-drc_companies"] Holdings in DRC Companies
           div#accordion-drc_companies.content.clearfix[onclick="event.cancelBubble = true;"]
-            div.row
-              div.large-4.columns
-                h4 DRC Company
-                h4 Percentage
-                h4 Year
-                h4 Direct Shareholder
-              - @shareholder.shareholder_relationships.each do |sr|
-                - unless sr.nil?
-                  div.large-8.columns
-                    h4 = sr.drc_company.name
-                    h4 = sr.percentage
-                    h4 = sr.year
-                    h4 = sr.direct_shareholder
+            - @shareholder.shareholder_relationships.each do |sr|
+              - unless sr.nil?
+                div.row
+                  h2.small-12.columns.dark = sr.drc_company.name
+                  div.clearfix
+                    h3.small-6.medium-4.columns.quiet Percentage
+                    span.small-6.medium-8.columns = sr.percentage
+                  div.clearfix
+                    h3.small-6.medium-4.columns.quiet Year
+                    span.small-6.medium-8.columns = sr.year
+                  div.clearfix
+                    h3.small-6.medium-4.columns.quiet Direct Shareholder
+                    span.small-6.medium-8.columns = sr.direct_shareholder
