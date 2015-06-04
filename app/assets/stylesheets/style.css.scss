@@ -70,6 +70,9 @@ button {
     padding-left: 10px;
     overflow: hidden;
   }
+  .search button.postfix {
+    padding: 0 10px;
+  }
 
 table {
 	width: 100%;
@@ -515,9 +518,6 @@ $summary-lines-to-show: 6;
   }
   .search input:after {
     background-image: image-url('search.png');
-  }
-  .search button {
-    padding: 9px 20px;
   }
 
 
