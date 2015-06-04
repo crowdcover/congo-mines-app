@@ -99,7 +99,7 @@ div.grey.company-stats
                   h3.small-12.columns.quiet Export Value
                 - @drc_company.production_exports.each do |pe|
                   - unless pe.nil?
-                    h3.small-6.medium-4.columns.dark pe.year
+                    h3.small-12.columns.dark pe.year
                     div.clearfix
                       h3.small-6.medium-4.columns.quiet Type of Product
                       span.small-6.medium-8.columns = pe.type_of_product
@@ -120,9 +120,6 @@ div.grey.company-stats
         li.accordion-navigation
           a[href="#accordion-tax"] Tax Obligations
           div#accordion-tax.content.clearfix[onclick="event.cancelBubble = true;"]
-            div.row
-              div.medium-12.columns
-                h4 Flows Payable Under Contracts
             div.row
               div.medium-6.columns
                 h4 Signature Bonus
