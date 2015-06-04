@@ -9,7 +9,7 @@ div.search.pbl
       div.small-12.columns
         div.row.collapse
           div.small-10.columns
-            input type="text" name="search[:query]" placeholder="Search Documents" /
+            input type="text" name="search[query]" placeholder="Search Documents" /
             /text_field_tag :search, params[:search]
           div.small-2.columns
             button.postfix Search Library
@@ -22,7 +22,7 @@ div.search.pbl
       div.row
         div.medium-3.columns
           label for="theme" Thème
-          select#theme name="search[:theme]"
+          select#theme name="search[theme]"
             option
             - root = Category.find(26)
             - root.children.each do |subtheme|
@@ -31,7 +31,7 @@ div.search.pbl
 
         div.medium-3.columns
           label for="type_document" Type de Document
-          select#type_document name="search[:type_document]"
+          select#type_document name="search[type_document]"
             option
             - type_doc = Category.find(1)
             - type_doc.children.each do |type|
@@ -39,7 +39,7 @@ div.search.pbl
 
         div.medium-3.columns
           label for="type_source" Type de Source
-          select#type_source name="search[:type_source]"
+          select#type_source name="search[type_source]"
             option
             - type_src = Category.find(14)
             - type_src.children.each do |type|
@@ -47,7 +47,7 @@ div.search.pbl
 
         div.medium-3.columns
           label for="province" Province
-          select#province name="search[:province]"
+          select#province name="search[province]"
             option
             - province = Category.find(54)
             - province.children.each do |p|

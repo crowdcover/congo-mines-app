@@ -10,13 +10,14 @@ class SearchesController < ApplicationController
   protected
   def search(options)
     categories = []
-    categories << options[":theme"].to_i << options[":type_document"].to_i <<
-      options[":type_source"].to_i << options[":province"].to_i
-    categories.delete(0) # removing blank categories (to_i turns them to 0)
+    categories << options[:theme].to_i << options[:type_document].to_i <<
+      options[:type_source].to_i << options[:province].to_i
+    categories.delete(0) # removing blank categories
+    # fail
     Sunspot.search(Report) do
       with(:category_ids).all_of(categories)
-      # with(:drc_company_ids, options[":drc_company_id"].to_i)  # all_of? any? any_of?
-      keywords options[":query"]
+      # with(:drc_company_ids, options[:drc_company_id].to_i)
+      keywords options[:query]
       order_by :actual_post_date, :desc
       paginate(page: params[:page], per_page: 12)
     end
