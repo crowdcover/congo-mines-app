@@ -23,8 +23,11 @@
           <li class="has-dropdown">
             <a href="#">Maps</a>
             <ul class="dropdown">
-              <li><a href="#">Tile Layer 1</a></li>
-              <li><a href="#">Tile Layer 2</a></li>
+              <% TileLayer.all.each do |tile| %>
+                <li>
+                  <a href="#" data-id="<%= tile.mapbox_tile_layer_id %>"><%= tile.label %></a>
+                </li>
+              <% end %>
             </ul>
           </li>
         </ul>
