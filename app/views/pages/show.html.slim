@@ -26,8 +26,8 @@ div.row
     h1.quiet Topic Documents
 
 - if @reports
-  div.row
-    - 3.times do |t|
+  - 3.times do |t|
+    div.row
       - reports_line = @reports[(4 * t)..((4 * (t + 1) - 1))]
       = render partial: "shared/documents2", locals: {reports: reports_line, columns: 4}
 
