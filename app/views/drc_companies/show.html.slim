@@ -99,7 +99,7 @@ div.grey.company-stats
                   h3.small-12.columns.quiet Export Value
                 - @drc_company.production_exports.each do |pe|
                   - unless pe.nil?
-                    h3.small-6.medium-4.columns.dark pe.year
+                    h3.small-12.columns.dark = pe.year
                     div.clearfix
                       h3.small-6.medium-4.columns.quiet Type of Product
                       span.small-6.medium-8.columns = pe.type_of_product
@@ -121,71 +121,100 @@ div.grey.company-stats
           a[href="#accordion-tax"] Tax Obligations
           div#accordion-tax.content.clearfix[onclick="event.cancelBubble = true;"]
             div.row
-              div.medium-12.columns
-                h4 Flows Payable Under Contracts
+              - if ! @drc_company.flows_payable_under_contract
+                h3.small-12.columns.quiet Signature Bonus
+                h3.small-12.columns.quiet Royalties
+                h3.small-12.columns.quiet Annuity
+                h3.small-12.columns.quiet Transfer of Shares
+                h3.small-12.columns.quiet Contract Cash Recipient
+              - else
+                h2.small-12.columns.quiet Flux Payable au Contrat
+                div.clearfix
+                  h3.small-6.medium-4.columns.quiet Signature Bonus
+                  span.small-6.medium-8.columns = @drc_company.flows_payable_under_contract.signature_bonus
+                div.clearfix
+                  h3.small-6.medium-4.columns.quiet Royalties
+                  span.small-6.medium-8.columns = @drc_company.flows_payable_under_contract.royalties
+                div.clearfix
+                  h3.small-6.medium-4.columns.quiet Annuity
+                  span.small-6.medium-8.columns = @drc_company.flows_payable_under_contract.annuity
+                div.clearfix
+                  h3.small-6.medium-4.columns.quiet Transfer of Shares
+                  span.small-6.medium-8.columns = @drc_company.flows_payable_under_contract.transfer_of_shares
+                div.clearfix
+                  h3.small-6.medium-4.columns.quiet Contract Cash Recipient
+                  span.small-6.medium-8.columns = @drc_company.flows_payable_under_contract.contract_cash_recipient
+
             div.row
-              div.medium-6.columns
-                h4 Signature Bonus
-                h4 Royalties
-                h4 Annuity
-                h4 Transfer of Shares
-                h4 Contract Cash Recipient
-              - unless @drc_company.flows_payable_under_contract.nil?
-                div.medium-6.columns
-                  h4 = @drc_company.flows_payable_under_contract.signature_bonus
-                  h4 = @drc_company.flows_payable_under_contract.royalties
-                  h4 = @drc_company.flows_payable_under_contract.annuity
-                  h4 = @drc_company.flows_payable_under_contract.transfer_of_shares
-                  h4 = @drc_company.flows_payable_under_contract.contract_cash_recipient
-            div.row
-              div.medium-12.columns
-                h4 Tax Obligations
-            div.row
-              div.medium-6.columns
-                h4 Year
-                h4 Total Paid
-                h4 Redevance
-                h4 IBP
-                h4 Import Customs Duty
-                h4 Surface Rights
-                h4 Signature Bonus
-                h4 Royalties
-                h4 Other
+              h2.small-12.columns.quiet Tax Payments
+              - if @drc_company.tax_obligations.length == 0
+                / if empty array, output headers only
+                h3.small-12.columns.quiet Total Paid
+                h3.small-12.columns.quiet Redevance
+                h3.small-12.columns.quiet IBP
+                h3.small-12.columns.quiet Import Customs Duty
+                h3.small-12.columns.quiet Surface Rights
+                h3.small-12.columns.quiet Signature Bonus
+                h3.small-12.columns.quiet Royalties
+                h3.small-12.columns.quiet Other
               - @drc_company.tax_obligations.each do |tax_ob|
                 - unless tax_ob.nil?
-                  div.medium-6.columns
-                    h4 = tax_ob.year
-                    h4 = tax_ob.total_paid
-                    h4 = tax_ob.redevance
-                    h4 = tax_ob.ibp
-                    h4 = tax_ob.import_customs_duty
-                    h4 = tax_ob.surface_rights
-                    h4 = tax_ob.signature_bonus
-                    h4 = tax_ob.royalties
-                    h4 = tax_ob.other
+                  h3.small-12.columns.dark = tax_ob.year
+                  div.clearfix
+                    h3.small-6.medium-4.columns.quiet Total Paid
+                    span.small-6.medium-8.columns = tax_ob.total_paid
+                  div.clearfix
+                    h3.small-6.medium-4.columns.quiet Redevance
+                    span.small-6.medium-8.columns = tax_ob.redevance
+                  div.clearfix
+                    h3.small-6.medium-4.columns.quiet IBP
+                    span.small-6.medium-8.columns = tax_ob.ibp
+                  div.clearfix
+                    h3.small-6.medium-4.columns.quiet Import Customs Duty
+                    span.small-6.medium-8.columns = tax_ob.import_customs_duty
+                  div.clearfix
+                    h3.small-6.medium-4.columns.quiet Surface Rights
+                    span.small-6.medium-8.columns = tax_ob.surface_rights
+                  div.clearfix
+                    h3.small-6.medium-4.columns.quiet Signature Bonus
+                    span.small-6.medium-8.columns = tax_ob.signature_bonus
+                  div.clearfix
+                    h3.small-6.medium-4.columns.quiet Royalties
+                    span.small-6.medium-8.columns = tax_ob.royalties
+                  div.clearfix
+                    h3.small-6.medium-4.columns.quiet Other
+                    span.small-6.medium-8.columns = tax_ob.other
 
         li.accordion-navigation
           a[href="#accordion-enviro"] Environmental & Social Obligations
           div#accordion-enviro.content.clearfix[onclick="event.cancelBubble = true;"]
             div.row
-              div.medium-12.columns
-                h4 Environmental and Social Obligations
-            div.row
-              div.medium-6.columns
-                h4 Community Fund
-                h4 Environmental Impact Date
-                h4 Environmental Impact Link
-                h4 Sustainability Development Plan
-                h4 Community Dialogue Platform
-                h4 Social Investment
-              - unless @drc_company.env_and_social_obligation.nil?
-                div.medium-6.columns
-                  h4 = @drc_company.env_and_social_obligation.community_fund
-                  h4 = @drc_company.env_and_social_obligation.enviro_impact_date
-                  h4 = @drc_company.env_and_social_obligation.enviro_impact_link
-                  h4 = @drc_company.env_and_social_obligation.sustainable_dev_plan
-                  h4 = @drc_company.env_and_social_obligation.community_dialogue_platform
-                  h4 = @drc_company.env_and_social_obligation.social_investment
+              - if ! @drc_company.env_and_social_obligation
+                h3.small-12.columns.quiet Community Fund
+                h3.small-12.columns.quiet Environmental Impact Date
+                h3.small-12.columns.quiet Environmental Impact Link
+                h3.small-12.columns.quiet Sustainability Development Plan
+                h3.small-12.columns.quiet Community Dialogue Platform
+                h3.small-12.columns.quiet Social Investment
+              - else
+                div.clearfix
+                  h3.small-6.medium-4.columns.quiet Community Fund
+                  span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.community_fund
+                div.clearfix
+                  h3.small-6.medium-4.columns.quiet Environmental Impact Date
+                  span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.enviro_impact_date
+                div.clearfix
+                  h3.small-6.medium-4.columns.quiet Environmental Impact Link
+                  span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.enviro_impact_link
+                div.clearfix
+                  h3.small-6.medium-4.columns.quiet Sustainability Development Plan
+                  span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.sustainable_dev_plan
+                div.clearfix
+                  h3.small-6.medium-4.columns.quiet Community Dialogue Platform
+                  span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.community_dialogue_platform
+                div.clearfix
+                  h3.small-6.medium-4.columns.quiet Social Investment
+                  span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.social_investment
 
 div.divider
 div.row
