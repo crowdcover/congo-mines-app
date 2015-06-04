@@ -8,28 +8,33 @@ div.row
           = @shareholder.acronym
           | )
 
-div
-  div.row.pvm
-    div.large-12.columns
-      div.large-3.columns
-        h4 Stock
-        h4 Public Private
-        h4 Stock Symbol
-        h4 Stock Exchange
-        h4 Stock Countries
-      div.large-3.columns
-        h4 = @shareholder.stock
-        h4 = @shareholder.public_private
-        h4 = @shareholder.stock_symbol
-        h4 = @shareholder.stock_exchange
-        h4 = @shareholder.stock_countries
-      div.large-3.columns
-        h4 Website
-        h4 Contact
-      div.large-3.columns
-        h4 = @shareholder.website
-        h4 = @shareholder.contact
+div.row.pvl
+  div.small-12.medium-6.columns
+    div.clearfix
+      h3.small-6.columns.quiet Stock
+      span.small-6.columns = @shareholder.stock
+    div.clearfix
+      h3.small-6.columns.quiet Public/Private
+      span.small-6.columns = @shareholder.public_private
+    div.clearfix
+      h3.small-6.columns.quiet Stock Symbol
+      span.small-6.columns = @shareholder.stock_symbol
+    div.clearfix
+      h3.small-6.columns.quiet Stock Exchange
+      span.small-6.columns = @shareholder.stock_exchange
+    div.clearfix
+      h3.small-6.columns.quiet Stock Countries
+      span.small-6.columns = @shareholder.stock_countries
 
+  div.small-12.medium-6.columns
+    div.clearfix
+      h3.small-6.columns.quiet Website
+      span.small-6.columns = @shareholder.website
+    div.clearfix
+      h3.small-6.columns.quiet Contact
+      span.small-6.columns = @shareholder.contact
+
+div.grey.pbl
   div.row.pvm
     div.large-12.columns
       ul.accordion[data-accordion data-options="multi_expand:true"]
