@@ -61,6 +61,7 @@ Rails.application.routes.draw do
   resources :pages, only: :show
 
   resource :search, only: :show
+  
   resource :map do
     member do
       get 'get_all_deposits'

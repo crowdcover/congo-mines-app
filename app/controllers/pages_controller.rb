@@ -14,18 +14,22 @@ class PagesController < ApplicationController
 
   def show_sicomines
     # @page = Page.find(params[:id])
-    @search = search
+    @search = sicomines_search
     @reports = @search.results
+    # @reports = @page.drc_company.reports.order(actual_post_date: :desc)
+                                  # .page(params[:page])
+                                  # .per(12)
     # fail
     render :show
   end
 
   protected
-  def search
+  def sicomines_search
     Report.search do
       any do
         fulltext "Sicomines"
         fulltext '"La Sino Congolaise Des Mines"'
+        with(:drc_company_ids, 74)
       end
       order_by :actual_post_date, :desc
       paginate(page: params[:page], per_page: 12)
