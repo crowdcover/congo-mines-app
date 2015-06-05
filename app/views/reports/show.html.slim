@@ -1,18 +1,18 @@
 div.row.pvl
   div.large-12.columns
-    h2.quiet.mvm = @report.title
+    h2.quiet.mvm = @report.try(:title)
 
   div.large-3.columns: h3 Organization
   div.large-9.columns
-    h4 = @report.source.name
-    p.meta = @report.date_string
+    h4 = @report.try(:source).try(:name)
+    p.meta = @report.try(:date_string)
 
     h4.mtm Download
     ul.mbl
       - @report.attachments.each do |a|
         li.docicon: a href="#{a.asset.url}" = a.asset_file_name
 
-    div = @report.summary.html_safe
+    div = @report.try(:summary).try(:html_safe)
 
 div.grey.pvl
   div.row.keyline-bottom.ptm

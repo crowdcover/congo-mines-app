@@ -12,11 +12,51 @@ class Report < ActiveRecord::Base
 
   validates_presence_of :title, :summary, :source_id
 
-
   # Sunspot Index Below
    #paginates_per 10
 
+   searchable do
+     text :title, boost: 5
+     text :summary,  boost: 5
+     text :organization, :summary, :date_string
 
+     date :actual_post_date
+
+     #time reports do
+     #  time :published_at
+     #string :publish_month
+
+     text :drc_companies do
+       drc_companies.pluck(:name)
+     end
+
+     #text :source do
+    #   source.name
+    # end
+
+     text :attachments do
+       attachments.map{|a| a.asset.url }
+     end
+
+     text :categories do
+       categories.pluck(:name)
+     end
+
+     integer :drc_company_ids, multiple: true, references: DrcCompany do
+       drc_companies.map { |drc_company| drc_company.id }
+     end
+
+     integer :category_ids, multiple: true, references: Category do
+       categories.map { |category| category.id }
+     end
+
+     #time :actual_post_date
+     #string :actual_post_date_month
+
+   end
+
+
+=begin
   searchable do
     text :title, :organization, :summary
 
@@ -36,5 +76,10 @@ class Report < ActiveRecord::Base
       drc_companies.map { |drc_company| drc_company.id }
     end
   end
+=end
+
+  #def actual_post_date_month
+#    actual_post_date.strftime("%B %Y")
+#  end
 
 end

@@ -29,9 +29,27 @@ class DrcCompany < ActiveRecord::Base
     try(:name)
   end
 
-  def drc_company_name_url
-    self.name.split.join('_')
+  searchable do
+    text :name, :boost => 5
+
+    text :description, :acronym, :nrc, :rccm, :contact, :website, :legal_status,
+      :legal_status, :project_type, :project_phase, :legal_regime, :permits
+
+    #time reports do
+    #  time :published_at
+    #string :publish_month
+    text :reports do
+      reports.pluck(:summary)
+    end
+
+      #time :published_at
+      #string :publish_month
+
   end
+
+  #def drc_company_name_url
+  # self.name.split.join('_')
+  #end
 
   #def to_param
   #  "#{id}_#{drc_company_name_url}"

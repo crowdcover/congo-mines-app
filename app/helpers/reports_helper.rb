@@ -10,6 +10,11 @@ module ReportsHelper
     truncate(record.summary.html_safe, length: 90, escape: false)
   end
 
+  def truncate_summary(r)
+    truncate(r.summary.sub('<p>', '<p class="doc-summary">'), length: 300, escape: false) 
+  end
+
+
 =begin
   ActiveScaffold supports enabling groups in select defining :optgroup in columsn options:
 
