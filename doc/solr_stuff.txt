@@ -1,0 +1,29 @@
+These are the terminal commands you should follow to solve your problems:
+
+ps aux | grep solr to get solr process ID
+sudo kill <ID>, <ID> is the ID you found from 1
+rm -r <path/to/solr>, remove the solr directory inside your project to remove all of previous indexes
+RAILS_ENV=production bundle exec rake sunspot:solr:start
+Change the path to /solr/default inside config/sunspot.yml
+RAILS_ENV=production bundle exec rake sunspot:solr:reindex
+
+
+For the accent chars problem:
+http://stackoverflow.com/questions/17162163/solr-accent-removal
+<charFilter class="solr.MappingCharFilterFactory" mapping="mapping-ISOLatin1Accent.txt"/>
+
+<fieldType name="text" class="solr.TextField" omitNorms="false">
+  <analyzer>
+      <charFilter class="solr.MappingCharFilterFactory" mapping="mapping-ISOLatin1Accent.txt"/>
+    <tokenizer class="solr.StandardTokenizerFactory"/>
+    <filter class="solr.StandardFilterFactory"/>
+    <filter class="solr.LowerCaseFilterFactory"/>
+    <filter class="solr.PorterStemFilterFactory"/>
+  </analyzer>
+</fieldType>
+
+
+# Fuzzy Searching
+http://eberly.org/2010/07/27/rails-fuzzy-searching-with-sunspot-gem/
+
+<filter class="solr.PhoneticFilterFactory" encoder="DoubleMetaphone" inject="true"/>

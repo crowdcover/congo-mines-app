@@ -12,6 +12,7 @@ class SearchesController < ApplicationController
        q.paginate page: params[:page], per_page: 12
     end
     @reports = @results = search.results
+
     #binding.pry
 =begin
     # Good For DRC Company

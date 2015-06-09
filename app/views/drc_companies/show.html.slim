@@ -5,7 +5,7 @@ div.row
   div.large-12.columns
     h1.left
       span = @drc_company.name
-      span.quiet 
+      span.quiet
         - if @drc_company.acronym
           |  (
           = @drc_company.acronym
@@ -76,13 +76,13 @@ div.grey.company-stats
                     div.small-12.pbs
                       h4.small-12.columns.dark = emp.try(:year)
                       span = emp.count
-                      |  
+                      |
                       em = emp.gender
-                      |  
-                      em = emp.nationality 
-                      |  
+                      |
+                      em = emp.nationality
+                      |
                       em = emp.contract_type
-                      |  
+                      |
 
 
         li.accordion-navigation
@@ -222,9 +222,15 @@ div.row
     h1.quiet Documents
 
 div.row
-  - 3.times do |t|
-    - reports_line = @drc_company_reports[(4 * t)..((4 * (t + 1) - 1))]
-    = render partial: "shared/documents2", locals: {reports: reports_line, columns: 4}
+  / !
+    - 3.times do |t|
+      - reports_line = @drc_company_reports[(4 * t)..((4 * (t + 1) - 1))]
+      = render partial: "shared/documents3", locals: {reports: reports_line, columns: 4}
+
+  - if @drc_company_reports
+    - @drc_company_reports.in_groups_of(3) do |r|
+      .row
+        = render partial: "shared/documents3", locals: {reports: r, columns: 4 }
 
 div.row
   = paginate @drc_company_reports
