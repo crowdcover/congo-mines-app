@@ -1,16 +1,16 @@
 
-.document-container
+div[class="document-container medium-block-grid-#{columns}"]
   - reports.each do |rpt|
+    li
+      article[class="keyline-right mbl"]
+        - unless rpt.nil?
+          h3.doc-title = link_to rpt.try(:title), rpt
+          h4.doc-source = rpt.try(:source).try(:name)
+          p.doc-date = rpt.try(:date_string).try(:titleize)
 
-    article[class="columns small-12 keyline-right mbl medium-4"]
-      - unless rpt.nil?
-        h3.doc-title = link_to rpt.try(:title), rpt
-        h4.doc-source = rpt.try(:source).try(:name)
-        p.doc-date = rpt.try(:date_string).try(:titleize)
 
-
-        - if rpt.summary.present?
-        - if rpt.summary.start_with?('<p>')
-          = truncate_summary(rpt)
-        - else
-          p.doc-summary = truncate(rpt.try(:summary), length: 300, escape: false)
+          - if rpt.summary.present?
+          - if rpt.summary.start_with?('<p>')
+            = truncate_summary(rpt)
+          - else
+            p.doc-summary = truncate(rpt.try(:summary), length: 300, escape: false)
