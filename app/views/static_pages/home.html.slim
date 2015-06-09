@@ -3,7 +3,7 @@
 - if @rec_reports.count > 0
   div.row
     div.large-12.columns
-      h1 Recommended Documents
+      h1.quiet Recommended Documents
 
   div.row
     = render partial: "shared/documents3", locals: { reports: @rec_reports, columns: 2 }
