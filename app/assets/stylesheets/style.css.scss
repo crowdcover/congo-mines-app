@@ -288,6 +288,16 @@ $summary-lines-to-show: 6;
     line-height: $p-line-height !important;
     -webkit-line-clamp: $summary-lines-to-show;
   }
+  .document-container li {
+    margin-top: 15px;
+    margin-bottom: 25px;
+  }
+  .document-container li p {
+    color: #656565;
+    font-size: 0.9em;
+    font-weight: 200;
+    line-height: 1.5em;
+  }
 
 
 .company{
@@ -436,17 +446,6 @@ $summary-lines-to-show: 6;
   }
   .content .featured h3 {
     color: #fff;
-  }
-
-.content li {
-	margin-top: 15px;
-	margin-bottom: 25px;
-  }
-  .content li p {
-  	color: #656565;
-  	font-size: 0.9em;
-  	font-weight: 200;
-  	line-height: 1.5em;
   }
 
 .content ul, .grey ul {
