@@ -17,6 +17,7 @@ div.row
     h4 Banner Content type
 
   div.large-8.columns
+    = image_tag @page.banner.url
     h4 = @page.banner_file_name
     h4 = @page.banner_content_type
 
@@ -28,8 +29,9 @@ div.row
 - if @reports
   - 3.times do |t|
     div.row
-      - reports_line = @reports[(4 * t)..((4 * (t + 1) - 1))]
-      = render partial: "shared/documents2", locals: {reports: reports_line, columns: 4}
+  - @reports.in_groups_of(3) do |r|
+    .row
+      = render partial: "shared/documents3", locals: {reports: r, columns: 4 }
 
   div.row
     = paginate @reports

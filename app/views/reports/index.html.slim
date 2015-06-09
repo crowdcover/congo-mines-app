@@ -13,17 +13,19 @@ div.row
   div.large-12.columns
     h1.quiet All Documents
 
+
+
 div.row
   - reports_line_1 = @reports[0..3]
-  = render partial: "shared/documents2", locals: {reports: reports_line_1, columns: 4}
+  = render partial: "shared/documents3", locals: {reports: reports_line_1, columns: 4}
 
 div.row
   - reports_line_2 = @reports[4..7]
-  = render partial: "shared/documents2", locals: {reports: reports_line_2, columns: 4}
+  = render partial: "shared/documents3", locals: {reports: reports_line_2, columns: 4}
 
 div.row
   - reports_line_3 = @reports[8..11]
-  = render partial: "shared/documents2", locals: {reports: reports_line_3, columns: 4}
+  = render partial: "shared/documents3", locals: {reports: reports_line_3, columns: 4}
 
 div.row
   = paginate @reports
