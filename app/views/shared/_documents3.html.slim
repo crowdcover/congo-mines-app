@@ -1,7 +1,7 @@
 
 div[class="document-container medium-block-grid-#{columns}"]
   - reports.each do |rpt|
-    li.keyline-right
+    li
       article[class="hide-summary-#{hide_summary}"]
         - unless rpt.nil?
           h3.doc-title = link_to rpt.try(:title), rpt

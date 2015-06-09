@@ -296,6 +296,10 @@ $summary-lines-to-show: 6;
   .document-container li {
     margin-top: 15px;
     margin-bottom: 25px;
+    border-right: 1px solid #ccc;
+  }
+  .document-container li:last-child {
+    border-right: 0;
   }
   .document-container li p {
     color: #656565;
