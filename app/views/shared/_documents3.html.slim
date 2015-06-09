@@ -1,8 +1,8 @@
 
 div[class="document-container medium-block-grid-#{columns}"]
   - reports.each do |rpt|
-    li
-      article[class="keyline-right mbl"]
+    li.keyline-right
+      article
         - unless rpt.nil?
           h3.doc-title = link_to rpt.try(:title), rpt
           h4.doc-source = rpt.try(:source).try(:name)

@@ -14,18 +14,25 @@ div.row
     h1.quiet All Documents
 
 
+/ to change the number of reports to n, change @reports and columns:
+/  - reports_line_1 = @reports[0..n]
+/  = render partial: "shared/documents3", locals: {reports: reports_line_1, columns: n}
 
 div.row
-  - reports_line_1 = @reports[0..3]
-  = render partial: "shared/documents3", locals: {reports: reports_line_1, columns: 4}
+  - reports_line_1 = @reports[0..2]
+  = render partial: "shared/documents3", locals: {reports: reports_line_1, columns: 3}
 
 div.row
-  - reports_line_2 = @reports[4..7]
-  = render partial: "shared/documents3", locals: {reports: reports_line_2, columns: 4}
+  - reports_line_2 = @reports[3..5]
+  = render partial: "shared/documents3", locals: {reports: reports_line_2, columns: 3}
 
 div.row
-  - reports_line_3 = @reports[8..11]
-  = render partial: "shared/documents3", locals: {reports: reports_line_3, columns: 4}
+  - reports_line_3 = @reports[6..8]
+  = render partial: "shared/documents3", locals: {reports: reports_line_3, columns: 3}
+
+div.row
+  - reports_line_3 = @reports[9..11]
+  = render partial: "shared/documents3", locals: {reports: reports_line_3, columns: 3}
 
 div.row
   = paginate @reports
