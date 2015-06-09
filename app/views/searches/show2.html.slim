@@ -9,7 +9,7 @@
     - if @reports
       - @reports.in_groups_of(3) do |r|
         .row
-          = render partial: "shared/documents3", locals: {reports: r, columns: 4 }
+          = render partial: "shared/documents3", locals: {reports: r, columns: 4, hide_summary: true }
     - else
       h2
         Sorry no results found!

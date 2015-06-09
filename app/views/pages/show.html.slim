@@ -31,7 +31,7 @@ div.row
     div.row
   - @reports.in_groups_of(3) do |r|
     .row
-      = render partial: "shared/documents3", locals: {reports: r, columns: 4 }
+      = render partial: "shared/documents3", locals: {reports: r, columns: 4, hide_summary: true }
 
   div.row
     = paginate @reports

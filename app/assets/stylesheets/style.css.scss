@@ -238,7 +238,7 @@ li.docicon {
 
 $title-font-size: 1.4rem;
 $title-line-height: 1.4;
-$title-lines-to-show: 2;
+$title-lines-to-show: 3;
 
 $source-font-size: 1.1rem;
 $source-line-height: 1.2;
@@ -281,12 +281,17 @@ $summary-lines-to-show: 6;
     font-size: $p-font-size !important;
     line-height: $p-line-height !important;
     -webkit-line-clamp: $date-lines-to-show;
+    margin-bottom: 8px;
   }
   .document-container .doc-summary {
     height: $p-font-size*$p-line-height*$summary-lines-to-show;
     font-size: $p-font-size !important;
     line-height: $p-line-height !important;
     -webkit-line-clamp: $summary-lines-to-show;
+    transition: height 0.2s ease-in-out;
+  }
+  .document-container article.hide-summary-true .doc-summary {
+    height: 0;
   }
   .document-container li {
     margin-top: 15px;

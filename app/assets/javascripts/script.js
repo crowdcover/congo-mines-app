@@ -12,12 +12,29 @@ $(function(){
         $("#browse-search").slideToggle(500);
       });
 
-      $(".accordion").on("click", "li", function (event) {
+      $(".accordion").on("click", "li", function (e) {
         $(this).find(".content").slideToggle(300);
       });
 
       $(".select2-dropdown").select2({
         allowClear: true
+      });
+
+      $(".document-container article.hide-summary-true .show-summary").on('click', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+
+        var $this = $(this),
+            thisDocument = $this.parent('article');
+
+        if(thisDocument.hasClass('hide-summary-true')){
+          thisDocument.removeClass('hide-summary-true');
+          $this.text('hide summary');
+        }else{
+          thisDocument.addClass('hide-summary-true');
+          $this.text('show summary');
+        }
+        
       });
     },
 

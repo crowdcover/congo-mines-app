@@ -2,15 +2,17 @@
 div[class="document-container medium-block-grid-#{columns}"]
   - reports.each do |rpt|
     li.keyline-right
-      article
+      article[class="hide-summary-#{hide_summary}"]
         - unless rpt.nil?
           h3.doc-title = link_to rpt.try(:title), rpt
           h4.doc-source = rpt.try(:source).try(:name)
           p.doc-date = rpt.try(:date_string).try(:titleize)
-
 
           - if rpt.summary.present?
           - if rpt.summary.start_with?('<p>')
             = truncate_summary(rpt)
           - else
             p.doc-summary = truncate(rpt.try(:summary), length: 300, escape: false)
+
+        - if hide_summary
+          a[href="#" class="show-summary"] show summary
