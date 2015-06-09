@@ -1,23 +1,22 @@
 div.row
   div.large-12.columns
     h1.left
-      span = @page.topic
+      span = @page.try(:topic)
   div.large-12.columns
     h1.left
-      span = @page.title
+      span = @page.try(:title)
 
 div.row
   div.large-12.columns
     h2.left Content
-    h3 = @page.content.html_safe if @page.content
-
+    h3 = @page.content.try(:html_safe)
 div.row
   div.large-4.columns
     h4 Banner File Name
     h4 Banner Content type
 
   div.large-8.columns
-    = image_tag @page.banner.url
+    = image_tag @page.banner.try(:url)
     h4 = @page.banner_file_name
     h4 = @page.banner_content_type
 
@@ -27,8 +26,10 @@ div.row
     h1.quiet Topic Documents
 
 - if @reports
-  - 3.times do |t|
-    div.row
+  /!
+    - 3.times do |t|
+      div.row
+
   - @reports.in_groups_of(3) do |r|
     .row
       = render partial: "shared/documents3", locals: {reports: r, columns: 4 }
