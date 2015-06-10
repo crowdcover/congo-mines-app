@@ -14,7 +14,7 @@ class Deposit < ActiveRecord::Base
   has_many :measured_resources, -> { where deposit_type: DepositResource::MEASURED_RESOURCES },
     as: :depoable, dependent: :destroy, class_name: 'DepositResource'
 
-  has_many :indicated_resources,  -> { where deposit_type: DepositResource::INDICATED_RESOURCES },
+  has_many :indicated_resources, -> { where deposit_type: DepositResource::INDICATED_RESOURCES },
     as: :depoable, dependent: :destroy, class_name: 'DepositResource'
 
   has_many :inferred_resources, -> { where deposit_type: DepositResource::INFERRED_RESOURCES },
