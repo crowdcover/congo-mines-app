@@ -1,7 +1,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require chosen-jquery 
+//= require chosen-jquery
 //= require scaffold
 // require tinymce
 //= require tinymce-jquery
@@ -27,3 +27,5 @@ jQuery(document).on("focus", "input.date_picker", function(){
     return true;
 });
 
+
+tinymce.init({selector:'textarea'});
