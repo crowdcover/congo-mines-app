@@ -7,9 +7,9 @@ div.row
     h2.ftr Search Result Documents
 
 div.row
-  = render partial: "shared/documents3", locals: {reports: @reports, columns: 4, hide_summary: true }
+  = render partial: "shared/documents", locals: {reports: @reports, columns: 4, hide_summary: true }
   /- @search.shift(4)
 
 div.row
-  /= render partial: "shared/documents3", locals: {reports: @search, columns: 4, hide_summary: true }
+  /= render partial: "shared/documents", locals: {reports: @search, columns: 4, hide_summary: true }
   /- @search.shift(4)
