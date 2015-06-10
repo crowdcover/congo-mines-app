@@ -9,10 +9,8 @@ div[class="document-container medium-block-grid-#{columns}"]
           p.doc-date = rpt.try(:date_string).try(:titleize)
 
           - if rpt.summary.present?
-          - if rpt.summary.start_with?('<p>')
-            = truncate_summary(rpt)
-          - else
-            p.doc-summary = truncate(rpt.try(:summary), length: 300, escape: false)
+            p.doc-summary
+              = truncate_summary(rpt.summary, 300)
 
         - if hide_summary
           a[href="#" class="show-summary"] show summary

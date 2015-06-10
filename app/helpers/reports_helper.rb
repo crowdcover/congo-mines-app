@@ -10,8 +10,16 @@ module ReportsHelper
     truncate(record.summary.html_safe, length: 90, escape: false)
   end
 
-  def truncate_summary(r)
-    truncate(r.summary.sub('<p>', '<p class="doc-summary">'), length: 300, escape: false) 
+  def truncate_summary(r, length = 300)
+    r.sub!(/^<p>/i, '')
+    r.sub!(/<\/p>$/i, '')
+    truncate(r, length: length, escape: false)
+
+    #if r.summary.start_with?('<p>')
+  #    truncate(r.summary.sub('<p>', '<p class="doc-summary">'), length: length, escape: false) + "</p>".html_safe
+#    else
+#      truncate(r.summary, length: length, escape: false)
+#    end
   end
 
 
