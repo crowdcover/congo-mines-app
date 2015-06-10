@@ -28,4 +28,7 @@ jQuery(document).on("focus", "input.date_picker", function(){
 });
 
 
-tinymce.init({selector:'textarea'});
+tinymce.init({selector:'textarea',
+plugins: ["link","preview","searchreplace", "charmap", "table", "fullscreen"],
+tools: "inserttable",
+language: 'fr_FR',});
