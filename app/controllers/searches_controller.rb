@@ -1,15 +1,8 @@
 class SearchesController < ApplicationController
 
   def show
-    #@search = search(params[:search])
-    #@reports = @search.results
-
-    #@search = Report.
-    #s = DrcCompany.search{|q| q.fulltext ' rapport de l’association' }
-
     categories = []
     categories = [:theme, :type_document, :type_source, :province].map{|c| params[c].to_i }.compact
-
     categories.delete(0)
 
     search = Report.search do
@@ -20,10 +13,7 @@ class SearchesController < ApplicationController
        paginate page: params[:page], per_page: 12
     end
 
-    #binding.pry
     @reports = @results = search.results
-
-    render :show2
   end
 
   protected

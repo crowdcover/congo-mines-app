@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603221008) do
+ActiveRecord::Schema.define(version: 20150610163459) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20150603221008) do
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
     t.integer  "deposit_source_id"
+    t.string   "source"
   end
 
   add_index "deposits", ["drc_company_id"], name: "index_deposits_on_drc_company_id"

@@ -1,15 +1,17 @@
+= render "shared/search"
 
-/ will need to paginate
-/- @search = @search.to_a
+.content
+  .row
+    div.large-12.columns
+      h2.mvl Search Result Documents
 
-div.row
-  div.large-12.columns
-    h2.ftr Search Result Documents
-
-div.row
-  = render partial: "shared/documents", locals: {reports: @reports, columns: 4, hide_summary: true }
-  /- @search.shift(4)
-
-div.row
-  /= render partial: "shared/documents", locals: {reports: @search, columns: 4, hide_summary: true }
-  /- @search.shift(4)
+  - if @reports.present?
+    - @reports.in_groups_of(3) do |r|
+      .row
+        = render partial: "shared/documents", locals: {reports: r, columns: 3, hide_summary: true }
+    .row 
+      = paginate @results
+  - else
+    .row
+      .large-12.columns
+        h4.mbl.text-center Sorry no results found!

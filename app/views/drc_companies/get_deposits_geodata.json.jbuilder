@@ -22,6 +22,7 @@ json.features @drc_company.deposits do |deposit|
       json.metal_content_unit depo.metal_content_unit
       json.tonnage depo.tonnage
     end
+
   end
 
   json.geometry do

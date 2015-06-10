@@ -10,12 +10,12 @@ class Admin::DepositsController <  Admin::Auth
     #config.columns = [:name, :drc_company_id, :mine_type, :permit_type, :permit_number, :source, :lat, :lng]
 
     config.update.columns = [
-      :name, :drc_company_id, :mine_type, :permit_type, :permit_number, :deposit_source, :lat, :lng,
+      :name, :drc_company_id, :mine_type, :permit_type, :permit_number, :source, :lat, :lng,
       :measured_resources,:indicated_resources, :inferred_resources, :total_resources,
       :proven_reserves, :probable_reserves, :total_reserves]
 
     config.create.columns = [
-        :name, :drc_company_id, :mine_type, :permit_type, :permit_number, :deposit_source, :lat, :lng,
+        :name, :drc_company_id, :mine_type, :permit_type, :permit_number, :source, :lat, :lng,
         :measured_resources,:indicated_resources, :inferred_resources, :total_resources,
         :proven_reserves, :probable_reserves, :total_reserves]
 
@@ -27,7 +27,7 @@ class Admin::DepositsController <  Admin::Auth
     config.columns[:total_reserves].allow_add_existing = false
     config.columns[:total_resources].allow_add_existing = false
 
-    config.columns[:deposit_source].form_ui = :chosen
+    #config.columns[:deposit_source].form_ui = :chosen
 
     config.columns[:permit_type].form_ui = :chosen
     config.columns[:permit_type].options = {
