@@ -53,4 +53,4 @@ div.grey.pbl
                     span.small-6.medium-8.columns = sr.year
                   div.clearfix
                     h3.small-6.medium-4.columns.quiet Direct Shareholder
-                    span.small-6.medium-8.columns = sr.direct_shareholder
+                    span.small-6.medium-8.columns = sr.intermediary_companies.pluck(:name).join(', ')
