@@ -247,7 +247,7 @@ $source-lines-to-show: 1;
 $p-font-size: 0.85rem;
 $p-line-height: 1.5;
 $date-lines-to-show: 1;
-$summary-lines-to-show: 6;
+$summary-lines-to-show: 4;
 
 .document-container {
   }
@@ -292,6 +292,7 @@ $summary-lines-to-show: 6;
   }
   .document-container article.hide-summary-true .doc-summary {
     height: 0;
+    margin: 0;
   }
   .document-container li {
     margin-top: 15px;
