@@ -19,27 +19,27 @@ div.row.mbl
 
   div.large-12.columns.text-center
     div.category
-      - eiti_page = Page.find_by(category_id: 48)
+      / - eiti_page = Page.find_by(category_id: 48)
       a href="/pages/7"
         = image_tag 'icon.png'
         h3 EITI Compliance
     div.category
-      - mine_code_page = Page.find_by(category_id: 46)
+      / - mine_code_page = Page.find_by(category_id: 46)
       a href="/pages/8"
         = image_tag 'icon.png'
         h3 Mining Code
     div.category
-      - sicomines_page = Page.find_by(drc_company_id: 74)
-      a href="#{page_url(sicomines_page) if sicomines_page}"
+      / - sicomines_page = Page.find_by(drc_company_id: 74)
+      a href="/pages/6"
         = image_tag 'icon.png'
         h3 Sicomines
     div.category
-      - gov_asset_sales_page = Page.find_by(category_id: 45)
+      / - gov_asset_sales_page = Page.find_by(category_id: 45)
       a href="/pages/9"
         = image_tag 'icon.png'
         h3 Government Asset Sales
     div.category
-      - human_rights_page = Page.find_by(category_id: 36)
+      / - human_rights_page = Page.find_by(category_id: 36)
       a href="/pages/10"
         = image_tag 'icon.png'
         h3 Human Rights
