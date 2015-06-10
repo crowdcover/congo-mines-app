@@ -2,16 +2,16 @@
 
 .content
   .row
-    div[class='large-12 columns']
-      h2[class="ftr"]
-        Search Result Documents
+    div.large-12.columns
+      h2.mvl Search Result Documents
 
-    - if @reports
-      - @reports.in_groups_of(3) do |r|
-        .row
-          = render partial: "shared/documents", locals: {reports: r, columns: 3, hide_summary: true }
-    - else
-      h2
-        Sorry no results found!
-
-    .row =  paginate @results
+  - if @reports.present?
+    - @reports.in_groups_of(3) do |r|
+      .row
+        = render partial: "shared/documents", locals: {reports: r, columns: 3, hide_summary: true }
+      .row 
+        = paginate @results
+  - else
+    .row
+      .large-12.columns
+        h4.mbl.text-center Sorry no results found!
