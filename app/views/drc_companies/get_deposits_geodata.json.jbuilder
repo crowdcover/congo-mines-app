@@ -1,8 +1,8 @@
 # do jbuilder for geojson for map/leaflet
 
 json.type "FeatureCollection"
-
-json.features @drc_company.deposits do |deposit|
+validDeposits = @drc_company.deposits.select { |deposit| deposit.lng != nil && deposit.lat != nil && deposit.lng != 0 && deposit.lat != 0 }
+json.features validDeposits do |deposit|
   json.type "Feature"
   json.properties do
     json.name deposit.name
@@ -18,6 +18,7 @@ json.features @drc_company.deposits do |deposit|
     json.inferred_resources deposit.inferred_resources
     json.source deposit.source
   end
+
 
   json.geometry do
     json.type "Point"
