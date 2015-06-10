@@ -9,8 +9,8 @@
     - @reports.in_groups_of(3) do |r|
       .row
         = render partial: "shared/documents", locals: {reports: r, columns: 3, hide_summary: true }
-      .row 
-        = paginate @results
+    .row 
+      = paginate @results
   - else
     .row
       .large-12.columns
