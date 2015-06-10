@@ -47,12 +47,10 @@ div.footer
           a[href="/admin" target="_blank"] Sign In
           - if @report
             span  |
-            = link_to 'Manage This', edit_admin_report_url(@report), {target: 'blank'}
-
-            / a[href="#{edit_admin_report_url(@report)}" target="_blank"] Manage
+            = link_to 'Manage', edit_admin_report_url(@report), {target: 'blank'}
           - if @drc_company
             span  |
-            a[href="#{edit_admin_drc_company_url(@drc_company)}" target="_blank"] Manage
+            = link_to 'Manage', edit_admin_drc_company_url(@drc_company), {target: 'blank'}
           - if @shareholder
             span  |
-            a[href="#{edit_admin_shareholder_url(@shareholder)}" target="_blank"] Manage
+            = link_to 'Manage', edit_admin_shareholder_url(@shareholder), {target: 'blank'}
