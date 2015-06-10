@@ -12,7 +12,7 @@ json.features @drc_company.deposits do |deposit|
     json.permit_number deposit.permit_number
     json.proven_reserves deposit.proven_reserves
     json.probable_reserves deposit.probable_reserves
-    json.proven_probable_reserves deposit.proven_probable_reserves
+    json.proven_probable_reserves deposit.total_reserves
     json.measured_resources deposit.measured_resources
     json.indicated_resources deposit.indicated_resources
     json.inferred_resources deposit.inferred_resources
