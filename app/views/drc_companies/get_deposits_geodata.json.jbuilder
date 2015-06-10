@@ -10,13 +10,18 @@ json.features @drc_company.deposits do |deposit|
     json.mine_type deposit.mine_type
     json.permit_type deposit.permit_type
     json.permit_number deposit.permit_number
-    json.proven_reserves deposit.proven_reserves
-    json.probable_reserves deposit.probable_reserves
-    json.proven_probable_reserves deposit.proven_probable_reserves
-    json.measured_resources deposit.measured_resources
-    json.indicated_resources deposit.indicated_resources
-    json.inferred_resources deposit.inferred_resources
-    json.source deposit.source
+
+    json.deposit_source deposit.deposit_source
+
+    json.depoable do |depo|
+      json.depoable_type depo.depoable_type
+      json.deposit_type depo.deposit_type
+      json.measurement depo.measurement
+      json.grade depo.grade
+      json.metal_content depo.metal_content
+      json.metal_content_unit depo.metal_content_unit
+      json.tonnage depo.tonnage
+    end
   end
 
   json.geometry do
