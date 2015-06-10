@@ -2,7 +2,7 @@ class ShareholderRelationship < ActiveRecord::Base
   belongs_to :drc_company
   belongs_to :shareholder
 
-  has_many :shareholder_intermediaries
+  has_many :shareholder_intermediaries, dependent: :destroy
   has_many :intermediary_companies, through: :shareholder_intermediaries
 
   validates_presence_of :drc_company, :shareholder #, :deposit_source
