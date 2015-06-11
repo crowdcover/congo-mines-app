@@ -24,7 +24,9 @@ class DrcCompany < ActiveRecord::Base
 
   has_one :page
 
-  validates_presence_of :name #, :legal_status, :project_phase, :project_type, :acronym, :contact
+  #validates_presence_of :name #, :legal_status, :project_phase, :project_type, :acronym, :contact
+
+  validates :name, uniqueness: true, presence: true
 
   paginates_per 30
 
@@ -54,8 +56,16 @@ class DrcCompany < ActiveRecord::Base
   # self.name.split.join('_')
   #end
 
-  def to_param
-    "#{id}-#{name.parameterize}"
-  end
+
+  #def to_param
+  # "#{id}-#{name.try(:parameterize)}"
+  #end  
+
+  #  if name.nil?
+#      id
+#    else
+    #  "#{id}-#{name.parameterize}"
+    #end
+  #end
 
 end

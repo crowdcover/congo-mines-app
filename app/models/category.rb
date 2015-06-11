@@ -12,6 +12,6 @@ class Category < ActiveRecord::Base
 
 
   def to_param
-    "#{id}-#{name.parameterize}"
+    "#{id}-#{name.try(:parameterize)}"
   end
 end
