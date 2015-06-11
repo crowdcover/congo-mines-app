@@ -173,6 +173,7 @@ fr:
         categories: categories  #g
         cm_url: cm_url  #g
         date_string: date_string  #g
+        draft: draft
         drc_companies: drc_companies  #g
         organization: organization  #g
         post_date: post_date  #g
