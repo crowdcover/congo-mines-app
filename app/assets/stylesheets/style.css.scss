@@ -436,7 +436,10 @@ $summary-lines-to-show: 4;
 
 .top-bar .dropdown {
 	z-index: 505;
-}
+  }
+  .top-bar .title-area .name {
+    min-width: 80px;
+  }
 
 .content .featured {
   width: 450px;

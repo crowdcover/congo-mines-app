@@ -39,8 +39,8 @@ $(function(){
 
       // ux interaction for map dropdown clicks
       $('.map-dropdown ul a').on('click', function(e){
-        e.preventDefault();
-        e.stopPropagation();
+        // e.preventDefault();
+        // e.stopPropagation();
 
         
       });
