@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150611143120) do
+ActiveRecord::Schema.define(version: 20150611194159) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -362,7 +362,7 @@ ActiveRecord::Schema.define(version: 20150611143120) do
 
   create_table "tile_layers", force: :cascade do |t|
     t.string   "label"
-    t.text     "mapbox_tile_layer_id"
+    t.string   "mapbox_tile_layer_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
