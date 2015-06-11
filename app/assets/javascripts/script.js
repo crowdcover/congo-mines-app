@@ -37,6 +37,21 @@ $(function(){
         
       });
 
+      // map dropdown click map events
+      $('.map-dropdown.mining-data ul a').on('click', function(e){
+        var $this = $(this),
+            geoDataUrl = $this.data('url'),
+            parentListItem = $this.parent('li');
+
+        if(! parentListItem.hasClass('active')){
+          app.clearMap();
+          app.getGeodata(geoDataUrl, true);
+        }
+        
+      });
+
+      $('.map-dropdown.maps ul a').on('click', function(e){});
+
       // ux interaction for map dropdown clicks
       $('.map-dropdown ul a.add-layer').on('click', function(e){
         e.preventDefault();
@@ -44,17 +59,14 @@ $(function(){
         
         var $this = $(this),
             layerName = $this.text(),
+            parentListItem = $this.parent('li'),
+            siblingListItems = parentListItem.siblings('li'),
             dropdownLayerTitle = $this.parents('.map-dropdown').find('a.title span.layer-title');
 
+        siblingListItems.removeClass('active');
+        parentListItem.addClass('active');
         dropdownLayerTitle.addClass('show').text(layerName);
       });
-
-      // map dropdown click map events
-      $('.map-dropdown.mining-data ul a').on('click', function(e){
-
-      });
-
-      $('.map-dropdown.maps ul a').on('click', function(e){});
     },
 
     initMap: function() {
@@ -67,6 +79,9 @@ $(function(){
             minZoom: 4,
             maxZoom: 18
         });
+
+        // store vector layers in map array
+        app.map.vectorLayers = [];
 
         app.map.attributionControl.setPrefix(false);
         app.map.attributionControl.addAttribution("<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> <a class='mapbox-improve-map' href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a>")
@@ -81,7 +96,7 @@ $(function(){
         });
 
         minesLayer.addTo(app.map);
-        app.map.addedLayer = minesLayer;
+        app.map.vectorLayers.push(minesLayer);
 
         if (setTable) {
           app.setUpTable(data);
@@ -231,7 +246,9 @@ $(function(){
     },
 
     clearMap: function() {
-      app.map.addedLayer.clearLayers();
+      app.map.vectorLayers.forEach(function(layer){
+        layer.clearLayers();
+      });
 
       if (typeof app.mapTable !== 'undefined') {
         // console.log($('.mine-table'));

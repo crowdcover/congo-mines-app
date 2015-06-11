@@ -8,19 +8,18 @@
   <section class="top-bar-section">
 
     <ul class="left">
-      <li class="divider"></li>
 
       <li class="has-dropdown map-dropdown mining-data">
         <a class="title" href="#">Mining Data <span class="layer-title"></span></a>
         <ul class="dropdown">
-          <li onclick="app.clearMap(); app.getGeodata('<%= get_all_deposits_map_url %>', <%= true %>)">
-            <a class="add-layer" href="#">Deposits</a>
+          <li>
+            <a class="add-layer" href="#" data-url="<%= get_all_deposits_map_url %>">Deposits</a>
           </li>
-          <li onclick="app.clearMap(); app.getGeodata('<%= get_all_processing_infrastructures_map_path %>', <%= true %>)">
-            <a class="add-layer" href="#">Processing Infrastructures</a>
+          <li>
+            <a class="add-layer" href="#" data-url="<%= get_all_processing_infrastructures_map_url %>">Processing Infrastructures</a>
           </li>
-          <li onclick="app.clearMap(); app.getGeodata('<%= get_all_social_projects_map_path %>', <%= true %>)">
-            <a class="add-layer" href="#">Social Projects</a>
+          <li>
+            <a class="add-layer" href="#" data-url="<%= get_all_social_projects_map_url %>">Social Projects</a>
           </li>
         </ul>
       </li>
