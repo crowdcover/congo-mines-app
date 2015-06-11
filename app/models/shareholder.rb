@@ -3,7 +3,7 @@ class Shareholder < ActiveRecord::Base
   #  :state, :drc_company
 
   has_many :shareholder_relationships
-  #has_many :shareholder_intermediaries, through: :shareholder_relationships 
+  #has_many :shareholder_intermediaries, through: :shareholder_relationships
   has_many :drc_companies, through: :shareholder_relationships
 
 
@@ -12,4 +12,8 @@ class Shareholder < ActiveRecord::Base
   #def to_label
   #  try(:drc_company)
   # end
+
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
 end

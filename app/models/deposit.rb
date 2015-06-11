@@ -2,7 +2,6 @@ class Deposit < ActiveRecord::Base
   belongs_to :drc_company
   #belongs_to :deposit_source
 
-
   has_many :proven_reserves, -> { where deposit_type:  DepositResource::PROVEN_RESERVES },
    as: :depoable, dependent: :destroy, class_name: 'DepositResource'
 

@@ -1,4 +1,7 @@
 class DrcCompany < ActiveRecord::Base
+  #include FriendlyId
+  #friendly_id :name #, :use => [:slugged] #, :simple_i18n]
+
 
   has_many :production_exports, dependent: :destroy
   has_many :tax_obligations, dependent: :destroy
@@ -51,8 +54,8 @@ class DrcCompany < ActiveRecord::Base
   # self.name.split.join('_')
   #end
 
-  #def to_param
-  #  "#{id}_#{drc_company_name_url}"
-  #end
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
 
 end

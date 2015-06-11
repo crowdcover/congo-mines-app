@@ -25,8 +25,12 @@ class Page < ActiveRecord::Base
     self.topic.split.join('_')
   end
 
+  #def to_param
+#    "#{id}_#{topic_url}"
+  #end
+
   def to_param
-    "#{id}_#{topic_url}"
+    "#{id}-#{topic.parameterize}"
   end
 
 end
