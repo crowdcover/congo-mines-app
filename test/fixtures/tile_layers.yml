@@ -2,8 +2,8 @@
 
 one:
   label: MyString
-  mapbox_tile_layer_id: 1
+  mapbox_tile_layer: 1
 
 two:
   label: MyString
-  mapbox_tile_layer_id: 1
+  mapbox_tile_layer: 1

@@ -32,7 +32,7 @@
         <ul class="dropdown">
           <% TileLayer.all.each do |tile| %>
             <li>
-              <a class="add-layer" href="#" data-id="<%= tile.mapbox_tile_layer_id %>"><%= tile.label %></a>
+              <a class="add-layer" href="#" data-id="<%= tile.mapbox_tile_layer %>"><%= tile.label %></a>
             </li>
           <% end %>
         </ul>
