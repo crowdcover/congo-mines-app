@@ -10,6 +10,9 @@ class SearchesController < ApplicationController
        #q.keywords  params[:search]
        with(:category_ids).all_of(categories) unless categories.blank?
        order_by :actual_post_date, :desc
+
+       with :draft, false
+
        paginate page: params[:page], per_page: 12
     end
 

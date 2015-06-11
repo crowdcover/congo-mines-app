@@ -78,15 +78,47 @@ $(function(){
         // do if statements for a few different properties
         // testing with typeof props.(property) !== undefined
         // for the 3 different geodata types
+        var company = props.drc_company ? props.drc_company : '';
+        var type = props.mine_type ? props.mine_type :  '';
+        var proven = props.proven_reserves ? props.proven_reserves : '';
+        var resourceList = '';
+        if(proven && proven.length > 0) {
+          resourceList = app.getResourceList(proven);
+        }
+        var source = props.source ? props.source : '';
+        
         var popupContent = "<h3 class='mine-marker'>"+ props.name + "</h3>"+
-            "Company: "+ props.drc_company + "<br />"+
-            "Type: " + props.mine_type + "<br />"+
-            "Proven Reserves: "+ props.proven_reserves+ "<br />"+
-            "Source: " + props.source;
+            "Company: "+ company + "<br />"+
+            "Type: " + type + "<br />"+
+            "Proven Reserves: "+ resourceList + "<br />"+
+            "Source: " + source;
 
         layer.bindPopup(popupContent);
       }
 
+    },
+    
+    getResourceList: function(deposits){
+      var resourceList = '';
+      //loop through and get unique minerals
+      var mineralArr = [];
+      deposits.forEach( function (resource) {
+        var mineral = resource.mineral_resource_id //FIXME: switch to mineral names not IDs
+        if( mineral && !$.inArray(mineral, mineralArr) >= 0){ 
+          mineralArr.push(mineral)
+        }
+      });
+      var first = true;
+      mineralArr.forEach( function (mineral) {
+        //add a comma
+        if(first){
+          first = false;
+        } else {
+          resourceList += ", "
+        }
+        resourceList += mineral;
+      });
+      return resourceList;
     },
 
     setUpTable: function(geoJSON){
@@ -107,10 +139,32 @@ $(function(){
         titles.push({ "title": val });
       });
 
+      var resourceReserveColumns = [ 'proven_reserves', 'proven_reserves',
+        'probable_reserves', 'total_reserves', 'measured_resources',
+      'indicated_resources','inferred_resources'];
+      
+      
+
       table_data.forEach( function (val, index, arg) {
         var oneDataRow = [];
         for (var prop in val) {
-          oneDataRow.push(val[prop]);
+          //find special values that need to be subgrids
+          if($.inArray(prop, resourceReserveColumns) >= 0){
+            var colData = '';
+            //get unique list of resources
+            var resourceData = val[prop];
+            if(resourceData && resourceData.length > 0){
+              colData += app.getResourceList(resourceData);
+              //add link to open details
+              colData += '<br /><a href="#">Details</a>'
+            } else {
+              colData += 'None'; //TODO: translate
+            }
+            oneDataRow.push(colData);
+            
+          }else {
+            oneDataRow.push(val[prop]);
+          }
         }
         tableDataArray.push(oneDataRow);
       });
@@ -140,7 +194,20 @@ $(function(){
         "paging": false,
         "info": false,
         "searching": false,
-        "columns": titles
+        "columns": [
+            { "title": "Name" },
+            { "title": "Company" },
+            { "title": "Mine Type" },
+            { "title": "Permit Type" },
+            { "title": "Permit Number" },
+            { "title": "Proven Reserves" },
+            { "title": "Probable Reserves" },
+            { "title": "Total Reserves" },
+            { "title": "Measured Resources" },
+            { "title": "Indicated Resources" },
+            { "title": "Inferred Resources" },
+            { "title": "Source" }
+        ],
       });
     },
 
@@ -151,7 +218,7 @@ $(function(){
         // console.log($('.mine-table'));
         app.mapTable.fnClearTable();
         app.mapTable.fnDestroy();
-        $('.mine-table').replaceWith( '<table class="mine-table"></table>' );
+        $('.mine-table').replaceWith( '<table class="mine-table" width="100%"></table>' );
       } else {
         // console.log('no mine-table');
       }

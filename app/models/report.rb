@@ -12,6 +12,9 @@ class Report < ActiveRecord::Base
 
   validates_presence_of :title, :summary, :source_id
 
+  scope :published, -> { where(draft: false) }
+  scope :draft, -> { where(draft: true) }
+
   # Sunspot Index Below
    #paginates_per 10
 
@@ -19,6 +22,9 @@ class Report < ActiveRecord::Base
      text :title, boost: 5
      text :summary,  boost: 5
      text :organization, :summary, :date_string
+
+     boolean :recommended, :using => :recommended?
+     boolean :draft, :using => :draft?
 
      date :actual_post_date
 
@@ -55,6 +61,10 @@ class Report < ActiveRecord::Base
 
    end
 
+
+   def to_param
+     "#{id}-#{title.parameterize}"
+   end
 
 =begin
   searchable do
