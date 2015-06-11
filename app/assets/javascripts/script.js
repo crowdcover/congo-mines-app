@@ -41,7 +41,7 @@ $(function(){
     initMap: function() {
         // anything with var 'map' needs to be app.map
         app.map = L.map('map', {
-            layers: L.tileLayer('http://api.tiles.mapbox.com/v4/congomines.d6dbe128/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY29uZ29taW5lcyIsImEiOiI4ZmRkOGJiNDk0MzNhNmU1NGE4N2MzODI5ZmFhNTcxNyJ9.wW5SYM4cPL7qOrz-443SGg'),
+            layers: L.tileLayer('http://api.tiles.mapbox.com/v4/congominesmaps.bd24d4b8/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY29uZ29taW5lcyIsImEiOiI4ZmRkOGJiNDk0MzNhNmU1NGE4N2MzODI5ZmFhNTcxNyJ9.wW5SYM4cPL7qOrz-443SGg'),
             center: [-2.877, 22.83],
             zoom: 5,
             scrollWheelZoom: false,
