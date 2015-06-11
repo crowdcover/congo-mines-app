@@ -38,11 +38,15 @@ $(function(){
       });
 
       // ux interaction for map dropdown clicks
-      $('.map-dropdown ul a').on('click', function(e){
-        // e.preventDefault();
-        // e.stopPropagation();
-
+      $('.map-dropdown ul a.add-layer').on('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
         
+        var $this = $(this),
+            layerName = $this.text(),
+            dropdownLayerTitle = $this.parents('.map-dropdown').find('a.title span.layer-title');
+
+        dropdownLayerTitle.addClass('show').text(layerName);
       });
 
       // map dropdown click map events

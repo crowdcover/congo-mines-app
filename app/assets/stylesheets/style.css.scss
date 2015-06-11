@@ -440,6 +440,10 @@ $summary-lines-to-show: 4;
   .top-bar .title-area .name {
     min-width: 80px;
   }
+  .top-bar .map-dropdown span.layer-title.show{
+    padding-left: 12px;
+    color: #ccc;
+  }
 
 .content .featured {
   width: 450px;
