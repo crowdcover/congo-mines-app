@@ -32,3 +32,5 @@ tinymce.init({selector:'textarea',
 plugins: ["link","preview","searchreplace", "charmap", "table", "fullscreen"],
 tools: "inserttable",
 language: 'fr_FR',});
+
+$(".chosen").chosen();

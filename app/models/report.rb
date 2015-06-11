@@ -62,9 +62,9 @@ class Report < ActiveRecord::Base
    end
 
 
-   def to_param
-     "#{id}-#{title.parameterize}"
-   end
+   #def to_param
+  #   "#{id}-#{title.parameterize}"
+  # end
 
 =begin
   searchable do

@@ -7,13 +7,15 @@ class Shareholder < ActiveRecord::Base
   has_many :drc_companies, through: :shareholder_relationships
 
 
+  validates :name, uniqueness: true, presence: true
+
   #has_many :multinational_companies, through: :shareholder_relationships
 
   #def to_label
   #  try(:drc_company)
   # end
 
-  def to_param
-    "#{id}-#{name.parameterize}"
-  end
+  #def to_param
+#    name.nil? ? id   :  "#{id}-#{name.try(:parameterize)}"
+#  end
 end
