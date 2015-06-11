@@ -5,8 +5,8 @@
       <div class="small-12 columns">
 
         <ul class="left">
-          <li class="has-dropdown">
-            <a href="#">Mining Data</a>
+          <li class="has-dropdown map-dropdown mining-data">
+            <a class="title" href="#">Mining Data <span class="layer-name"></span></a>
             <ul class="dropdown">
               <li onclick="app.clearMap(); app.getGeodata('<%= get_all_deposits_map_url %>', <%= true %>)">
                 <a href="#">Deposits</a>
@@ -20,8 +20,8 @@
             </ul>
           </li>
 
-          <li class="has-dropdown">
-            <a href="#">Maps</a>
+          <li class="has-dropdown map-dropdown maps">
+            <a class="title" href="#">Maps <span class="layer-name"></span></a>
             <ul class="dropdown">
               <% TileLayer.all.each do |tile| %>
                 <li>

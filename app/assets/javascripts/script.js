@@ -36,6 +36,21 @@ $(function(){
         }
         
       });
+
+      // ux interaction for map dropdown clicks
+      $('.map-dropdown ul a').on('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
+        
+      });
+
+      // map dropdown click map events
+      $('.map-dropdown.mining-data ul a').on('click', function(e){
+
+      });
+
+      $('.map-dropdown.maps ul a').on('click', function(e){});
     },
 
     initMap: function() {
