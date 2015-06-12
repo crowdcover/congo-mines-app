@@ -1,12 +1,12 @@
 class Page < ActiveRecord::Base
 
-  # has_many :page_categories
-  # has_many :categories, through: :page_categories
+   has_many :page_categories
+   has_many :categories, through: :page_categories
 
-  #belongs_to :category
-  #has_many :reports, through: :category
+  belongs_to :category
+  has_many :reports, through: :category
 
-  #belongs_to :drc_company
+  belongs_to :drc_company
 
   validates_uniqueness_of :topic, if: :topic_changed?
 
