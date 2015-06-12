@@ -1,4 +1,4 @@
-div class="header clearfix"
+div.header.clearfix[style="background-image: url(' #{image_path 'header_banner_narrow.jpg'} ') "]
 
   div class="menu" data-magellan-expedition="fixed"
     div class="row"
@@ -6,9 +6,13 @@ div class="header clearfix"
 
       div class="small-12 medium-6 columns navigation"
         ul
-          li: a href="#{about_url}" About
-          li: a href="#{reports_url}" Library
-          li: a href="#{drc_companies_url}" Companies
-          li: a href="#{map_url}" Map
+          li
+            a[class="#{is_active?(about_path)}" href="#{about_url}"] About
+          li
+            a[class="#{is_active?(reports_url)}" href="#{reports_url}"] Library
+          li
+            a[class="#{is_active?(drc_companies_url)}" href="#{drc_companies_url}"] Companies
+          li
+            a[class="#{is_active?(map_url)}" href="#{map_url}"] Map
 
       div class="medium-3 hide-for-small-only columns cc-logo": a href="http://www.cartercenter.org" = image_tag 'carter2.png'

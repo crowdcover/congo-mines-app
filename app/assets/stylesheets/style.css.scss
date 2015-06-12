@@ -147,7 +147,9 @@ li.docicon {
 
 .header {
   width: 100%;
-  background: image-url('header_banner_narrow.jpg') no-repeat;
+  // background: image-url('header_banner_narrow.jpg') no-repeat;
+  background-repeat: no-repeat;
+  background-position: 100% center;
   background-size: cover;
   background-position: 50% 0%;
   text-align: center;
