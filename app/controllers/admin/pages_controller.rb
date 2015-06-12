@@ -1,7 +1,7 @@
 class Admin::PagesController < Admin::Auth
 
     # not listing/editing topic/ :category,
-  columns =  [:topic,  :content]  # :banner (image)
+  columns =  [:topic,  :content, :banner]
   #create_columns = columns - [:topic]
 
 
