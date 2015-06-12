@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150612170328) do
+ActiveRecord::Schema.define(version: 20150612200023) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -182,6 +182,7 @@ ActiveRecord::Schema.define(version: 20150612170328) do
     t.datetime "banner_updated_at"
     t.integer  "category_id"
     t.integer  "drc_company_id"
+    t.integer  "position"
   end
 
   add_index "pages", ["category_id"], name: "index_pages_on_category_id"

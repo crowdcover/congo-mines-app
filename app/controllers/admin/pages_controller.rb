@@ -14,6 +14,10 @@ class Admin::PagesController < Admin::Auth
 
     config.columns[:content].form_ui = :text_editor
 
+
+    config.actions << :sortable
+    config.sortable.column = :position
+
     config.columns[:content].options = {
       :tinymce => {
 

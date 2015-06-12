@@ -1,7 +1,8 @@
 class Page < ActiveRecord::Base
+  acts_as_list
 
-   has_many :page_categories
-   has_many :categories, through: :page_categories
+  has_many :page_categories
+  has_many :categories, through: :page_categories
 
   belongs_to :category
   has_many :reports, through: :category
