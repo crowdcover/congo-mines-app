@@ -11,7 +11,7 @@ class Category < ActiveRecord::Base
   has_many :reports, through: :report_categories
 
 
-  def to_param
-    "#{id}-#{name.try(:parameterize)}"
-  end
+  #def to_param
+#    "#{id}-#{name.try(:parameterize)}"
+#  end
 end
