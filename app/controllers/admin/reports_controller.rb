@@ -1,7 +1,7 @@
 class Admin::ReportsController  < Admin::Auth # ApplicationController
 
   active_scaffold :"report" do |config|
-    config.columns = [:title,  :summary, :recommended, :draft, :source, :categories,
+    config.columns = [:title,  :summary, :recommended, :visibility, :source, :categories,
       :actual_post_date, :drc_companies, :attachments]
 
     config.list.per_page    = 25
@@ -12,15 +12,20 @@ class Admin::ReportsController  < Admin::Auth # ApplicationController
 
     config.columns[:actual_post_date].label   = 'Publication Date'
 
-    config.columns[:source].form_ui         = :chosen
+    config.columns[:source].form_ui = :chosen
 
-    config.columns[:categories].form_ui     =  :chosen
+    config.columns[:categories].form_ui =  :chosen
     config.columns[:categories].options[:optgroup] = true
     #config.columns[:categories].options = {:draggable_lists => true}
 
     config.columns[:drc_companies].form_ui  = :chosen
 
     config.columns[:summary].form_ui = :text_editor
+
+    config.columns[:visibility].form_ui = :select
+    config.columns[:visibility].options = {
+      #include_blank: 'Select Permit Type',
+      options: ['draft','published']}
 
     config.columns[:summary].options = {
       :tinymce => {

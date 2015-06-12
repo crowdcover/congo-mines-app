@@ -1,15 +1,15 @@
 .header
   ul.nav.nav-pills.pull-right
 
-    li = link_to "DRC Companies", admin_drc_companies_path
-    li = link_to "Minerals", admin_mineral_resources_path
-    li = link_to "Shareholders", admin_shareholders_path
-    li = link_to "Documents", admin_reports_path
-    / li = link_to "Document Sources", admin_sources_path
-    li = link_to "Maps", admin_tile_layers_path
+    li[class="#{is_active?(admin_drc_companies_path)}"] = link_to "DRC Companies", admin_drc_companies_path
+    li[class="#{is_active?(admin_mineral_resources_path)}"] = link_to "Minerals", admin_mineral_resources_path
+    li[class="#{is_active?(admin_shareholders_path)}"] = link_to "Shareholders", admin_shareholders_path
+    li[class="#{is_active?(admin_reports_path)}"] = link_to "Documents", admin_reports_path
+    li[class="#{is_active?(admin_sources_path)}"] = link_to "Document Sources", admin_sources_path
+    li[class="#{is_active?(admin_tile_layers_path)}"] = link_to "Maps", admin_tile_layers_path
     / li = link_to "Minerals", admin_mineral_resources_path
-    li = link_to "Intermediary Companies", admin_intermediary_companies_path
-    li = link_to "Pages", admin_pages_path
+    li[class="#{is_active?(admin_intermediary_companies_path)}"] = link_to "Intermediary Companies", admin_intermediary_companies_path
+    li[class="#{is_active?(admin_pages_path)}"] = link_to "Pages", admin_pages_path
     / li = link_to "Deposit Sources", admin_deposit_sources_path
     / li = link_to "Categories", admin_categories_path
 

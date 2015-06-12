@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   get '/home', to: 'static_pages#home'
-  get '/admin', to: 'admin/drc_companies#index'
+  get '/admin', to: redirect('admin/drc_companies')
   get '/about', to: 'static_pages#about'
 
   resources :drc_companies, only: [:show, :index] do  #, only: [:show, :index]
@@ -61,7 +61,7 @@ Rails.application.routes.draw do
   resources :pages, only: :show
 
   resource :search, only: :show
-  
+
   resource :map do
     member do
       get 'get_all_deposits'

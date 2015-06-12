@@ -11,8 +11,8 @@ class SearchesController < ApplicationController
        with(:category_ids).all_of(categories) unless categories.blank?
        order_by :actual_post_date, :desc
 
-       with :draft, false
-
+       # with :draft, false
+       with(:visibility).any_of(['published'])
        paginate page: params[:page], per_page: 12
     end
 
