@@ -93,7 +93,7 @@ fr:
         legal_status: Statut Juridique de la Société  #g
         name: Nom Complet de la Société  #g
         nrc: Numéro Nouveau Registre de Commerce (NRC)  #g
-        processing_infrastructures: Infrastructures de traitementinfrastructures  #g
+        processing_infrastructures: Infrastructures de traitement infrastructures  #g
         production_exports: :activerecord.models.production_exports  #g
         project_phase: Phase du Project  #g
         project_type: Type de Project  #g

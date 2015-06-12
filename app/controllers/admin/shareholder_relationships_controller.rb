@@ -1,7 +1,6 @@
 class Admin::ShareholderRelationshipsController  < Admin::Auth # ApplicationController
   active_scaffold :"shareholder_relationship" do |config|
 
-
     #config.label = 'Shareholder (en dernier ressort)'
     config.columns.exclude( :created_at, :updated_at)
     config.columns = [:percentage, :year, :drc_company, :shareholder, :intermediary_companies ]

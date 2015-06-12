@@ -10,10 +10,10 @@ class Report < ActiveRecord::Base
   has_many :drc_companies, through: :report_relations
   # has_many :pages, through: :drc_companies
 
-  validates_presence_of :title, :summary, :source_id
+  validates_presence_of :title #, :summary #, :source # :source_id
 
-  scope :published, -> { where(draft: false) }
-  scope :draft, -> { where(draft: true) }
+  scope :published, -> { where(visibility: 'published') }
+  scope :draft, -> {where(visibility: 'draft') }
 
   # Sunspot Index Below
    #paginates_per 10
@@ -22,9 +22,10 @@ class Report < ActiveRecord::Base
      text :title, boost: 5
      text :summary,  boost: 5
      text :organization, :summary, :date_string
+     string :visibility
 
      boolean :recommended, :using => :recommended?
-     boolean :draft, :using => :draft?
+     #boolean :draft, :using => :draft?
 
      date :actual_post_date
 
