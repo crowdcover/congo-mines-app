@@ -19,27 +19,32 @@ div.row.mbl
 
   div.large-12.columns.text-center
     div.category
+      / EITI
       / - eiti_page = Page.find_by(category_id: 48)
       a href="/pages/7"
         = image_tag 'icon.png'
-        h3 EITI Compliance
+        h3 = Page.find(7).try(:topic)
     div.category
+      / MINE CODE
       / - mine_code_page = Page.find_by(category_id: 46)
       a href="/pages/8"
         = image_tag 'icon.png'
-        h3 Mining Code
+        h3 = Page.find(8).try(:topic)
     div.category
+      / MINERALS FOR INFRASTRUCTURE
       / - sicomines_page = Page.find_by(drc_company_id: 74)
       a href="/pages/6"
         = image_tag 'icon.png'
-        h3 Sicomines
+        h3 = Page.find(6).try(:topic)
     div.category
+      / STATE OWNED ENTERPRISES
       / - gov_asset_sales_page = Page.find_by(category_id: 45)
       a href="/pages/9"
         = image_tag 'icon.png'
-        h3 Government Asset Sales
+        h3 = Page.find(9).try(:topic)
     div.category
+      / HUMAN RIGHTS AND MINING
       / - human_rights_page = Page.find_by(category_id: 36)
       a href="/pages/10"
         = image_tag 'icon.png'
-        h3 Human Rights
+        h3 = Page.find(10).try(:topic)
