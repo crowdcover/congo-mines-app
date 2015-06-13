@@ -1,8 +1,7 @@
 = render "shared/search"
 
 h3 = "You Search for: #{@search_params}"
-- unless @categories.blank?
-  h3 = "Categories: #{@categories.join(', ')}"
+h3 = "Categories: #{@category_names}" if @category_names.present?
 
 h3 = "Total Found: #{ pluralize(@results.total_entries, 'result') }"
 
