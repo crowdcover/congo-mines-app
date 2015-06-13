@@ -11,8 +11,9 @@ div.search.pbl
       div.small-12.columns
         div.row.collapse
           div.small-10.columns
-            = text_field_tag :search, params[:q], { placeholder: "Search Documents"}
-            / input type="text" name="search[query]" placeholder="Search Documents" /
+            - @placeholder =  @search_params.blank? ? "Search Documents" : @search_params
+            = text_field_tag :search, params[:q], { placeholder: @placeholder}
+
           div.small-2.columns
             button.postfix Search Library
             /a.button.postfix[href="a"] Search Library
@@ -58,4 +59,3 @@ div.search.pbl
       div.row
         div.large-12.columns
           button Submit
-
