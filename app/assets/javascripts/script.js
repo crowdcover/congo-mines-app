@@ -149,7 +149,7 @@ $(function(){
       //loop through and get unique minerals
       var mineralArr = [];
       deposits.forEach( function (resource) {
-        var mineral = resource.mineral_resource_id //FIXME: switch to mineral names not IDs
+        var mineral = resource.mineral_resource.name
         if( mineral && !$.inArray(mineral, mineralArr) >= 0){ 
           mineralArr.push(mineral)
         }

@@ -1,9 +1,13 @@
 class SearchesController < ApplicationController
 
   def show
+    @search_params = params[:search]
+
     categories = []
     categories = [:theme, :type_document, :type_source, :province].map{|c| params[c].to_i }.compact
     categories.delete(0)
+
+    @category_names = Category.find(categories).map(&:name).join(', ') unless categories.blank?
 
     search = Report.search do
        fulltext params[:search]
@@ -17,8 +21,10 @@ class SearchesController < ApplicationController
     end
 
     @reports = @results = search.results
+    #@result_total_found = @reports.total
   end
 
+=begin
   protected
   def search(options)
 
@@ -36,4 +42,6 @@ class SearchesController < ApplicationController
       paginate(page: params[:page], per_page: 12)
     end
   end
+=end
+
 end
