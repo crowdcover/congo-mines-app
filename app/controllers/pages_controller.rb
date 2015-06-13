@@ -12,7 +12,9 @@ class PagesController < ApplicationController
     #                         .per(12) unless @page.drc_company.nil?
     # fail
 
-
+    # Overwrite default banner image
+    # not implemented until we get larger banner images
+    # @banner_url = @page.banner.url
   end
 
   def show_sicomines

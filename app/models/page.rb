@@ -14,7 +14,7 @@ class Page < ActiveRecord::Base
 
   has_attached_file :banner,
     :styles => { :medium => "300x300>", :thumb => "100x100>" },
-    :default_url => "/images/:style/missing.png"
+    :default_url => "/assets/default_topic_img.jpg"
 
   validates_attachment_content_type :banner, :content_type => /\Aimage\/.*\Z/
 

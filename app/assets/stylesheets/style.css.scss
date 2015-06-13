@@ -151,7 +151,6 @@ li.docicon {
   background-repeat: no-repeat;
   background-position: 100% center;
   background-size: cover;
-  background-position: 50% 0%;
   text-align: center;
   }
   .header h3 {
@@ -470,32 +469,42 @@ $summary-lines-to-show: 4;
 	line-height: 2em;
 }
 
-.content .category {
+.category {
   width: 185px;
   height: 185px;
-  background: linear-gradient(rgba(50, 172, 222, 0.65), rgba(50, 172, 222, 0.65)), image-url('feat.jpg');
-  // background-image: image-url('feat.jpg');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
   background-size: cover;
   text-align: center;
-  color: #fff;
   display: inline-block;
   float: left;
   margin-right: 5px;
   margin-bottom: 5px;
-  padding: 20px 40px;
-  opacity: 0.6;
+  opacity: 0.8;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
+  filter: none;
+  -webkit-filter: grayscale(0%);
   }
-  .content .category:hover {
-  	opacity: 1;
+  .category:hover {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+ */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
+    opacity: 1;
   }
-  .content .category img {
-  	max-width: 80px;
+  .category a {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
-  .content .category h3 {
+  .category h3 {
   	color: #fff;
     font-size: 1em;
+    text-shadow: 0 1px 2px #000;
+    padding: 26px 26px 0;
+    height: 50%;
+    background-color: rgb(80,80,80);
+    background-color: rgba(0,0,0,0.6);
   }
 
 .f-dropdown {
