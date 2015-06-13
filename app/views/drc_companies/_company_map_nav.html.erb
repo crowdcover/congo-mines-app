@@ -1,39 +1,44 @@
 <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: true">
+
+  <ul class="title-area">
+    <li class="name"><!-- Leave this empty --></li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
   <section class="top-bar-section">
 
-    <div class="row">
-      <div class="small-12 columns">
+    <ul class="left">
 
-        <ul class="left">
-          <li class="has-dropdown">
-            <a href="#">Mining Data</a>
-            <ul class="dropdown">
-              <li onclick="app.clearMap(); app.getGeodata('<%= get_deposits_geodata_drc_company_path{@drc_company} %>', <%= true %>)">
-                <a href="#">Deposits</a>
-              </li>
-              <li onclick="app.clearMap(); app.getGeodata('<%= get_processing_infrastructures_geodata_drc_company_path{@drc_company} %>', <%= true %>)">
-                <a href="#">Processing Infrastructures</a>
-              </li>
-              <li onclick="app.clearMap(); app.getGeodata('<%= get_social_projects_geodata_drc_company_path{@drc_company} %>', <%= true %>)">
-                <a href="#">Social Projects</a>
-              </li>
-            </ul>
+      <li class="has-dropdown map-dropdown mining-data">
+        <a class="title" href="#">Mining Data <span class="layer-title"></span></a>
+        <ul class="dropdown">
+          <li class="active">
+            <a class="add-layer" href="#" data-url="<%= get_deposits_geodata_drc_company_path{@drc_company} %>">Deposits</a>
           </li>
-
-          <li class="has-dropdown">
-            <a href="#">Maps</a>
-            <ul class="dropdown">
-              <% TileLayer.all.each do |tile| %>
-                <li>
-                  <a href="#" data-id="<%= tile.mapbox_tile_layer %>"><%= tile.label %></a>
-                </li>
-              <% end %>
-            </ul>
+          <li>
+            <a class="add-layer" href="#" data-url="<%= get_processing_infrastructures_geodata_drc_company_path{@drc_company} %>">Processing Infrastructures</a>
+          </li>
+          <li>
+            <a class="add-layer" href="#" data-url="<%= get_social_projects_geodata_drc_company_path{@drc_company} %>">Social Projects</a>
           </li>
         </ul>
-      </div>
-    </div>
+      </li>
+
+      <li class="divider"></li>
+
+      <li class="has-dropdown map-dropdown maps">
+        <a class="title" href="#">Maps <span class="layer-title"></span></a>
+        <ul class="dropdown">
+          <% TileLayer.all.each do |tile| %>
+            <li>
+              <a class="add-layer" href="#" data-id="<%= tile.mapbox_tile_layer %>"><%= tile.label %></a>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+
+      <li class="divider"></li>
+    </ul>
 
   </section>
-
 </nav>

@@ -2,6 +2,7 @@ $(function(){
   $(document).foundation();
 
   var app = {
+    access_token: 'pk.eyJ1IjoiY29uZ29taW5lcyIsImEiOiI4ZmRkOGJiNDk0MzNhNmU1NGE4N2MzODI5ZmFhNTcxNyJ9.wW5SYM4cPL7qOrz-443SGg',
     initCommon: function(){
       mainbottom = $('.content').offset().top
 
@@ -36,6 +37,27 @@ $(function(){
         }
         
       });
+    },
+
+    initMap: function() {
+        // anything with var 'map' needs to be app.map
+        app.map = L.map('map', {
+            layers: L.tileLayer('http://api.tiles.mapbox.com/v4/congominesmaps.bd24d4b8/{z}/{x}/{y}.png?access_token=' + app.access_token),
+            center: [-2.877, 22.83],
+            zoom: 5,
+            scrollWheelZoom: false,
+            minZoom: 4,
+            maxZoom: 18
+        });
+
+        // store vector layers in map array
+        app.map.vectorLayers = [];
+        app.map.tileLayers = [];
+
+        app.map.attributionControl.setPrefix(false);
+        app.map.attributionControl.addAttribution("<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> <a class='mapbox-improve-map' href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a>")
+        app.map.zoomControl.setPosition('topright');
+        L.control.scale().addTo(app.map);
 
       // map dropdown click map events
       $('.map-dropdown.mining-data ul a').on('click', function(e){
@@ -44,13 +66,22 @@ $(function(){
             parentListItem = $this.parent('li');
 
         if(! parentListItem.hasClass('active')){
-          app.clearMap();
+          app.clearVectorLayers();
           app.getGeodata(geoDataUrl, true);
         }
         
       });
 
-      $('.map-dropdown.maps ul a').on('click', function(e){});
+      $('.map-dropdown.maps ul a').on('click', function(e){
+        var $this = $(this),
+            mapId = $this.data('id'),
+            parentListItem = $this.parent('li');
+
+        if(! parentListItem.hasClass('active')){
+          app.clearTileLayers();
+          app.addTileLayer(mapId);
+        }
+      });
 
       // ux interaction for map dropdown clicks
       $('.map-dropdown ul a.add-layer').on('click', function(e){
@@ -67,26 +98,7 @@ $(function(){
         parentListItem.addClass('active');
         dropdownLayerTitle.addClass('show').text(layerName);
       });
-    },
-
-    initMap: function() {
-        // anything with var 'map' needs to be app.map
-        app.map = L.map('map', {
-            layers: L.tileLayer('http://api.tiles.mapbox.com/v4/congominesmaps.bd24d4b8/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY29uZ29taW5lcyIsImEiOiI4ZmRkOGJiNDk0MzNhNmU1NGE4N2MzODI5ZmFhNTcxNyJ9.wW5SYM4cPL7qOrz-443SGg'),
-            center: [-2.877, 22.83],
-            zoom: 5,
-            scrollWheelZoom: false,
-            minZoom: 4,
-            maxZoom: 18
-        });
-
-        // store vector layers in map array
-        app.map.vectorLayers = [];
-
-        app.map.attributionControl.setPrefix(false);
-        app.map.attributionControl.addAttribution("<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> <a class='mapbox-improve-map' href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a>")
-        app.map.zoomControl.setPosition('topright');
-        L.control.scale().addTo(app.map);
+      
     },
 
     getGeodata: function(url, setTable){
@@ -245,9 +257,15 @@ $(function(){
       });
     },
 
-    clearMap: function() {
+    addTileLayer: function(mapId){
+      var tileLayer = L.tileLayer('http://api.tiles.mapbox.com/v4/' + mapId + '/{z}/{x}/{y}.png?access_token=' + app.access_token);
+      app.map.tileLayers.push(tileLayer);
+      app.map.addLayer(tileLayer);
+    },
+
+    clearVectorLayers: function() {
       app.map.vectorLayers.forEach(function(layer){
-        layer.clearLayers();
+        app.map.removeLayer(layer);
       });
 
       if (typeof app.mapTable !== 'undefined') {
@@ -259,6 +277,12 @@ $(function(){
         // console.log('no mine-table');
       }
 
+    },
+
+    clearTileLayers: function(){
+      app.map.tileLayers.forEach(function(layer){
+        app.map.removeLayer(layer);
+      });
     }
 
   };
