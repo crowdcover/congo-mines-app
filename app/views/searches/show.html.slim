@@ -1,5 +1,11 @@
 = render "shared/search"
 
+h3 = "You Search for: #{@search_params}"
+h3 = "Categories: #{@category_names}" if @category_names.present?
+
+h3 = "Total Found: #{ pluralize(@results.total_entries, 'result') }"
+
+
 .content
   .row
     div.large-12.columns
@@ -9,11 +15,11 @@
     - @reports.in_groups_of(3) do |r|
       .row
         = render partial: "shared/documents", locals: {reports: r, columns: 3, hide_summary: true }
-    .row 
+    .row
       = paginate @results
   - else
     .row
       .large-12.columns.mvl
-        div.mbl.text-center 
-          p Your search didn't return any documents. 
+        div.mbl.text-center
+          p Your search didn't return any documents.
           p Try searching for another keyword or browse by <strong>Theme</strong>, <strong>Document Type</strong>, <strong>Source Type</strong>, <strong>Province</strong>, or <strong>Company</strong>.
