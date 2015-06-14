@@ -28,9 +28,24 @@ jQuery(document).on("focus", "input.date_picker", function(){
 });
 
 
+/*
 tinymce.init({selector:'textarea',
 plugins: ["link","preview","searchreplace", "charmap", "table", "fullscreen"],
 tools: "inserttable",
 language: 'fr_FR',});
+*/
+
+tinymce.init({
+  //selector:'textarea',
+  mode : "specific_textareas",
+  // editor_selector : /(mceEditor|mceRichText)/
+  editor_selector : "mceEditor",
+
+  plugins: ["link","preview","searchreplace", "charmap", "table", "fullscreen"],
+  tools: "inserttable",
+  language: 'fr_FR',
+});
+
+
 
 $(".chosen").chosen();

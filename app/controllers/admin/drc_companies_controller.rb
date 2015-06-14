@@ -10,7 +10,6 @@ class Admin::DrcCompaniesController  < Admin::Auth # ApplicationController
     config.export.force_quotes = "true"
     config.export.force_quotes = "true"
 
-
     config.columns = [:name, :description, :acronym,  :nrc, :rccm,:contact, :website,
         :legal_status, :project_type, :project_phase, :legal_regime, :permits,
         :flows_payable_under_contract, :tax_obligations,  :production_exports,
@@ -39,6 +38,9 @@ class Admin::DrcCompaniesController  < Admin::Auth # ApplicationController
         :shareholder_relationships, :employees,
         :env_and_social_obligation, :deposits, :processing_infrastructures, :social_projects]
 =end
+
+    config.columns[:permits].form_ui = :textarea
+
 
 
     config.columns[:shareholder_relationships].allow_add_existing = false
