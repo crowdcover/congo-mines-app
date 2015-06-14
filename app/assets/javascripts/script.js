@@ -127,44 +127,55 @@ $(function(){
         var company = props.drc_company ? props.drc_company : '';
         var type = props.mine_type ? props.mine_type :  '';
         var proven = props.proven_reserves ? props.proven_reserves : '';
-        var resourceList = '';
-        if(proven && proven.length > 0) {
-          resourceList = app.getResourceList(proven);
-        }
-        var source = props.source ? props.source : '';
+        minerals = app.getMineralList(props).join(', ');
         
         var popupContent = "<h3 class='mine-marker'>"+ props.name + "</h3>"+
             "Company: "+ company + "<br />"+
             "Type: " + type + "<br />"+
-            "Proven Reserves: "+ resourceList + "<br />"+
-            "Source: " + source;
+            "Minerals: "+ minerals + "<br />";
 
         layer.bindPopup(popupContent);
       }
 
     },
     
-    getResourceList: function(deposits){
-      var resourceList = '';
-      //loop through and get unique minerals
-      var mineralArr = [];
-      deposits.forEach( function (resource) {
-        var mineral = resource.mineral_resource.name
-        if( mineral && !$.inArray(mineral, mineralArr) >= 0){ 
-          mineralArr.push(mineral)
+    getMineralList: function(properties){
+      // look through all resource measurements, and return an array of all unique minerals that have a measurement
+      // in essence, this will return all minerals at the deposit site
+      var resourceMeasurementTypes = [
+        'indicated_resources',
+        'inferred_resources',
+        'measured_resources',
+        'probable_reserves',
+        'proven_reserves',
+        'total_reserves'
+      ];
+
+      var resourceList = resourceMeasurementTypes.map(function(measurement){
+        if(properties[measurement]){
+          return properties[measurement].map(function(resource){
+            return resource.mineral_resource.name;
+          });
         }
       });
-      var first = true;
-      mineralArr.forEach( function (mineral) {
-        //add a comma
-        if(first){
-          first = false;
-        } else {
-          resourceList += ", "
-        }
-        resourceList += mineral;
-      });
-      return resourceList;
+
+      return uniq(flatten(resourceList));
+
+      function flatten(nestedArray) {
+        return nestedArray.reduce(function(flattened, array){
+          return flattened.concat(array);
+        }, []);
+      };
+
+      function uniq (array) {
+        var output = [];
+        array.forEach(function(val){
+          if(output.indexOf(val) === -1){
+            output.push(val);
+          }
+        });
+        return output;
+      };
     },
 
     setUpTable: function(geoJSON){
@@ -200,7 +211,7 @@ $(function(){
             //get unique list of resources
             var resourceData = val[prop];
             if(resourceData && resourceData.length > 0){
-              colData += app.getResourceList(resourceData);
+              colData += app.getMineralList(val).join(', ');
               //add link to open details
               colData += '<br /><a href="#">Details</a>'
             } else {
@@ -214,26 +225,6 @@ $(function(){
         }
         tableDataArray.push(oneDataRow);
       });
-
-      // if (typeof app.mapTable !== 'undefined') {
-      //   // console.log('are we doing something?')
-      //   // app.mapTable.fnAddData(tableDataArray);
-      //   app.mapTable = $('.mine-table').dataTable({
-      //       "data" : tableDataArray,
-      //       "paging": false,
-      //       "info": false,
-      //       "searching": false,
-      //       "columns": titles
-      //   });
-      // } else {
-      //   app.mapTable = $('.mine-table').dataTable({
-      //       "data" : tableDataArray,
-      //       "paging": false,
-      //       "info": false,
-      //       "searching": false,
-      //       "columns": titles
-      //   });
-      // }
 
       app.mapTable = $('.mine-table').dataTable({
         "data" : tableDataArray,
