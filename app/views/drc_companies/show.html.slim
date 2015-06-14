@@ -233,5 +233,5 @@ javascript:
   $(function() {
     app.initMap();
     var geodataUrl = "#{get_deposits_geodata_drc_company_path(@drc_company)}"
-    app.getGeodata(geodataUrl, true);
+    app.addVectorLayer(geodataUrl);
   });

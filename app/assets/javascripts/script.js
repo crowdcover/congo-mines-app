@@ -62,12 +62,12 @@ $(function(){
       // map dropdown click map events
       $('.map-dropdown.mining-data ul a').on('click', function(e){
         var $this = $(this),
-            geoDataUrl = $this.data('url'),
+            url = $this.data('url'),
             parentListItem = $this.parent('li');
 
         if(! parentListItem.hasClass('active')){
           app.clearVectorLayers();
-          app.getGeodata(geoDataUrl, true);
+          app.addVectorLayer(url);
         }
         
       });
@@ -101,7 +101,7 @@ $(function(){
       
     },
 
-    getGeodata: function(url, setTable){
+    addVectorLayer: function(url){
       $.getJSON(url, function(data){
         var minesLayer = L.geoJson(data, {
           onEachFeature: onEachFeature
@@ -110,9 +110,9 @@ $(function(){
         minesLayer.addTo(app.map);
         app.map.vectorLayers.push(minesLayer);
 
-        if (setTable) {
-          app.setUpTable(data);
-        }
+        app.setUpTable(data);
+
+        app.map.fitBounds(minesLayer.getBounds());
 
       });
 

@@ -7,5 +7,5 @@ javascript:
   $(function() {
     app.initMap();
     var geodataUrl = "#{get_all_deposits_map_url}"
-    app.getGeodata(geodataUrl, true);
+    app.addVectorLayer(geodataUrl);
   });
