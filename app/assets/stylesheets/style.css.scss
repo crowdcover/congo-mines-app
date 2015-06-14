@@ -759,6 +759,12 @@ label {
 
 /* Map and Data Rules */
 
+  // popups
+.leaflet-popup-content td.name {
+  text-align: right;
+  font-weight: bold;
+}
+
 h3.map-marker {
 	background-color:  rgb(96, 175, 222);
 }

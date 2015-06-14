@@ -129,10 +129,18 @@ $(function(){
         var proven = props.proven_reserves ? props.proven_reserves : '';
         minerals = app.getMineralList(props).join(', ');
         
-        var popupContent = "<h3 class='mine-marker'>"+ props.name + "</h3>"+
-            "Company: "+ company + "<br />"+
-            "Type: " + type + "<br />"+
-            "Minerals: "+ minerals + "<br />";
+        var popupContent = ["<h2 class='mine-marker text-center'>", props.name, "</h2>",
+            "<table>",
+              '<tr>',
+                '<td class="name">Company</td>', '<td class="value">', company, '</td>',
+              '</tr>',
+              '<tr>',
+                '<td class="name">Mine Type</td>', '<td class="value">', type, '</td>',
+              '</tr>',
+              '<tr>',
+                '<td class="name">Minerals</td>', '<td class="value">', minerals, '</td>',
+              '</tr>',
+            "</table>"].join('');
 
         layer.bindPopup(popupContent);
       }
