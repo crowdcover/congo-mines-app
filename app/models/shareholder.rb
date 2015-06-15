@@ -5,7 +5,7 @@ class Shareholder < ActiveRecord::Base
   has_many :shareholder_relationships
   #has_many :shareholder_intermediaries, through: :shareholder_relationships
   has_many :drc_companies, through: :shareholder_relationships
-  has_many :shareholders, through: :shareholder_relationships
+  #has_many :shareholders, through: :shareholder_relationships
 
 
   validates :name, uniqueness: true, presence: true
