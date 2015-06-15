@@ -16,7 +16,8 @@ class Shareholder < ActiveRecord::Base
   #  try(:drc_company)
   # end
 
-  #def to_param
-#    name.nil? ? id   :  "#{id}-#{name.try(:parameterize)}"
-#  end
+  def to_param
+   "#{id}-#{name.try(:parameterize)}"
+  end
+
 end
