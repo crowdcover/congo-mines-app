@@ -34,7 +34,7 @@ class Page < ActiveRecord::Base
   #end
 
   def to_param
-    "#{id}-#{topic.try(:parameterize)}"
+    "#{id}-#{topic.try(:parameterize)}"  if id
   end
 
 end

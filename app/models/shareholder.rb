@@ -17,7 +17,7 @@ class Shareholder < ActiveRecord::Base
   # end
 
   def to_param
-   "#{id}-#{name.try(:parameterize)}"
+   "#{id}-#{name.try(:parameterize)}" if id
   end
 
 end
