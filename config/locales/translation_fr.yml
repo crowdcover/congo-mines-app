@@ -19,7 +19,7 @@ fr:
       report: report  #g
       report_category: Rapport Catégorie  #g
       report_relation: report_relation  #g
-      shareholder: actionnaire  #g
+      shareholder: Shareholder (en dernier ressort)  #g
       shareholder_intermediary: actionnaire intermédiaire #g
       shareholder_relationship: Relations avec les actionnaires  #g
       social_project: projet Social  #g
