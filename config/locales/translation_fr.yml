@@ -195,19 +195,19 @@ fr:
         report: :activerecord.models.report  #g
 
       shareholder:
-        acronym: acronym  #g
+        acronym: acronyme  #g
         community_dialogue_platform: community_dialogue_platform  #g
         community_fund: community_fund  #g
         contact: contact  #g
         drc_companies: drc_companies  #g
-        name: Name  #g
-        public_private: public_private  #g
-        shareholder_relationships: shareholder_relationships  #g
+        name: nom  #g
+        public_private: public ou privé  #g
+        shareholder_relationships: relations d'actionnaires  #g
         stock: Cotation Boursière  #g
         stock_countries: Informations Boursières  #g
-        stock_exchange: stock_exchange  #g
-        stock_symbol: stock_symbol  #g
-        website: website  #g
+        stock_exchange: bourse des valeurs  #g
+        stock_symbol: symbole boursier #g
+        website: site Web  #g
 
       shareholder_intermediary:
         intermediary_company: Intermediary Company # :activerecord.models.intermediary_company  #g
