@@ -31,3 +31,33 @@
 } 
 
 */
+
+.header,
+.active-scaffold .active-scaffold-header {
+  margin: 0 8px;
+}
+
+.active-scaffold li.form-element dd {
+  margin-bottom: 12px;
+}
+
+.active-scaffold textarea, 
+.active-scaffold input.text-input {
+  width: 300px;
+}
+
+.active-scaffold textarea {
+  min-height: 100px;
+}
+
+.active-scaffold li.form-element dt {
+  margin-right: 12px;
+}
+
+li.form-element.checkbox {
+  padding-left: 0;
+}
+
+.active-scaffold .form-element.checkbox input[type="checkbox"]{
+  margin-left: 0;
+}
