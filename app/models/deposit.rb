@@ -26,10 +26,8 @@ class Deposit < ActiveRecord::Base
   #validates_presence_of :name, :lat, :lng
 
   validates :lat, numericality: { greater_than_or_equal_to: -90,
-                                  less_than_or_equal_to: 90 },
-                  presence: true
+                                  less_than_or_equal_to: 90 } #,presence: true
 
   validates :lng, numericality: { greater_than_or_equal_to: -180,
-                                  less_than_or_equal_to: 180 },
-                  presence: true
+                                  less_than_or_equal_to: 180 } #,presence: true
 end
