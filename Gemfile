@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 #ruby "2.2.2"
 gem 'i18n_generators'
 
-gem 'active_scaffold'
+gem 'active_scaffold',  github: 'activescaffold/active_scaffold', branch: 'master'
 gem 'acts_as_list'
 gem 'acts_as_tree'
 gem 'active_scaffold_sortable'
