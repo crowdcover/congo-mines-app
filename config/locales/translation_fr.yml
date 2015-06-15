@@ -102,7 +102,7 @@ fr:
         reports: :activerecord.models.reports  #g
         shareholder_relationships: :activerecord.models.shareholder_relationships  #g
         shareholders: :activerecord.models.shareholders  #g
-        social_projects: :activerecord.models.social_projects  #g
+        social_projects:  projet Social #:activerecord.models.social_projects  #g
         tax_obligations: :activerecord.models.tax_obligations  #g
         website: Site Internet de la Société de Droit Congolais  #g
 
