@@ -94,7 +94,7 @@ fr:
         name: Nom Complet de la Société  #g
         nrc: Numéro Nouveau Registre de Commerce (NRC)  #g
         processing_infrastructures: Infrastructures de traitement infrastructures  #g
-        production_exports: :activerecord.models.production_exports  #g
+        production_exports: Production Exportations #:activerecord.models.production_exports  #g
         project_phase: Phase du Project  #g
         project_type: Type de Project  #g
         rccm: Numéro Registre de Commerce et de Crédit Mobilier (RCCM)  #g
@@ -223,16 +223,16 @@ fr:
         amount_planned: Montant Prévu Pour le Projet  #g
         amount_spent: Montant Dépensé Pour le Projet  #g
         company: Nom de la Société de Droit Congolais  #g
-        description: description  #g
+        description: Description  #g
         drc_company: :activerecord.models.drc_company  #g
-        lat: lat  #g
-        lng: lng  #g
+        lat: Lat  #g
+        lng: Lng  #g
         project_type: Type de Projet  #g
         stage: Etat de Réalisation du Projet  #g
 
       source:
-        description: description  #g
-        name: name  #g
+        description: Description  #g
+        name: Name  #g
         reports: reports  #g
 
       stock_exchange:
