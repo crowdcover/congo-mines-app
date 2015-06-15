@@ -52,20 +52,9 @@ class DrcCompany < ActiveRecord::Base
 
   end
 
-  #def drc_company_name_url
-  # self.name.split.join('_')
-  #end
+  def to_param
+   "#{id}-#{name.try(:parameterize)}" if id
+  end
 
-
-  #def to_param
-  # "#{id}-#{name.try(:parameterize)}"
-  #end  
-
-  #  if name.nil?
-#      id
-#    else
-    #  "#{id}-#{name.parameterize}"
-    #end
-  #end
 
 end

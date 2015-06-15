@@ -5,6 +5,7 @@ class Shareholder < ActiveRecord::Base
   has_many :shareholder_relationships
   #has_many :shareholder_intermediaries, through: :shareholder_relationships
   has_many :drc_companies, through: :shareholder_relationships
+  #has_many :shareholders, through: :shareholder_relationships
 
 
   validates :name, uniqueness: true, presence: true
@@ -15,7 +16,8 @@ class Shareholder < ActiveRecord::Base
   #  try(:drc_company)
   # end
 
-  #def to_param
-#    name.nil? ? id   :  "#{id}-#{name.try(:parameterize)}"
-#  end
+  def to_param
+   "#{id}-#{name.try(:parameterize)}" if id
+  end
+
 end
