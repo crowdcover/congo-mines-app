@@ -2,11 +2,11 @@ module ReportsHelper
 
 
   # creates a popup link to page link
-  def title_column(record, column)
+  def report_title_column(record, column)
     link_to(h(record.title), report_url(record), target: "_blank")
   end
 
-  def summary_column(record, column)
+  def report_summary_column(record, column)
     truncate(record.summary.html_safe, length: 90, escape: false)
   end
 

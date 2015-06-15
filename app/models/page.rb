@@ -13,9 +13,12 @@ class Page < ActiveRecord::Base
 
 
   has_attached_file :banner,
-    :styles => { :medium => "300x300>", :thumb => "100x100>" },
-    :default_url => "/assets/default_topic_img.jpg"
+    styles: { :medium => "300x300>", :thumb => "100x100>" },
 
+    default_url: ActionController::Base.helpers.asset_path('default_topic_img.jpg')
+    #:default_url => "/assets/default_topic_img.jpg"
+    # default_url: ->(attachment) { 'default_topic_img.jpg' }
+    
   validates_attachment_content_type :banner, :content_type => /\Aimage\/.*\Z/
 
   def label
