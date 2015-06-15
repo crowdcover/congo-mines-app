@@ -35,22 +35,12 @@ json.features validDeposits do |deposit|
     json.inferred_resources(deposit.inferred_resources) do |res| 
       json.extract! res, :id, :created_at, :depoable_id, :depoable_type, :deposit_type, :grade, :tonnage, :measurement, :metal_content, :metal_content_unit, :updated_at, :mineral_resource
     end
+
+    json.total_resources(deposit.total_resources) do |res| 
+      json.extract! res, :id, :created_at, :depoable_id, :depoable_type, :deposit_type, :grade, :tonnage, :measurement, :metal_content, :metal_content_unit, :updated_at, :mineral_resource
+    end
     
     json.source deposit.source
-
-=begin
-    json.deposit_source deposit.source
-
-    json.depoable do |depo|
-      json.depoable_type depo.depoable_type
-      json.deposit_type depo.deposit_type
-      json.measurement depo.measurement
-      json.grade depo.grade
-      json.metal_content depo.metal_content
-      json.metal_content_unit depo.metal_content_unit
-      json.tonnage depo.tonnage
-    end
-=end
 
   end
 
