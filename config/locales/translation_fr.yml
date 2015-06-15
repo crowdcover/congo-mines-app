@@ -198,7 +198,7 @@ fr:
         community_fund: community_fund  #g
         contact: contact  #g
         drc_companies: drc_companies  #g
-        name: name  #g
+        name: Name  #g
         public_private: public_private  #g
         shareholder_relationships: shareholder_relationships  #g
         stock: Cotation Boursière  #g
@@ -208,17 +208,16 @@ fr:
         website: website  #g
 
       shareholder_intermediary:
-        intermediary_company: :activerecord.models.intermediary_company  #g
+        intermediary_company: Intermediary Company # :activerecord.models.intermediary_company  #g
         shareholder_relationship: :activerecord.models.shareholder_relationship  #g
 
       shareholder_relationship:
-        direct_shareholder: Actionnaire Direct  #g
         drc_company: :activerecord.models.drc_company  #g
-        intermediary_companies: intermediary_companies  #g
+        intermediary_companies: Intermediary Companies  #g
         percentage: Pourcentage (%)  #g
         shareholder: :activerecord.models.shareholder  #g
-        shareholder_intermediaries: shareholder_intermediaries  #g
-        year: year  #g
+        shareholder_intermediaries: Shareholder Intermediaries  #g
+        year: Year  #g
 
       social_project:
         amount_planned: Montant Prévu Pour le Projet  #g
