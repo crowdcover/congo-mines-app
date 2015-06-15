@@ -174,15 +174,17 @@ fr:
         cm_url: cm_url  #g
         date_string: date_string  #g
         draft: draft
-        drc_companies: drc_companies  #g
-        organization: organization  #g
-        post_date: post_date  #g
-        recommended: recommended  #g
+        drc_companies: DRC Companies  #g
+        organization: organisation  #g
+        post_date: après la date  #g
+        recommended: recommandé  #g
         report_categories: report_categories  #g
+        publication_date: Date de publication
         report_relations: report_relations  #g
+        visibility: visibilité
         source: :activerecord.models.source  #g
         summary: summary  #g
-        title: title  #g
+        title: titre  #g
 
       report_category:
         category: :activerecord.models.category  #g
