@@ -19,7 +19,7 @@ fr:
       report: report  #g
       report_category: Rapport Catégorie  #g
       report_relation: report_relation  #g
-      shareholder: actionnaire  #g
+      shareholder: Shareholder (en dernier ressort)  #g
       shareholder_intermediary: actionnaire intermédiaire #g
       shareholder_relationship: Relations avec les actionnaires  #g
       social_project: projet Social  #g
@@ -94,7 +94,7 @@ fr:
         name: Nom Complet de la Société  #g
         nrc: Numéro Nouveau Registre de Commerce (NRC)  #g
         processing_infrastructures: Infrastructures de traitement infrastructures  #g
-        production_exports: :activerecord.models.production_exports  #g
+        production_exports: Production Exportations #:activerecord.models.production_exports  #g
         project_phase: Phase du Project  #g
         project_type: Type de Project  #g
         rccm: Numéro Registre de Commerce et de Crédit Mobilier (RCCM)  #g
@@ -102,7 +102,7 @@ fr:
         reports: :activerecord.models.reports  #g
         shareholder_relationships: :activerecord.models.shareholder_relationships  #g
         shareholders: :activerecord.models.shareholders  #g
-        social_projects: :activerecord.models.social_projects  #g
+        social_projects:  projet Social #:activerecord.models.social_projects  #g
         tax_obligations: :activerecord.models.tax_obligations  #g
         website: Site Internet de la Société de Droit Congolais  #g
 
@@ -174,15 +174,17 @@ fr:
         cm_url: cm_url  #g
         date_string: date_string  #g
         draft: draft
-        drc_companies: drc_companies  #g
-        organization: organization  #g
-        post_date: post_date  #g
-        recommended: recommended  #g
+        drc_companies: DRC Companies  #g
+        organization: organisation  #g
+        post_date: après la date  #g
+        recommended: recommandé  #g
         report_categories: report_categories  #g
+        publication_date: Date de publication
         report_relations: report_relations  #g
+        visibility: visibilité
         source: :activerecord.models.source  #g
         summary: summary  #g
-        title: title  #g
+        title: titre  #g
 
       report_category:
         category: :activerecord.models.category  #g
@@ -198,7 +200,7 @@ fr:
         community_fund: community_fund  #g
         contact: contact  #g
         drc_companies: drc_companies  #g
-        name: name  #g
+        name: Name  #g
         public_private: public_private  #g
         shareholder_relationships: shareholder_relationships  #g
         stock: Cotation Boursière  #g
@@ -208,32 +210,31 @@ fr:
         website: website  #g
 
       shareholder_intermediary:
-        intermediary_company: :activerecord.models.intermediary_company  #g
+        intermediary_company: Intermediary Company # :activerecord.models.intermediary_company  #g
         shareholder_relationship: :activerecord.models.shareholder_relationship  #g
 
       shareholder_relationship:
-        direct_shareholder: Actionnaire Direct  #g
         drc_company: :activerecord.models.drc_company  #g
-        intermediary_companies: intermediary_companies  #g
+        intermediary_companies: Intermediary Companies  #g
         percentage: Pourcentage (%)  #g
         shareholder: :activerecord.models.shareholder  #g
-        shareholder_intermediaries: shareholder_intermediaries  #g
-        year: year  #g
+        shareholder_intermediaries: Shareholder Intermediaries  #g
+        year: Year  #g
 
       social_project:
         amount_planned: Montant Prévu Pour le Projet  #g
         amount_spent: Montant Dépensé Pour le Projet  #g
         company: Nom de la Société de Droit Congolais  #g
-        description: description  #g
+        description: Description  #g
         drc_company: :activerecord.models.drc_company  #g
-        lat: lat  #g
-        lng: lng  #g
+        lat: Lat  #g
+        lng: Lng  #g
         project_type: Type de Projet  #g
         stage: Etat de Réalisation du Projet  #g
 
       source:
-        description: description  #g
-        name: name  #g
+        description: Description  #g
+        name: Name  #g
         reports: reports  #g
 
       stock_exchange:

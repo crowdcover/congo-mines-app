@@ -5,7 +5,7 @@ class Admin::ShareholderRelationshipsController  < Admin::Auth # ApplicationCont
     config.columns.exclude( :created_at, :updated_at)
     config.columns = [:percentage, :year, :drc_company, :shareholder, :intermediary_companies ]
 
-    config.columns[:shareholder].label = 'Shareholder (en dernier ressort)'
+    #config.columns[:shareholder].label = 'Shareholder (en dernier ressort)'
 
     config.columns[:drc_company].form_ui = :chosen
     config.columns[:shareholder].form_ui = :chosen

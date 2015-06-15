@@ -4,13 +4,15 @@ class Admin::ReportsController  < Admin::Auth # ApplicationController
     config.columns = [:title,  :summary, :recommended, :visibility, :source, :categories,
       :actual_post_date, :drc_companies, :attachments]
 
+    config.label = 'Reports'  
+
     config.list.per_page    = 25
     config.create.multipart = 'local'
     config.update.multipart = 'local'
 
     config.list.sorting = { :actual_post_date => :desc }
 
-    config.columns[:actual_post_date].label   = 'Publication Date'
+    #config.columns[:actual_post_date].label   = 'Publication Date'
 
     config.columns[:source].form_ui = :chosen
 

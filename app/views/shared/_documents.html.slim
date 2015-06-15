@@ -1,16 +1,17 @@
 div.small-12.columns
   div[class="document-container medium-block-grid-#{columns}"]
-    - reports.each do |rpt|
-      - unless rpt.nil?
-        li
-          article[class="hide-summary-#{hide_summary}"]
-            h3.doc-title = link_to rpt.try(:title), rpt
-            h4.doc-source = rpt.try(:source).try(:name)
-            p.doc-date = rpt.try(:date_string).try(:titleize)
+    - if reports
+      - reports.each do |rpt|
+        - unless rpt.nil?
+          li
+            article[class="hide-summary-#{hide_summary}"]
+              h3.doc-title = link_to rpt.try(:title), rpt
+              h4.doc-source = rpt.try(:source).try(:name)
+              p.doc-date = rpt.try(:date_string).try(:titleize)
 
-            - if rpt.summary.present?
-              p.doc-summary
-                = truncate_summary(rpt.summary, 300)
+              - if rpt.summary.present?
+                p.doc-summary
+                  = truncate_summary(rpt.summary, 300)
 
-              - if hide_summary
-                a[href="#" class="show-summary"] show summary
+                - if hide_summary
+                  a[href="#" class="show-summary"] show summary
