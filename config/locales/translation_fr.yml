@@ -94,7 +94,7 @@ fr:
         name: Nom Complet de la Société  #g
         nrc: Numéro Nouveau Registre de Commerce (NRC)  #g
         processing_infrastructures: Infrastructures de traitement infrastructures  #g
-        production_exports: Production Exportations #:activerecord.models.production_exports  #g
+        production_exports: Production #:activerecord.models.production_exports  #g
         project_phase: Phase du Project  #g
         project_type: Type de Project  #g
         rccm: Numéro Registre de Commerce et de Crédit Mobilier (RCCM)  #g
@@ -161,8 +161,8 @@ fr:
         drc_company: :activerecord.models.drc_company  #g
         export_value: Valeur d'Exportation  #g
         grade: Teneur (%)  #g
-        metal_content: metal_content  #g
-        tonnage: Minerais produits (Mt)  #g
+        metal_content: metal content  #g
+        tonnage: Minerais Produits (tonnes)  #g
         type_of_product: Type de Produit  #g
         year: Année  #g
 

@@ -3,7 +3,7 @@ class Admin::DrcCompaniesController  < Admin::Auth # ApplicationController
 
   active_scaffold :"drc_company" do |config|
 
-    config.label = 'Congolese/ DRC Companies'
+    config.label = 'DRC Companies'
 
     # Export
     config.actions.add :export
@@ -52,7 +52,7 @@ class Admin::DrcCompaniesController  < Admin::Auth # ApplicationController
     config.nested.add_link(:reports, label: 'Documents')
     config.nested.add_link(:deposits, label: 'Deposits')
 
-    config.columns[:tax_obligations].label = 'Tax Payments'
+    #config.columns[:tax_obligations].label = 'Tax Payments'
 
     config.columns[:legal_regime].form_ui = :select
     config.columns[:legal_regime].options = {
