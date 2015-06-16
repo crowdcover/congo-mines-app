@@ -98,22 +98,23 @@ div.grey.company-stats
                   h3.small-12.columns.quiet Export Value
                 - @drc_company.production_exports.each do |pe|
                   - unless pe.nil?
-                    h3.small-12.columns.dark = pe.year
-                    div.clearfix
-                      h3.small-6.medium-4.columns.quiet Type of Product
-                      span.small-6.medium-8.columns = pe.type_of_product
-                    div.clearfix
-                      h3.small-6.medium-4.columns.quiet Tonnage
-                      span.small-6.medium-8.columns = pe.tonnage
-                    div.clearfix
-                      h3.small-6.medium-4.columns.quiet Grade
-                      span.small-6.medium-8.columns = pe.grade
-                    div.clearfix
-                      h3.small-6.medium-4.columns.quiet Metal Content
-                      span.small-6.medium-8.columns = pe.metal_content
-                    div.clearfix
-                      h3.small-6.medium-4.columns.quiet Export Value
-                      span.small-6.medium-8.columns = pe.export_value
+                    div.mbm
+                      h3.small-12.columns.dark = pe.year
+                      div.clearfix
+                        h3.small-6.medium-4.columns.quiet Type of Product
+                        span.small-6.medium-8.columns = pe.type_of_product
+                      div.clearfix
+                        h3.small-6.medium-4.columns.quiet Tonnage
+                        span.small-6.medium-8.columns = pe.tonnage
+                      div.clearfix
+                        h3.small-6.medium-4.columns.quiet Grade (%)
+                        span.small-6.medium-8.columns = pe.grade
+                      div.clearfix
+                        h3.small-6.medium-4.columns.quiet Metal Content
+                        span.small-6.medium-8.columns = pe.metal_content
+                      div.clearfix
+                        h3.small-6.medium-4.columns.quiet Export Value
+                        span.small-6.medium-8.columns = pe.export_value
 
 
         li.accordion-navigation
