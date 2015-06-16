@@ -1,7 +1,7 @@
 class Admin::ProductionExportsController  < Admin::Auth #ApplicationController
   active_scaffold :"production_export" do |config|
 
-  config.columns.exclude(:created_at, :updated_at)
+  config.columns.exclude(:metal_content, :created_at, :updated_at)
 
   config.columns[:type_of_product].form_ui = :select
   config.columns[:type_of_product].options = {include_blank: 'Select Type of Product',
