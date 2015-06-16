@@ -11,7 +11,7 @@ fr:
     - ven
     - sam
     abbr_month_names:
-    - 
+    -
     - jan.
     - fév.
     - mar.
@@ -34,11 +34,12 @@ fr:
     - samedi
     formats:
       default: "%Y-%m-%d"
+      month_and_year: "%B %Y"
       # default: "%d/%m/%Y"
       short: "%e %b"
       long: "%e %B %Y"
     month_names:
-    - 
+    -
     - janvier
     - février
     - mars

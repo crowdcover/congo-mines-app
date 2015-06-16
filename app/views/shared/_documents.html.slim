@@ -7,7 +7,9 @@ div.small-12.columns
             article[class="hide-summary-#{hide_summary}"]
               h3.doc-title = link_to rpt.try(:title), rpt
               h4.doc-source = rpt.try(:source).try(:name)
-              p.doc-date = rpt.try(:date_string).try(:titleize)
+              / p.doc-date = rpt.try(:date_string).try(:titleize)
+              - if rpt.actual_post_date
+                p.doc-date = l(rpt.actual_post_date.to_date, format: :month_and_year)
 
               - if rpt.summary.present?
                 p.doc-summary

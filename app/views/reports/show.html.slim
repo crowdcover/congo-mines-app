@@ -5,7 +5,9 @@ div.row.pvl
   div.large-3.columns: h3 Organization
   div.large-9.columns
     h4 = @report.try(:source).try(:name)
-    p.meta = @report.try(:date_string)
+    - if @report.actual_post_date
+      / p.meta = t(@report.try(:actual_post_date).to_formatted_s(:month_and_year))
+      p.meta = l(@report.actual_post_date.to_date, format: :month_and_year)
 
     h4.mtm Download
     ul.mbl
