@@ -1,6 +1,6 @@
 div.row
-  div.large-12.columns.pbm.keyline-bottom
-    div = @page.content.try(:html_safe)
+  div.large-12.columns.pvl.keyline-bottom
+    div.topic-page-content = @page.content.try(:html_safe)
 
 div.row
   div.large-12.columns
