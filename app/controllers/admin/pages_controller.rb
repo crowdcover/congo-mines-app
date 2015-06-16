@@ -27,7 +27,8 @@ class Admin::PagesController < Admin::Auth
         # or "**text** to make something bold.
         #"textpattern"
 
-        plugins: ["link","preview","searchreplace", "charmap", "table", "fullscreen"],
+        plugins: ["link","preview","searchreplace", "charmap", "table", "fullscreen", "paste"],
+        paste_as_text: true,
         language: 'fr_FR',
         tools: "inserttable",
         #link_list: [

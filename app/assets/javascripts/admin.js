@@ -40,8 +40,8 @@ tinymce.init({
   mode : "specific_textareas",
   // editor_selector : /(mceEditor|mceRichText)/
   editor_selector : "mceEditor",
-
-  plugins: ["link","preview","searchreplace", "charmap", "table", "fullscreen"],
+  plugins: ["link","preview","searchreplace", "charmap", "table", "fullscreen", "paste"],
+  paste_as_text: true,
   tools: "inserttable",
   language: 'fr_FR',
 });

@@ -38,7 +38,9 @@ class Admin::ReportsController  < Admin::Auth # ApplicationController
         # or "**text** to make something bold.
         #"textpattern"
 
-        plugins: ["link","preview","searchreplace", "charmap", "table", "fullscreen"],
+        plugins: ["link","preview","searchreplace", "charmap", "table", "fullscreen", "paste"],
+        paste_as_text: true,
+        #plugins: ['textpattern'],
         tools: "inserttable",
         language: 'fr_FR',
         #link_list: [
