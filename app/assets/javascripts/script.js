@@ -41,7 +41,7 @@ $(function(){
     },
 
     initMap: function() {
-        anything with var 'map' needs to be app.map
+        // anything with var 'map' needs to be app.map
         app.map = L.map('map', {
             layers: L.tileLayer('http://api.tiles.mapbox.com/v4/congominesmaps.bd24d4b8/{z}/{x}/{y}.png?access_token=' + app.access_token),
             center: [-2.877, 22.83],
@@ -98,6 +98,21 @@ $(function(){
         siblingListItems.removeClass('active');
         parentListItem.addClass('active');
         dropdownLayerTitle.addClass('show').text(layerName);
+      });
+
+      // show datatable child rows
+      $('table.mine-table').on('click', 'td.show-child-rows', function(e){
+        var tr = $(this).closest('tr');
+        var row = app.mapTable.row( tr );
+ 
+        if ( row.child.isShown() ) {
+            row.child.hide();
+            tr.removeClass('shown');
+        }
+        else {
+            row.child( app.childRowTemplate(row.data()) ).show();
+            tr.addClass('shown');
+        }
       });
       
     },
@@ -187,7 +202,7 @@ $(function(){
         return property;
       });
 
-      app.mapTable = $('.mine-table').dataTable({
+      app.mapTable = $('.mine-table').DataTable({
         "data" : properties,
         "paging": false,
         "info": false,
@@ -198,7 +213,10 @@ $(function(){
             { "data": "mine_type", "title": "Mine Type" },
             { "data": "permit_type", "title": "Permit Type" },
             { "data": "permit_number", "title": "Permit Number" },
-            { "data": "minerals", "title": "Minerals"},
+            { "data": "minerals", 
+              "title": "Minerals",
+              "className": "show-child-rows"
+            },
             { "data": "source", "title": "Source" }
         ],
       });
@@ -227,6 +245,44 @@ $(function(){
       });
 
       return uniq(flatten(resourceList));
+    },
+
+    childRowTemplate: function(row){
+      // deposit :: resourceMeasurementType :: resourceMeasurement :: mineral
+
+      var resourceMeasurementTypes = [
+        'indicated_resources',
+        'inferred_resources',
+        'measured_resources',
+        'total_resources',
+        'probable_reserves',
+        'proven_reserves',
+        'total_reserves'
+      ];
+
+      return resourceMeasurementTypes.map(function(measurementType){
+        return renderResourceMeasurements(measurementType, row[measurementType]);
+      }).join('');
+
+      function renderResourceMeasurements(measurementType, measurements){
+        var header = '<h4>' + app.titleize(measurementType) +'</h4>';
+
+        return '<div class="measurement-type">' +
+                  header + 
+                  measurements.map(function(measurement){
+                    return ['<div class="measurement">', 
+                              '<strong class="name">', measurement.mineral_resource.name, '</strong>',
+                              '<strong>Tonnage</strong>', '<span>', measurement.tonnage, '</span>',
+                              '<strong>Grade</strong>', '<span>', measurement.grade, '</span>',
+                              '<strong>Metal Content</strong>', '<span>', measurement.metal_content, ' (', measurement.metal_content_unit,')', '</span>',
+                            '</div>'].join('');
+                  }).join('') +
+                '</div>';
+      };
+    },
+
+    titleize: function(str){
+      return str.replace('_', ' ');
     }
 
   };
