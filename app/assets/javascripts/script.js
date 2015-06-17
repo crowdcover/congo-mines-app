@@ -40,7 +40,7 @@ $(function(){
     },
 
     initMap: function() {
-        // anything with var 'map' needs to be app.map
+        anything with var 'map' needs to be app.map
         app.map = L.map('map', {
             layers: L.tileLayer('http://api.tiles.mapbox.com/v4/congominesmaps.bd24d4b8/{z}/{x}/{y}.png?access_token=' + app.access_token),
             center: [-2.877, 22.83],
@@ -154,6 +154,7 @@ $(function(){
         'indicated_resources',
         'inferred_resources',
         'measured_resources',
+        'total_resources',
         'probable_reserves',
         'proven_reserves',
         'total_reserves'
@@ -187,73 +188,32 @@ $(function(){
     },
 
     setUpTable: function(geoJSON){
-      var table_data = [];
-      var feature_array = $.makeArray( geoJSON.features )
-      if (feature_array.length == 0) {
+      if (geoJSON.features.length == 0) {
         return;
       }
 
-      table_data = $.map(feature_array, function(d){ return d.properties;});
-
-      var titles = [];
-      var tableDataArray = [];
-      // for ( var prop in table_data[0]) {
-      //   titles.push({"title" : prop});
-      // }
-      Object.keys(table_data[0]).forEach( function (val, index, arg) {
-        titles.push({ "title": val });
-      });
-
-      var resourceReserveColumns = [ 'proven_reserves', 'proven_reserves',
-        'probable_reserves', 'total_reserves', 'measured_resources',
-      'indicated_resources','inferred_resources'];
-      
-      
-
-      table_data.forEach( function (val, index, arg) {
-        var oneDataRow = [];
-        for (var prop in val) {
-          //find special values that need to be subgrids
-          if($.inArray(prop, resourceReserveColumns) >= 0){
-            var colData = '';
-            //get unique list of resources
-            var resourceData = val[prop];
-            if(resourceData && resourceData.length > 0){
-              colData += app.getMineralList(val).join(', ');
-              //add link to open details
-              colData += '<br /><a href="#">Details</a>'
-            } else {
-              colData += 'None'; //TODO: translate
-            }
-            oneDataRow.push(colData);
-            
-          }else {
-            oneDataRow.push(val[prop]);
-          }
-        }
-        tableDataArray.push(oneDataRow);
+      var properties = $.map(geoJSON.features, function(feature){ 
+        var property = feature.properties;
+        property["minerals"] = app.getMineralList(feature.properties).join(', ');
+        return property;
       });
 
       app.mapTable = $('.mine-table').dataTable({
-        "data" : tableDataArray,
+        "data" : properties,
         "paging": false,
         "info": false,
         "searching": false,
         "columns": [
-            { "title": "Name" },
-            { "title": "Company" },
-            { "title": "Mine Type" },
-            { "title": "Permit Type" },
-            { "title": "Permit Number" },
-            { "title": "Proven Reserves" },
-            { "title": "Probable Reserves" },
-            { "title": "Total Reserves" },
-            { "title": "Measured Resources" },
-            { "title": "Indicated Resources" },
-            { "title": "Inferred Resources" },
-            { "title": "Source" }
+            { "data": "name", "title": "Name" },
+            { "data": "drc_company", "title": "Company" },
+            { "data": "mine_type", "title": "Mine Type" },
+            { "data": "permit_type", "title": "Permit Type" },
+            { "data": "permit_number", "title": "Permit Number" },
+            { "data": "minerals", "title": "Minerals"},
+            { "data": "source", "title": "Source" }
         ],
       });
+
     },
 
     addTileLayer: function(mapId){
