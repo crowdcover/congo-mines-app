@@ -3,6 +3,7 @@ $(function(){
 
   var app = {
     access_token: 'pk.eyJ1IjoiY29uZ29taW5lcyIsImEiOiI4ZmRkOGJiNDk0MzNhNmU1NGE4N2MzODI5ZmFhNTcxNyJ9.wW5SYM4cPL7qOrz-443SGg',
+
     initCommon: function(){
       mainbottom = $('.content').offset().top
 
@@ -146,45 +147,33 @@ $(function(){
       }
 
     },
-    
-    getMineralList: function(properties){
-      // look through all resource measurements, and return an array of all unique minerals that have a measurement
-      // in essence, this will return all minerals at the deposit site
-      var resourceMeasurementTypes = [
-        'indicated_resources',
-        'inferred_resources',
-        'measured_resources',
-        'total_resources',
-        'probable_reserves',
-        'proven_reserves',
-        'total_reserves'
-      ];
 
-      var resourceList = resourceMeasurementTypes.map(function(measurement){
-        if(properties[measurement]){
-          return properties[measurement].map(function(resource){
-            return resource.mineral_resource.name;
-          });
-        }
+    addTileLayer: function(mapId){
+      var tileLayer = L.tileLayer('http://api.tiles.mapbox.com/v4/' + mapId + '/{z}/{x}/{y}.png?access_token=' + app.access_token);
+      app.map.tileLayers.push(tileLayer);
+      app.map.addLayer(tileLayer);
+    },
+
+    clearVectorLayers: function() {
+      app.map.vectorLayers.forEach(function(layer){
+        app.map.removeLayer(layer);
       });
 
-      return uniq(flatten(resourceList));
+      if (typeof app.mapTable !== 'undefined') {
+        // console.log($('.mine-table'));
+        app.mapTable.fnClearTable();
+        app.mapTable.fnDestroy();
+        $('.mine-table').replaceWith( '<table class="mine-table" width="100%"></table>' );
+      } else {
+        // console.log('no mine-table');
+      }
 
-      function flatten(nestedArray) {
-        return nestedArray.reduce(function(flattened, array){
-          return flattened.concat(array);
-        }, []);
-      };
+    },
 
-      function uniq (array) {
-        var output = [];
-        array.forEach(function(val){
-          if(output.indexOf(val) === -1){
-            output.push(val);
-          }
-        });
-        return output;
-      };
+    clearTileLayers: function(){
+      app.map.tileLayers.forEach(function(layer){
+        app.map.removeLayer(layer);
+      });
     },
 
     setUpTable: function(geoJSON){
@@ -216,34 +205,46 @@ $(function(){
 
     },
 
-    addTileLayer: function(mapId){
-      var tileLayer = L.tileLayer('http://api.tiles.mapbox.com/v4/' + mapId + '/{z}/{x}/{y}.png?access_token=' + app.access_token);
-      app.map.tileLayers.push(tileLayer);
-      app.map.addLayer(tileLayer);
-    },
+    getMineralList: function(properties){
+      // look through all resource measurements, and return an array of all unique minerals that have a measurement
+      // in essence, this will return all minerals at the deposit site
+      var resourceMeasurementTypes = [
+        'indicated_resources',
+        'inferred_resources',
+        'measured_resources',
+        'total_resources',
+        'probable_reserves',
+        'proven_reserves',
+        'total_reserves'
+      ];
 
-    clearVectorLayers: function() {
-      app.map.vectorLayers.forEach(function(layer){
-        app.map.removeLayer(layer);
+      var resourceList = resourceMeasurementTypes.map(function(measurement){
+        if(properties[measurement]){
+          return properties[measurement].map(function(resource){
+            return resource.mineral_resource.name;
+          });
+        }
       });
 
-      if (typeof app.mapTable !== 'undefined') {
-        // console.log($('.mine-table'));
-        app.mapTable.fnClearTable();
-        app.mapTable.fnDestroy();
-        $('.mine-table').replaceWith( '<table class="mine-table" width="100%"></table>' );
-      } else {
-        // console.log('no mine-table');
-      }
-
-    },
-
-    clearTileLayers: function(){
-      app.map.tileLayers.forEach(function(layer){
-        app.map.removeLayer(layer);
-      });
+      return uniq(flatten(resourceList));
     }
 
+  };
+
+  function flatten(nestedArray) {
+    return nestedArray.reduce(function(flattened, array){
+      return flattened.concat(array);
+    }, []);
+  };
+
+  function uniq (array) {
+    var output = [];
+    array.forEach(function(val){
+      if(output.indexOf(val) === -1){
+        output.push(val);
+      }
+    });
+    return output;
   };
 
   window.app = app;
