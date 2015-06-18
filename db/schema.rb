@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150612200023) do
+ActiveRecord::Schema.define(version: 20150618213950) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 20150612200023) do
     t.date    "enviro_impact_date"
     t.string  "enviro_impact_link"
     t.string  "sustainable_dev_plan"
-    t.integer "social_investment"
+    t.float   "social_investment"
     t.string  "community_fund"
     t.string  "community_dialogue_platform"
   end
@@ -126,10 +126,10 @@ ActiveRecord::Schema.define(version: 20150612200023) do
 
   create_table "flows_payable_under_contracts", force: :cascade do |t|
     t.integer  "drc_company_id"
-    t.integer  "signature_bonus"
-    t.integer  "royalties"
-    t.integer  "annuity"
-    t.integer  "transfer_of_shares"
+    t.float    "signature_bonus"
+    t.float    "royalties"
+    t.float    "annuity"
+    t.float    "transfer_of_shares"
     t.string   "contract_cash_recipient"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
@@ -204,7 +204,7 @@ ActiveRecord::Schema.define(version: 20150612200023) do
     t.integer  "year"
     t.string   "type_of_product"
     t.string   "tonnage"
-    t.integer  "grade"
+    t.float    "grade"
     t.string   "metal_content"
     t.decimal  "export_value"
     t.datetime "created_at"
@@ -292,8 +292,8 @@ ActiveRecord::Schema.define(version: 20150612200023) do
     t.integer  "drc_company_id"
     t.string   "company"
     t.string   "project_type"
-    t.integer  "amount_planned"
-    t.integer  "amount_spent"
+    t.float    "amount_planned"
+    t.float    "amount_spent"
     t.string   "stage"
     t.text     "description"
     t.decimal  "lat",            precision: 15, scale: 10
@@ -348,14 +348,14 @@ ActiveRecord::Schema.define(version: 20150612200023) do
     t.integer  "drc_company_id"
     t.integer  "year"
     t.string   "company_name"
-    t.integer  "total_paid"
-    t.integer  "redevance"
-    t.integer  "ibp"
-    t.integer  "import_customs_duty"
-    t.integer  "surface_rights"
-    t.integer  "signature_bonus"
-    t.integer  "royalties"
-    t.integer  "other"
+    t.float    "total_paid"
+    t.float    "redevance"
+    t.float    "ibp"
+    t.float    "import_customs_duty"
+    t.float    "surface_rights"
+    t.float    "signature_bonus"
+    t.float    "royalties"
+    t.float    "other"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
