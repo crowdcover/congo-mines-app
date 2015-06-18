@@ -13,8 +13,7 @@ class Admin::DrcCompaniesController  < Admin::Auth # ApplicationController
     config.columns = [:name, :description, :acronym,  :nrc, :rccm,:contact, :website,
         :legal_status, :project_type, :project_phase, :legal_regime, :permits,
         :flows_payable_under_contract, :tax_obligations,  :production_exports,
-        # :shareholder_relationships
-        :employees,
+         :shareholder_relationships, :employees,
         :env_and_social_obligation, :processing_infrastructures, :social_projects]
 
     # you can define a default values for the exporting form
@@ -44,7 +43,7 @@ class Admin::DrcCompaniesController  < Admin::Auth # ApplicationController
 
 
 
-    #config.columns[:shareholder_relationships].allow_add_existing = false
+    config.columns[:shareholder_relationships].allow_add_existing = false
     config.columns[:social_projects].allow_add_existing = false
 
 

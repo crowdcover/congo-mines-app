@@ -3,7 +3,7 @@ class Admin::ShareholdersController  < Admin::Auth # ApplicationController
 
     config.label = 'Shareholder (en dernier ressort)'
 
-    config.columns.exclude(:stock, :stock_countries, :drc_companies, :created_at, :updated_at)
+    config.columns.exclude(:stock, :stock_countries, :shareholder_relationships, :drc_companies, :created_at, :updated_at)
     config.list.per_page    = 25
 
     #config.columns[:drc_companies].options = {:draggable_lists => true}
@@ -19,7 +19,7 @@ class Admin::ShareholdersController  < Admin::Auth # ApplicationController
       options: ['yes', 'no']}
 
 
-   config.columns[:shareholder_relationships].allow_add_existing = false
+   #config.columns[:shareholder_relationships].allow_add_existing = false
 
    config.columns[:public_private].form_ui = :select
     config.columns[:public_private].options = {
