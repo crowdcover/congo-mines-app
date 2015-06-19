@@ -1,0 +1,46 @@
+
+Greetings James and Leo.
+
+Here is some documentation on the congomines website:
+
+ssh:   USER@188.166.93.154 -p2020
+
+==============================================
+
+Crontab: for dumping postgresql database and removing backup files > 20 days old
+
+20 2 * * * /bin/sh /home/mark/backup/cron/scripts/dump_db.sh
+30 2 * * *  /bin/sh /home/mark/backup/cron/scripts/db_dump_house_keeping.sh
+
+
+A few useful aliases for user 'mark'
+alias clite='cd dev/congo-mines-app; rake database_utilities:create_sqlite3_from_pg_dump; sqlite3 /home/mark/dev/congo-mines-app/db/development.sqlite3 < congo_
+
+
+User 'deployer' has access/permissions to all files in /var/www/congo-mines-app
+
+sudo su deployer
+
+useful aliases for deployer
+alias deploy='cd /var/www/congo-mines-app; git pull; RAILS_ENV=production bin/rake assets:precompile; RAILS_ENV=production rake sunspot:solr:reindex;
+
+
+NOTICE about calling the 'deploy' alias. It seems that the memory is not enough to run the rake precompile so I usually have to stop the webserver for about 30 seconds to deploy. This could be fixed by adding more memory at DigitalOcean. Right now this server sits on a $20 plan with 2GB of memory.
+
+# database
+a database diagram exists in congo-mines-app/doc/models_complete.svg
+
+
+#SOLR
+rake sunspot:solr:reindex
+rake sunspot:solr:restart  # Restart the Solr instance
+rake sunspot:solr:run      # Run the Solr instance in the foreground
+rake sunspot:solr:start    # Start the Solr instance
+rake sunspot:solr:stop     # Stop the Solr instance
+
+Just run the rake sunspot:solr:start if it ever stops. If for some strange reason
+it doesnt want to restart do: ps ax | grep 'solr'    and kill -9 PROCESS_ID.
+
+Then it should happily restart using: rake sunspot:solr:start
+
+It spawns in the background but must be started up during a system restart.
