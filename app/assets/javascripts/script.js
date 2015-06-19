@@ -208,7 +208,7 @@ $(function(){
         "searching": false,
         "columns": [
             { "data": "name", "title": "Name" },
-            { "data": "drc_company", "title": "Company" },
+            // { "data": "drc_company", "title": "Company" },
             { "data": "mine_type", "title": "Mine Type" },
             { "data": "permit_type", "title": "Permit Type" },
             { "data": "permit_number", "title": "Permit Number" },
