@@ -41,7 +41,6 @@ $(function(){
     },
 
     initMap: function() {
-        // anything with var 'map' needs to be app.map
         app.map = L.map('map', {
             layers: L.tileLayer('http://api.tiles.mapbox.com/v4/congominesmaps.bd24d4b8/{z}/{x}/{y}.png?access_token=' + app.access_token),
             center: [-2.877, 22.83],
@@ -249,6 +248,8 @@ $(function(){
 
     childRowTemplate: function(row){
       // deposit :: resourceMeasurementType :: resourceMeasurement :: mineral
+      // clusterfuck?
+      // TODO: rewrite using a templating language
 
       var resourceMeasurementTypes = [
         'indicated_resources',
@@ -260,29 +261,55 @@ $(function(){
         'total_reserves'
       ];
 
-      return resourceMeasurementTypes.map(function(measurementType){
+      var childTableWrapper = ['<table class="childTable" cellspacing="0">',
+                                  '<thead>',
+                                    '<tr>',
+                                      '<th></th>',
+                                      '<th>Tonnage</th>',
+                                      '<th>Grade (%)</th>',
+                                      '<th>Metal Content</th>',
+                                    '</tr>',
+                                  '</thead>',
+                                  '<tbody>',
+                                  '</tbody>',
+                                '</table>'];
+
+      var childTableBody = resourceMeasurementTypes.map(function(measurementType){
         return renderResourceMeasurements(measurementType, row[measurementType]);
-      }).join('');
+      });
+
+      // insert childTableBody within childTableWrapper's <tbody> item
+      return app.insertAfter(childTableWrapper, '<tbody>', childTableBody).join('');
 
       function renderResourceMeasurements(measurementType, measurements){
-        var header = '<h4>' + app.titleize(measurementType) +'</h4>';
+        var header = '<tr><td class="measurement-type">' + app.titleize(measurementType) +'</td></tr>';
 
-        return '<div class="measurement-type">' +
-                  header + 
-                  measurements.map(function(measurement){
-                    return ['<div class="measurement">', 
-                              '<strong class="name">', measurement.mineral_resource.name, '</strong>',
-                              '<strong>Tonnage</strong>', '<span>', measurement.tonnage, '</span>',
-                              '<strong>Grade</strong>', '<span>', measurement.grade, '</span>',
-                              '<strong>Metal Content</strong>', '<span>', measurement.metal_content, ' (', measurement.metal_content_unit,')', '</span>',
-                            '</div>'].join('');
-                  }).join('') +
-                '</div>';
+        return header + 
+              measurements.map(function(measurement){
+                var output = ['<tr class="measurement">', 
+                          '<td class="name">', measurement.mineral_resource.name, '</td>',
+                          '<td>', measurement.tonnage.toLocaleString(), '</td>',
+                          '<td>', measurement.grade, '</td>',
+                          '<td>', measurement.metal_content, ' (' + measurement.metal_content_unit + ')', '</td>',
+                        '</tr>']
+
+                // remove measurement.metal_content_unit if not present
+                if(! measurement.metal_content_unit){
+                  output.splice(12,1);
+                }
+                return output.join('')
+              }).join('');
       };
     },
 
     titleize: function(str){
-      return str.replace('_', ' ');
+      return str.replace('_', ' ').replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+    },
+
+    insertAfter: function(array, insertAfter, insertArray){
+      var front = array.slice(0, array.indexOf(insertAfter) + 1),
+          back = array.slice(array.indexOf(insertAfter) + 1);
+      return front.concat(insertArray, back);
     }
 
   };
