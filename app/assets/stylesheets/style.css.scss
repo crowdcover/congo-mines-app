@@ -83,7 +83,7 @@ table {
   	background: #f0f0f0;
   }
   table thead tr th {
-  	background: #60afde!important;
+  	background: #60afde;
   	color: #fff;
   }
 
@@ -781,17 +781,14 @@ table tr.even {
   table tr.odd {
     background: #f0f0f0;
   }
-table.mine-table thead th {
-	background: #505256;
-  }
   table.mine-table thead th.sorting_asc {
-  	background: #505256 image-url('sort_asc.white.png') no-repeat right center;
+  	background: #60afde image-url('sort_asc.white.png') no-repeat right center;
   }
   table.mine-table thead th.sorting_desc {
-  	background: #505256 image-url('sort_desc.white.png') no-repeat right center;
+  	background: #60afde image-url('sort_desc.white.png') no-repeat right center;
   }
   table.mine-table thead th.sorting {
-  	background: #505256 image-url('sort_both.png') no-repeat right center;
+  	background: #60afde image-url('sort_both.png') no-repeat right center;
   }
 
 
