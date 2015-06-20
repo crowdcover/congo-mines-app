@@ -168,6 +168,9 @@ $(function(){
               '<tr>',
                 '<td class="name">Minerals</td>', '<td class="value">', minerals, '</td>',
               '</tr>',
+              '<tr>',
+                '<td class="name">Permit Number</td>', '<td class="value">', minerals, '</td>',
+              '</tr>',
             "</table>"].join('');
 
         layer.bindPopup(popupContent);
@@ -182,14 +185,14 @@ $(function(){
     },
 
     clearVectorLayers: function() {
-      app.map.vectorLayers.forEach(function(layer){
+      _.forEach(app.map.vectorLayers, function(layer){
         app.map.removeLayer(layer);
       });
 
     },
 
     clearTileLayers: function(){
-      app.map.tileLayers.forEach(function(layer){
+      _.forEach(app.map.tileLayers, function(layer){
         app.map.removeLayer(layer);
       });
     },

@@ -26,6 +26,8 @@ gem 'foundation-rails' #, '5.4.5'
 
 gem "compass-rails", github: "Compass/compass-rails", branch: "master"
 
+gem 'underscore-rails'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

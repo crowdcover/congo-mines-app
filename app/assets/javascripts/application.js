@@ -19,7 +19,7 @@
 //= require slidx
 //= require script
 
-//  require underscore
+//= require underscore
 //= require jquery-ui
 // require jquery-ui/sortable
 // require jquery-ui/datepicker
