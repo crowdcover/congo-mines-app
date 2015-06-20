@@ -120,11 +120,16 @@ $(function(){
     addVectorLayer: function(url, type){
       $.getJSON(url, function(data){
         // remove features with no coordinates
-        data.features.filter(function(feature){
-          return feature.geometry.coordinates[0] !== undefined ||
-                 feature.geometry.coordinates[0] !== null ||
-                 feature.geometry.coordinates[1] !== undefined ||
-                 feature.geometry.coordinates[1] !== null;
+        data.features = _.filter(data.features, function(feature){
+          var lat = feature.geometry.coordinates[1],
+              lon = feature.geometry.coordinates[0];
+
+          return lat !== undefined && lon !== undefined &&
+                 lat !== null && lon !== null &&
+                 lat >= -90 && lat <= 90 &&
+                 lon >= -180 && lon <= 180;
+                 
+                 
         });
 
         var minesLayer = L.geoJson(data, {
@@ -206,7 +211,7 @@ $(function(){
         app.mapTable.empty();
       }
 
-      var properties = $.map(geoJSON.features, function(feature){ 
+      var properties = _.map(geoJSON.features, function(feature){ 
         var property = feature.properties;
         property["minerals"] = app.getMineralList(feature.properties).join(', ');
         return property;
@@ -262,15 +267,15 @@ $(function(){
         'total_reserves'
       ];
 
-      var resourceList = resourceMeasurementTypes.map(function(measurement){
+      var resourceList = _.map(resourceMeasurementTypes, function(measurement){
         if(properties[measurement]){
-          return properties[measurement].map(function(resource){
+          return _.map(properties[measurement], function(resource){
             return resource.mineral_resource.name;
           });
         }
       });
 
-      return uniq(flatten(resourceList));
+      return _.uniq(_.flatten(resourceList));
     },
 
     childRowTemplate: function(row){
@@ -301,7 +306,7 @@ $(function(){
                                   '</tbody>',
                                 '</table>'];
 
-      var childTableBody = resourceMeasurementTypes.map(function(measurementType){
+      var childTableBody = _.map(resourceMeasurementTypes, function(measurementType){
         return renderResourceMeasurements(measurementType, row[measurementType]);
       });
 
@@ -312,7 +317,7 @@ $(function(){
         var header = '<tr><td class="measurement-type">' + app.titleize(measurementType) +'</td></tr>';
 
         return header + 
-              measurements.map(function(measurement){
+              _.map(measurements, function(measurement){
                 return ['<tr class="measurement">', 
                           '<td class="name">', measurement.mineral_resource.name, '</td>',
                           '<td>', app.numberize(measurement.tonnage), '</td>',
@@ -343,22 +348,6 @@ $(function(){
       return front.concat(insertArray, back);
     }
 
-  };
-
-  function flatten(nestedArray) {
-    return nestedArray.reduce(function(flattened, array){
-      return flattened.concat(array);
-    }, []);
-  };
-
-  function uniq (array) {
-    var output = [];
-    array.forEach(function(val){
-      if(output.indexOf(val) === -1){
-        output.push(val);
-      }
-    });
-    return output;
   };
 
   window.app = app;
