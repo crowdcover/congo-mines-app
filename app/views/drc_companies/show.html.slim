@@ -56,7 +56,7 @@ div.grey.company-stats
                   span.small-6.columns = @drc_company.contact
                 div.clearfix
                   h3.small-6.columns.quiet Website
-                  span.small-6.columns = @drc_company.website
+                  span.small-6.columns = link_to @drc_company.website
 
             - if @drc_company.description
               div.row.collapse
@@ -75,7 +75,7 @@ div.grey.company-stats
                   - unless emp.nil?
                     div.small-12.pbs
                       h4.small-12.columns.dark = emp.try(:year)
-                      span = emp.count
+                      span = number_with_delimiter(emp.count)
                       '
                       em = emp.gender
                       '
@@ -94,7 +94,6 @@ div.grey.company-stats
                   h3.small-12.columns.quiet Type of Product
                   h3.small-12.columns.quiet Tonnage
                   h3.small-12.columns.quiet Grade
-                  h3.small-12.columns.quiet Metal Content
                   h3.small-12.columns.quiet Export Value
                 - @drc_company.production_exports.each do |pe|
                   - unless pe.nil?
@@ -105,16 +104,13 @@ div.grey.company-stats
                         span.small-6.medium-8.columns = pe.type_of_product
                       div.clearfix
                         h3.small-6.medium-4.columns.quiet Tonnage
-                        span.small-6.medium-8.columns = pe.tonnage
+                        span.small-6.medium-8.columns = number_with_delimiter(pe.tonnage)
                       div.clearfix
-                        h3.small-6.medium-4.columns.quiet Grade (%)
-                        span.small-6.medium-8.columns = pe.grade
-                      div.clearfix
-                        h3.small-6.medium-4.columns.quiet Metal Content
-                        span.small-6.medium-8.columns = pe.metal_content
+                        h3.small-6.medium-4.columns.quiet Grade
+                        span.small-6.medium-8.columns = number_to_percentage(pe.grade, precision: 2, separator: '.')
                       div.clearfix
                         h3.small-6.medium-4.columns.quiet Export Value
-                        span.small-6.medium-8.columns = pe.export_value
+                        span.small-6.medium-8.columns = number_to_currency(pe.export_value, locale: :en)
 
 
         li.accordion-navigation
@@ -131,16 +127,16 @@ div.grey.company-stats
                 h2.small-12.columns.quiet Flux Payable au Contrat
                 div.clearfix
                   h3.small-6.medium-4.columns.quiet Signature Bonus
-                  span.small-6.medium-8.columns = @drc_company.flows_payable_under_contract.signature_bonus
+                  span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.signature_bonus, locale: :en)
                 div.clearfix
                   h3.small-6.medium-4.columns.quiet Royalties
-                  span.small-6.medium-8.columns = @drc_company.flows_payable_under_contract.royalties
+                  span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.royalties, locale: :en)
                 div.clearfix
                   h3.small-6.medium-4.columns.quiet Annuity
-                  span.small-6.medium-8.columns = @drc_company.flows_payable_under_contract.annuity
+                  span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.annuity, locale: :en)
                 div.clearfix
                   h3.small-6.medium-4.columns.quiet Transfer of Shares
-                  span.small-6.medium-8.columns = @drc_company.flows_payable_under_contract.transfer_of_shares
+                  span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.transfer_of_shares, locale: :en)
                 div.clearfix
                   h3.small-6.medium-4.columns.quiet Contract Cash Recipient
                   span.small-6.medium-8.columns = @drc_company.flows_payable_under_contract.contract_cash_recipient
@@ -162,28 +158,28 @@ div.grey.company-stats
                   h3.small-12.columns.dark = tax_ob.year
                   div.clearfix
                     h3.small-6.medium-4.columns.quiet Total Paid
-                    span.small-6.medium-8.columns = tax_ob.total_paid
+                    span.small-6.medium-8.columns = number_to_currency(tax_ob.total_paid, locale: :en)
                   div.clearfix
                     h3.small-6.medium-4.columns.quiet Redevance
-                    span.small-6.medium-8.columns = tax_ob.redevance
+                    span.small-6.medium-8.columns = number_to_currency(tax_ob.redevance, locale: :en)
                   div.clearfix
                     h3.small-6.medium-4.columns.quiet IBP
-                    span.small-6.medium-8.columns = tax_ob.ibp
+                    span.small-6.medium-8.columns = number_to_currency(tax_ob.ibp, locale: :en)
                   div.clearfix
                     h3.small-6.medium-4.columns.quiet Import Customs Duty
-                    span.small-6.medium-8.columns = tax_ob.import_customs_duty
+                    span.small-6.medium-8.columns = number_to_currency(tax_ob.import_customs_duty, locale: :en)
                   div.clearfix
                     h3.small-6.medium-4.columns.quiet Surface Rights
-                    span.small-6.medium-8.columns = tax_ob.surface_rights
+                    span.small-6.medium-8.columns = number_with_delimiter(tax_ob.surface_rights)
                   div.clearfix
                     h3.small-6.medium-4.columns.quiet Signature Bonus
-                    span.small-6.medium-8.columns = tax_ob.signature_bonus
+                    span.small-6.medium-8.columns = number_to_currency(tax_ob.signature_bonus, locale: :en)
                   div.clearfix
                     h3.small-6.medium-4.columns.quiet Royalties
-                    span.small-6.medium-8.columns = tax_ob.royalties
+                    span.small-6.medium-8.columns = number_to_currency(tax_ob.royalties, locale: :en)
                   div.clearfix
                     h3.small-6.medium-4.columns.quiet Other
-                    span.small-6.medium-8.columns = tax_ob.other
+                    span.small-6.medium-8.columns = number_to_currency(tax_ob.other, locale: :en)
 
         li.accordion-navigation
           a[href="#accordion-enviro"] Environmental & Social Obligations
@@ -205,7 +201,7 @@ div.grey.company-stats
                   span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.enviro_impact_date
                 div.clearfix
                   h3.small-6.medium-4.columns.quiet Environmental Impact Link
-                  span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.enviro_impact_link
+                  span.small-6.medium-8.columns = link_to @drc_company.env_and_social_obligation.enviro_impact_link
                 div.clearfix
                   h3.small-6.medium-4.columns.quiet Sustainability Development Plan
                   span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.sustainable_dev_plan
