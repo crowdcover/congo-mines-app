@@ -458,11 +458,16 @@ $summary-lines-to-show: 4;
     color: #fff;
   }
 
-.content ul, .grey ul {
-	list-style-type: none;
-	margin: 0;
-	line-height: 2em;
-}
+
+.content ul {
+  margin-left: 2rem;
+  }
+  .content ul.no-style {
+    list-style-type: none;
+    margin: 0;
+    line-height: 2em;
+  }
+
 
 .category {
   width: 185px;
