@@ -152,29 +152,26 @@ $(function(){
       // For Each feature in the GeoJSON define popups, any action etc action
       // onEachFeature is a leaflet method that can pass to a layer
       function onEachFeature(feature, layer) {
-        var props = feature.properties;
-
-        // do if statements for a few different properties
-        // testing with typeof props.(property) !== undefined
-        // for the 3 different geodata types
-        var company = props.drc_company ? props.drc_company : '';
-        var type = props.mine_type ? props.mine_type :  '';
-        var proven = props.proven_reserves ? props.proven_reserves : '';
-        minerals = app.getMineralList(props).join(', ');
+        var properties = _.mapObject(feature.properties, function(property){
+                          if(property === null || property === undefined){
+                            return '';
+                          }
+                          return property;
+                        });
         
-        var popupContent = ["<h2 class='mine-marker text-center'>", props.name, "</h2>",
+        var popupContent = ["<h2 class='mine-marker text-center'>", properties.name, "</h2>",
             "<table>",
               '<tr>',
-                '<td class="name">Company</td>', '<td class="value">', company, '</td>',
+                '<td class="name">Company</td>', '<td class="value">', properties.drc_company, '</td>',
               '</tr>',
               '<tr>',
-                '<td class="name">Mine Type</td>', '<td class="value">', type, '</td>',
+                '<td class="name">Mine Type</td>', '<td class="value">', properties.type, '</td>',
               '</tr>',
               '<tr>',
-                '<td class="name">Minerals</td>', '<td class="value">', minerals, '</td>',
+                '<td class="name">Minerals</td>', '<td class="value">', app.getMineralList(properties).join(', '), '</td>',
               '</tr>',
               '<tr>',
-                '<td class="name">Permit Number</td>', '<td class="value">', minerals, '</td>',
+                '<td class="name">Permit Number</td>', '<td class="value">', properties.permit_number, '</td>',
               '</tr>',
             "</table>"].join('');
 
