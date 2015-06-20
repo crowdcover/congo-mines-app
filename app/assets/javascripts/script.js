@@ -290,7 +290,7 @@ $(function(){
                                     '<tr>',
                                       '<th></th>',
                                       '<th>Tonnage</th>',
-                                      '<th>Grade (%)</th>',
+                                      '<th>Grade</th>',
                                       '<th>Metal Content</th>',
                                     '</tr>',
                                   '</thead>',
@@ -310,24 +310,28 @@ $(function(){
 
         return header + 
               measurements.map(function(measurement){
-                var output = ['<tr class="measurement">', 
+                return ['<tr class="measurement">', 
                           '<td class="name">', measurement.mineral_resource.name, '</td>',
-                          '<td>', measurement.tonnage.toLocaleString(), '</td>',
+                          '<td>', app.numberize(measurement.tonnage), '</td>',
                           '<td>', measurement.grade, '</td>',
-                          '<td>', measurement.metal_content, ' (' + measurement.metal_content_unit + ')', '</td>',
-                        '</tr>']
+                          '<td>', app.numberize(measurement.metal_content, 'percent'), '</td>',
+                        '</tr>'].join('');
 
-                // remove measurement.metal_content_unit if not present
-                if(! measurement.metal_content_unit){
-                  output.splice(12,1);
-                }
-                return output.join('')
               }).join('');
       };
     },
 
     titleize: function(str){
       return str.replace('_', ' ').replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+    },
+
+    numberize: function(num, format){
+      if(num === null || num === undefined){
+        return num;
+      }else if(format === 'percent'){
+        return num.toLocaleString() + ' (%)';
+      }
+      return num.toLocaleString();
     },
 
     insertAfter: function(array, insertAfter, insertArray){
