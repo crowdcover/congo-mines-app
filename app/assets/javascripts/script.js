@@ -118,6 +118,14 @@ $(function(){
 
     addVectorLayer: function(url){
       $.getJSON(url, function(data){
+        // remove features with no coordinates
+        data.features.filter(function(feature){
+          return feature.geometry.coordinates[0] !== undefined ||
+                 feature.geometry.coordinates[0] !== null ||
+                 feature.geometry.coordinates[1] !== undefined ||
+                 feature.geometry.coordinates[1] !== null;
+        });
+
         var minesLayer = L.geoJson(data, {
           onEachFeature: onEachFeature
         });
@@ -127,7 +135,11 @@ $(function(){
 
         app.setUpTable(data);
 
-        app.map.fitBounds(minesLayer.getBounds());
+        // fit map features to viewport unless no geojson features
+        if(data.features.length > 0){
+          app.map.fitBounds(minesLayer.getBounds());
+        }
+        
 
       });
 
@@ -173,15 +185,6 @@ $(function(){
         app.map.removeLayer(layer);
       });
 
-      if (typeof app.mapTable !== 'undefined') {
-        // console.log($('.mine-table'));
-        app.mapTable.fnClearTable();
-        app.mapTable.fnDestroy();
-        $('.mine-table').replaceWith( '<table class="mine-table" width="100%"></table>' );
-      } else {
-        // console.log('no mine-table');
-      }
-
     },
 
     clearTileLayers: function(){
@@ -191,9 +194,9 @@ $(function(){
     },
 
     setUpTable: function(geoJSON){
-      if (geoJSON.features.length == 0) {
-        return;
-      }
+      // if (geoJSON.features.length == 0) {
+      //   return;
+      // }
 
       var properties = $.map(geoJSON.features, function(feature){ 
         var property = feature.properties;
@@ -206,6 +209,8 @@ $(function(){
         "paging": false,
         "info": false,
         "searching": false,
+        "autoWidth": false,
+        "destroy": true,
         "columns": [
             { "data": "name", "title": "Name" },
             // { "data": "drc_company", "title": "Company" },
