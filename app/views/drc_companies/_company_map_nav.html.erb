@@ -10,16 +10,16 @@
     <ul class="left">
 
       <li class="has-dropdown map-dropdown mining-data">
-        <a class="title" href="#">Mining Data <span class="layer-title show">Deposits</span></a>
+        <a class="title" href="#">Mining Data <span class="layer-title show"></span></a>
         <ul class="dropdown">
-          <li class="active">
-            <a class="add-layer" href="#" data-url="<%= get_deposits_geodata_drc_company_path{@drc_company} %>">Deposits</a>
+          <li>
+            <a class="add-layer" href="#" data-type="deposit" data-url="<%= get_deposits_geodata_drc_company_path{@drc_company} %>">Deposits</a>
           </li>
           <li>
-            <a class="add-layer" href="#" data-url="<%= get_processing_infrastructures_geodata_drc_company_path{@drc_company} %>">Processing Infrastructures</a>
+            <a class="add-layer" href="#" data-type="processing_infrastructure" data-url="<%= get_processing_infrastructures_geodata_drc_company_path{@drc_company} %>">Processing Infrastructures</a>
           </li>
           <li>
-            <a class="add-layer" href="#" data-url="<%= get_social_projects_geodata_drc_company_path{@drc_company} %>">Social Projects</a>
+            <a class="add-layer" href="#" data-type="social_project" data-url="<%= get_social_projects_geodata_drc_company_path{@drc_company} %>">Social Projects</a>
           </li>
         </ul>
       </li>

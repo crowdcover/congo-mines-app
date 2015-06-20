@@ -233,6 +233,7 @@ div.row
 javascript:
   $(function() {
     app.initMap();
-    var geodataUrl = "#{get_deposits_geodata_drc_company_path(@drc_company)}"
-    app.addVectorLayer(geodataUrl);
+
+    // show deposits
+    $('.top-bar a.add-layer[data-type="deposit"]').trigger('click')
   });

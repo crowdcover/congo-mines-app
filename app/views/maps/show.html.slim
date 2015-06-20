@@ -6,6 +6,7 @@ div.map
 javascript:
   $(function() {
     app.initMap();
-    var geodataUrl = "#{get_all_deposits_map_url}"
-    app.addVectorLayer(geodataUrl);
+    
+    // show deposits
+    $('.top-bar a.add-layer[data-type="deposit"]').trigger('click')
   });

@@ -3,7 +3,7 @@ $(function(){
 
   var app = {
     access_token: 'pk.eyJ1IjoiY29uZ29taW5lcyIsImEiOiI4ZmRkOGJiNDk0MzNhNmU1NGE4N2MzODI5ZmFhNTcxNyJ9.wW5SYM4cPL7qOrz-443SGg',
-
+    mapTable: null,
     initCommon: function(){
       mainbottom = $('.content').offset().top
 
@@ -62,12 +62,13 @@ $(function(){
       // map dropdown click map events
       $('.map-dropdown.mining-data ul a').on('click', function(e){
         var $this = $(this),
+            type = $this.data('type'),
             url = $this.data('url'),
             parentListItem = $this.parent('li');
 
         if(! parentListItem.hasClass('active')){
           app.clearVectorLayers();
-          app.addVectorLayer(url);
+          app.addVectorLayer(url, type);
         }
         
       });
@@ -102,7 +103,7 @@ $(function(){
       // show datatable child rows
       $('table.mine-table').on('click', 'td.show-child-rows', function(e){
         var tr = $(this).closest('tr');
-        var row = app.mapTable.row( tr );
+        var row = app.mapTable.api().row( tr );
  
         if ( row.child.isShown() ) {
             row.child.hide();
@@ -116,7 +117,7 @@ $(function(){
       
     },
 
-    addVectorLayer: function(url){
+    addVectorLayer: function(url, type){
       $.getJSON(url, function(data){
         // remove features with no coordinates
         data.features.filter(function(feature){
@@ -133,11 +134,11 @@ $(function(){
         minesLayer.addTo(app.map);
         app.map.vectorLayers.push(minesLayer);
 
-        app.setUpTable(data);
+        app.setUpTable(data, type);
 
         // fit map features to viewport unless no geojson features
         if(data.features.length > 0){
-          app.map.fitBounds(minesLayer.getBounds());
+          app.map.fitBounds(minesLayer.getBounds(), { maxZoom: 15 });
         }
         
 
@@ -193,10 +194,14 @@ $(function(){
       });
     },
 
-    setUpTable: function(geoJSON){
-      // if (geoJSON.features.length == 0) {
-      //   return;
-      // }
+    setUpTable: function(geoJSON, type){
+      // destroy if exists
+      if(app.mapTable){
+        // app.mapTable.destroy();
+        app.mapTable.fnClearTable();
+        app.mapTable.fnDestroy();
+        app.mapTable.empty();
+      }
 
       var properties = $.map(geoJSON.features, function(feature){ 
         var property = feature.properties;
@@ -204,25 +209,39 @@ $(function(){
         return property;
       });
 
-      app.mapTable = $('.mine-table').DataTable({
+      var columns = {
+        deposit: [
+          { "data": "name", "title": "Name" },
+          // { "data": "drc_company", "title": "Company" },
+          { "data": "mine_type", "title": "Mine Type" },
+          { "data": "permit_type", "title": "Permit Type" },
+          { "data": "permit_number", "title": "Permit Number" },
+          { "data": "minerals", 
+            "title": "Minerals",
+            "className": "show-child-rows"
+          },
+          { "data": "source", "title": "Source" }
+        ],
+        processing_infrastructure: [
+          { "data": "name", "title": "Name" }
+        ],
+        social_project: [
+          { "data": "project_type", "title": "Type de Projet" },
+          { "data": "amount_planned", "title": "Montant prévu" },
+          { "data": "amount_spent", "title": "Montant dépensé" },
+          { "data": "stage", "title": "Etat de réalisation" },
+          { "data": "description", "title": "Description" }
+        ],
+      };
+
+      app.mapTable = $('.mine-table').dataTable({
         "data" : properties,
+        "destroy": true,
         "paging": false,
         "info": false,
         "searching": false,
         "autoWidth": false,
-        "destroy": true,
-        "columns": [
-            { "data": "name", "title": "Name" },
-            // { "data": "drc_company", "title": "Company" },
-            { "data": "mine_type", "title": "Mine Type" },
-            { "data": "permit_type", "title": "Permit Type" },
-            { "data": "permit_number", "title": "Permit Number" },
-            { "data": "minerals", 
-              "title": "Minerals",
-              "className": "show-child-rows"
-            },
-            { "data": "source", "title": "Source" }
-        ],
+        "columns": columns[type]
       });
 
     },
