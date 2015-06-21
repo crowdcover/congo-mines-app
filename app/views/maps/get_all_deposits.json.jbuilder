@@ -10,7 +10,6 @@ json.features validDeposits do |deposit|
     json.mine_type deposit.mine_type
     json.permit_type deposit.permit_type
     json.permit_number deposit.permit_number
-    json.proven_reserves deposit.proven_reserves
     
     json.proven_reserves(deposit.proven_reserves) do |res| 
       json.extract! res, :id, :created_at, :depoable_id, :depoable_type, :deposit_type, :grade, :tonnage, :measurement, :metal_content, :metal_content_unit, :updated_at, :mineral_resource
@@ -33,6 +32,10 @@ json.features validDeposits do |deposit|
     end
 
     json.inferred_resources(deposit.inferred_resources) do |res| 
+      json.extract! res, :id, :created_at, :depoable_id, :depoable_type, :deposit_type, :grade, :tonnage, :measurement, :metal_content, :metal_content_unit, :updated_at, :mineral_resource
+    end
+
+    json.total_resources(deposit.total_resources) do |res| 
       json.extract! res, :id, :created_at, :depoable_id, :depoable_type, :deposit_type, :grade, :tonnage, :measurement, :metal_content, :metal_content_unit, :updated_at, :mineral_resource
     end
 
