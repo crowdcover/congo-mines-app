@@ -38,7 +38,7 @@ h5, h6 {
 }
 
 .quiet { color: #aaa !important; }
-.dark { color: #222 !important; }
+.dark { color: #444 !important; }
 .center { text-align: center; }
 .text-left { text-align: left; }
 
@@ -322,7 +322,8 @@ $summary-lines-to-show: 4;
 }
 
 .company-stats {
-  padding: 0 20px 60px;
+  padding-top: 20px;
+  padding-bottom: 40px;
 }
 
 
@@ -408,7 +409,8 @@ $summary-lines-to-show: 4;
   .content h1 {
   	text-align: center;
   	color: #32acde;
-    margin: 1em 0;
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
   }
   .content .meta {
   	color: #c7c7c7;
@@ -656,11 +658,11 @@ label {
 .accordion li.accordion-navigation > a {
   position: relative;
   font-family: 'Open Sans', sans-serif;
-  font-size: 1.5em;
+  font-size: 1.3rem;
   color: #666;
   border-bottom: 1px solid #666;
   transition: all 0.2s ease-in-out;
-  padding-top: 2rem;
+  padding: 0.8rem;
   }
   .accordion li.accordion-navigation > a:hover,
   .accordion li.accordion-navigation.active > a {
@@ -674,7 +676,6 @@ label {
     width: 35px;
     height: 35px;
     right: 0;
-    top: 30px;
     background: transparent image-url('arrow_right.png') no-repeat center center;
   }
   .accordion li.accordion-navigation.active > a:after {
@@ -688,11 +689,17 @@ label {
     background-color: transparent;
   }
   .accordion .row {
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
+  }
+  .accordion .row:last-of-type {
+    padding-bottom: 0;
   }
   .accordion .row.collapse .columns{
     padding-left: 0;
     padding-right: 0;
+  }
+  .accordion p {
+    margin-bottom: 0;
   }
   // .accordion .columns .columns,
   // .accordion .description,

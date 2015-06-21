@@ -32,44 +32,44 @@ div.grey.company-stats
             div.row.collapse
               div.small-12.medium-6.columns
                 div.clearfix
-                  h3.small-6.columns.quiet NRC
+                  h4.small-6.columns.quiet NRC
                   span.small-6.columns = @drc_company.nrc
                 div.clearfix
-                  h3.small-6.columns.quiet RCCM
+                  h4.small-6.columns.quiet RCCM
                   span.small-6.columns = @drc_company.rccm
                 div.clearfix
-                  h3.small-6.columns.quiet Legal Status
+                  h4.small-6.columns.quiet Legal Status
                   span.small-6.columns = @drc_company.legal_status
                 div.clearfix
-                  h3.small-6.columns.quiet Legal Regime
+                  h4.small-6.columns.quiet Legal Regime
                   span.small-6.columns = @drc_company.legal_regime
 
               div.small-12.medium-6.columns
                 div.clearfix
-                  h3.small-6.columns.quiet Project Type
+                  h4.small-6.columns.quiet Project Type
                   span.small-6.columns = @drc_company.project_type
                 div.clearfix
-                  h3.small-6.columns.quiet Project Phase
+                  h4.small-6.columns.quiet Project Phase
                   span.small-6.columns = @drc_company.project_phase
                 div.clearfix
-                  h3.small-6.columns.quiet Contact
+                  h4.small-6.columns.quiet Contact
                   span.small-6.columns = @drc_company.contact
                 div.clearfix
-                  h3.small-6.columns.quiet Website
+                  h4.small-6.columns.quiet Website
                   span.small-6.columns = link_to @drc_company.website
 
             - if @drc_company.description
               div.row.collapse
-                h3.medium-3.columns.quiet Description
+                h4.medium-3.columns.quiet Description
                 p.medium-9.columns.description = @drc_company.description
 
             - if @drc_company.permits
               div.row.collapse
-                h3.medium-3.columns.quiet Permits
+                h4.medium-3.columns.quiet Permits
                 p.medium-9.columns.permits : em = @drc_company.permits
 
             div.row.collapse
-              h3.medium-3.columns.quiet Employees
+              h4.medium-3.columns.quiet Employees
               div.medium-9.columns.employees
                 - employees = @drc_company.employees.each do |emp|
                   - unless emp.nil?
@@ -91,25 +91,25 @@ div.grey.company-stats
               div.small-12.columns
                 - if @drc_company.production_exports.length == 0
                   / if empty array, output headers only
-                  h3.small-12.columns.quiet Type of Product
-                  h3.small-12.columns.quiet Tonnage
-                  h3.small-12.columns.quiet Grade
-                  h3.small-12.columns.quiet Export Value
+                  h4.small-12.columns.quiet Type of Product
+                  h4.small-12.columns.quiet Tonnage
+                  h4.small-12.columns.quiet Grade
+                  h4.small-12.columns.quiet Export Value
                 - @drc_company.production_exports.each do |pe|
                   - unless pe.nil?
                     div.mbm
-                      h3.small-12.columns.dark = pe.year
+                      h4.small-12.columns.dark = pe.year
                       div.clearfix
-                        h3.small-6.medium-4.columns.quiet Type of Product
+                        h4.small-6.medium-4.columns.quiet Type of Product
                         span.small-6.medium-8.columns = pe.type_of_product
                       div.clearfix
-                        h3.small-6.medium-4.columns.quiet Tonnage
+                        h4.small-6.medium-4.columns.quiet Tonnage
                         span.small-6.medium-8.columns = number_with_delimiter(pe.tonnage)
                       div.clearfix
-                        h3.small-6.medium-4.columns.quiet Grade
+                        h4.small-6.medium-4.columns.quiet Grade
                         span.small-6.medium-8.columns = number_to_percentage(pe.grade, precision: 2, separator: '.')
                       div.clearfix
-                        h3.small-6.medium-4.columns.quiet Export Value
+                        h4.small-6.medium-4.columns.quiet Export Value
                         span.small-6.medium-8.columns = number_to_currency(pe.export_value, locale: :en, unit: "USD ")
 
 
@@ -118,67 +118,67 @@ div.grey.company-stats
           div#accordion-tax.content.clearfix[onclick="event.cancelBubble = true;"]
             div.row
               - if ! @drc_company.flows_payable_under_contract
-                h3.small-12.columns.quiet Signature Bonus
-                h3.small-12.columns.quiet Royalties
-                h3.small-12.columns.quiet Annuity
-                h3.small-12.columns.quiet Transfer of Shares
-                h3.small-12.columns.quiet Contract Cash Recipient
+                h4.small-12.columns.quiet Signature Bonus
+                h4.small-12.columns.quiet Royalties
+                h4.small-12.columns.quiet Annuity
+                h4.small-12.columns.quiet Transfer of Shares
+                h4.small-12.columns.quiet Contract Cash Recipient
               - else
-                h2.small-12.columns.quiet Flux Payable au Contrat
+                h3.small-12.columns.quiet Flux Payable au Contrat
                 div.clearfix
-                  h3.small-6.medium-4.columns.quiet Signature Bonus
+                  h4.small-6.medium-4.columns.quiet Signature Bonus
                   span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.signature_bonus, locale: :en, unit: "USD ")
                 div.clearfix
-                  h3.small-6.medium-4.columns.quiet Royalties
+                  h4.small-6.medium-4.columns.quiet Royalties
                   span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.royalties, locale: :en, unit: "USD ")
                 div.clearfix
-                  h3.small-6.medium-4.columns.quiet Annuity
+                  h4.small-6.medium-4.columns.quiet Annuity
                   span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.annuity, locale: :en, unit: "USD ")
                 div.clearfix
-                  h3.small-6.medium-4.columns.quiet Transfer of Shares
+                  h4.small-6.medium-4.columns.quiet Transfer of Shares
                   span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.transfer_of_shares, locale: :en, unit: "USD ")
                 div.clearfix
-                  h3.small-6.medium-4.columns.quiet Contract Cash Recipient
+                  h4.small-6.medium-4.columns.quiet Contract Cash Recipient
                   span.small-6.medium-8.columns = @drc_company.flows_payable_under_contract.contract_cash_recipient
 
             div.row
-              h2.small-12.columns.quiet Tax Payments
+              h3.small-12.columns.quiet Tax Payments
               - if @drc_company.tax_obligations.length == 0
                 / if empty array, output headers only
-                h3.small-12.columns.quiet Total Paid
-                h3.small-12.columns.quiet Redevance
-                h3.small-12.columns.quiet IBP
-                h3.small-12.columns.quiet Import Customs Duty
-                h3.small-12.columns.quiet Surface Rights
-                h3.small-12.columns.quiet Signature Bonus
-                h3.small-12.columns.quiet Royalties
-                h3.small-12.columns.quiet Other
+                h4.small-12.columns.quiet Total Paid
+                h4.small-12.columns.quiet Redevance
+                h4.small-12.columns.quiet IBP
+                h4.small-12.columns.quiet Import Customs Duty
+                h4.small-12.columns.quiet Surface Rights
+                h4.small-12.columns.quiet Signature Bonus
+                h4.small-12.columns.quiet Royalties
+                h4.small-12.columns.quiet Other
               - @drc_company.tax_obligations.each do |tax_ob|
                 - unless tax_ob.nil?
-                  h3.small-12.columns.dark = tax_ob.year
+                  h4.small-12.columns.dark = tax_ob.year
                   div.clearfix
-                    h3.small-6.medium-4.columns.quiet Total Paid
+                    h4.small-6.medium-4.columns.quiet Total Paid
                     span.small-6.medium-8.columns = number_to_currency(tax_ob.total_paid, locale: :en, unit: "USD ")
                   div.clearfix
-                    h3.small-6.medium-4.columns.quiet Redevance
+                    h4.small-6.medium-4.columns.quiet Redevance
                     span.small-6.medium-8.columns = number_to_currency(tax_ob.redevance, locale: :en, unit: "USD ")
                   div.clearfix
-                    h3.small-6.medium-4.columns.quiet IBP
+                    h4.small-6.medium-4.columns.quiet IBP
                     span.small-6.medium-8.columns = number_to_currency(tax_ob.ibp, locale: :en, unit: "USD ")
                   div.clearfix
-                    h3.small-6.medium-4.columns.quiet Import Customs Duty
+                    h4.small-6.medium-4.columns.quiet Import Customs Duty
                     span.small-6.medium-8.columns = number_to_currency(tax_ob.import_customs_duty, locale: :en, unit: "USD ")
                   div.clearfix
-                    h3.small-6.medium-4.columns.quiet Surface Rights
+                    h4.small-6.medium-4.columns.quiet Surface Rights
                     span.small-6.medium-8.columns = number_with_delimiter(tax_ob.surface_rights)
                   div.clearfix
-                    h3.small-6.medium-4.columns.quiet Signature Bonus
+                    h4.small-6.medium-4.columns.quiet Signature Bonus
                     span.small-6.medium-8.columns = number_to_currency(tax_ob.signature_bonus, locale: :en, unit: "USD ")
                   div.clearfix
-                    h3.small-6.medium-4.columns.quiet Royalties
+                    h4.small-6.medium-4.columns.quiet Royalties
                     span.small-6.medium-8.columns = number_to_currency(tax_ob.royalties, locale: :en, unit: "USD ")
                   div.clearfix
-                    h3.small-6.medium-4.columns.quiet Other
+                    h4.small-6.medium-4.columns.quiet Other
                     span.small-6.medium-8.columns = number_to_currency(tax_ob.other, locale: :en, unit: "USD ")
 
         li.accordion-navigation
@@ -186,33 +186,32 @@ div.grey.company-stats
           div#accordion-enviro.content.clearfix[onclick="event.cancelBubble = true;"]
             div.row
               - if ! @drc_company.env_and_social_obligation
-                h3.small-12.columns.quiet Community Fund
-                h3.small-12.columns.quiet Environmental Impact Date
-                h3.small-12.columns.quiet Environmental Impact Link
-                h3.small-12.columns.quiet Sustainability Development Plan
-                h3.small-12.columns.quiet Community Dialogue Platform
-                h3.small-12.columns.quiet Social Investment
+                h4.small-12.columns.quiet Community Fund
+                h4.small-12.columns.quiet Environmental Impact Date
+                h4.small-12.columns.quiet Environmental Impact Link
+                h4.small-12.columns.quiet Sustainability Development Plan
+                h4.small-12.columns.quiet Community Dialogue Platform
+                h4.small-12.columns.quiet Social Investment
               - else
                 div.clearfix
-                  h3.small-6.medium-4.columns.quiet Community Fund
+                  h4.small-6.medium-4.columns.quiet Community Fund
                   span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.community_fund
                 div.clearfix
-                  h3.small-6.medium-4.columns.quiet Environmental Impact Date
+                  h4.small-6.medium-4.columns.quiet Environmental Impact Date
                   span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.enviro_impact_date
                 div.clearfix
-                  h3.small-6.medium-4.columns.quiet Environmental Impact Link
+                  h4.small-6.medium-4.columns.quiet Environmental Impact Link
                   span.small-6.medium-8.columns = link_to @drc_company.env_and_social_obligation.enviro_impact_link
                 div.clearfix
-                  h3.small-6.medium-4.columns.quiet Sustainability Development Plan
+                  h4.small-6.medium-4.columns.quiet Sustainability Development Plan
                   span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.sustainable_dev_plan
                 div.clearfix
-                  h3.small-6.medium-4.columns.quiet Community Dialogue Platform
+                  h4.small-6.medium-4.columns.quiet Community Dialogue Platform
                   span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.community_dialogue_platform
                 div.clearfix
-                  h3.small-6.medium-4.columns.quiet Social Investment
+                  h4.small-6.medium-4.columns.quiet Social Investment
                   span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.social_investment
 
-div.divider
 div.row
   div.large-12.columns
     h1.quiet Documents
