@@ -56,7 +56,8 @@ div.grey.company-stats
                   span.small-6.columns = @drc_company.contact
                 div.clearfix
                   h4.small-6.columns.quiet Website
-                  span.small-6.columns = link_to @drc_company.website
+                  - if @drc_company.website
+                    span.small-6.columns = link_to @drc_company.website, @drc_company.website
 
             - if @drc_company.description
               div.row.collapse
