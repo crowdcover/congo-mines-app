@@ -110,7 +110,7 @@ div.grey.company-stats
                         span.small-6.medium-8.columns = number_to_percentage(pe.grade, precision: 2, separator: '.')
                       div.clearfix
                         h3.small-6.medium-4.columns.quiet Export Value
-                        span.small-6.medium-8.columns = number_to_currency(pe.export_value, locale: :en)
+                        span.small-6.medium-8.columns = number_to_currency(pe.export_value, locale: :en, unit: "USD ")
 
 
         li.accordion-navigation
@@ -127,16 +127,16 @@ div.grey.company-stats
                 h2.small-12.columns.quiet Flux Payable au Contrat
                 div.clearfix
                   h3.small-6.medium-4.columns.quiet Signature Bonus
-                  span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.signature_bonus, locale: :en)
+                  span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.signature_bonus, locale: :en, unit: "USD ")
                 div.clearfix
                   h3.small-6.medium-4.columns.quiet Royalties
-                  span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.royalties, locale: :en)
+                  span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.royalties, locale: :en, unit: "USD ")
                 div.clearfix
                   h3.small-6.medium-4.columns.quiet Annuity
-                  span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.annuity, locale: :en)
+                  span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.annuity, locale: :en, unit: "USD ")
                 div.clearfix
                   h3.small-6.medium-4.columns.quiet Transfer of Shares
-                  span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.transfer_of_shares, locale: :en)
+                  span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.transfer_of_shares, locale: :en, unit: "USD ")
                 div.clearfix
                   h3.small-6.medium-4.columns.quiet Contract Cash Recipient
                   span.small-6.medium-8.columns = @drc_company.flows_payable_under_contract.contract_cash_recipient
@@ -158,28 +158,28 @@ div.grey.company-stats
                   h3.small-12.columns.dark = tax_ob.year
                   div.clearfix
                     h3.small-6.medium-4.columns.quiet Total Paid
-                    span.small-6.medium-8.columns = number_to_currency(tax_ob.total_paid, locale: :en)
+                    span.small-6.medium-8.columns = number_to_currency(tax_ob.total_paid, locale: :en, unit: "USD ")
                   div.clearfix
                     h3.small-6.medium-4.columns.quiet Redevance
-                    span.small-6.medium-8.columns = number_to_currency(tax_ob.redevance, locale: :en)
+                    span.small-6.medium-8.columns = number_to_currency(tax_ob.redevance, locale: :en, unit: "USD ")
                   div.clearfix
                     h3.small-6.medium-4.columns.quiet IBP
-                    span.small-6.medium-8.columns = number_to_currency(tax_ob.ibp, locale: :en)
+                    span.small-6.medium-8.columns = number_to_currency(tax_ob.ibp, locale: :en, unit: "USD ")
                   div.clearfix
                     h3.small-6.medium-4.columns.quiet Import Customs Duty
-                    span.small-6.medium-8.columns = number_to_currency(tax_ob.import_customs_duty, locale: :en)
+                    span.small-6.medium-8.columns = number_to_currency(tax_ob.import_customs_duty, locale: :en, unit: "USD ")
                   div.clearfix
                     h3.small-6.medium-4.columns.quiet Surface Rights
                     span.small-6.medium-8.columns = number_with_delimiter(tax_ob.surface_rights)
                   div.clearfix
                     h3.small-6.medium-4.columns.quiet Signature Bonus
-                    span.small-6.medium-8.columns = number_to_currency(tax_ob.signature_bonus, locale: :en)
+                    span.small-6.medium-8.columns = number_to_currency(tax_ob.signature_bonus, locale: :en, unit: "USD ")
                   div.clearfix
                     h3.small-6.medium-4.columns.quiet Royalties
-                    span.small-6.medium-8.columns = number_to_currency(tax_ob.royalties, locale: :en)
+                    span.small-6.medium-8.columns = number_to_currency(tax_ob.royalties, locale: :en, unit: "USD ")
                   div.clearfix
                     h3.small-6.medium-4.columns.quiet Other
-                    span.small-6.medium-8.columns = number_to_currency(tax_ob.other, locale: :en)
+                    span.small-6.medium-8.columns = number_to_currency(tax_ob.other, locale: :en, unit: "USD ")
 
         li.accordion-navigation
           a[href="#accordion-enviro"] Environmental & Social Obligations
