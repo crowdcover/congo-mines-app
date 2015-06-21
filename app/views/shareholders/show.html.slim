@@ -11,24 +11,24 @@ div.row
 div.row.pvl
   div.small-12.medium-6.columns
     div.clearfix
-      h3.small-6.columns.quiet Stock
+      h4.small-6.columns.quiet Stock
       span.small-6.columns = @shareholder.stock
     div.clearfix
-      h3.small-6.columns.quiet Public/Private
+      h4.small-6.columns.quiet Public/Private
       span.small-6.columns = @shareholder.public_private
     div.clearfix
-      h3.small-6.columns.quiet Stock Symbol
+      h4.small-6.columns.quiet Stock Symbol
       span.small-6.columns = @shareholder.stock_symbol
     div.clearfix
-      h3.small-6.columns.quiet Stock Exchange
+      h4.small-6.columns.quiet Stock Exchange
       span.small-6.columns = @shareholder.stock_exchange
 
   div.small-12.medium-6.columns
     div.clearfix
-      h3.small-6.columns.quiet Website
+      h4.small-6.columns.quiet Website
       span.small-6.columns = @shareholder.website
     div.clearfix
-      h3.small-6.columns.quiet Contact
+      h4.small-6.columns.quiet Contact
       span.small-6.columns = @shareholder.contact
 
 div.grey.pbl
@@ -41,13 +41,13 @@ div.grey.pbl
             - @shareholder.shareholder_relationships.each do |sr|
               - unless sr.nil?
                 div.row
-                  h2.small-12.columns.dark = sr.drc_company.name
+                  h3.small-12.columns.dark = sr.drc_company.name
                   div.clearfix
-                    h3.small-6.medium-4.columns.quiet Percentage
+                    h4.small-6.medium-4.columns.quiet Percentage
                     span.small-6.medium-8.columns = number_to_percentage(sr.percentage, precision: 2)
                   div.clearfix
-                    h3.small-6.medium-4.columns.quiet Year
+                    h4.small-6.medium-4.columns.quiet Year
                     span.small-6.medium-8.columns = sr.year
                   div.clearfix
-                    h3.small-6.medium-4.columns.quiet Direct Shareholder
+                    h4.small-6.medium-4.columns.quiet Direct Shareholder
                     span.small-6.medium-8.columns = sr.intermediary_companies.pluck(:name).join(', ')
