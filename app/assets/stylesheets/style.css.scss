@@ -13,7 +13,7 @@
 body {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 200;
-	line-height: 2em;
+	line-height: 2rem;
 }
 
 h1, h2, h3, h4 {
@@ -22,16 +22,16 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-	font-size: 1.8em;
+	font-size: 1.8rem;
   }
   h2 {
-  	font-size: 1.6em;
+  	font-size: 1.6rem;
   }
   h3 {
-  	font-size: 1.3em;
+  	font-size: 1.3rem;
   }
   h4 {
-  	font-size: 1.2em;
+  	font-size: 1.2rem;
   }
 h5, h6 {
 	color: #a4a4a4;
@@ -49,7 +49,7 @@ a { color: #32acde; }
 p {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 200;
-	line-height: 1.7em;
+	line-height: 1.7rem;
 }
 
 button {
@@ -88,7 +88,7 @@ table {
   }
 
 blockquote {
-	line-height: 2em;
+	line-height: 2rem;
 }
 
 strong, b {
@@ -155,8 +155,8 @@ li.docicon {
   // .header h3 {
   //   color: #fff;
   //   font-weight: 200;
-  //   line-height: 1.7em;
-  //   font-size: 1.7em;
+  //   line-height: 1.7rem;
+  //   font-size: 1.7rem;
   //   font-family: 'Open Sans', sans-serif;
   //   margin: auto;
   //   max-width: 640px;
@@ -180,8 +180,8 @@ li.docicon {
   .header .menu h4 {
     color: #fff;
     font-weight: 200;
-    line-height: 1.7em;
-    font-size: 1.2em;
+    line-height: 1.7rem;
+    font-size: 1.2rem;
     font-family: 'Open Sans', sans-serif;
     margin: auto;
     max-width: 640px;
@@ -311,9 +311,9 @@ $summary-lines-to-show: 4;
   }
   .document-container li p {
     color: #656565;
-    font-size: 0.9em;
+    font-size: 0.9rem;
     font-weight: 200;
-    line-height: 1.5em;
+    line-height: 1.5rem;
   }
 
 
@@ -346,7 +346,7 @@ $summary-lines-to-show: 4;
 }
   .footer a .fa {
     color: #b5b6b6;
-    font-size: 2em;
+    font-size: 2rem;
     margin: 15px 0;
     padding-right: 15px;
   }
@@ -374,10 +374,10 @@ $summary-lines-to-show: 4;
     margin-right: 35px;
   }
   .footer ul li a {
-    font-size: 1em;
+    font-size: 1rem;
     font-weight: 200;
     color: #c2c2c2;
-    line-height: 2em;
+    line-height: 2rem;
     transition: color 0.2s ease-in-out;
   }
   .footer ul li a:hover {
@@ -395,7 +395,7 @@ $summary-lines-to-show: 4;
   }
   .copyright p {
   	color: #a8a8a8;
-  	font-size: 0.9em;
+  	font-size: 0.9rem;
   	padding: 15px;
   	text-align: left;
   }
@@ -414,7 +414,7 @@ $summary-lines-to-show: 4;
   }
   .content .meta {
   	color: #c7c7c7;
-  	font-size: 0.9em;
+  	font-size: 0.9rem;
   }
   .content button {
   	padding: 10px 20px;
@@ -425,7 +425,7 @@ $summary-lines-to-show: 4;
   }
   .content h4 {
   	color: #a4a4a4;
-  	font-size: 1.1em;
+  	font-size: 1.1rem;
   	margin-bottom: 0px;
   }
 
@@ -475,7 +475,7 @@ $summary-lines-to-show: 4;
   .content ul.no-style {
     list-style-type: none;
     margin: 0;
-    line-height: 2em;
+    line-height: 2rem;
   }
 
 
@@ -536,7 +536,7 @@ $summary-lines-to-show: 4;
   }
   .search h4 {
   	color: #4f575b;
-  	font-size: 0.9em;
+  	font-size: 0.9rem;
   }
   .search input {
   	border: 1px solid #CCC;
