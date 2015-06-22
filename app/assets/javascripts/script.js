@@ -7,14 +7,14 @@ $(function(){
     initCommon: function(){
       mainbottom = $('.content').offset().top
 
-      $("#hideshow").on('click', function(e){
+      $("#hideshow").on('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
 
         $("#browse-search").slideToggle(500);
       });
 
-      $(".accordion").on("click", "li", function (e) {
+      $(".accordion").on("click", "li", function(e) {
         $(this).find(".content").slideToggle(300);
       });
 
@@ -22,7 +22,7 @@ $(function(){
         allowClear: true
       });
 
-      $(".document-container article.hide-summary-true .show-summary").on('click', function (e) {
+      $(".document-container article.hide-summary-true .show-summary").on('click', function(e) {
         e.stopPropagation();
         e.preventDefault();
 
@@ -46,6 +46,7 @@ $(function(){
             center: [-2.877, 22.83],
             zoom: 5,
             scrollWheelZoom: false,
+            zoomControl: false, // we'll rebuild it later
             minZoom: 4,
             maxZoom: 18
         });
@@ -54,10 +55,64 @@ $(function(){
         app.map.vectorLayers = [];
         app.map.tileLayers = [];
 
+        // add additional objects to map object storing references to moabiLayers and moabiControls
+        var latlngControl = L.control({position: 'topright'});
+        latlngControl.onAdd = function(){
+          var controlHTML = $('<table>', {
+            class: 'latlng-control leaflet-control',
+            html: ['<tbody>',
+                    '<tr>',
+                      '<td>Lat: </td>',
+                      '<td class="lat-input text-center">00.000 &deg;</td>',
+                      '<td class="leaflet-control-zoom-in"><a href="#">+</a></td>',
+                    '</tr>',
+                    '<tr>',
+                      '<td>Lon: </td>',
+                      '<td class="lng-input text-center">00.000 &deg;</td>',
+                      '<td class="leaflet-control-zoom-out"><a href="#">-</a></td>',
+                    '</tr>',
+                  '</tbody>'].join('')
+          });
+          return controlHTML[0];
+        };
+
+        var shareControl = L.control({position: 'topright'});
+        // https://developers.facebook.com/docs/sharing/reference/share-dialog
+        shareControl.onAdd = function(){
+          var controlHTML = $('<div>', {
+            class: 'leaflet-bar social-media-control leaflet-control',
+          });
+          var fbButton = $('<a>',{
+            class: 'fb-share fa fa-facebook',
+            href: '#'
+          })
+          var twitterButton = $('<a>',{
+            class: 'twitter-share fa fa-twitter',
+            href: '#'
+          })
+          controlHTML.append(fbButton, twitterButton);
+          return controlHTML[0];
+        }
+
         app.map.attributionControl.setPrefix(false);
         app.map.attributionControl.addAttribution("<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> <a class='mapbox-improve-map' href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a>")
-        app.map.zoomControl.setPosition('topright');
-        L.control.scale().addTo(app.map);
+        // L.control.zoom({position: 'topright'}).addTo(this.map);
+        latlngControl.addTo(this.map);
+        L.control.scale({position: 'bottomleft'}).addTo(this.map);
+        shareControl.addTo(this.map);
+
+      // zoom control events
+      $('.leaflet-control-zoom-in').on('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        app.map.zoomIn();
+      });
+
+      $('.leaflet-control-zoom-out').on('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        app.map.zoomOut();
+      });
 
       // map dropdown click map events
       $('.map-dropdown.mining-data ul a').on('click', function(e){
@@ -114,6 +169,15 @@ $(function(){
             tr.addClass('shown');
         }
       });
+
+      // map social media tools
+      $('.fb-share').on('click', this.fbShareDialogue);
+      $('.twitter-share').on('click', this.twitterShareDialogue);
+
+      // mouse move events
+      this.map.on('mousemove', _.throttle(function(e){
+        app.setLatLngWidget(e.latlng.lat, e.latlng.lng);
+      }, 100));
       
     },
 
@@ -324,6 +388,33 @@ $(function(){
 
               }).join('');
       };
+    },
+
+    setLatLngWidget: function(lat, lng){
+      var latlngControl = $('#map .latlng-control');
+      latlngControl.find('.lat-input').html(lat.toFixed(3) + ' &deg;');
+      latlngControl.find('.lng-input').html(lng.toFixed(3) + ' &deg;');
+    },
+
+    fbShareDialogue: function(e){
+      e.preventDefault();
+      e.stopPropagation();
+
+      var url = 'https://www.facebook.com/sharer/sharer.php?u=';
+      url += encodeURIComponent(location.href);
+      // url += '&p[title]=Moabi';
+      window.open(url, 'fbshare', 'width=640,height=320');
+    },
+
+    twitterShareDialogue: function(e){
+      e.preventDefault();
+      e.stopPropagation();
+
+      var url = 'http://twitter.com/share?'
+      url += 'text=@CongoMines mapping the extractive industry in the DRC\n';
+      url += '&url=' + encodeURIComponent(location.href);
+      // url += '&hashtags=...';
+      window.open(url, 'twittershare', 'width=640,height=320');
     },
 
     titleize: function(str){
