@@ -391,7 +391,8 @@ $summary-lines-to-show: 4;
 	text-align: center;
   }
   .copyright img {
-  	max-width: 260px;
+  	max-height: 100px;
+    padding: 16px 28px;
   }
   .copyright p {
   	color: #a8a8a8;
