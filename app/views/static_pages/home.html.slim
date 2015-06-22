@@ -7,7 +7,7 @@
 
   div.row
     /   = render partial: "shared/documents", locals: { reports: @rec_reports, columns:  @rec_reports.count }
-    = render partial: "shared/documents", locals: { reports: @rec_reports, columns: 2, hide_summary: false }
+    = render partial: "shared/documents", locals: { reports: @rec_reports, columns: 2, hide_summary: true }
 
 
 = render "shared/search"
