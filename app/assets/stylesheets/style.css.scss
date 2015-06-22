@@ -1,5 +1,6 @@
 /* Designed & Developed by Erik Zuuring - http://erikzuuring.com */
 
+$searchbar-height: 36px;
 
 ::selection {
 	color: #FFF;
@@ -64,6 +65,7 @@ button {
     background-color: #308cb1!important;
   }
   .postfix {
+    height: $searchbar-height;
     background-color: #32acde;
     border-color: #308cb1;
     padding-right: 10px;
@@ -566,7 +568,7 @@ $summary-lines-to-show: 4;
     background-position: 100% center;
     border-radius: 0;
     border-color: #CCC;
-    height: 37px;
+    height: $searchbar-height;
   }
   .select2-container a.select2-choice .select2-chosen {
     padding: 4px 0;
@@ -867,4 +869,28 @@ table.childTable {
 .fb_iframe_widget span {
   vertical-align: top!important;
   margin-top: 2px;
+}
+
+@media only screen and (max-width:1200px) {
+  html {
+    font-size: 90%;
+  }
+}
+
+@media only screen and (max-width:900px) {
+  html {
+    font-size: 80%;
+  }
+}
+
+@media only screen and (max-width:770px) {
+  html {
+    font-size: 70%;
+  }
+}
+
+@media only screen and (max-width:640px) {
+  html {
+    font-size: 60%;
+  }
 }
