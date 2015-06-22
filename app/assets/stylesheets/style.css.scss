@@ -1,4 +1,5 @@
 /* Designed & Developed by Erik Zuuring - http://erikzuuring.com */
+$primary: #32acde;
 
 $searchbar-height: 36px;
 
@@ -43,7 +44,7 @@ h5, h6 {
 .center { text-align: center; }
 .text-left { text-align: left; }
 
-a { color: #32acde; }
+a { color: $primary; }
   a:hover { color: #0078a0; }
   a.active { color: #60afde !important; }
 
@@ -54,7 +55,7 @@ p {
 }
 
 button {
-  background-color:#32acde!important;
+  background-color:$primary!important;
   font-family: 'Open Sans', sans-serif!important;
   padding: 20px 30px;
   font-size: 1em!important;
@@ -66,7 +67,7 @@ button {
   }
   .postfix {
     height: $searchbar-height;
-    background-color: #32acde;
+    background-color: $primary;
     border-color: #308cb1;
     padding-right: 10px;
     padding-left: 10px;
@@ -411,7 +412,7 @@ $summary-lines-to-show: 4;
   }
   .content h1 {
   	text-align: center;
-  	color: #32acde;
+  	color: $primary;
     margin-top: 1rem;
     margin-bottom: 0.8rem;
   }
@@ -423,7 +424,7 @@ $summary-lines-to-show: 4;
   	padding: 10px 20px;
   }
   .content h2, .content h3 {
-  	color: #32acde;
+  	color: $primary;
   	margin-top: 0px;
   }
   .content h4 {
@@ -528,7 +529,7 @@ $summary-lines-to-show: 4;
 	background: #f1f1f1;
   }
   .search h1, .grey h1 {
-  	color: #32acde;
+  	color: $primary;
   	margin-bottom: 20px;
   }
   .search h2 {
@@ -669,8 +670,8 @@ label {
   }
   .accordion li.accordion-navigation > a:hover,
   .accordion li.accordion-navigation.active > a {
-    color: #32acde;
-    border-color: #32acde;
+    color: $primary;
+    border-color: $primary;
   }
   .accordion li.accordion-navigation > a:hover:after,
   .accordion li.accordion-navigation.active > a:after {
@@ -813,6 +814,19 @@ table tr.even {
   table.mine-table thead th.sorting {
   	background: #60afde image-url('sort_both.png') no-repeat right center;
   }
+  table.mine-table td.show-child-rows {
+    cursor: pointer;
+    // color: $primary;
+  }
+  table.mine-table td.show-child-rows:hover {
+    background: #DDD;
+  }
+  table.mine-table td.show-child-rows i {
+    float: right;
+  }
+  // table.mine-table td.show-child-rows:hover i {
+  //   color: #888;
+  // }
 
 
 table.childTable {
@@ -856,12 +870,13 @@ table.childTable {
   // }
   // table.childTable .measurement-type .name {
   //   // font-size: 1.2rem;
-  //   color: #32acde;
+  //   color: $primary;
   // }
   // table.childTable .measurement-type strong,
   // table.childTable .measurement-type span{
   //   padding-right: 14px;
   // }
+
 
 
 // .leaflet-bottom .leaflet-control { margin-bottom: 5px; }

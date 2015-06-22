@@ -157,16 +157,20 @@ $(function(){
 
       // show datatable child rows
       $('table.mine-table').on('click', 'td.show-child-rows', function(e){
-        var tr = $(this).closest('tr');
-        var row = app.mapTable.api().row( tr );
+        var $this = $(this),
+            cellIcon = $this.find('i'),
+            tr = $this.closest('tr'),
+            row = app.mapTable.api().row( tr );
  
         if ( row.child.isShown() ) {
-            row.child.hide();
-            tr.removeClass('shown');
+          row.child.hide();
+          tr.removeClass('shown');
+          cellIcon.removeClass('fa-caret-down').addClass('fa-caret-right');
         }
         else {
-            row.child( app.childRowTemplate(row.data()) ).show();
-            tr.addClass('shown');
+          row.child( app.childRowTemplate(row.data()) ).show();
+          tr.addClass('shown');
+          cellIcon.removeClass('fa-caret-right').addClass('fa-caret-down');
         }
       });
 
@@ -274,7 +278,7 @@ $(function(){
 
       var properties = _.map(geoJSON.features, function(feature){ 
         var property = feature.properties;
-        property["minerals"] = app.getMineralList(feature.properties).join(', ');
+        property["minerals"] = app.getMineralList(feature.properties).join(', ') + '<i class="fa fa-caret-right"></i>';
         return property;
       });
 
@@ -287,7 +291,7 @@ $(function(){
           { "data": "permit_number", "title": "Permit Number" },
           { "data": "minerals", 
             "title": "Minerals",
-            "className": "show-child-rows"
+            "className": "show-child-rows",
           },
           { "data": "source", "title": "Source" }
         ],
