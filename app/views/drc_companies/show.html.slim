@@ -131,7 +131,8 @@ div.grey.company-stats
                   span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.signature_bonus, locale: :en, unit: "USD ")
                 div.clearfix
                   h4.small-6.medium-4.columns.quiet Royalties
-                  span.small-6.medium-8.columns = number_to_percentage(@drc_company.flows_payable_under_contract.royalties, precision: 2, separator: '.', format: "% du chiffres d'affaires")
+                  span.small-6.medium-8.columns 
+                    span = number_to_percentage(@drc_company.flows_payable_under_contract.royalties, precision: 2, separator: '.', format: "%n% du chiffres d'affaires")
                 div.clearfix
                   h4.small-6.medium-4.columns.quiet Annuity
                   span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.annuity, locale: :en, unit: "USD ")
