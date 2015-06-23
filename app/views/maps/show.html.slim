@@ -6,7 +6,10 @@ div.map
 javascript:
   $(function() {
     app.initMap();
-    
+
+    // set baselayer
+    $('.top-bar .baselayers a.add-layer[data-id="terrain"]').trigger('click');
+
     // show deposits
-    $('.top-bar a.add-layer[data-type="deposit"]').trigger('click')
+    $('.top-bar a.add-layer[data-type="deposit"]').trigger('click');
   });

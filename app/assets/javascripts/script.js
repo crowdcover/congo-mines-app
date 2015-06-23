@@ -42,7 +42,6 @@ $(function(){
 
     initMap: function() {
         app.map = L.map('map', {
-            layers: L.tileLayer('http://api.tiles.mapbox.com/v4/congominesmaps.bd24d4b8/{z}/{x}/{y}.png?access_token=' + app.access_token),
             center: [-2.877, 22.83],
             zoom: 5,
             scrollWheelZoom: false,
@@ -51,7 +50,11 @@ $(function(){
             maxZoom: 18
         });
 
-        // store vector layers in map array
+        
+        app.baselayer = {
+          terrain: L.tileLayer('http://api.tiles.mapbox.com/v4/congominesmaps.bd24d4b8/{z}/{x}/{y}.png?access_token=' + app.access_token),
+          satellite: L.tileLayer('http://api.tiles.mapbox.com/v4/congominesmaps.385280cd/{z}/{x}/{y}.png?access_token=' + app.access_token)
+        };
         app.map.vectorLayers = [];
         app.map.tileLayers = [];
 
@@ -115,6 +118,23 @@ $(function(){
       });
 
       // map dropdown click map events
+      $('.map-dropdown.baselayers ul a').on('click', function(e){
+        var $this = $(this),
+            id = $this.data('id'),
+            parentListItem = $this.parent('li');
+
+        var oldBaselayer = _.filter(app.baselayer, function(layer){
+          return app.map.hasLayer(layer);
+        })[0];
+
+        app.baselayer[id].addTo(app.map).once('load', function(e){
+          if(oldBaselayer){
+            app.map.removeLayer(oldBaselayer);
+          }
+        });
+        
+      });
+
       $('.map-dropdown.mining-data ul a').on('click', function(e){
         var $this = $(this),
             type = $this.data('type'),
