@@ -253,7 +253,7 @@ $(function(){
                 '<td class="name">Company</td>', '<td class="value">', properties.drc_company, '</td>',
               '</tr>',
               '<tr>',
-                '<td class="name">Mine Type</td>', '<td class="value">', properties.type, '</td>',
+                '<td class="name">Mine Type</td>', '<td class="value">', properties.mine_type, '</td>',
               '</tr>',
               '<tr>',
                 '<td class="name">Minerals</td>', '<td class="value">', app.getMineralList(properties).join(', '), '</td>',
