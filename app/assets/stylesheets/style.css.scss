@@ -706,6 +706,12 @@ label {
   .accordion p {
     margin-bottom: 0;
   }
+  .accordion div.row div {
+    // margin-bottom: 6px;
+  }
+  .accordion div.row h4 {
+    margin-bottom: 0;
+  }
   // .accordion .columns .columns,
   // .accordion .description,
   // .accordion .permits,

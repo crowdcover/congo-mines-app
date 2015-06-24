@@ -100,16 +100,16 @@ div.grey.company-stats
                   - unless pe.nil?
                     div.mbm
                       h4.small-12.columns.dark = pe.year
-                      div.clearfix
+                      div.clearfix.mls
                         h4.small-6.medium-4.columns.quiet Type of Product
                         span.small-6.medium-8.columns = pe.type_of_product
-                      div.clearfix
+                      div.clearfix.mls
                         h4.small-6.medium-4.columns.quiet Tonnage
                         span.small-6.medium-8.columns = number_with_delimiter(pe.tonnage)
-                      div.clearfix
+                      div.clearfix.mls
                         h4.small-6.medium-4.columns.quiet Grade
                         span.small-6.medium-8.columns = number_to_percentage(pe.grade, precision: 2, separator: '.')
-                      div.clearfix
+                      div.clearfix.mls
                         h4.small-6.medium-4.columns.quiet Export Value
                         span.small-6.medium-8.columns = number_to_currency(pe.export_value, locale: :en, unit: "USD ")
 
@@ -126,20 +126,20 @@ div.grey.company-stats
                 h4.small-12.columns.quiet Contract Cash Recipient
               - else
                 h3.small-12.columns.quiet Flux Payable au Contrat
-                div.clearfix
+                div.clearfix.mls
                   h4.small-6.medium-4.columns.quiet Signature Bonus
                   span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.signature_bonus, locale: :en, unit: "USD ")
-                div.clearfix
+                div.clearfix.mls
                   h4.small-6.medium-4.columns.quiet Royalties
                   span.small-6.medium-8.columns 
                     span = number_to_percentage(@drc_company.flows_payable_under_contract.royalties, precision: 2, separator: '.', format: "%n% du chiffres d'affaires")
-                div.clearfix
+                div.clearfix.mls
                   h4.small-6.medium-4.columns.quiet Annuity
                   span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.annuity, locale: :en, unit: "USD ")
-                div.clearfix
+                div.clearfix.mls
                   h4.small-6.medium-4.columns.quiet Transfer of Shares
                   span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.transfer_of_shares, locale: :en, unit: "USD ")
-                div.clearfix
+                div.clearfix.mls
                   h4.small-6.medium-4.columns.quiet Contract Cash Recipient
                   span.small-6.medium-8.columns = @drc_company.flows_payable_under_contract.contract_cash_recipient
 
@@ -157,30 +157,30 @@ div.grey.company-stats
                 h4.small-12.columns.quiet Other
               - @drc_company.tax_obligations.each do |tax_ob|
                 - unless tax_ob.nil?
-                  h4.small-12.columns.dark = tax_ob.year
-                  div.clearfix
+                  h4.small-12.columns.dark.mls = tax_ob.year
+                  div.clearfix.mlm
                     h4.small-6.medium-4.columns.quiet Total Paid
                     span.small-6.medium-8.columns = number_to_currency(tax_ob.total_paid, locale: :en, unit: "USD ")
-                  div.clearfix
+                  div.clearfix.mlm
                     h4.small-6.medium-4.columns.quiet Redevance
                     span.small-6.medium-8.columns = number_to_currency(tax_ob.redevance, locale: :en, unit: "USD ")
-                  div.clearfix
+                  div.clearfix.mlm
                     h4.small-6.medium-4.columns.quiet IBP
                     span.small-6.medium-8.columns = number_to_currency(tax_ob.ibp, locale: :en, unit: "USD ")
-                  div.clearfix
+                  div.clearfix.mlm
                     h4.small-6.medium-4.columns.quiet Import Customs Duty
                     span.small-6.medium-8.columns = number_to_currency(tax_ob.import_customs_duty, locale: :en, unit: "USD ")
-                  div.clearfix
+                  div.clearfix.mlm
                     h4.small-6.medium-4.columns.quiet Surface Rights
                     span.small-6.medium-8.columns = number_to_currency(tax_ob.surface_rights, locale: :en, unit: "USD ")
-                  div.clearfix
+                  div.clearfix.mlm
                     h4.small-6.medium-4.columns.quiet Signature Bonus
                     span.small-6.medium-8.columns = number_to_currency(tax_ob.signature_bonus, locale: :en, unit: "USD ")
-                  div.clearfix
+                  div.clearfix.mlm
                     h4.small-6.medium-4.columns.quiet Royalties
                     span.small-6.medium-8.columns = number_to_currency(tax_ob.royalties, locale: :en, unit: "USD ")
                     / span.small-6.medium-8.columns = number_to_percentage(tax_ob.royalties, precision: 2, separator: '.', format: "% du chiffres d'affaires")
-                  div.clearfix
+                  div.clearfix.mlm
                     h4.small-6.medium-4.columns.quiet Other
                     span.small-6.medium-8.columns = number_to_currency(tax_ob.other, locale: :en, unit: "USD ")
 
