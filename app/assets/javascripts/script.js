@@ -406,8 +406,8 @@ $(function(){
                 return ['<tr class="measurement">', 
                           '<td class="name">', measurement.mineral_resource.name, '</td>',
                           '<td>', app.numberize(measurement.tonnage), '</td>',
-                          '<td>', measurement.grade, '</td>',
-                          '<td>', app.numberize(measurement.metal_content, 'percent'), '</td>',
+                          '<td>', app.numberize(measurement.grade, 'percent'), '</td>',
+                          '<td>', app.formatMetalContent(measurement), '</td>',
                         '</tr>'].join('');
 
               }).join('');
@@ -452,6 +452,16 @@ $(function(){
         return num.toLocaleString() + ' (%)';
       }
       return num.toLocaleString();
+    },
+
+    formatMetalContent: function(measurement){
+      if(measurement && measurement.metal_content){
+        if(measurement.metal_content_unit){
+          return measurement.metal_content.toLocaleString() + ' (' + measurement.metal_content_unit + ')';
+        }
+        return measurement.metal_content.toLocaleString() + ' (Kt)';
+      }
+      return '';
     },
 
     insertAfter: function(array, insertAfter, insertArray){
