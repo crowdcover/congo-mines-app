@@ -17,11 +17,11 @@
 
 
 div.row.mbl
-  div.large-12.columns
-    h1 Topics
+  h1 Topics
 
-  div.large-12.columns.text-center
+  ul.category.medium-block-grid-5.small-block-grid-1.text-center
     - @pages.each do |p|
-      div.category[style="background-image: url('#{p.try(:banner).try(:url) }') "]
-        = link_to p
-          h3 = p.try(:topic)
+      li
+        div[style="background-image: url('#{p.try(:banner).try(:url) }') "]
+          = link_to p
+            h3 = p.try(:topic)
