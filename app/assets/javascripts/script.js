@@ -41,68 +41,68 @@ $(function(){
     },
 
     initMap: function() {
-        app.map = L.map('map', {
-            center: [-2.877, 22.83],
-            zoom: 5,
-            scrollWheelZoom: false,
-            zoomControl: false, // we'll rebuild it later
-            minZoom: 4,
-            maxZoom: 18
+      app.map = L.map('map', {
+          center: [-2.877, 22.83],
+          zoom: 5,
+          scrollWheelZoom: false,
+          zoomControl: false, // we'll rebuild it later
+          minZoom: 4,
+          maxZoom: 18
+      });
+
+      
+      app.baselayer = {
+        terrain: L.tileLayer('http://api.tiles.mapbox.com/v4/congominesmaps.bd24d4b8/{z}/{x}/{y}.png?access_token=' + app.access_token).setZIndex(0),
+        satellite: L.tileLayer('http://api.tiles.mapbox.com/v4/congominesmaps.385280cd/{z}/{x}/{y}.png?access_token=' + app.access_token).setZIndex(0)
+      };
+      app.map.vectorLayers = [];
+      app.map.tileLayers = [];
+
+      // add additional objects to map object storing references to moabiLayers and moabiControls
+      var latlngControl = L.control({position: 'topright'});
+      latlngControl.onAdd = function(){
+        var controlHTML = $('<table>', {
+          class: 'latlng-control leaflet-control',
+          html: ['<tbody>',
+                  '<tr>',
+                    '<td>Lat: </td>',
+                    '<td class="lat-input text-center">00.000 &deg;</td>',
+                    '<td class="leaflet-control-zoom-in"><a href="#">+</a></td>',
+                  '</tr>',
+                  '<tr>',
+                    '<td>Lon: </td>',
+                    '<td class="lng-input text-center">00.000 &deg;</td>',
+                    '<td class="leaflet-control-zoom-out"><a href="#">-</a></td>',
+                  '</tr>',
+                '</tbody>'].join('')
         });
+        return controlHTML[0];
+      };
 
-        
-        app.baselayer = {
-          terrain: L.tileLayer('http://api.tiles.mapbox.com/v4/congominesmaps.bd24d4b8/{z}/{x}/{y}.png?access_token=' + app.access_token).setZIndex(0),
-          satellite: L.tileLayer('http://api.tiles.mapbox.com/v4/congominesmaps.385280cd/{z}/{x}/{y}.png?access_token=' + app.access_token).setZIndex(0)
-        };
-        app.map.vectorLayers = [];
-        app.map.tileLayers = [];
+      var shareControl = L.control({position: 'topright'});
+      // https://developers.facebook.com/docs/sharing/reference/share-dialog
+      shareControl.onAdd = function(){
+        var controlHTML = $('<div>', {
+          class: 'leaflet-bar social-media-control leaflet-control',
+        });
+        var fbButton = $('<a>',{
+          class: 'fb-share fa fa-facebook',
+          href: '#'
+        })
+        var twitterButton = $('<a>',{
+          class: 'twitter-share fa fa-twitter',
+          href: '#'
+        })
+        controlHTML.append(fbButton, twitterButton);
+        return controlHTML[0];
+      }
 
-        // add additional objects to map object storing references to moabiLayers and moabiControls
-        var latlngControl = L.control({position: 'topright'});
-        latlngControl.onAdd = function(){
-          var controlHTML = $('<table>', {
-            class: 'latlng-control leaflet-control',
-            html: ['<tbody>',
-                    '<tr>',
-                      '<td>Lat: </td>',
-                      '<td class="lat-input text-center">00.000 &deg;</td>',
-                      '<td class="leaflet-control-zoom-in"><a href="#">+</a></td>',
-                    '</tr>',
-                    '<tr>',
-                      '<td>Lon: </td>',
-                      '<td class="lng-input text-center">00.000 &deg;</td>',
-                      '<td class="leaflet-control-zoom-out"><a href="#">-</a></td>',
-                    '</tr>',
-                  '</tbody>'].join('')
-          });
-          return controlHTML[0];
-        };
-
-        var shareControl = L.control({position: 'topright'});
-        // https://developers.facebook.com/docs/sharing/reference/share-dialog
-        shareControl.onAdd = function(){
-          var controlHTML = $('<div>', {
-            class: 'leaflet-bar social-media-control leaflet-control',
-          });
-          var fbButton = $('<a>',{
-            class: 'fb-share fa fa-facebook',
-            href: '#'
-          })
-          var twitterButton = $('<a>',{
-            class: 'twitter-share fa fa-twitter',
-            href: '#'
-          })
-          controlHTML.append(fbButton, twitterButton);
-          return controlHTML[0];
-        }
-
-        app.map.attributionControl.setPrefix(false);
-        app.map.attributionControl.addAttribution("<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> <a class='mapbox-improve-map' href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a>")
-        // L.control.zoom({position: 'topright'}).addTo(this.map);
-        latlngControl.addTo(this.map);
-        L.control.scale({position: 'bottomleft'}).addTo(this.map);
-        shareControl.addTo(this.map);
+      app.map.attributionControl.setPrefix(false);
+      app.map.attributionControl.addAttribution("<a href='https://www.mapbox.com/about/maps/' target='_blank'>&copy; Mapbox &copy; OpenStreetMap</a> <a class='mapbox-improve-map' href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a>")
+      // L.control.zoom({position: 'topright'}).addTo(this.map);
+      latlngControl.addTo(this.map);
+      L.control.scale({position: 'bottomleft'}).addTo(this.map);
+      shareControl.addTo(this.map);
 
       // zoom control events
       $('.leaflet-control-zoom-in').on('click', function(e){
