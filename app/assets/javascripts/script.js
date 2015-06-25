@@ -52,8 +52,8 @@ $(function(){
 
         
         app.baselayer = {
-          terrain: L.tileLayer('http://api.tiles.mapbox.com/v4/congominesmaps.bd24d4b8/{z}/{x}/{y}.png?access_token=' + app.access_token),
-          satellite: L.tileLayer('http://api.tiles.mapbox.com/v4/congominesmaps.385280cd/{z}/{x}/{y}.png?access_token=' + app.access_token)
+          terrain: L.tileLayer('http://api.tiles.mapbox.com/v4/congominesmaps.bd24d4b8/{z}/{x}/{y}.png?access_token=' + app.access_token).setZIndex(0),
+          satellite: L.tileLayer('http://api.tiles.mapbox.com/v4/congominesmaps.385280cd/{z}/{x}/{y}.png?access_token=' + app.access_token).setZIndex(0)
         };
         app.map.vectorLayers = [];
         app.map.tileLayers = [];
@@ -269,7 +269,7 @@ $(function(){
     },
 
     addTileLayer: function(mapId){
-      var tileLayer = L.tileLayer('http://api.tiles.mapbox.com/v4/' + mapId + '/{z}/{x}/{y}.png?access_token=' + app.access_token);
+      var tileLayer = L.tileLayer('http://api.tiles.mapbox.com/v4/' + mapId + '/{z}/{x}/{y}.png?access_token=' + app.access_token).setZIndex(1);
       app.map.tileLayers.push(tileLayer);
       app.map.addLayer(tileLayer);
     },
