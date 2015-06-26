@@ -131,7 +131,7 @@ div.grey.company-stats
                   span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.signature_bonus, locale: :en, unit: "USD ")
                 div.clearfix.mls
                   h4.small-6.medium-4.columns.quiet Royalties
-                  span.small-6.medium-8.columns 
+                  span.small-6.medium-8.columns
                     span = number_to_percentage(@drc_company.flows_payable_under_contract.royalties, precision: 2, separator: '.', format: "%n% du chiffres d'affaires")
                 div.clearfix.mls
                   h4.small-6.medium-4.columns.quiet Annuity
@@ -223,10 +223,10 @@ div.grey.company-stats
                 em.text-center No Shareholders Listed
             - else
               - @drc_company.shareholder_relationships.each do |sr|
-                - unless sr.nil?
+                - unless sr.shareholder.blank?
                   div.row
                     h3.small-12.columns.dark
-                      a[href="#{shareholder_url(sr.shareholder)}"] = sr.shareholder.name
+                      = link_to sr.shareholder.name, sr.shareholder
                     div.clearfix
                       h4.small-6.medium-4.columns.quiet.pll Percent
                       span.small-6.medium-8.columns = number_to_percentage(sr.percentage, precision: 2, separator: '.')
