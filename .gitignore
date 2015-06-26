@@ -38,3 +38,6 @@ config/database.yml
 /vendor/assets/bower_components
 *.bowerrc
 bower.json
+
+# don't track password files
+/app/controllers/admin/auth.rb
