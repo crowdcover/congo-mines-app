@@ -40,7 +40,8 @@ div.grey.pbl
               - unless sr.nil?
                 div.row
                   h3.small-12.columns.dark
-                    a[href="#{drc_company_url(sr.drc_company)}"] = sr.drc_company.name
+                    / a[href="#{drc_company_url(sr.drc_company)}"] = sr.drc_company.name
+                    = link_to sr.drc_company.name, sr.drc_company  unless sr.drc_company.blank?
                   div.clearfix
                     h4.small-6.medium-4.columns.quiet.pll Percentage
                     span.small-6.medium-8.columns = number_to_percentage(sr.percentage, precision: 2, separator: '.')
