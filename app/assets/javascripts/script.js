@@ -119,9 +119,11 @@ $(function(){
 
       // map dropdown click map events
       $('.map-dropdown.baselayers ul a').on('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
         var $this = $(this),
-            id = $this.data('id'),
-            parentListItem = $this.parent('li');
+            id = $this.data('id');
 
         var oldBaselayer = _.filter(app.baselayer, function(layer){
           return app.map.hasLayer(layer);
@@ -132,10 +134,14 @@ $(function(){
             app.map.removeLayer(oldBaselayer);
           }
         });
-        
+
+        app.toggleMapDropDown($this);
       });
 
       $('.map-dropdown.mining-data ul a').on('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
         var $this = $(this),
             type = $this.data('type'),
             url = $this.data('url'),
@@ -145,10 +151,14 @@ $(function(){
           app.clearVectorLayers();
           app.addVectorLayer(url, type);
         }
-        
+
+        app.toggleMapDropDown($this);
       });
 
       $('.map-dropdown.maps ul a').on('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
         var $this = $(this),
             mapId = $this.data('id'),
             parentListItem = $this.parent('li');
@@ -156,23 +166,11 @@ $(function(){
         if(! parentListItem.hasClass('active')){
           app.clearTileLayers();
           app.addTileLayer(mapId);
+          app.toggleMapDropDown($this);
+        }else{
+          app.clearTileLayers();
+          app.toggleMapDropDown($this, true);
         }
-      });
-
-      // ux interaction for map dropdown clicks
-      $('.map-dropdown ul a.add-layer').on('click', function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        
-        var $this = $(this),
-            layerName = $this.text(),
-            parentListItem = $this.parent('li'),
-            siblingListItems = parentListItem.siblings('li'),
-            dropdownLayerTitle = $this.parents('.map-dropdown').find('a.title span.layer-title');
-
-        siblingListItems.removeClass('active');
-        parentListItem.addClass('active');
-        dropdownLayerTitle.addClass('show').text(layerName);
       });
 
       // show datatable child rows
@@ -182,12 +180,11 @@ $(function(){
             tr = $this.closest('tr'),
             row = app.mapTable.api().row( tr );
  
-        if ( row.child.isShown() ) {
+        if( row.child.isShown() ){
           row.child.hide();
           tr.removeClass('shown');
           cellIcon.removeClass('fa-caret-down').addClass('fa-caret-right');
-        }
-        else {
+        }else{
           row.child( app.childRowTemplate(row.data()) ).show();
           tr.addClass('shown');
           cellIcon.removeClass('fa-caret-right').addClass('fa-caret-down');
@@ -203,6 +200,22 @@ $(function(){
         app.setLatLngWidget(e.latlng.lat, e.latlng.lng);
       }, 100));
       
+    },
+
+    toggleMapDropDown: function($anchor, clear){
+      var layerName = $anchor.text(),
+          parentListItem = $anchor.parent('li'),
+          siblingListItems = parentListItem.siblings('li'),
+          dropdownLayerTitle = $anchor.parents('.map-dropdown').find('a.title span.layer-title');
+
+          if(clear){
+            parentListItem.removeClass('active');
+            dropdownLayerTitle.removeClass('show').text('');
+          }else{
+            siblingListItems.removeClass('active');
+            parentListItem.addClass('active');
+            dropdownLayerTitle.addClass('show').text(layerName);            
+          }
     },
 
     addVectorLayer: function(url, type){
