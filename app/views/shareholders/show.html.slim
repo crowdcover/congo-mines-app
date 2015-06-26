@@ -43,7 +43,7 @@ div.grey.pbl
                     a[href="#{drc_company_url(sr.drc_company)}"] = sr.drc_company.name
                   div.clearfix
                     h4.small-6.medium-4.columns.quiet Percentage
-                    span.small-6.medium-8.columns = number_to_percentage(sr.percentage, precision: 2)
+                    span.small-6.medium-8.columns = number_to_percentage(sr.percentage, precision: 2, separator: '.')
                   div.clearfix
                     h4.small-6.medium-4.columns.quiet Year
                     span.small-6.medium-8.columns = sr.year
