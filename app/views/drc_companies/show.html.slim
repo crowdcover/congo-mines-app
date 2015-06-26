@@ -226,7 +226,8 @@ div.grey.company-stats
                 - @drc_company.shareholder_relationships.each do |sr|
                   - unless sr.nil?
                     div.mvl
-                      h3.dark = sr.shareholder.name
+                      h3
+                        a[href="#{shareholder_url(sr.shareholder)}"] = sr.shareholder.name
                       div.clearfix
                         h4.small-6.medium-4.columns.quiet.plm Percent
                         span.small-6.medium-8.columns = number_to_percentage(sr.percentage, precision: 2, separator: '.')
