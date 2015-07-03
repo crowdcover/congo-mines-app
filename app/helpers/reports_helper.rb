@@ -7,7 +7,7 @@ module ReportsHelper
   end
 
   def report_summary_column(record, column)
-    truncate(record.summary.html_safe, length: 90, escape: false)
+    truncate(record.summary.html_safe, length: 90, escape: false) unless record.summary.blank?
   end
 
   def truncate_summary(r, length = 300)
