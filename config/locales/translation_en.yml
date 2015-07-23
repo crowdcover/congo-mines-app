@@ -27,13 +27,13 @@ en:
       stock_exchange: stock_exchange  #g
       stock_exchange_country: stock_exchange_country  #g
       tax_obligation: tax_obligation  #g
-      measured_resources: Measured Resources
-      indicated_resources: Indicated Resources
-      inferred_resources: Inferred Resources
-      total_resources:  Total Resources
-      proven_reserves: Proven Reserves
-      probable_reserves: Probable Reserves
-      total_reserves: Total Reserves
+      measured_resources: Ressources mesurées
+      indicated_resources: Ressources indiquées
+      inferred_resources: Ressources inférées
+      total_resources: Ressources totales
+      proven_reserves: Réserves confirmées
+      probable_reserves: Réserves probables
+      total_reserves: Réserves totales
 
     attributes:
       attachment:
