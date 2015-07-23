@@ -212,3 +212,16 @@ fr:
   views:
     pagination:
       truncate: ...
+      first: "&laquo; Premier"
+      last: "Dernier &raquo;"
+      previous: "&lsaquo; Pr&eacute;c&eacute;dent"
+      next: "Suivant &rsaquo;"
+    helpers:
+        page_entries_info:
+          one_page:
+            display_entries:
+              zero: "Aucun &eacute;l&eacute;ment &agrave; afficher"
+              one: "Displaying <b>1</b> %{entry_name}"
+              other: "Displaying <b>all %{count}</b> %{entry_name}"
+          more_pages:
+            display_entries: "Affichage de l'&eacute;l&eacute;ment %{first} &agrave; %{last} sur %{total} &eacute;l&eacute;ments
