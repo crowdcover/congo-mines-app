@@ -1,9 +1,9 @@
 div.footer
   div.row
     div.large-8.columns
-      h4 Recent Tweets
+      h4 Tweets
       a[href="https://twitter.com/CongoMines" class="twitter-timeline"
-        data-chrome="nofooter transparent noborder noheader"] Tweets by @CongoMines
+        data-chrome="nofooter transparent noborder noheader"] @CongoMines sur Twitter
       javascript:
         !function(d, s, id){
           var js, fjs = d.getElementsByTagName(s)[0], p=/^http:/.test(d.location)?'http':'https';
@@ -16,7 +16,7 @@ div.footer
         }(document, "script", "twitter-wjs");
 
     div.large-4.columns
-      h4 Stay Connected
+      h4 Reste connecté
       a href="https://twitter.com/congomines": i.fa.fa-twitter
       / a href="https://github.com/crowdcover/congo-mines-app": i.fa.fa-github
       div.divider
@@ -41,10 +41,10 @@ div.footer
     div.small-12.columns
       ul.text-center
         li © 2015 CongoMines
-        li: a href="#{about_url}" About
-        li: a href="mailto:transparency@congomines.org" Contact Us
+        li: a href="#{about_url}" À propos
+        li: a href="mailto:transparency@congomines.org" Nous contacter
         li
-          a[href="/admin" target="_blank"] Sign In
+          a[href="/admin" target="_blank"] Se connecter
           - if @report
             span  |
             = link_to 'Manage', edit_admin_report_url(@report), {target: 'blank'}
@@ -59,6 +59,6 @@ div.footer
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  
+
     ga('create', 'UA-65053539-1', 'auto');
     ga('send', 'pageview');

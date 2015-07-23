@@ -56,19 +56,19 @@ fr:
 
       deposit:
         drc_company: :activerecord.models.drc_company  #g
-        indicated_resources: Indicated Resources  #g
-        inferred_resources: Inferred Resources  #g
+        indicated_resources: Ressources indiquées  #g
+        inferred_resources: Ressources inférées  #g
         lat: Lat  #g
-        lng: Lng  #g
-        measured_resources: Measured Resources  #g
+        lng: Long  #g
+        measured_resources: Ressources mesurées  #g
         mine_type: Type de Mine  #g
         name: Nom du Gisement ou Site Minier  #g
-        permit_number: Permit Number  #g
+        permit_number: PNuméro de permis  #g
         permit_type: Permit Type  #g
-        total_reserves: Total Reserves
-        total_resources: Total Resources
-        probable_reserves: Probable Reserves  #g
-        proven_reserves: Proven Reserves  #g
+        total_reserves: Réserves totales
+        total_resources: Ressources totales
+        probable_reserves: Réserves probables  #g
+        proven_reserves: Réserves confirmées  #g
         resources: Resources  #g
         source: Source  #g
 
@@ -161,7 +161,7 @@ fr:
         drc_company: :activerecord.models.drc_company  #g
         export_value: Valeur d'Exportation  #g
         grade: Teneur (%)  #g
-        metal_content: metal content  #g
+        metal_content: Teneur en métal  #g
         tonnage: Minerais Produits (tonnes)  #g
         type_of_product: Type de Produit  #g
         year: Année  #g

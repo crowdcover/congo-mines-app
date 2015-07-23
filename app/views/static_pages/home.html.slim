@@ -3,7 +3,7 @@
 - if @rec_reports.count > 0
   div.row
     div.large-12.columns
-      h1.quiet Recommended Documents
+      h1.quiet À la une
 
   / - @rec_reports.to(4).in_groups_of(2) do |r|
   /     div.row
@@ -17,7 +17,7 @@
 
 
 div.row.mbl
-  h1 Topics
+  h1 Dossiers
 
   ul.category.medium-block-grid-5.small-block-grid-1.text-center
     - @pages.each do |p|

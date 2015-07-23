@@ -10,7 +10,7 @@
     <ul class="left">
 
       <li class="has-dropdown map-dropdown baselayers">
-        <a class="title" href="#">Baselayer <span class="layer-title"></span></a>
+        <a class="title" href="#">Couche de base <span class="layer-title"></span></a>
         <ul class="dropdown">
           <li>
             <a class="add-layer" data-id="terrain" href="#">Terrain</a>
@@ -24,16 +24,16 @@
       <li class="divider"></li>
 
       <li class="has-dropdown map-dropdown mining-data">
-        <a class="title" href="#">Mining Data <span class="layer-title"></span></a>
+        <a class="title" href="#">Mines et infrastructures <span class="layer-title"></span></a>
         <ul class="dropdown">
           <li>
-            <a class="add-layer" href="#" data-type="deposit" data-url="<%= get_all_deposits_map_url %>">Deposits</a>
+            <a class="add-layer" href="#" data-type="deposit" data-url="<%= get_all_deposits_map_url %>">Gisements</a>
           </li>
           <li>
-            <a class="add-layer" href="#" data-type="processing_infrastructure" data-url="<%= get_all_processing_infrastructures_map_url %>">Processing Infrastructures</a>
+            <a class="add-layer" href="#" data-type="processing_infrastructure" data-url="<%= get_all_processing_infrastructures_map_url %>">Installations de traitement</a>
           </li>
           <li>
-            <a class="add-layer" href="#" data-type="social_project" data-url="<%= get_all_social_projects_map_url %>">Social Projects</a>
+            <a class="add-layer" href="#" data-type="social_project" data-url="<%= get_all_social_projects_map_url %>">Projets sociaux</a>
           </li>
         </ul>
       </li>
@@ -41,7 +41,7 @@
       <li class="divider"></li>
 
       <li class="has-dropdown map-dropdown maps">
-        <a class="title" href="#">Maps <span class="layer-title"></span></a>
+        <a class="title" href="#">Concessions <span class="layer-title"></span></a>
         <ul class="dropdown">
           <% TileLayer.all.each do |tile| %>
             <li>

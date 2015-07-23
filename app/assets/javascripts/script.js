@@ -31,10 +31,10 @@ $(function(){
 
         if(thisDocument.hasClass('hide-summary-true')){
           thisDocument.removeClass('hide-summary-true');
-          $this.text('hide summary');
+          $this.text('Cacher le résumé');
         }else{
           thisDocument.addClass('hide-summary-true');
-          $this.text('show summary');
+          $this.text('Afficher le résumé');
         }
         
       });
@@ -70,7 +70,7 @@ $(function(){
                     '<td class="leaflet-control-zoom-in"><a href="#">+</a></td>',
                   '</tr>',
                   '<tr>',
-                    '<td>Lon: </td>',
+                    '<td>Long: </td>',
                     '<td class="lng-input text-center">00.000 &deg;</td>',
                     '<td class="leaflet-control-zoom-out"><a href="#">-</a></td>',
                   '</tr>',
@@ -263,16 +263,16 @@ $(function(){
         var popupContent = ["<h2 class='mine-marker text-center'>", properties.name, "</h2>",
             "<table>",
               '<tr>',
-                '<td class="name">Company</td>', '<td class="value">', properties.drc_company, '</td>',
+                '<td class="name">Nom</td>', '<td class="value">', properties.drc_company, '</td>',
               '</tr>',
               '<tr>',
-                '<td class="name">Mine Type</td>', '<td class="value">', properties.mine_type, '</td>',
+                '<td class="name">Type de mine</td>', '<td class="value">', properties.mine_type, '</td>',
               '</tr>',
               '<tr>',
-                '<td class="name">Minerals</td>', '<td class="value">', app.getMineralList(properties).join(', '), '</td>',
+                '<td class="name">Minerais</td>', '<td class="value">', app.getMineralList(properties).join(', '), '</td>',
               '</tr>',
               '<tr>',
-                '<td class="name">Permit Number</td>', '<td class="value">', properties.permit_number, '</td>',
+                '<td class="name">Numéro de permis</td>', '<td class="value">', properties.permit_number, '</td>',
               '</tr>',
             "</table>"].join('');
 
@@ -317,19 +317,19 @@ $(function(){
 
       var columns = {
         deposit: [
-          { "data": "name", "title": "Name" },
+          { "data": "name", "title": "Nom" },
           // { "data": "drc_company", "title": "Company" },
-          { "data": "mine_type", "title": "Mine Type" },
-          { "data": "permit_type", "title": "Permit Type" },
-          { "data": "permit_number", "title": "Permit Number" },
+          { "data": "mine_type", "title": "Type de mine" },
+          { "data": "permit_type", "title": "Type de permis" },
+          { "data": "permit_number", "title": "Numéro de permis" },
           { "data": "minerals", 
-            "title": "Minerals",
+            "title": "Minerais",
             "className": "show-child-rows",
           },
           { "data": "source", "title": "Source" }
         ],
         processing_infrastructure: [
-          { "data": "name", "title": "Name" }
+          { "data": "name", "title": "Nom" }
         ],
         social_project: [
           { "data": "project_type", "title": "Type de Projet" },
@@ -347,7 +347,29 @@ $(function(){
         "info": false,
         "searching": false,
         "autoWidth": false,
-        "columns": columns[type]
+        "columns": columns[type],
+        "language": {
+          "sProcessing":     "Traitement en cours...",
+          "sSearch":         "Rechercher&nbsp;:",
+          "sLengthMenu":     "Afficher _MENU_ &eacute;l&eacute;ments",
+          "sInfo":           "Affichage de l'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+          "sInfoEmpty":      "Affichage de l'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ments",
+          "sInfoFiltered":   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+          "sInfoPostFix":    "",
+          "sLoadingRecords": "Chargement en cours...",
+          "sZeroRecords":    "Aucun &eacute;l&eacute;ment &agrave; afficher",
+          "sEmptyTable":     "Aucune donn&eacute;e disponible dans le tableau",
+          "oPaginate": {
+            "sFirst":      "Premier",
+            "sPrevious":   "Pr&eacute;c&eacute;dent",
+            "sNext":       "Suivant",
+            "sLast":       "Dernier"
+          },
+          "oAria": {
+            "sSortAscending":  ": activer pour trier la colonne par ordre croissant",
+            "sSortDescending": ": activer pour trier la colonne par ordre d&eacute;croissant"
+          }
+        }
       });
 
     },
@@ -396,8 +418,8 @@ $(function(){
                                     '<tr>',
                                       '<th></th>',
                                       '<th>Tonnage</th>',
-                                      '<th>Grade</th>',
-                                      '<th>Metal Content</th>',
+                                      '<th>Teneur</th>',
+                                      '<th>Teneur en métal</th>',
                                     '</tr>',
                                   '</thead>',
                                   '<tbody>',
