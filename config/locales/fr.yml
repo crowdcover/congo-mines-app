@@ -224,4 +224,4 @@ fr:
               one: "Displaying <b>1</b> %{entry_name}"
               other: "Displaying <b>all %{count}</b> %{entry_name}"
           more_pages:
-            display_entries: "Affichage de l'&eacute;l&eacute;ment %{first} &agrave; %{last} sur %{total} &eacute;l&eacute;ments
+            display_entries: "Affichage de l'&eacute;l&eacute;ment %{first} &agrave; %{last} sur %{total} &eacute;l&eacute;ments"
