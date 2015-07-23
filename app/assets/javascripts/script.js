@@ -477,7 +477,14 @@ $(function(){
     },
 
     titleize: function(str){
-      return str.replace('_', ' ').replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+      //translate instead
+      if(str == 'indicated_resources') return 'Ressources indiquées';
+      if(str == 'inferred_resources') return 'Ressources inférées';
+      if(str == 'measured_resources') return 'Ressources mesurées';
+      if(str ==  'total_resources') return 'Ressources totales';
+      if(str ==  'probable_reserves') return 'Réserves probables';
+      if(str ==  'proven_reserves') return 'Réserves confirmées';
+      if(str ==  'total_reserves') return 'Réserves totales';
     },
 
     numberize: function(num, format){

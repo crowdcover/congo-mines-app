@@ -3,15 +3,15 @@
 .row
   div.large-12.columns
     h4.mvl
-      ' Search Results
+      ' Résultats de la recherche
       - if @search_params.present?
-        ' for
+        ' pour
         span.dark = " '#{@search_params}'"
       - else
         -if @category_names.present?
-          ' for
+          ' pour
           span.dark = " '#{@category_names}'"
-      span.quiet< = "(#{ pluralize(@results.total_entries, 'result') })"
+      span.quiet< = "(#{ pluralize(@results.total_entries, 'résultat') })"
 
 - if @reports.present?
   - @reports.in_groups_of(3) do |r|

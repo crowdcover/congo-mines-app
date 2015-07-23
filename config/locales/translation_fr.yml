@@ -7,7 +7,7 @@ fr:
       category: catégorie  #g
       deposit: Deposit  #g
       deposit_resource: Deposit Resource  #g
-      drc_company: DRC Company  #g
+      drc_company: RDC Entreprises  #g
       employee: employé  #g
       env_and_social_obligation: L'environnement et l'obligation sociale  #g
       flows_payable_under_contract: Flux Payable Au Contrat  #g
@@ -63,8 +63,8 @@ fr:
         measured_resources: Ressources mesurées  #g
         mine_type: Type de Mine  #g
         name: Nom du Gisement ou Site Minier  #g
-        permit_number: PNuméro de permis  #g
-        permit_type: Permit Type  #g
+        permit_number: Numéro de permis  #g
+        permit_type: Type de permis  #g
         total_reserves: Réserves totales
         total_resources: Ressources totales
         probable_reserves: Réserves probables  #g
@@ -234,14 +234,14 @@ fr:
 
       source:
         description: Description  #g
-        name: Name  #g
+        name: Nom  #g
         reports: reports  #g
 
       stock_exchange:
-        name: name  #g
+        name: nom  #g
 
       stock_exchange_country:
-        name: name  #g
+        name: nom  #g
 
       tax_obligation:
         company_name: Nom de la Société de Droit Congolais  #g
