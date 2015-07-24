@@ -24,8 +24,8 @@ class Admin::ShareholdersController  < Admin::Auth # ApplicationController
 
    config.columns[:public_private].form_ui = :select
     config.columns[:public_private].options = {
-      include_blank: 'Select option',
-      options: ['state', 'state owned enterprise', 'private']}
+      include_blank: 'Sélectionnez Option',
+      options: ['état', 'entreprise d\'État', 'privé']}
 
   end
 end
