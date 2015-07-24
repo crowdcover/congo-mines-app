@@ -34,7 +34,7 @@ div.grey.pbl
     div.large-12.columns
       ul.accordion[data-accordion data-options="multi_expand:true"]
         li.accordion-navigation
-          a[href="#accordion-drc_companies"] Holdings in DRC Companies
+          a[href="#accordion-drc_companies"] Participations dans des entreprises RDC
           div#accordion-drc_companies.content.clearfix[onclick="event.cancelBubble = true;"]
             - @shareholder.shareholder_relationships.each do |sr|
               - unless sr.nil?
@@ -43,11 +43,11 @@ div.grey.pbl
                     / a[href="#{drc_company_url(sr.drc_company)}"] = sr.drc_company.name
                     = link_to sr.drc_company.name, sr.drc_company  unless sr.drc_company.blank?
                   div.clearfix
-                    h4.small-6.medium-4.columns.quiet.pll Percentage
+                    h4.small-6.medium-4.columns.quiet.pll Pourcentage
                     span.small-6.medium-8.columns = number_to_percentage(sr.percentage, precision: 2, separator: '.')
                   div.clearfix
-                    h4.small-6.medium-4.columns.quiet.pll Year
+                    h4.small-6.medium-4.columns.quiet.pll Année
                     span.small-6.medium-8.columns = sr.year
                   div.clearfix
-                    h4.small-6.medium-4.columns.quiet.pll Direct Shareholder
+                    h4.small-6.medium-4.columns.quiet.pll Actionnaire direct
                     span.small-6.medium-8.columns = sr.intermediary_companies.pluck(:name).join(', ')
