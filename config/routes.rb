@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     resources :env_and_social_obligations do as_routes end
     resources :tax_obligations do as_routes end
     resources :production_exports do as_routes end
-    resources :drc_companies, :path => 'entreprises' do as_routes end
+    resources :drc_companies do as_routes end
   end
 
   #root 'admin/drc_companies#index'
