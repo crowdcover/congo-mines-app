@@ -42,7 +42,7 @@ Rails.application.routes.draw do
 
   get '/home', to: 'static_pages#home'
   get '/admin', to: redirect('admin/drc_companies')
-  get '/apropos', to: 'static_pages#about'
+  get '/about', to: 'static_pages#about'
 
   resources :drc_companies, only: [:show, :index] do  #, only: [:show, :index]
     member do
