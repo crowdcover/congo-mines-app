@@ -21,3 +21,11 @@ div.header.clearfix[style="background-image: url('#{image_url(@banner_url)}')"]
             a[class="#{is_active?(map_url)}" href="#{map_url}"] Cartographie
 
       div class="medium-3 hide-for-small-only columns cc-logo": a href="http://www.cartercenter.org" = image_tag 'carter2.png'
+
+
+      div id="google_translate_element" style="position: absolute; top 0; right 0;"
+      javascript:
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'fr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, gaTrack: true, gaId: 'UA-65053539-1'}, 'google_translate_element');
+        }
+      script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
