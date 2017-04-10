@@ -47,7 +47,7 @@ json.features validDeposits do |deposit|
   json.geometry do
     json.type "Point"
     json.coordinates do
-      json.array! [deposit.lng, deposit.lat]
+      json.array! [deposit.lng.to_f, deposit.lat.to_f]
     end
   end
 end

@@ -20,7 +20,7 @@ json.features @social_projects do |social|
   json.geometry do
     json.type "Point"
     json.coordinates do
-      json.array! [social.lng, social.lat]
+      json.array! [social.lng.to_f, social.lat.to_f]
     end
   end
 end

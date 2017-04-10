@@ -14,7 +14,7 @@ json.features @processing_infrastructures do |p_infra|
   json.geometry do
     json.type "Point"
     json.coordinates do
-      json.array! [p_infra.lng, p_infra.lat]
+      json.array! [p_infra.lng.to_f, p_infra.lat.to_f]
     end
   end
 end
