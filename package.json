@@ -1,0 +1,26 @@
+{
+  "name": "congo-mines-app",
+  "version": "1.0.1",
+  "description": "Rails app for the CongoMines project",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "scripts": {
+    "preversion": "",
+    "version": "",
+    "postversion": "git push && git push --tags",
+    "deploy-patch": "npm version patch --force -m \"version %s\"",
+    "deploy-minor": "npm version minor --force -m \"version %s\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crowdcover/congo-mines-app.git"
+  },
+  "author": "",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/crowdcover/congo-mines-app/issues"
+  },
+  "homepage": "http://congomines.org"
+}
