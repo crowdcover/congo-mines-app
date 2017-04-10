@@ -1,0 +1,38 @@
+version: '2'
+services:
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    command: rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - ./app:/app/app
+      - ./bin:/app/bin
+      - ./config:/app/config
+      - ./db:/app/db
+      - ./lib:/app/lib
+      - ./log:/app/log
+      - ./public:/app/public
+      - ./test:/app/test
+      - ./tmp:/app/tmp
+      - ./vendor:/app/vendor
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    env_file:
+      - .env
+  db:
+    image: 'postgres:9.4'
+    env_file:
+      - .env
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./config/docker-init-db:/docker-entrypoint-initdb.d
+      - ./backups:/backups
+    ports:
+      - "5432:5432"
+volumes:
+  db-data:
+    external:
+      name: congomines-db-data

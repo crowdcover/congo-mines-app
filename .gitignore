@@ -41,3 +41,4 @@ bower.json
 
 # don't track password files
 /app/controllers/admin/auth.rb
+.env
