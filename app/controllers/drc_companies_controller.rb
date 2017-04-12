@@ -20,14 +20,14 @@ class DrcCompaniesController < ApplicationController
     @shareholders = Shareholder.all.order('name ASC').page params[:page]
     render :index
   end
-
+  skip_before_action :verify_authenticity_token
   def get_geodata
     #get_geodata_drc_company_path(@drc_company)
     @drc_company = DrcCompany.includes(:deposits, :social_projects,
       :processing_infrastructures).find(params[:id])
     # render :json
   end
-
+  
   def get_deposits_geodata
     @drc_company = DrcCompany.includes(:deposits).find(params[:id])
   end

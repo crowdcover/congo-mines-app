@@ -9,17 +9,7 @@
 
     <ul class="left">
 
-      <li class="has-dropdown map-dropdown baselayers">
-        <a class="title" href="#">Couche de base <span class="layer-title"></span></a>
-        <ul class="dropdown">
-          <li>
-            <a class="add-layer" data-id="terrain" href="#">Terrain</a>
-          </li>
-          <li>
-            <a class="add-layer" data-id="satellite" href="#">Satellite</a>
-          </li>
-        </ul>
-      </li>
+
 
       <li class="divider"></li>
 
@@ -38,21 +28,13 @@
         </ul>
       </li>
 
-      <li class="divider"></li>
-
-      <li class="has-dropdown map-dropdown maps">
-        <a class="title" href="#">Concessions <span class="layer-title"></span></a>
-        <ul class="dropdown">
-          <% TileLayer.all.each do |tile| %>
-            <li>
-              <a class="add-layer" href="#" data-id="<%= tile.mapbox_tile_layer %>"><%= tile.label %></a>
-            </li>
-          <% end %>
-        </ul>
-      </li>
+     
 
       <li class="divider"></li>
     </ul>
 
   </section>
 </nav>
+<iframe id="map" src="http://maphubs.dev:4000/map/embed/10/interactive"
+  frameborder="0">
+</iframe>

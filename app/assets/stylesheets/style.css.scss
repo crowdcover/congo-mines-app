@@ -791,13 +791,6 @@ label {
 /* Map and Data Rules */
 
   // popups
-.leaflet-popup-content td.name {
-  text-align: right;
-  font-weight: bold;
-  }
-  h3.map-marker {
-  	background-color:  rgb(96, 175, 222);
-  }
 
 .dataTables_wrapper {
   overflow: auto;
@@ -883,83 +876,6 @@ table.childTable {
   // table.childTable .measurement-type span{
   //   padding-right: 14px;
   // }
-
-
-
-// .leaflet-bottom .leaflet-control { margin-bottom: 5px; }
-//   .leaflet-left .leaflet-control { margin-left: 5px; }
-//   .leaflet-top .leaflet-control { margin-top: 5px; }
-//   .leaflet-right .leaflet-control { margin-right: 5px; }
-//   // .leaflet-bottom.leaflet-left {
-//   //   left: 43px; /* make space for moabi logo */
-//   // }
-  .leaflet-control.leaflet-bar {
-    border-color: #ccc;
-    border-radius: 0;
-    box-shadow: none;
-  }
-  .leaflet-control-scale .leaflet-control-scale-line {
-    background-color: #fff;
-    background-color: rgba(255,255,255,0.8);
-    padding: 0px 5px;
-    font-size: 10px;
-    line-height: 16px;
-  }
-  .latlng-control {
-    background-color: #fff;
-    background-color: rgba(255,255,255,0.8);
-    border-spacing: 0;
-    margin-bottom: 0;
-  }
-  .latlng-control tbody tr {
-    height: auto;
-    background: transparent;
-  }
-  .latlng-control td {
-    padding: 6px 4px;
-    text-align: right;
-    border-bottom: 1px solid #CCC;
-  }
-  .latlng-control tr:first-of-type td {
-    border-top: 1px solid #CCC;
-  }
-  .latlng-control td:first-of-type {
-    border-left: 1px solid #CCC;
-  }
-  .latlng-control td:last-of-type {
-    border-right: 1px solid #CCC;
-  }
-  .latlng-control td.leaflet-control-zoom-in,
-  .latlng-control td.leaflet-control-zoom-out {
-    padding: 0;
-  }
-  .latlng-control td.leaflet-control-zoom-in a,
-  .latlng-control td.leaflet-control-zoom-out a {
-    text-align: center;
-    border-left: 1px solid #CCC;
-    padding: 6px;
-    color: #222;
-    display: block;
-    box-shadow: -1px 0px 0 0px #FFF, -2px 0px 0 #CCC; // double line border hack
-  }
-  .latlng-control td.leaflet-control-zoom-in a:hover,
-  .latlng-control td.leaflet-control-zoom-out a:hover {
-    background: #EEE;
-    color: #666;
-  }
-  .social-media-control.leaflet-control a {
-    border-radius: 0 !important;
-    border: 1px solid #CCC;
-    width: 30px;
-    height: 30px;
-  }
-  .social-media-control.leaflet-control a:last-of-type {
-    border-top: 0;
-  }
-  .social-media-control .fa:before{
-    vertical-align: middle;
-  }
-
 
 .fb_iframe_widget span {
   vertical-align: top!important;
