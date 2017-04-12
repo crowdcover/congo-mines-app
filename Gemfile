@@ -8,6 +8,7 @@ gem 'acts_as_tree'
 gem 'active_scaffold_sortable'
 gem 'active_scaffold_export'
 gem 'chosen-rails'
+gem 'rack-cors'
 gem 'tinymce-rails'
 gem 'friendly_id', '~> 5.1.0'
 
