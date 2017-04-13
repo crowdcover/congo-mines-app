@@ -54,7 +54,7 @@ $(function(){
           //reload iframe with new geojson url
           var src = document.getElementById('map').src;
           var base = src.split('?')[0];
-          var updatedSrc = base + '?' + 'geoJSON=' + document.location.origin + url + '.json';
+          var updatedSrc = base + '?' + 'geoJSON=' + document.location.origin + url + '.json&color=32ACDE';
   
            document.getElementById('map').src = updatedSrc;
         }
