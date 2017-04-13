@@ -18,7 +18,7 @@ div.header.clearfix[style="background-image: url('#{image_url(@banner_url)}')"]
           li
             a[class="#{is_active?(drc_companies_url)}" href="#{drc_companies_url}"] Entreprises
           li
-            a[ href="https://congomines.maphubs.com"] Cartographie
+            a[ href=(ENV['MAPHUBS_MAP_LINK'])] Cartographie
 
       div class="medium-3 hide-for-small-only columns cc-logo": a href="http://www.cartercenter.org" = image_tag 'carter2.png'
 
