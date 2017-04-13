@@ -7,7 +7,17 @@ json.features validDeposits do |deposit|
     baseUrl = baseUrl + ":" + request.port.to_s
   end
   json.type "Feature"
+
+  json.geometry do
+    json.type "Point"
+    json.coordinates do
+      json.array! [deposit.lng.to_f, deposit.lat.to_f]
+    end
+  end
+
+  
   json.properties do
+    json.key_format! camelize: :upper
     json.link baseUrl  + "/drc_companies/" + deposit.drc_company.to_param
     json.nom deposit.name
     json.nom_compagnie deposit.drc_company.name
@@ -49,13 +59,5 @@ json.features validDeposits do |deposit|
     json.minerais resourceList.uniq.join(",")
 
     json.source deposit.source
-  end
-
-
-  json.geometry do
-    json.type "Point"
-    json.coordinates do
-      json.array! [deposit.lng.to_f, deposit.lat.to_f]
-    end
   end
 end
