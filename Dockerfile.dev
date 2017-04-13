@@ -8,7 +8,7 @@ ADD Gemfile /app/Gemfile
 ADD Gemfile.lock /app/Gemfile.lock
 RUN cd /app && bundle install
 
-RUN apt-get update && apt-get install -y nodejs && \
+RUN apt-get update && apt-get install -y nodejs openjdk-7-jre-headless && \
 apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD Rakefile /app/Rakefile
