@@ -13,6 +13,7 @@ RUN cd /app && bundle install
 
 ADD . /app  
 ADD config/database.yml.docker /app/config/database.yml
+RUN chmod +x /app/docker-entrypoint.sh
 
 WORKDIR /app 
 EXPOSE 3000
