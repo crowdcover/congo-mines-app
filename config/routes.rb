@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :deposit_sources do as_routes end
     resources :mineral_resources do as_routes end
-    resources :tile_layers do as_routes end
     resources :deposit_resources do as_routes end
     resources :pages do as_routes end
     resources :social_projects do as_routes end
