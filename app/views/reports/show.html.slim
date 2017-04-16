@@ -9,7 +9,7 @@ div.row.pvl
       / p.meta = t(@report.try(:actual_post_date).to_formatted_s(:month_and_year))
       p.meta = l(@report.actual_post_date.to_date, format: :month_and_year)
 
-    h4.mtm Télécharger
+    h4.mtm= t('.t_l_charger')
     ul.mbl
       - @report.attachments.each do |a|
         li.docicon: a href="#{a.asset.url}" = a.asset_file_name
@@ -18,7 +18,7 @@ div.row.pvl
 
 div.grey.pvl
   div.row.keyline-bottom.ptm
-    div.large-3.columns: h3.dark Entreprise
+    div.large-3.columns: h3.dark= t('.entreprise')
     div.large-9.columns
       - if @report.drc_companies
         ul.inline-list.divide
@@ -30,7 +30,7 @@ div.grey.pvl
   / for each one, unless empty?, show the whole thing
   / for each link list the lowest item
   div.row.keyline-bottom.ptm
-    div.large-3.columns: h3.dark Thème
+    div.large-3.columns: h3.dark= t('.theme')
     div.large-9.columns
       ul.inline-list.divide
         - article_theme = @report.categories.select do |cat|
@@ -42,7 +42,7 @@ div.grey.pvl
           li: i none
 
   div.row.keyline-bottom.ptm
-    div.large-3.columns: h3.dark Type de document
+    div.large-3.columns: h3.dark= t('.type_de_document')
     div.large-9.columns
       ul.inline-list.divide
         - article_type = @report.categories.select do |cat|
@@ -52,7 +52,7 @@ div.grey.pvl
             li: a href="#{category_url(subtype)}" = subtype.name
 
   div.row.keyline-bottom.ptm
-    div.large-3.columns: h3.dark Type de source
+    div.large-3.columns: h3.dark= t('.type_de_source')
     div.large-9.columns
       ul.inline-list.divide
         - source_type = @report.categories.select do |cat|
@@ -63,7 +63,7 @@ div.grey.pvl
 
 
   div.row.keyline-bottom.ptm
-    div.large-3.columns: h3.dark Province
+    div.large-3.columns: h3.dark= t('.province')
     div.large-9.columns
       ul.inline-list.divide
         - provinces = @report.categories.select do |cat|

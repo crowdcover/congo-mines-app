@@ -2,64 +2,64 @@ fr:
   activerecord:
     models:
       active_scaffold/tableless: active_scaffold/tableless  #g
-      attachment: attachement  #g
-      author: auteur  #g
-      category: catégorie  #g
-      deposit: Deposit  #g
-      deposit_resource: Deposit Resource  #g
+      attachment: Attachement  #g
+      author: Auteur  #g
+      category: Catégorie  #g
+      deposit: Gisement  #g
+      deposit_resource: Resource du Gisement  #g
       drc_company: RDC Entreprises  #g
       employee: employé  #g
       env_and_social_obligation: L'environnement et l'obligation sociale  #g
       flows_payable_under_contract: Flux Payable Au Contrat  #g
       intermediary_company: Société intermédiaire  #g
       page: page  #g
-      page_category: page_category  #g
-      processing_infrastructure: traitement Infrastructure  #g
-      production_export: production Exportations #g
-      report: report  #g
+      page_category: Catégorie de page  #g
+      processing_infrastructure: Traitement Infrastructure  #g
+      production_export: Production Exportations #g
+      report: Rapport  #g
       report_category: Rapport Catégorie  #g
-      report_relation: report_relation  #g
+      report_relation: Rapport relation  #g
       shareholder: Shareholder (en dernier ressort)  #g
       shareholder_intermediary: actionnaire intermédiaire #g
       shareholder_relationship: Relations avec les actionnaires  #g
-      social_project: projet Social  #g
-      source: source  #g
-      stock_exchange: stock_exchange  #g
-      stock_exchange_country: stock_exchange_country  #g
+      social_project: Projet Social  #g
+      source: Source  #g
+      stock_exchange: Bourse  #g
+      stock_exchange_country: Pays boursier  #g
       tax_obligation: Obligation impôt  #g
 
 
     attributes:
       attachment:
-        asset_content_type: asset_content_type  #g
-        asset_file_name: asset_file_name  #g
-        asset_file_size: asset_file_size  #g
-        asset_updated_at: asset_updated_at  #g
+        asset_content_type: Type de fichier  #g
+        asset_file_name: nom de fichier  #g
+        asset_file_size: taille du fichier #g
+        asset_updated_at: Mis à jour à  #g
         attachable: :activerecord.models.attachable  #g
         attachable_type: attachable_type  #g
-        name: name  #g
-        position: position  #g
+        name: Nom  #g
+        position: Position  #g
 
       author:
-        description: description  #g
-        name: nom  #g
+        description: Description  #g
+        name: Nom  #g
 
       category:
         aasm_state: aasm_state  #g
-        children: children  #g
-        name: name  #g
+        children: Enfants  #g
+        name: Nom  #g
         page: :activerecord.models.page  #g
         parent: :activerecord.models.parent  #g
-        position: position  #g
-        report_categories: report_categories  #g
-        reports: reports  #g
+        position: Position  #g
+        report_categories: Catégories de rapports  #g
+        reports: Rapports  #g
 
       deposit:
         drc_company: :activerecord.models.drc_company  #g
         indicated_resources: Ressources indiquées  #g
         inferred_resources: Ressources inférées  #g
         lat: Lat  #g
-        lng: Long  #g
+        lng: Lon  #g
         measured_resources: Ressources mesurées  #g
         mine_type: Type de Mine  #g
         name: Nom du Gisement ou Site Minier  #g
@@ -75,7 +75,7 @@ fr:
       deposit_resource:
         deposit: :activerecord.models.deposit  #g
         grade: Teneur (%)  #g
-        measurement: measurement  #g
+        measurement: Mesurage  #g
         metal_content: Métal Contenu  #g
         metal_content_unit: Unite de Mesure  #g
         resource: Resource  #g
@@ -84,7 +84,7 @@ fr:
       drc_company:
         acronym: Acronyme  #g
         contact: Contact  #g
-        deposits: Deposits  #g
+        deposits: Gisement  #g
         description: Description  #g
         employees: Employés  #g
         env_and_social_obligation: :activerecord.models.env_and_social_obligation  #g
@@ -107,11 +107,11 @@ fr:
         website: Site Internet de la Société de Droit Congolais  #g
 
       employee:
-        contract_type: contract_type  #g
-        count: count  #g
+        contract_type: Type de contrat  #g
+        count: Dénombrer  #g
         drc_company: :activerecord.models.drc_company  #g
-        gender: gender  #g
-        nationality: nationality  #g
+        gender: Sexe  #g
+        nationality: Nationalité  #g
         year: Année  #g
 
       env_and_social_obligation:
@@ -132,9 +132,9 @@ fr:
         transfer_of_shares: Montant Pour Cession d’Actif ($)  #g
 
       intermediary_company:
-        name: name  #g
-        shareholder_intermediaries: shareholder_intermediaries  #g
-        shareholder_relationships: shareholder_relationships  #g
+        name: Nom  #g
+        shareholder_intermediaries: Actionnaires Antermédiaire  #g
+        shareholder_relationships: Relations Actionnaires  #g
 
       page:
         banner_content_type: banner_content_type  #g
@@ -142,10 +142,10 @@ fr:
         banner_file_size: banner_file_size  #g
         banner_updated_at: banner_updated_at  #g
         category: :activerecord.models.category  #g
-        content: content  #g
-        reports: reports  #g
-        title: title  #g
-        topic: topic  #g
+        content: Teneur  #g
+        reports: Rapports  #g
+        title: Titre  #g
+        topic: Sujet  #g
 
       page_category:
         category: :activerecord.models.category  #g
@@ -167,24 +167,24 @@ fr:
         year: Année  #g
 
       report:
-        actual_post_date: actual_post_date  #g
-        attachments: attachments  #g
+        actual_post_date: Date de publication réelle  #g
+        attachments: Attachements  #g
         author: :activerecord.models.author  #g
-        categories: categories  #g
-        cm_url: cm_url  #g
-        date_string: date_string  #g
-        draft: draft
-        drc_companies: DRC Companies  #g
-        organization: organisation  #g
-        post_date: après la date  #g
-        recommended: recommandé  #g
-        report_categories: report_categories  #g
+        categories: Catégories  #g
+        cm_url: CongoMines Url  #g
+        date_string: Date  #g
+        draft: ébauche
+        drc_companies: RDC Entreprises  #g
+        organization: Organisation  #g
+        post_date: Après la date  #g
+        recommended: Recommandé  #g
+        report_categories: Catégories de rapports  #g
         publication_date: Date de publication
-        report_relations: report_relations  #g
-        visibility: visibilité
+        report_relations: Relations du Rapport  #g
+        visibility: Visibilité
         source: :activerecord.models.source  #g
-        summary: summary  #g
-        title: titre  #g
+        summary: Résumé  #g
+        title: Titre  #g
 
       report_category:
         category: :activerecord.models.category  #g
@@ -196,30 +196,30 @@ fr:
 
       shareholder:
         acronym: acronyme  #g
-        community_dialogue_platform: community_dialogue_platform  #g
-        community_fund: community_fund  #g
-        contact: contact  #g
-        drc_companies: drc_companies  #g
-        name: nom  #g
+        community_dialogue_platform: Plateforme de Dialogue Communautaire  #g
+        community_fund: Fond Communautaire  #g
+        contact: Contact  #g
+        drc_companies: RDC Entreprises  #g
+        name: Nom  #g
         public_private: public ou privé  #g
         shareholder_relationships: relations d'actionnaires  #g
         stock: Cotation Boursière  #g
         stock_countries: Informations Boursières  #g
         stock_exchange: bourse des valeurs  #g
         stock_symbol: symbole boursier #g
-        website: site Web  #g
+        website: Site Web  #g
 
       shareholder_intermediary:
-        intermediary_company: Intermediary Company # :activerecord.models.intermediary_company  #g
+        intermediary_company: Entreprise intermédiaire # :activerecord.models.intermediary_company  #g
         shareholder_relationship: :activerecord.models.shareholder_relationship  #g
 
       shareholder_relationship:
         drc_company: :activerecord.models.drc_company  #g
-        intermediary_companies: Intermediary Companies  #g
+        intermediary_companies: Entreprises intermédiaires  #g
         percentage: Pourcentage (%)  #g
         shareholder: :activerecord.models.shareholder  #g
-        shareholder_intermediaries: Shareholder Intermediaries  #g
-        year: Year  #g
+        shareholder_intermediaries: Actionnaire intermédiaires  #g
+        year: Année  #g
 
       social_project:
         amount_planned: Montant Prévu Pour le Projet  #g
@@ -235,13 +235,13 @@ fr:
       source:
         description: Description  #g
         name: Nom  #g
-        reports: reports  #g
+        reports: Rapports  #g
 
       stock_exchange:
-        name: nom  #g
+        name: Nom  #g
 
       stock_exchange_country:
-        name: nom  #g
+        name: Nom  #g
 
       tax_obligation:
         company_name: Nom de la Société de Droit Congolais  #g

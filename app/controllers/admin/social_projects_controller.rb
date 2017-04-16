@@ -6,7 +6,7 @@ class Admin::SocialProjectsController <  Admin::Auth
       
     config.columns[:year].form_ui = :select
     config.columns[:year].options = {
-      include_blank: 'Select Year', 
+      include_blank: 'Sélectionnez l\'année', 
       options: (2000..Time.now.year) }  
       
     # Export    

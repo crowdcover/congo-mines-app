@@ -1,11 +1,11 @@
 div.row.keyline-bottom.pbl
   div.small-12.columns
-    h1.quiet Rechercher une société minière ou un investisseur
+    h1.quiet= t('.rechercher_une_soci_t')
 
   form action="../"
     div.small-12.medium-6.columns
       div.row.collapse
-        label for="company" Sociétés minières de droit congolais
+        label for="company"= t('.company_label')
         div.small-10.columns
           select#company.select2-dropdown name="drc_company_nav"
             option
@@ -13,7 +13,7 @@ div.row.keyline-bottom.pbl
               option value="#{drc_company_url(c)}" = c.name
 
         div.small-2.columns
-          input.button.postfix [type="button" name="Soumettre"
+          input.button.postfix [type="button" name="t('.soumettre')"
             onClick="window.open(drc_company_nav.value, '_self')" value=="&#x1F50D"]
           / take out '_self' argument to open company page in new tab
           /a.button.postfix[href="#"] X
@@ -22,7 +22,7 @@ div.row.keyline-bottom.pbl
   form action="../"
     div.small-12.medium-6.columns
       div.row.collapse
-        label for="shareholder" Investisseurs
+        label for="shareholder"= t('.investisseurs')
         div.small-10.columns
           select#shareholder.select2-dropdown name="shareholder_nav"
             option
@@ -30,7 +30,7 @@ div.row.keyline-bottom.pbl
               option value="#{shareholder_url(c)}" = c.name
 
         div.small-2.columns
-          input.button.postfix [type="button" name="Soumettre"
+          input.button.postfix [type="button" name="t('.soumettre')"
             onClick="window.open(shareholder_nav.value, '_self')" value=="&#x1F50D"]
           / a.button.postfix[href="#"] X
 

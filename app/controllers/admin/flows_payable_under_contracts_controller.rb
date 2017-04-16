@@ -5,8 +5,8 @@ class Admin::FlowsPayableUnderContractsController  < Admin::Auth # ApplicationCo
      
     config.columns[:contract_cash_recipient].form_ui = :select
     config.columns[:contract_cash_recipient].options = {
-      include_blank: 'Select Contract Cash Recipient', 
-      options: ['Gecamines', 'SODIMICO', 'SOKIMO', 'SIMCO', 'Other']}      
+      include_blank: 'Sélectionnez le destinataire du contrat en espèces', 
+      options: ['Gecamines', 'SODIMICO', 'SOKIMO', 'SIMCO', 'Autre']}      
     
 
 

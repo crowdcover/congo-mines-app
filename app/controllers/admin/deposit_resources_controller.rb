@@ -16,7 +16,7 @@ class Admin::DepositResourcesController < Admin::Auth
 
     config.columns[:metal_content_unit].form_ui = :select
     config.columns[:metal_content_unit].options = {
-      include_blank: 'Select Unit',
+      include_blank: 'Sélectionner l\'unité',
       options: ['Kt', 'Moz']}
 
 

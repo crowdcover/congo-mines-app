@@ -3,7 +3,7 @@ class Admin::DrcCompaniesController  < Admin::Auth # ApplicationController
 
   active_scaffold :"drc_company" do |config|
 
-    config.label = 'DRC Companies'
+    config.label = I18n.t 'controllers.admin.drccompanies.label'
 
     # Export
     config.actions.add :export
@@ -49,31 +49,31 @@ class Admin::DrcCompaniesController  < Admin::Auth # ApplicationController
 
 
     config.nested.add_link(:reports, label: 'Documents')
-    config.nested.add_link(:deposits, label: 'Deposits')
+    config.nested.add_link(:deposits, label: 'Gisements')
 
     #config.columns[:tax_obligations].label = 'Tax Payments'
 
     config.columns[:legal_regime].form_ui = :select
     config.columns[:legal_regime].options = {
-      include_blank: 'Select Legal Status',
+      include_blank: 'Sélectionnez Statut juridique',
       options: ['Convention',
                 'Mining Code 2002',
                 'Revised Mining Code']}
 
     config.columns[:legal_status].form_ui = :select
     config.columns[:legal_status].options = {
-      include_blank: 'Select Legal Status',
+      include_blank: 'Sélectionnez Statut juridique',
       options: %w{SPRL SARL}}
 
     config.columns[:project_type].form_ui = :select
     config.columns[:project_type].options = {
-      include_blank: 'Select Project Type',
-      options: ['Industrial (industriel)', 'Semi-Industrial (semi-industriel)',
-         'artisanal (artisanal)'] }
+      include_blank: 'Sélectionnez le type de projet',
+      options: ['Industriel', 'Semi-industriel',
+         'Artisanal'] }
 
     config.columns[:project_phase].form_ui = :select
     config.columns[:project_phase].options = {
-      include_blank: 'Select Project Phase',
-      options: %w{dormant exploration construction exploitation closed} }
+      include_blank: 'Sélectionnez la phase de projet',
+      options: %w{dormant exploration construction exploitation fermé} }
   end
 end

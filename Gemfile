@@ -8,6 +8,7 @@ gem 'acts_as_tree'
 gem 'active_scaffold_sortable'
 gem 'active_scaffold_export'
 gem 'chosen-rails'
+gem 'http_accept_language'
 gem 'rack-cors'
 gem 'tinymce-rails'
 gem 'friendly_id', '~> 5.1.0'
@@ -35,6 +36,7 @@ group :development do
   gem 'pry-rails'
   gem 'quiet_assets'
   gem 'progress_bar'
+  gem 'slimkeyfy'
 end
 
 group :development, :test do

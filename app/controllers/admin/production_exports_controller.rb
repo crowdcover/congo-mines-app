@@ -11,7 +11,7 @@ class Admin::ProductionExportsController  < Admin::Auth #ApplicationController
       'gross wolframite','coltan gross','gross cassiterite']}
 
     config.columns[:year].form_ui = :select
-    config.columns[:year].options = {include_blank: 'Select Year', options: (2000..Time.now.year) }
+    config.columns[:year].options = {include_blank: 'Sélectionnez l\'année', options: (2000..Time.now.year) }
 
   end
 end

@@ -4,7 +4,7 @@ class Admin::ReportsController  < Admin::Auth # ApplicationController
     config.columns = [:title,  :summary, :recommended, :visibility, :source, :categories,
       :actual_post_date, :drc_companies, :attachments]
 
-    config.label = 'Reports'  
+    config.label = 'Rapports'  
 
     config.list.per_page    = 25
     config.create.multipart = 'local'

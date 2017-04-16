@@ -1,6 +1,5 @@
 ---
 fr:
-
   date:
     abbr_day_names:
     - dim
@@ -11,7 +10,7 @@ fr:
     - ven
     - sam
     abbr_month_names:
-    -
+    - 
     - jan.
     - fév.
     - mar.
@@ -35,11 +34,10 @@ fr:
     formats:
       default: "%Y-%m-%d"
       month_and_year: "%B %Y"
-      # default: "%d/%m/%Y"
       short: "%e %b"
       long: "%e %B %Y"
     month_names:
-    -
+    - 
     - janvier
     - février
     - mars
@@ -208,20 +206,184 @@ fr:
       long: "%A %d %B %Y %Hh%M"
       short: "%d %b %Hh%M"
     pm: pm
-
   views:
     pagination:
-      truncate: ...
+      truncate: "..."
       first: "&laquo; Premier"
-      last: "Dernier &raquo;"
+      last: Dernier &raquo;
       previous: "&lsaquo; Pr&eacute;c&eacute;dent"
-      next: "Suivant &rsaquo;"
+      next: Suivant &rsaquo;
     helpers:
-        page_entries_info:
-          one_page:
-            display_entries:
-              zero: "Aucun &eacute;l&eacute;ment &agrave; afficher"
-              one: "Displaying <b>1</b> %{entry_name}"
-              other: "Displaying <b>all %{count}</b> %{entry_name}"
-          more_pages:
-            display_entries: "Affichage de l'&eacute;l&eacute;ment %{first} &agrave; %{last} sur %{total} &eacute;l&eacute;ments"
+      page_entries_info:
+        one_page:
+          display_entries:
+            zero: Aucun &eacute;l&eacute;ment &agrave; afficher
+            one: Displaying <b>1</b> %{entry_name}
+            other: Displaying <b>all %{count}</b> %{entry_name}
+        more_pages:
+          display_entries: Affichage de l'&eacute;l&eacute;ment %{first} &agrave;
+            %{last} sur %{total} &eacute;l&eacute;ments
+  static_pages:
+    home:
+      la_une: "À la une"
+      dossiers: Dossiers
+    about:
+      propos: "À propos"
+      ce_site_est_un: 'Ce site est un <strong>centre de documentation sur le secteur
+        minier en République Démocratique du Congo</strong>. Il a été développé par
+        le bureau du Carter Center au Katanga dans le cadre de son programme Gouvernance
+        Minière, dans l’objectif de faciliter l’accès à l’information qui est souvent
+        dispersée et difficile à trouver.'
+      le_site_regroupe_pr: Le site regroupe près de 800 documents classés par
+      th_me: Thème
+      type_de_document: Type de document
+      type_de_source: Type de source
+      province: Province
+      la_documentation_vise_couvrir: 'La documentation vise à couvrir tous les stades
+        de la chaine des valeurs : l’accès aux ressources naturelles (signature de
+        contrats, attribution de titres miniers), le suivi des opérations minières,
+        le paiement des taxes et la collecte des recettes découlant des opérations
+        minières, la traduction de ces recettes en lignes budgétaires, les dépenses
+        publiques et investissements sociaux pour le développement durable.'
+      par_ailleurs_le_site: 'Par ailleurs, le site est doté d’un outil cartographique
+        permettant de visualiser géographiquement les évolutions et variations au
+        sein du secteur minier.'
+      ce_centre_de_documentation: 'Ce centre de documentation qui était autrefois centré
+        sur l’activité minière industrielle du Sud Katanga a été étendu à d’autres
+        provinces du pays, avec le concours de la Maison de Mines du Kivu (MMKI) et
+        du Centre de Concertation sur les Ressources Naturelles (CDC/RN), deux regroupements
+        d’organisations de la société civiles intervenant dans le domaine minier respectivement
+        au Kivu et en province Orientale.'
+      moabi_a_produit_une: 'Moabi a produit une plateforme en ligne dont le but est
+        de surveiller les forêts de la RDC. Pour faciliter la collecte de données,
+        Moabi établit des partenariats avec des organisations de la société civile,
+        les organismes gouvernementaux et le secteur privé.'
+  categories:
+    show:
+      category_documents: Catégorie Documents
+  drc_companies:
+    company_map_nav:
+      mines_et_infrastructures: Mines et infrastructures
+      gisements: Gisements
+      installations_de_traitement: Installations de traitement
+      projets_sociaux: Projets sociaux
+    index:
+      rechercher_une_soci_t: Rechercher une société minière ou un investisseur
+      company_label: Sociétés minières de droit congolais
+      soumettre: Soumettre
+      investisseurs: Investisseurs
+    show:
+      nrc: NRC
+      rccm: RCCM
+      statut_l_gal: Statut légal
+      r_gime_l_gal: Régime légal
+      type_de_projet: Type de projet
+      phase_du_projet: Phase du projet
+      contact: Contact
+      site_web: Site web
+      description: Description
+      permis: Permis
+      employ_s: Employés
+      type_de_produit: Type de produit
+      tonnage: Tonnage
+      teneur: Teneur
+      valeur_export_e: Valeur exportée
+      pas_de_porte: Pas de porte
+      royalties: Redevances
+      loyer_annuel: Loyer annuel
+      cession_des_actifs: Cession des actifs
+      b_n_ficiaire_contractuel: Bénéficiaire contractuel
+      flux_payable_au_contrat: Flux Payable au Contrat
+      paiement_des_taxes: Paiement des taxes
+      total_pay: Total payé
+      redevances: Redevances
+      imp_t_b_n: Impôt Bénéfice et Profits
+      droit_de_douane_l: Droit de Douane à l’Importation
+      droits_superficiaires: Droits Superficiaires
+      autres: Autres
+      fonds_communautaire: Fonds communautaire
+      date_d_impact_environnemental: Date d’impact environnemental
+      lien_d_impact_environnemental: Lien d’impact environnemental
+      plan_de_d_veloppement: Plan de développement durable
+      plateforme_de_dialogue_communautaire: Plateforme de dialogue communautaire
+      investissement_social: Investissement social
+      aucun_actionnaire_list: Aucun actionnaire listé
+      pourcentage: Pourcentage
+      ann_e: Année
+      actionnaires_directs: Actionnaires directs
+      documents: Documents
+      informations_generales: Informations générales
+      production_et_exportation: Production et exportation
+      taxation: Taxation
+      environnementales_sociaux: Obligations environnementales / sociaux
+      actionnaires: Actionnaires
+  layouts:
+    header:
+      header-text: Portail virtuel d'information sur le secteur minier industriel
+        en République Démocratique du Congo
+      about: "À propos"
+      library: Bibliothèque
+      enterprises: Entreprises
+      maps: Cartographie
+    footer:
+      tweets: Tweets
+      reste_connect: Reste connecté
+      congomines_twitter: "@CongoMines sur Twitter"
+      a_propos: À propos
+      nous_contacter: Nous contacter
+      se_connecter: Se connecter
+  maps:
+    map_nav:
+      mines_et_infrastructures: Mines et infrastructures
+      gisements: Gisements
+      installations_de_traitement: Installations de traitement
+      projets_sociaux: Projets sociaux
+  reports:
+    index:
+      la_une: "À la une"
+      tous_les_documents: Tous les documents
+    show:
+      t_l_charger: Télécharger
+      entreprise: Entreprise
+      theme: Thème
+      type_de_document: Type de document
+      type_de_source: Type de source
+      province: Province
+  searches:
+    show:
+      r_sultats_de_la: Résultats de la recherche
+      pour: pour
+      votre_recherche_n_a: Votre recherche n'a renvoyé aucun document.
+      essayez_de_rechercher_un: 'Essayez de rechercher un autre mot-clé ou de parcourir
+        par <strong>Thème</strong>, <strong>Type de document</strong>, <strong>Type
+        de Source</strong>, <strong>Province</strong>, ou <strong>Compagnie</strong>.'
+  shared:
+    banner:
+      view_collection: View our collection of articles
+      visit_library: Visit Library
+    documents:
+      afficher_le_resume: Afficher le résumé
+    search:
+      header: Bibliothèque de documents CongoMines
+      empty_search_message: Rechercher dans notre bibliothèque
+      rechercher: Rechercher
+      theme: Thème
+      soumettre: Soumettre
+      type_de_document: Type de Document
+      type_de_source: Type de Source
+      province: Province
+      naviguer: Naviguer
+  shareholders:
+    show:
+      public_priv: Public / Privé
+      symbole_boursier: Symbole boursier
+      bourse_des_valeurs: Bourse des valeurs
+      site_web: Site web
+      contact: Contact
+      pourcentage: Pourcentage
+      ann_e: Année
+      actionnaire_direct: Actionnaire direct
+  controllers:
+    admin:
+      drccompanies:
+        label: RDC Entreprises

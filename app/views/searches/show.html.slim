@@ -3,13 +3,13 @@
 .row
   div.large-12.columns
     h4.mvl
-      ' Résultats de la recherche
+      => t('.r_sultats_de_la')
       - if @search_params.present?
-        ' pour
+        => t('.pour')
         span.dark = " '#{@search_params}'"
       - else
         -if @category_names.present?
-          ' pour
+          => t('.pour')
           span.dark = " '#{@category_names}'"
       span.quiet< = "(#{ pluralize(@results.total_entries, 'résultat') })"
 
@@ -23,5 +23,5 @@
   .row
     .large-12.columns.mvl
       div.mbl.text-center
-        p Votre recherche n'a renvoyé aucun document.
-        p Essayez de rechercher un autre mot-clé ou de parcourir par <strong>Thème</strong>, <strong>Type de document</strong>, <strong>Type de Source</strong>, <strong>Province</strong>, ou <strong>Compagnie</strong>.
+        p= t('.votre_recherche_n_a')
+        p= t('.essayez_de_rechercher_un')

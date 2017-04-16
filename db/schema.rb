@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618213950) do
+ActiveRecord::Schema.define(version: 20170416211319) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -26,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150618213950) do
     t.datetime "updated_at"
   end
 
-  add_index "attachments", ["attachable_type", "attachable_id"], name: "index_attachments_on_attachable_type_and_attachable_id"
+  add_index "attachments", ["attachable_type", "attachable_id"], name: "index_attachments_on_attachable_type_and_attachable_id", using: :btree
 
   create_table "authors", force: :cascade do |t|
     t.string   "name"
@@ -58,7 +61,7 @@ ActiveRecord::Schema.define(version: 20150618213950) do
     t.float    "tonnage"
   end
 
-  add_index "deposit_resources", ["depoable_type", "depoable_id"], name: "index_deposit_resources_on_depoable_type_and_depoable_id"
+  add_index "deposit_resources", ["depoable_type", "depoable_id"], name: "index_deposit_resources_on_depoable_type_and_depoable_id", using: :btree
 
   create_table "deposit_sources", force: :cascade do |t|
     t.string   "name"
@@ -80,7 +83,7 @@ ActiveRecord::Schema.define(version: 20150618213950) do
     t.string   "source"
   end
 
-  add_index "deposits", ["drc_company_id"], name: "index_deposits_on_drc_company_id"
+  add_index "deposits", ["drc_company_id"], name: "index_deposits_on_drc_company_id", using: :btree
 
   create_table "drc_companies", force: :cascade do |t|
     t.string   "name"
@@ -110,7 +113,7 @@ ActiveRecord::Schema.define(version: 20150618213950) do
     t.string   "gender"
   end
 
-  add_index "employees", ["drc_company_id"], name: "index_employees_on_drc_company_id"
+  add_index "employees", ["drc_company_id"], name: "index_employees_on_drc_company_id", using: :btree
 
   create_table "env_and_social_obligations", force: :cascade do |t|
     t.integer "drc_company_id"
@@ -122,7 +125,7 @@ ActiveRecord::Schema.define(version: 20150618213950) do
     t.string  "community_dialogue_platform"
   end
 
-  add_index "env_and_social_obligations", ["drc_company_id"], name: "index_env_and_social_obligations_on_drc_company_id"
+  add_index "env_and_social_obligations", ["drc_company_id"], name: "index_env_and_social_obligations_on_drc_company_id", using: :btree
 
   create_table "flows_payable_under_contracts", force: :cascade do |t|
     t.integer  "drc_company_id"
@@ -135,7 +138,7 @@ ActiveRecord::Schema.define(version: 20150618213950) do
     t.datetime "updated_at",              null: false
   end
 
-  add_index "flows_payable_under_contracts", ["drc_company_id"], name: "index_flows_payable_under_contracts_on_drc_company_id"
+  add_index "flows_payable_under_contracts", ["drc_company_id"], name: "index_flows_payable_under_contracts_on_drc_company_id", using: :btree
 
   create_table "intermediary_companies", force: :cascade do |t|
     t.string   "name"
@@ -167,8 +170,8 @@ ActiveRecord::Schema.define(version: 20150618213950) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "page_categories", ["category_id"], name: "index_page_categories_on_category_id"
-  add_index "page_categories", ["page_id"], name: "index_page_categories_on_page_id"
+  add_index "page_categories", ["category_id"], name: "index_page_categories_on_category_id", using: :btree
+  add_index "page_categories", ["page_id"], name: "index_page_categories_on_page_id", using: :btree
 
   create_table "pages", force: :cascade do |t|
     t.string   "topic"
@@ -185,8 +188,8 @@ ActiveRecord::Schema.define(version: 20150618213950) do
     t.integer  "position"
   end
 
-  add_index "pages", ["category_id"], name: "index_pages_on_category_id"
-  add_index "pages", ["drc_company_id"], name: "index_pages_on_drc_company_id"
+  add_index "pages", ["category_id"], name: "index_pages_on_category_id", using: :btree
+  add_index "pages", ["drc_company_id"], name: "index_pages_on_drc_company_id", using: :btree
 
   create_table "processing_infrastructures", force: :cascade do |t|
     t.string   "name"
@@ -197,7 +200,7 @@ ActiveRecord::Schema.define(version: 20150618213950) do
     t.datetime "updated_at",                               null: false
   end
 
-  add_index "processing_infrastructures", ["drc_company_id"], name: "index_processing_infrastructures_on_drc_company_id"
+  add_index "processing_infrastructures", ["drc_company_id"], name: "index_processing_infrastructures_on_drc_company_id", using: :btree
 
   create_table "production_exports", force: :cascade do |t|
     t.integer  "drc_company_id"
@@ -211,7 +214,7 @@ ActiveRecord::Schema.define(version: 20150618213950) do
     t.datetime "updated_at"
   end
 
-  add_index "production_exports", ["drc_company_id"], name: "index_production_exports_on_drc_company_id"
+  add_index "production_exports", ["drc_company_id"], name: "index_production_exports_on_drc_company_id", using: :btree
 
   create_table "report_categories", force: :cascade do |t|
     t.integer  "category_id"
@@ -220,16 +223,16 @@ ActiveRecord::Schema.define(version: 20150618213950) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "report_categories", ["category_id"], name: "index_report_categories_on_category_id"
-  add_index "report_categories", ["report_id"], name: "index_report_categories_on_report_id"
+  add_index "report_categories", ["category_id"], name: "index_report_categories_on_category_id", using: :btree
+  add_index "report_categories", ["report_id"], name: "index_report_categories_on_report_id", using: :btree
 
   create_table "report_relations", force: :cascade do |t|
     t.integer "drc_company_id"
     t.integer "report_id"
   end
 
-  add_index "report_relations", ["drc_company_id"], name: "index_report_relations_on_drc_company_id"
-  add_index "report_relations", ["report_id"], name: "index_report_relations_on_report_id"
+  add_index "report_relations", ["drc_company_id"], name: "index_report_relations_on_drc_company_id", using: :btree
+  add_index "report_relations", ["report_id"], name: "index_report_relations_on_report_id", using: :btree
 
   create_table "reports", force: :cascade do |t|
     t.string   "title"
@@ -248,8 +251,8 @@ ActiveRecord::Schema.define(version: 20150618213950) do
     t.string   "visibility"
   end
 
-  add_index "reports", ["author_id"], name: "index_reports_on_author_id"
-  add_index "reports", ["source_id"], name: "index_reports_on_source_id"
+  add_index "reports", ["author_id"], name: "index_reports_on_author_id", using: :btree
+  add_index "reports", ["source_id"], name: "index_reports_on_source_id", using: :btree
 
   create_table "shareholder_intermediaries", force: :cascade do |t|
     t.integer  "shareholder_relationship_id"
@@ -268,8 +271,8 @@ ActiveRecord::Schema.define(version: 20150618213950) do
     t.string   "direct_shareholder"
   end
 
-  add_index "shareholder_relationships", ["drc_company_id"], name: "index_shareholder_relationships_on_drc_company_id"
-  add_index "shareholder_relationships", ["shareholder_id"], name: "index_shareholder_relationships_on_shareholder_id"
+  add_index "shareholder_relationships", ["drc_company_id"], name: "index_shareholder_relationships_on_drc_company_id", using: :btree
+  add_index "shareholder_relationships", ["shareholder_id"], name: "index_shareholder_relationships_on_shareholder_id", using: :btree
 
   create_table "shareholders", force: :cascade do |t|
     t.integer  "drc_company_id"
@@ -286,7 +289,7 @@ ActiveRecord::Schema.define(version: 20150618213950) do
     t.string   "public_private"
   end
 
-  add_index "shareholders", ["drc_company_id"], name: "index_shareholders_on_drc_company_id"
+  add_index "shareholders", ["drc_company_id"], name: "index_shareholders_on_drc_company_id", using: :btree
 
   create_table "social_projects", force: :cascade do |t|
     t.integer  "drc_company_id"
@@ -303,7 +306,7 @@ ActiveRecord::Schema.define(version: 20150618213950) do
     t.integer  "year"
   end
 
-  add_index "social_projects", ["drc_company_id"], name: "index_social_projects_on_drc_company_id"
+  add_index "social_projects", ["drc_company_id"], name: "index_social_projects_on_drc_company_id", using: :btree
 
   create_table "sources", force: :cascade do |t|
     t.string   "name"
@@ -334,15 +337,15 @@ ActiveRecord::Schema.define(version: 20150618213950) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string  "name"
     t.integer "taggings_count", default: 0
   end
 
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "tax_obligations", force: :cascade do |t|
     t.integer  "drc_company_id"
@@ -351,16 +354,16 @@ ActiveRecord::Schema.define(version: 20150618213950) do
     t.float    "total_paid"
     t.float    "redevance"
     t.float    "ibp"
-    t.float    "import_customs_duty"
     t.float    "surface_rights"
     t.float    "signature_bonus"
     t.float    "royalties"
     t.float    "other"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "import_customs_duty"
   end
 
-  add_index "tax_obligations", ["drc_company_id"], name: "index_tax_obligations_on_drc_company_id"
+  add_index "tax_obligations", ["drc_company_id"], name: "index_tax_obligations_on_drc_company_id", using: :btree
 
   create_table "tile_layers", force: :cascade do |t|
     t.string   "label"
@@ -369,4 +372,15 @@ ActiveRecord::Schema.define(version: 20150618213950) do
     t.datetime "updated_at",        null: false
   end
 
+  add_foreign_key "deposits", "drc_companies"
+  add_foreign_key "employees", "drc_companies"
+  add_foreign_key "flows_payable_under_contracts", "drc_companies"
+  add_foreign_key "page_categories", "categories"
+  add_foreign_key "page_categories", "pages"
+  add_foreign_key "processing_infrastructures", "drc_companies"
+  add_foreign_key "report_categories", "categories"
+  add_foreign_key "report_categories", "reports"
+  add_foreign_key "shareholder_intermediaries", "intermediary_companies"
+  add_foreign_key "shareholder_intermediaries", "shareholder_relationships"
+  add_foreign_key "social_projects", "drc_companies"
 end

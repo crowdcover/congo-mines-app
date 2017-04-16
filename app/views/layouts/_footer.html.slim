@@ -1,9 +1,9 @@
 div.footer
   div.row
     div.large-8.columns
-      h4 Tweets
+      h4= t('.tweets')
       a[href="https://twitter.com/CongoMines" class="twitter-timeline" data-widget-id="624337371585224708"
-        data-chrome="nofooter transparent noborder noheader"] @CongoMines sur Twitter
+        data-chrome="nofooter transparent noborder noheader"]= t('.congomines_twitter')
 
       javascript:
         !function(d, s, id){
@@ -17,7 +17,7 @@ div.footer
         }(document, "script", "twitter-wjs");
 
     div.large-4.columns
-      h4 Reste connecté
+      h4= t('.reste_connect')
       a href="https://twitter.com/congomines": i.fa.fa-twitter
       / a href="https://github.com/crowdcover/congo-mines-app": i.fa.fa-github
       div.divider
@@ -42,10 +42,10 @@ div.footer
     div.small-12.columns
       ul.text-center
         li © 2017 CongoMines
-        li: a href="#{about_url}" À propos
-        li: a href="mailto:transparency@congomines.org" Nous contacter
+        li: a href="#{about_url}" =t('a_propos')
+        li: a href="mailto:transparency@congomines.org" =t('nous_contacter')
         li
-          a[href="/admin" target="_blank"] Se connecter
+          a[href="/admin" target="_blank"] =t('se_connecter')
           - if @report
             span  |
             = link_to 'Manage', edit_admin_report_url(@report), {target: 'blank'}

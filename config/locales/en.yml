@@ -221,3 +221,157 @@ en:
               other: "Displaying <b>all %{count}</b> %{entry_name}"
           more_pages:
             display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
+  static_pages:
+    home:
+      la_une: "In the News"
+      dossiers: "Files"
+    about:
+      propos: "About"
+      ce_site_est_un: 'This site is a <strong> documentation center on the sector
+         Mining in the Democratic Republic of Congo </strong>. It was developed by
+         The Carter Center office in Katanga as part of its Governance program
+         Minière, with the objective of facilitating access to information that is often
+         dispersed and difficult to find.'
+      le_site_regroupe_pr: The site contains nearly 800 documents classified by
+      th_me: Theme
+      type_de_document: Document Type
+      type_de_source: Source Type
+      province: Province
+      la_documentation_vise_couvrir: 'The documentation aims to cover all stages of 
+         the value chain: access to natural resources (signature of
+         contracts, allocation of mining titles), monitoring of mining operations,
+         the payment of taxes and the collection of revenue from operations
+         mining, translation of these receipts into budget lines,
+         and social investments for sustainable development.'
+      par_ailleurs_le_site: 'In addition, the site is equipped with a mapping tool to show a
+         geographical representation of the changes and variations within the mining sector.'
+      ce_centre_de_documentation: 'This documentation center, which was once
+         on the industrial mining of South Katanga has been extended to other
+         Provinces of the country, with the assistance of the Kivu Mines House (MMKI) and
+         the Natural Resources Consultation Center (CDC / RN), two
+         civil society organizations involved in the mining sector 
+         in the Kivu and in the Eastern Province respectively.'
+      moabi_a_produit_une: 'Moabi has produced an on-line platform
+         to monitor the forests of the DRC. To facilitate data collection,
+         Moabi partners with civil society organizations,
+         government agencies and the private sector.'
+  categories:
+    show:
+      category_documents: Category Documents
+  drc_companies:
+    company_map_nav:
+      mines_et_infrastructures: Mines and Infrastructure
+      gisements: Deposits
+      installations_de_traitement: Treatment Facilities
+      projets_sociaux: Social Projects
+    index:
+      rechercher_une_soci_t: Search for a mining company or an investor
+      company_label: Mining companies under Congolese law
+      soumettre: Submit
+      investisseurs: Investors
+    show:
+      nrc: NRC
+      rccm: RCCM
+      statut_l_gal: Legal Status
+      r_gime_l_gal: Legal Regime
+      type_de_projet: Project Type
+      phase_du_projet: Project Phase
+      contact: Contact
+      site_web: Website
+      description: Description
+      permis: Licensing
+      employ_s: Employees
+      type_de_produit: Product Type
+      tonnage: Tonnage
+      teneur: Content
+      valeur_export_e: Exported Value
+      pas_de_porte: Key Money/Upfront Fee
+      royalties: Royalties
+      loyer_annuel: Annual Rent
+      cession_des_actifs: Disposal of Assets
+      b_n_ficiaire_contractuel: Contractual Beneficiary
+      flux_payable_au_contrat: Contribution Payable Flow
+      paiement_des_taxes: Payment of Taxes
+      total_pay: Total Paid
+      redevances: Royalties
+      imp_t_b_n: Income and Profit Taxes
+      droit_de_douane_l: Customs Duties on Imports
+      droits_superficiaires: Superficial Rights
+      autres: Other
+      fonds_communautaire: Community Fund
+      date_d_impact_environnemental: Environmental Impact Date
+      lien_d_impact_environnemental: Environmental Impact Link
+      plan_de_d_veloppement: Sustainable Development Plan
+      plateforme_de_dialogue_communautaire: Community Dialogue Platform
+      investissement_social: Social Investment
+      aucun_actionnaire_list: No listed shareholders
+      pourcentage: Percentage
+      ann_e: Year
+      actionnaires_directs: Direct Shareholders
+      documents: Documents
+      informations_generales: General Information
+      production_et_exportation: Production and Export
+      taxation: Taxation
+      environnementales_sociaux: Environmental / Social Obligations
+      actionnaires: Shareholders
+  layouts:
+    header:
+      header-text: Portal for information on the industrial mining sector in the Democratic Republic of the Congo
+      about: About
+      library: Library
+      enterprises: Companies
+      maps: Maps
+    footer:
+      a_propos: About
+      nous_contacter: Contact Us
+      se_connecter: Login
+      tweets: Tweets
+      reste_connect: Stay connected
+      congomines_twitter: "@CongoMines on Twitter"    
+  maps:
+    map_nav:
+      mines_et_infrastructures: Mines et infrastructures
+      gisements: Mines
+      projets_sociaux: Social Projects
+      projets_sociaux: Projets sociaux
+  reports:
+    index:
+      la_une: "In the News"
+      tous_les_documents: All the documents
+    show:
+      t_l_charger: Download
+      entreprise: Entreprise
+      theme: Theme
+      type_de_document: Document Type
+      type_de_source: Source Type
+      province: Province
+  shared:
+    banner:
+      view_collection: View our collection of articles
+      visit_library: Visit Library
+    documents:
+      afficher_le_resume: View Summary
+    search:
+      header: CongoMines Document Library
+      empty_search_message: Search the Library
+      rechercher: Search
+      theme: Theme
+      soumettre: Submit
+      type_de_document: Document Type
+      type_de_source: Source Type
+      province: Province
+      naviguer: Navigate
+  shareholders:
+    show:
+      public_priv: Public / Private
+      symbole_boursier: Stock Market Symbol
+      bourse_des_valeurs: Stock Exchange
+      site_web: Website
+      contact: Contact
+      pourcentage: Percentage
+      ann_e: Year
+      actionnaire_direct: Direct Shareholder
+  controllers:
+    admin:
+      drccompanies:
+        label: DRC Companies

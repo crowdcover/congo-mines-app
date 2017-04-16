@@ -14,16 +14,16 @@
       <li class="divider"></li>
 
       <li class="has-dropdown map-dropdown mining-data">
-        <a class="title" href="#">Mines et infrastructures <span class="layer-title"></span></a>
+        <a class="title" href="#"><%= t('mines_et_infrastructures') %><span class="layer-title"></span></a>
         <ul class="dropdown">
           <li>
-            <a class="add-layer" href="#" data-type="deposit" data-url="<%= get_deposits_geodata_drc_company_path{@drc_company} %>">Gisements</a>
+            <a class="add-layer" href="#" data-type="deposit" data-url="<%= get_deposits_geodata_drc_company_path{@drc_company} %>"><%= t('gisements') %></a>
           </li>
           <li>
-            <a class="add-layer" href="#" data-type="processing_infrastructure" data-url="<%= get_processing_infrastructures_geodata_drc_company_path{@drc_company} %>">Installations de traitement</a>
+            <a class="add-layer" href="#" data-type="processing_infrastructure" data-url="<%= get_processing_infrastructures_geodata_drc_company_path{@drc_company} %>"><%= t('installations_de_traitement') %></a>
           </li>
           <li>
-            <a class="add-layer" href="#" data-type="social_project" data-url="<%= get_social_projects_geodata_drc_company_path{@drc_company} %>">Projets sociaux</a>
+            <a class="add-layer" href="#" data-type="social_project" data-url="<%= get_social_projects_geodata_drc_company_path{@drc_company} %>"><%= t('projets_sociaux') %></a>
           </li>
         </ul>
       </li>

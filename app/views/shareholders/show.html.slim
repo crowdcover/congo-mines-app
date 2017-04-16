@@ -11,22 +11,22 @@ div.row
 div.row.pvl
   div.small-12.medium-6.columns
     div.clearfix
-      h4.small-6.columns.quiet Public / Privé
+      h4.small-6.columns.quiet= t('.public_priv')
       span.small-6.columns = @shareholder.public_private
     div.clearfix
-      h4.small-6.columns.quiet Symbole boursier
+      h4.small-6.columns.quiet= t('.symbole_boursier')
       span.small-6.columns = @shareholder.stock_symbol
     div.clearfix
-      h4.small-6.columns.quiet Bourse des valeurs
+      h4.small-6.columns.quiet= t('.bourse_des_valeurs')
       span.small-6.columns = @shareholder.stock_exchange
 
   div.small-12.medium-6.columns
     div.clearfix
-      h4.small-6.columns.quiet Site web
+      h4.small-6.columns.quiet= t('.site_web')
       - if @shareholder.website
         span.small-6.columns = link_to @shareholder.website, @shareholder.website
     div.clearfix
-      h4.small-6.columns.quiet Contact
+      h4.small-6.columns.quiet= t('.contact')
       span.small-6.columns = @shareholder.contact
 
 div.grey.pbl
@@ -43,11 +43,11 @@ div.grey.pbl
                     / a[href="#{drc_company_url(sr.drc_company)}"] = sr.drc_company.name
                     = link_to sr.drc_company.name, sr.drc_company  unless sr.drc_company.blank?
                   div.clearfix
-                    h4.small-6.medium-4.columns.quiet.pll Pourcentage
+                    h4.small-6.medium-4.columns.quiet.pll= t('.pourcentage')
                     span.small-6.medium-8.columns = number_to_percentage(sr.percentage, precision: 2, separator: '.')
                   div.clearfix
-                    h4.small-6.medium-4.columns.quiet.pll Année
+                    h4.small-6.medium-4.columns.quiet.pll= t('.ann_e')
                     span.small-6.medium-8.columns = sr.year
                   div.clearfix
-                    h4.small-6.medium-4.columns.quiet.pll Actionnaire direct
+                    h4.small-6.medium-4.columns.quiet.pll= t('.actionnaire_direct')
                     span.small-6.medium-8.columns = sr.intermediary_companies.pluck(:name).join(', ')

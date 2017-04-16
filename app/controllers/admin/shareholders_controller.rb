@@ -1,7 +1,7 @@
 class Admin::ShareholdersController  < Admin::Auth # ApplicationController
   active_scaffold :"shareholder" do |config|
 
-    config.label = 'Shareholder (en dernier ressort)'
+    config.label = 'Actionnaire (en dernier ressort)'
 
     config.columns.exclude(:stock, :stock_countries, :shareholder_relationships,
       :drc_companies, :created_at, :updated_at)
@@ -17,7 +17,7 @@ class Admin::ShareholdersController  < Admin::Auth # ApplicationController
     config.columns[:stock].form_ui = :select
     config.columns[:stock].options = {
       include_blank: '',
-      options: ['yes', 'no']}
+      options: ['oui', 'non']}
 
 
    #config.columns[:shareholder_relationships].allow_add_existing = false

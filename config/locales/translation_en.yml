@@ -68,43 +68,43 @@ en:
         lng: lng  #g
         measured_resources: measured_resources  #g
         mine_type: mine_type  #g
-        name: name  #g
-        permit_number: permit_number  #g
-        permit_type: permit_type  #g
-        probable_reserves: probable_reserves  #g
-        proven_probable_reserves: proven_probable_reserves  #g
-        proven_reserves: proven_reserves  #g
-        resources: resources  #g
-        source: source  #g
+        name: Name  #g
+        permit_number: Permit Number  #g
+        permit_type: Permit Type  #g
+        probable_reserves: Probable Reserves  #g
+        proven_probable_reserves: Proven Probable Reserves  #g
+        proven_reserves: Proven Reserves  #g
+        resources: Resources  #g
+        source: Source  #g
 
       deposit_resource:
         deposit: :activerecord.models.deposit  #g
-        grade: grade  #g
-        measurement: measurement  #g
-        metal_content: metal_content  #g
-        metal_content_unit: metal_content_unit  #g
-        resource: resource  #g
-        tonnage: tonnage  #g
+        grade: Grade  #g
+        measurement: Measurement  #g
+        metal_content: Metal Content  #g
+        metal_content_unit: Metal Content Unit  #g
+        resource: Resource  #g
+        tonnage: Tonnage  #g
 
       drc_company:
-        acronym: acronym  #g
-        contact: contact  #g
-        deposits: deposits  #g
-        description: description  #g
-        employees: employees  #g
+        acronym: Acronym  #g
+        contact: Contact  #g
+        deposits: Deposits  #g
+        description: Description  #g
+        employees: Employees  #g
         env_and_social_obligation: :activerecord.models.env_and_social_obligation  #g
         flows_payable_under_contract: :activerecord.models.flows_payable_under_contract  #g
-        legal_regime: legal_regime  #g
-        legal_status: legal_status  #g
-        name: name  #g
-        nrc: nrc  #g
-        processing_infrastructures: processing_infrastructures  #g
-        production_exports: production_exports  #g
-        project_phase: project_phase  #g
-        project_type: project_type  #g
-        rccm: rccm  #g
-        report_relations: report_relations  #g
-        reports: reports  #g
+        legal_regime: Legal Regime  #g
+        legal_status: Legal Status of the Company  #g
+        name: Full Name of Company  #g
+        nrc: New Business Register Number (NRC)  #g
+        processing_infrastructures: Processing Infrastructures  #g
+        production_exports: Production Exports  #g
+        project_phase: Project Phase  #g
+        project_type: Project Type  #g
+        rccm: Register of Trade and Credit Furnisher (RCCM)  #g
+        report_relations: :activerecord.models.report_relations  #g
+        reports: :activerecord.models.reports  #g
         shareholder_relationships: shareholder_relationships  #g
         shareholders: shareholders  #g
         social_projects: social_projects  #g
