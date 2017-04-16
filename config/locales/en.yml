@@ -223,48 +223,33 @@ en:
             display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
   static_pages:
     home:
+      title: Congo Mines
       la_une: "In the News"
       dossiers: "Files"
     about:
+      title: About
       propos: "About"
-      ce_site_est_un: 'This site is a <strong> documentation center on the sector
-         Mining in the Democratic Republic of Congo </strong>. It was developed by
-         The Carter Center office in Katanga as part of its Governance program
-         Minière, with the objective of facilitating access to information that is often
-         dispersed and difficult to find.'
+      ce_site_est_un: 'This site is a documentation library for mining in the Democratic Republic of Congo. It was developed by The Carter Center office in Katanga as part of its Governance program Minière, with the objective of facilitating access to information that is often dispersed and difficult to find.'
       le_site_regroupe_pr: The site contains nearly 800 documents classified by
       th_me: Theme
       type_de_document: Document Type
       type_de_source: Source Type
       province: Province
-      la_documentation_vise_couvrir: 'The documentation aims to cover all stages of 
-         the value chain: access to natural resources (signature of
-         contracts, allocation of mining titles), monitoring of mining operations,
-         the payment of taxes and the collection of revenue from operations
-         mining, translation of these receipts into budget lines,
-         and social investments for sustainable development.'
-      par_ailleurs_le_site: 'In addition, the site is equipped with a mapping tool to show a
-         geographical representation of the changes and variations within the mining sector.'
-      ce_centre_de_documentation: 'This documentation center, which was once
-         on the industrial mining of South Katanga has been extended to other
-         Provinces of the country, with the assistance of the Kivu Mines House (MMKI) and
-         the Natural Resources Consultation Center (CDC / RN), two
-         civil society organizations involved in the mining sector 
-         in the Kivu and in the Eastern Province respectively.'
-      moabi_a_produit_une: 'Moabi has produced an on-line platform
-         to monitor the forests of the DRC. To facilitate data collection,
-         Moabi partners with civil society organizations,
-         government agencies and the private sector.'
+      la_documentation_vise_couvrir: 'The documentation aims to cover all stages of the value chain: access to natural resources (signature of contracts, allocation of mining titles), monitoring of mining operations, the payment of taxes and the collection of revenue from operations mining, translation of these receipts into budget lines, and social investments for sustainable development.'
+      par_ailleurs_le_site: 'In addition, the site is equipped with a mapping tool to show a geographical representation of the changes and variations within the mining sector.'
+      ce_centre_de_documentation: 'This documentation center, which was once on the industrial mining of South Katanga has been extended to other Provinces of the country, with the assistance of the Kivu Mines House (MMKI) and the Natural Resources Consultation Center (CDC / RN), two civil society organizations involved in the mining sector in the Kivu and in the Eastern Province respectively.'
+      moabi_a_produit_une: 'Moabi has produced an on-line platform to monitor the forests of the DRC. To facilitate data collection, Moabi partners with civil society organizations, government agencies and the private sector.'
   categories:
     show:
       category_documents: Category Documents
-  drc_companies:
+  drc_companies:   
     company_map_nav:
       mines_et_infrastructures: Mines and Infrastructure
       gisements: Deposits
       installations_de_traitement: Treatment Facilities
       projets_sociaux: Social Projects
     index:
+      title: DRC Companies
       rechercher_une_soci_t: Search for a mining company or an investor
       company_label: Mining companies under Congolese law
       soumettre: Submit
@@ -334,8 +319,9 @@ en:
       gisements: Mines
       projets_sociaux: Social Projects
       projets_sociaux: Projets sociaux
-  reports:
+  reports:   
     index:
+      title: Reports
       la_une: "In the News"
       tous_les_documents: All the documents
     show:
@@ -363,6 +349,7 @@ en:
       naviguer: Navigate
   shareholders:
     show:
+      title: Shareholders
       public_priv: Public / Private
       symbole_boursier: Stock Market Symbol
       bourse_des_valeurs: Stock Exchange
