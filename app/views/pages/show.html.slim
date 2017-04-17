@@ -1,3 +1,4 @@
+title = @page.try(:topic)
 div.row
   div.large-12.columns.pvl.keyline-bottom
     div.topic-page-content = @page.content.try(:html_safe)
