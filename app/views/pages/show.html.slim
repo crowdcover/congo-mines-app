@@ -1,7 +1,9 @@
 title = @page.try(:topic)
+- set_tags(meta_title: @page.try(:topic), og_title: @page.try(:topic) )
+
 div.row
   div.large-12.columns.pvl.keyline-bottom
-    div.topic-page-content = @page.content.try(:html_safe)
+    div.topic-page-content [lang="fr"] = @page.content.try(:html_safe)
 
 div.row
   div.large-12.columns

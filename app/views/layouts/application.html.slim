@@ -1,13 +1,13 @@
 doctype html
-html.no-js lang="en"
-  
+html.no-js [lang=I18n.locale]
+
   = render "layouts/dochead"
 
   body
     = render "layouts/header"
-
-    div.content
-      == yield
+    main
+      div.content
+        == yield
 
 
     = render 'layouts/copyright'

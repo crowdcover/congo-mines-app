@@ -1,0 +1,33 @@
+// app/views/partials/_meta_og.html.slim
+// tags to provide: og_title, og_description, og_image, og_url, og_article
+
+// use asset_host to change relative urls into absolute urls for og:image. asset uploader (carrierwave) based constraint
+- asset_host = Rails.application.config.action_mailer.asset_host
+// set a default image
+- default_image_url = ""
+
+| <!-- twitter -->
+meta name="twitter:card" content="summary"
+meta name="twitter:site" content="@congomines"
+meta name="twitter:creator" content="@congomines"
+meta name="twitter:title" content=(content_for?(:og_title) ? yield(:og_title) : "CongoMines")
+// make sure to kee
+meta name="twitter:description" content=(content_for?(:og_description) ? truncate(yield(:og_description), length: 100) : "CongoMines")
+//meta name="twitter:image" content=(content_for?(:og_image) ? asset_host + yield(:og_image) : default_image_url )
+
+| <!-- Facebook and others http://ogp.me/ -->
+
+// gain insights about how your website is being shared in facebook admin by enabling this
+// meta property="fb:app_id" content="xxxxxxxx"
+
+meta property="og:locale" content="fr"
+meta property="og:url" content=(content_for?(:og_url) ? yield(:og_url) : "https://congomines.org")
+meta property="og:title" content=(content_for?(:og_title) ? yield(:og_title) : "CongoMines")
+meta property="og:description" content=(content_for?(:og_description) ? truncate(yield(:og_description).html_safe, length: 100) : "CongoMines")
+//meta property="og:image" content=(content_for?(:og_image) ? asset_host + yield(:og_image) : default_image_url )
+
+// set og:type to article if og_article is provided
+- if content_for?(:og_article)
+  meta property="og:type" content="article"
+- else
+  meta property="og:type" content="website"

@@ -1,7 +1,9 @@
 title = @report.try(:title)
+- set_tags(og_article: true, meta_title: @report.try(:title), meta_description: @report.try(:summary).try(:html_safe), meta_author: @report.try(:source).try(:name), og_title: @report.try(:title), og_description: @report.try(:summary).try(:html_safe) )
+
 div.row.pvl
   div.large-12.columns
-    h2.quiet.mvm = @report.try(:title)
+    h2.quiet.mvm [lang="fr"] = @report.try(:title)
 
   div.large-3.columns: h3 Organisation
   div.large-9.columns
@@ -15,7 +17,7 @@ div.row.pvl
       - @report.attachments.each do |a|
         li.docicon: a href="#{a.asset.url}" = a.asset_file_name
 
-    div = @report.try(:summary).try(:html_safe)
+    div [lang="fr"] = @report.try(:summary).try(:html_safe)
 
 div.grey.pvl
   div.row.keyline-bottom.ptm

@@ -4,7 +4,7 @@ div.small-12.columns
       - reports.each do |rpt|
         - unless rpt.nil?
           li
-            article[class="hide-summary-#{hide_summary}"]
+            article[class="hide-summary-#{hide_summary}" lang="fr"]
               h3.doc-title = link_to rpt.try(:title), rpt
               h4.doc-source = rpt.try(:source).try(:name)
               / p.doc-date = rpt.try(:date_string).try(:titleize)
@@ -12,8 +12,7 @@ div.small-12.columns
                 p.doc-date = l(rpt.actual_post_date.to_date, format: :month_and_year)
 
               - if rpt.summary.present?
-                p.doc-summary
-                  = truncate_summary(rpt.summary, 300)
+                p.doc-summary =truncate_summary(rpt.summary, 300).html_safe
 
                 - if hide_summary
                   a[href="#" class="show-summary"]= t('.afficher_le_resume')

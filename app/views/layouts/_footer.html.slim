@@ -1,65 +1,66 @@
-div.footer
-  div.row
-    div.large-8.columns
-      h4= t('.tweets')
-      a[href="https://twitter.com/CongoMines" class="twitter-timeline" data-widget-id="624337371585224708"
-        data-chrome="nofooter transparent noborder noheader"]= t('.congomines_twitter')
+footer
+  div.footer
+    div.row
+      div.large-8.columns
+        h4= t('.tweets')
+        a[href="https://twitter.com/CongoMines" class="twitter-timeline" data-widget-id="624337371585224708"
+          data-chrome="nofooter transparent noborder noheader"]= t('.congomines_twitter')
 
-      javascript:
-        !function(d, s, id){
-          var js, fjs = d.getElementsByTagName(s)[0], p=/^http:/.test(d.location)?'http':'https';
-          if(!d.getElementById(id)){
-            js = d.createElement(s);
-            js.id = id
-            js.src = p + "://platform.twitter.com/widgets.js";
-            fjs.parentNode.insertBefore(js, fjs);
-          }
-        }(document, "script", "twitter-wjs");
-
-    div.large-4.columns
-      h4= t('.reste_connect')
-      a href="https://twitter.com/congomines": i.fa.fa-twitter
-      / a href="https://github.com/crowdcover/congo-mines-app": i.fa.fa-github
-      div.divider
-      div
-        a[href="https://twitter.com/share" class="twitter-share-button" data-via="congomines"] Tweet
         javascript:
-          !function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location)?'http':'https';
-            if (!d.getElementById(id)) {
+          !function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0], p=/^http:/.test(d.location)?'http':'https';
+            if(!d.getElementById(id)){
               js = d.createElement(s);
-              js.id = id;
+              js.id = id
               js.src = p + "://platform.twitter.com/widgets.js";
               fjs.parentNode.insertBefore(js, fjs);
             }
           }(document, "script", "twitter-wjs");
-      div
-        div[class="g-plusone" data-size="medium" data-annotation="inline" data-width="120"]
-      div
-        div[class="fb-share-button" data-href="http://www.congomines.org/" data-layout="button_count"]
 
-  div.row
-    div.small-12.columns
-      ul.text-center
-        li © 2017 CongoMines
-        li: a href="#{about_url}" =t('a_propos')
-        li: a href="mailto:transparency@congomines.org" =t('nous_contacter')
-        li
-          a[href="/admin" target="_blank"] =t('se_connecter')
-          - if @report
-            span  |
-            = link_to 'Manage', edit_admin_report_url(@report), {target: 'blank'}
-          - if @drc_company
-            span  |
-            = link_to 'Manage', edit_admin_drc_company_url(@drc_company), {target: 'blank'}
-          - if @shareholder
-            span  |
-            = link_to 'Manage', edit_admin_shareholder_url(@shareholder), {target: 'blank'}
-  javascript:
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      div.large-4.columns
+        h4= t('.reste_connect')
+        a href="https://twitter.com/congomines": i.fa.fa-twitter
+        / a href="https://github.com/crowdcover/congo-mines-app": i.fa.fa-github
+        div.divider
+        div
+          a[href="https://twitter.com/share" class="twitter-share-button" data-via="congomines"] Tweet
+          javascript:
+            !function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location)?'http':'https';
+              if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = p + "://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+              }
+            }(document, "script", "twitter-wjs");
+        div
+          div[class="g-plusone" data-size="medium" data-annotation="inline" data-width="120"]
+        div
+          div[class="fb-share-button" data-href="http://www.congomines.org/" data-layout="button_count"]
 
-    ga('create', 'UA-65053539-1', 'auto');
-    ga('send', 'pageview');
+    div.row
+      div.small-12.columns
+        ul.text-center
+          li © 2017 CongoMines
+          li: a href="#{about_url}" =t('a_propos')
+          li: a href="mailto:transparency@congomines.org" =t('nous_contacter')
+          li
+            a[href="/admin" target="_blank"] =t('se_connecter')
+            - if @report
+              span  |
+              = link_to 'Manage', edit_admin_report_url(@report), {target: 'blank'}
+            - if @drc_company
+              span  |
+              = link_to 'Manage', edit_admin_drc_company_url(@drc_company), {target: 'blank'}
+            - if @shareholder
+              span  |
+              = link_to 'Manage', edit_admin_shareholder_url(@shareholder), {target: 'blank'}
+    javascript:
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-65053539-1', 'auto');
+      ga('send', 'pageview');
