@@ -7,7 +7,7 @@ class Admin::AttachmentsController < ApplicationController
     config.columns = [:asset] 
     config.list.columns = [:asset]
     
-    config.actions << :sortable
-    config.sortable.column = :position
+    #config.actions << :sortable
+    #config.sortable.column = :position
   end
 end
