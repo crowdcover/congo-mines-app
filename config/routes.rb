@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   get 'static_pages/home'
-
+  
   namespace :admin do
     resources :deposit_sources do as_routes end
     resources :mineral_resources do as_routes end
@@ -68,6 +68,9 @@ Rails.application.routes.draw do
       get 'get_all_social_projects'
     end
   end
+
+  get "/sitemap.xml" => "sitemap#index", :format => "xml", :as => :sitemap
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
