@@ -4,11 +4,12 @@ class Admin::ProductionExportsController  < Admin::Auth #ApplicationController
   config.columns.exclude(:metal_content, :created_at, :updated_at)
 
   config.columns[:type_of_product].form_ui = :select
-  config.columns[:type_of_product].options = {include_blank: 'Select Type of Product',
-    options: ['copper concentrate','cobalt concentrate','concentrate copper - cobaltiferous',
-      'black copper','copper cathode','alloy white','alloy red','matte copper','zinc dust',
-      'dust lead','gross heterogeneity','hydroxide cobalt','gold gross','ingot gold',
-      'gross wolframite','coltan gross','gross cassiterite']}
+  config.columns[:type_of_product].options = {include_blank: 'Type de produit sélectionné',
+    options: ['Concentré de cuivre','Concentré de cobalt','Concentré cuivro-cobaltifère',
+              'Cuivre noire','Cathode de cuivre','Alliage blanc','Alliage rouge',
+              'Cuivre mat','Poussière de zinc',
+              'Poussière de plomb','Hétérogénite brut','Hydroxyde de cobalt',
+              'Lingot or','Or brut','Wolframite brut','Coltan brut','Cassiterite brute']}
 
     config.columns[:year].form_ui = :select
     config.columns[:year].options = {include_blank: 'Sélectionnez l\'année', options: (2000..Time.now.year) }
