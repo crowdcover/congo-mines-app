@@ -9,8 +9,7 @@ json.features @drc_company.processing_infrastructures do |p_infra|
     end
   end
   json.properties do
-    json.key_format! camelize: :upper
-    json.nom p_infra.name
-    json.nom_compagnie p_infra.drc_company.name
+    json.name p_infra.name
+    json.drc_company p_infra.drc_company.name
   end  
 end

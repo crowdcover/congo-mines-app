@@ -2,7 +2,6 @@ $(function(){
   $(document).foundation();
 
   var app = {
-    access_token: 'pk.eyJ1IjoiY29uZ29taW5lcyIsImEiOiI4ZmRkOGJiNDk0MzNhNmU1NGE4N2MzODI5ZmFhNTcxNyJ9.wW5SYM4cPL7qOrz-443SGg',
     mapTable: null,
     initCommon: function(){
       mainbottom = $('.content').offset().top
@@ -41,7 +40,7 @@ $(function(){
     },
 
     initMap: function() {
-            $('.map-dropdown.mining-data ul a').on('click', function(e){
+      $('.map-dropdown.mining-data ul a').on('click', function(e){
         e.preventDefault();
         e.stopPropagation();
 
@@ -51,16 +50,32 @@ $(function(){
             parentListItem = $this.parent('li');
 
         if(! parentListItem.hasClass('active')){
-          //reload iframe with new geojson url
-          var src = document.getElementById('map').src;
-          var base = src.split('?')[0];
-          var updatedSrc = base + '?' + 'geoJSON=' + document.location.origin + url + '.json&color=32ACDE';
-  
-           document.getElementById('map').src = updatedSrc;
+          app.addVectorLayer(url, type);
+         
         }
 
         app.toggleMapDropDown($this);
       });
+
+
+            // show datatable child rows
+      $('table.mine-table').on('click', 'td.show-child-rows', function(e){
+        var $this = $(this),
+            cellIcon = $this.find('i'),
+            tr = $this.closest('tr'),
+            row = app.mapTable.api().row( tr );
+ 
+        if( row.child.isShown() ){
+          row.child.hide();
+          tr.removeClass('shown');
+          cellIcon.removeClass('fa-caret-down').addClass('fa-caret-right');
+        }else{
+          row.child( app.childRowTemplate(row.data()) ).show();
+          tr.addClass('shown');
+          cellIcon.removeClass('fa-caret-right').addClass('fa-caret-down');
+        }
+      });
+
 
 
     },
@@ -81,6 +96,34 @@ $(function(){
           }
     },
 
+    addVectorLayer: function(url, type){
+      $.getJSON(url, function(data){
+        // remove features with no coordinates
+        data.features = _.filter(data.features, function(feature){
+          var lat = feature.geometry.coordinates[1],
+              lon = feature.geometry.coordinates[0];
+          return lat !== undefined && lon !== undefined &&
+                 lat !== null && lon !== null &&
+                 lat >= -90 && lat <= 90 &&
+                 lon >= -180 && lon <= 180;
+                                
+        });
+
+        if(data.features.length > 0){
+           //reload iframe with new geojson url
+          var src = document.getElementById('map').src;
+          var base = src.split('?')[0];
+          var updatedSrc = base + '?' + 'geoJSON=' + document.location.origin + url + '.json&color=32ACDE';
+  
+           document.getElementById('map').src = updatedSrc;
+        }
+
+
+        app.setUpTable(data, type);
+
+      });
+
+    },
 
     setUpTable: function(geoJSON, type){
       // destroy if exists
@@ -182,8 +225,6 @@ $(function(){
 
     childRowTemplate: function(row){
       // deposit :: resourceMeasurementType :: resourceMeasurement :: mineral
-      // clusterfuck?
-      // TODO: rewrite using a templating language
 
       var resourceMeasurementTypes = [
         'indicated_resources',
