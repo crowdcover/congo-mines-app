@@ -1,5 +1,8 @@
 json.type "FeatureCollection"
-
+baseUrl = request.protocol + request.host
+unless request.port == (80 || 443) 
+  baseUrl = baseUrl + ":" + request.port.to_s
+end
 json.features @social_projects do |social|
   json.type "Feature"
   json.geometry do
@@ -10,18 +13,18 @@ json.features @social_projects do |social|
   end
   
   json.properties do
-    json.key_format! camelize: :upper
     #social.drc_company.nil? ? json.drc_company "none" : json.drc_company social.drc_company.name #unless social.drc_company.nil?
     if social.drc_company.nil?
-      json.nom_compagnie social.drc_company
+      json.drc_company social.drc_company
     else
-      json.nom_compagnie social.drc_company.name
+      json.drc_company social.drc_company.name
+      json.link baseUrl  + "/drc_companies/" + social.drc_company.to_param
     end
-    json.compagnie social.company
-    json.type_projet social.project_type
-    json.montant_prévu social.amount_planned
-    json.montant_dépensé social.amount_spent
-    json.étape social.stage
+    json.company social.company
+    json.project_type social.project_type
+    json.amount_planned social.amount_planned
+    json.amount_spent social.amount_spent
+    json.stage social.stage
     json.description social.description
   end  
 end

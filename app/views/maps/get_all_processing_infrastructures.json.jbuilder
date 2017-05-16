@@ -1,3 +1,7 @@
+baseUrl = request.protocol + request.host
+unless request.port == (80 || 443) 
+  baseUrl = baseUrl + ":" + request.port.to_s
+end
 json.type "FeatureCollection"
 
 json.features @processing_infrastructures do |p_infra|
@@ -11,12 +15,12 @@ json.features @processing_infrastructures do |p_infra|
 
   
   json.properties do
-    json.key_format! camelize: :upper
-    json.nom p_infra.name
+    json.name p_infra.name
     if p_infra.drc_company.nil?
-      json.nom_compagnie p_infra.drc_company
+      json.drc_company p_infra.drc_company
     else
-      json.nom_compagnie p_infra.drc_company.name
+      json.drc_company p_infra.drc_company.name
+      json.link baseUrl  + "/drc_companies/" + p_infra.drc_company.to_param
     end
   end
 end

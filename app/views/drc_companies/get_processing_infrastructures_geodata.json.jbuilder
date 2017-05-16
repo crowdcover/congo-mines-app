@@ -1,3 +1,9 @@
+presets = Array.new
+baseUrl = request.protocol + request.host
+unless request.port == (80 || 443) 
+  baseUrl = baseUrl + ":" + request.port.to_s
+end
+
 json.type "FeatureCollection"
 
 json.features @drc_company.processing_infrastructures do |p_infra|
@@ -10,6 +16,22 @@ json.features @drc_company.processing_infrastructures do |p_infra|
   end
   json.properties do
     json.name p_infra.name
+    presets << {"tag" => 'name', "label" => {"en" => 'Name', "fr" => 'Nom'}}
+
     json.drc_company p_infra.drc_company.name
+    presets << {"tag" => 'drc_company', "label" => {"en" => 'Company Name', "fr" => 'Nom d’entreprise'}}
+
+    json.link baseUrl  + "/drc_companies/" + p_infra.drc_company.to_param
+    presets << {"tag" => 'link', "label" => {"en" => 'Link', "fr" => 'Lien'}}
+
+    json.maphubs_metadata do
+      json.presets presets do |preset|
+        json.tag preset['tag']
+        json.label do 
+          json.en preset['label']['en']
+          json.fr preset['label']['fr']
+        end
+      end
+    end
   end  
 end

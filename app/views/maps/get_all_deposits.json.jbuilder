@@ -1,11 +1,13 @@
+baseUrl = request.protocol + request.host
+unless request.port == (80 || 443) 
+  baseUrl = baseUrl + ":" + request.port.to_s
+end
+
 json.type "FeatureCollection"
 validDeposits = @deposits.select { |deposit| deposit.lng != nil && deposit.lat != nil && deposit.lng != 0 && deposit.lat != 0 }
 json.features validDeposits do |deposit|
   #deposit.probable_reserves.each {|res| res["MINERAL_NAME"] = res.to_label }
-  baseUrl = request.protocol + request.host
-  unless request.port == (80 || 443) 
-    baseUrl = baseUrl + ":" + request.port.to_s
-  end
+  
   json.type "Feature"
 
   json.geometry do
@@ -17,14 +19,14 @@ json.features validDeposits do |deposit|
 
   
   json.properties do
-    json.key_format! camelize: :upper
+    json.name deposit.name
+    json.company_name deposit.drc_company.name
+    json.drc_company deposit.drc_company.to_param
+    json.mine_type deposit.mine_type
+    json.permit_type deposit.permit_type
+    json.permit_number deposit.permit_number
     json.link baseUrl  + "/drc_companies/" + deposit.drc_company.to_param
-    json.nom deposit.name
-    json.nom_compagnie deposit.drc_company.name
-    json.id_compagnie deposit.drc_company.to_param
-    json.type deposit.mine_type
-    json.permis_type deposit.permit_type
-    json.permis_number deposit.permit_number
+    
 
     resourceList = Array.new
 
@@ -56,7 +58,7 @@ json.features validDeposits do |deposit|
       resourceList << res.mineral_resource.name;
     end
    
-    json.minerais resourceList.uniq.join(",")
+    json.minerals resourceList.uniq.join(",")
 
     json.source deposit.source
   end
