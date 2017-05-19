@@ -9,7 +9,7 @@ RUN gem install bundler
 
 ADD Gemfile /app/Gemfile
 ADD Gemfile.lock /app/Gemfile.lock
-RUN cd /app && bundle install
+RUN cd /app && bundle install --full-index
 
 ADD . /app  
 ADD config/database.yml.docker /app/config/database.yml
