@@ -9,4 +9,8 @@ class StaticPagesController < ApplicationController
 
   def about
   end
+
+  def specialreport
+    @special_report = SpecialReport.all.take(1)
+  end 
 end
