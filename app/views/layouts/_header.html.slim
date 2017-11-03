@@ -7,9 +7,9 @@ header [role="banner"]
 
     div class="menu" data-magellan-expedition="fixed"
       div class="row"
-        div class="small-12 medium-3 columns cm-logo": a href="#{root_url}" = image_tag 'logo.png'
+        div class="small-12 medium-2 columns cm-logo": a href="#{root_url}" = image_tag 'logo.png'
         nav
-          div class="small-12 medium-6 columns navigation"
+          div class="small-12 medium-8 columns navigation"
             ul
               li
                 a[class="#{is_active?(about_path)}" href="#{about_url}"]= t('.about') 
@@ -19,8 +19,10 @@ header [role="banner"]
                 a[class="#{is_active?(drc_companies_url)}" href="#{drc_companies_url}"]= t('.enterprises')
               li
                 a[ href=(ENV['MAPHUBS_MAP_LINK'])]= t('.maps')
+              li
+                a[ href="/rapport-gecamines"]= t('.specialreport')
 
-          div class="medium-3 hide-for-small-only columns cc-logo": a href="http://www.cartercenter.org" = image_tag 'carter2.png'
+          div class="medium-2 hide-for-small-only columns cc-logo": a href="http://www.cartercenter.org" = image_tag 'carter2.png'
     div id="google_translate_element" style="position: absolute; top: 0px; right: 0px;"
     javascript:
       function googleTranslateElementInit() {

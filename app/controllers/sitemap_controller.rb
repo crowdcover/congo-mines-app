@@ -2,7 +2,7 @@ class SitemapController < ApplicationController
 
   def index
 
-    @staticpages = ['', 'about', 'reports', 'drc_companies']
+    @staticpages = ['', 'about', 'reports', 'drc_companies', 'rapport-gecamines']
 
     @companies = DrcCompany.all
 
