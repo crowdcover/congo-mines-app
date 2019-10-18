@@ -40,3 +40,6 @@ bower.json
 
 # don't track password files
 .env
+
+# don't track docker volume mounts
+/mnt

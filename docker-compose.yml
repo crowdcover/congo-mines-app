@@ -27,12 +27,8 @@ services:
     env_file:
       - .env
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - ./mnt/db-data:/var/lib/postgresql/data
       - ./config/docker-init-db:/docker-entrypoint-initdb.d
       - ./backups:/backups
     ports:
-      - "5433:5432"
-volumes:
-  db-data:
-    external:
-      name: congomines-db-data
+      - "5435:5432"
