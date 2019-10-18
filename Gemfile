@@ -78,6 +78,9 @@ gem 'sunspot_solr'
 # pagination with kaminari
 gem 'kaminari'
 
+# use .env for dev/test
+gem 'dotenv-rails', groups: [:development, :test]
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
