@@ -5,7 +5,7 @@ gem 'i18n_generators'
 gem 'active_scaffold',  github: 'activescaffold/active_scaffold', branch: 'master'
 gem 'acts_as_list'
 gem 'acts_as_tree'
-gem 'active_scaffold_export'
+gem 'active_scaffold_export', "~> 3.3.2"
 gem 'chosen-rails'
 gem 'http_accept_language'
 gem 'rack-cors'
@@ -45,7 +45,7 @@ group :development, :test do
 end
 
 
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.11.1'
 gem 'iconv'
 
 # Use SCSS for stylesheets
