@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 #ruby "2.2.2"
 gem 'i18n_generators'
 
-gem 'active_scaffold',  github: 'activescaffold/active_scaffold', branch: 'master'
+gem 'active_scaffold'
 gem 'acts_as_list'
 gem 'acts_as_tree'
 gem 'active_scaffold_export', "~> 3.3.2"
@@ -12,14 +12,14 @@ gem 'rack-cors'
 gem 'tinymce-rails'
 gem 'friendly_id', '~> 5.1.0'
 
-gem 'pg' #, group: :production
+gem 'pg', '~> 0.18'
 gem "paperclip", "~> 4.2"
 gem 'rails_12factor', group: :production
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'tinymce-rails'
 gem 'tinymce-rails-langs'
-gem 'acts-as-taggable-on', '~> 3.4'
+gem 'acts-as-taggable-on'
 
 # use Slim and Foundation for template and style
 gem 'slim-rails'
