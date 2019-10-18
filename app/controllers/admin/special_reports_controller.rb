@@ -7,14 +7,12 @@ class Admin::SpecialReportsController < Admin::Auth
 
 
   active_scaffold :"special_report" do |config|
-    config.label = 'Special Report'
     #config.actions = [:list, :update, :show]
     config.list.columns = [:title]
 
     config.update.columns = columns
 
     config.columns[:content].form_ui = :text_editor
-
 
     #config.actions << :sortable
     #config.sortable.column = :position
@@ -31,7 +29,8 @@ class Admin::SpecialReportsController < Admin::Auth
         plugins: ["link","image","preview","searchreplace", "charmap", "table", "fullscreen", "paste"],
         paste_as_text: true,
         language: 'fr_FR',
-        tools: "inserttable"
+        tools: "inserttable",
+        height: 300
       }
     }
 

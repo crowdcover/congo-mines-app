@@ -43,6 +43,7 @@ class Admin::ReportsController  < Admin::Auth # ApplicationController
         #plugins: ['textpattern'],
         tools: "inserttable",
         language: 'fr_FR',
+        height: 300
         #link_list: [
         #  {title: 'My page 1', value: 'http://www.tinymce.com'},
         #  {title: 'My page 2', value: 'http://www.moxiecode.com'}]

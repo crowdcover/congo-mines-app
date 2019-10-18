@@ -43,7 +43,8 @@
 
 // .active-scaffold input.text-input, 
 .active-scaffold textarea {
-  width: 300px;
+  width: 100%;
+  max-width: 800px;
 }
 
 .active-scaffold textarea {
@@ -52,6 +53,10 @@
 
 .active-scaffold li.form-element dt {
   margin-right: 12px;
+}
+
+.active-scaffold li.form-element dd {
+  width: 100%;
 }
 
 li.form-element.checkbox {

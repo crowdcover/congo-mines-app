@@ -31,6 +31,7 @@ class Admin::PagesController < Admin::Auth
         paste_as_text: true,
         language: 'fr_FR',
         tools: "inserttable",
+        height: 300
         #link_list: [
         #  {title: 'My page 1', value: 'http://www.tinymce.com'},
         #  {title: 'My page 2', value: 'http://www.moxiecode.com'}]

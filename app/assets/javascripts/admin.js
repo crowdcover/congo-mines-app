@@ -43,7 +43,7 @@ tinymce.init({
   plugins: ["link","preview","searchreplace", "charmap", "table", "fullscreen", "paste"],
   paste_as_text: true,
   tools: "inserttable",
-  language: 'fr_FR',
+  language: 'fr_FR'
 });
 
 

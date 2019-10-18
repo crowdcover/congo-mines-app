@@ -27,6 +27,7 @@ fr:
       stock_exchange: Bourse  #g
       stock_exchange_country: Pays boursier  #g
       tax_obligation: Obligation impôt  #g
+      special_report: Rapport spécial #g
 
 
     attributes:
@@ -100,10 +101,10 @@ fr:
         rccm: Numéro Registre de Commerce et de Crédit Mobilier (RCCM)  #g
         report_relations: :activerecord.models.report_relations  #g
         reports: :activerecord.models.reports  #g
-        shareholder_relationships: :activerecord.models.shareholder_relationships  #g
+        shareholder_relationships: Relations d'actionnaires  #g
         shareholders: :activerecord.models.shareholders  #g
-        social_projects:  projet Social #:activerecord.models.social_projects  #g
-        tax_obligations: :activerecord.models.tax_obligations  #g
+        social_projects:  Projet social #:activerecord.models.social_projects  #g
+        tax_obligations: Obligations impôt  #g
         website: Site Internet de la Société de Droit Congolais  #g
 
       employee:
@@ -255,3 +256,7 @@ fr:
         surface_rights: Droits Superficiaires Déclarés  #g
         total_paid: Montant Total Payé (Déclaration Entreprise) ($)   #g
         year: Année  #g
+      
+      special_report:
+        title: Titre
+        content: Rapport
