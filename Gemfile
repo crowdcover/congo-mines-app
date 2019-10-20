@@ -2,10 +2,10 @@ source 'https://rubygems.org'
 #ruby "2.2.2"
 gem 'i18n_generators'
 
-gem 'active_scaffold'
+gem 'active_scaffold', '3.5.5'
 gem 'acts_as_list'
 gem 'acts_as_tree'
-gem 'active_scaffold_export', "~> 3.3.2"
+gem 'active_scaffold_export', github: 'naaano/active_scaffold_export' 
 gem 'chosen-rails'
 gem 'http_accept_language'
 gem 'rack-cors'

@@ -16,6 +16,13 @@ GIT
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
 
+GIT
+  remote: git://github.com/naaano/active_scaffold_export.git
+  revision: 879ceb549b871ebb597ae5339a2e67498beb70d1
+  specs:
+    active_scaffold_export (3.3.2)
+      active_scaffold (>= 3.3.0.rc)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -41,8 +48,6 @@ GEM
     active_scaffold (3.5.5)
       ice_nine (~> 0.11)
       rails (>= 4.0.5, < 5.2.0)
-    active_scaffold_export (3.3.2)
-      active_scaffold (>= 3.3.0.rc)
     activejob (4.2.11.1)
       activesupport (= 4.2.11.1)
       globalid (>= 0.3.0)
@@ -302,8 +307,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_scaffold
-  active_scaffold_export (~> 3.3.2)
+  active_scaffold (= 3.5.5)
+  active_scaffold_export!
   acts-as-taggable-on
   acts_as_list
   acts_as_tree
