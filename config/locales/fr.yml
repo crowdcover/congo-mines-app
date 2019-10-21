@@ -301,6 +301,10 @@ fr:
       taxation: Taxation
       environnementales_sociaux: Obligations environnementales / sociaux
       actionnaires: Actionnaires
+      gender: Sexe
+      count: Dénombrer
+      nationality: Nationalité
+      contract_type: Type de contrat
   layouts:
     header:
       header-text: Portail virtuel d'information sur le secteur minier industriel

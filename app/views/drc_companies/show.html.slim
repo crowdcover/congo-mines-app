@@ -74,17 +74,22 @@ div.grey.company-stats
             div.row.collapse
               h4.medium-3.columns.quiet= t('.employ_s')
               div.medium-9.columns.employees
-                - employees = @drc_company.employees.each do |emp|
-                  - unless emp.nil?
-                    div.small-12.pbs
-                      h4.small-12.columns.dark = emp.try(:year)
-                      span = number_with_delimiter(emp.count)
-                      '
-                      em = emp.gender
-                      '
-                      em = emp.nationality
-                      '
-                      em = emp.contract_type
+                - years = @drc_company_employees_years.each do |year|
+                  div.small-12.pbs
+                    h4.small-12.columns.dark.pbs = year.to_s  
+                    table
+                      tr
+                        th.count = t('.count')
+                        th.gender = t('.gender')
+                        th.nationality = t('.nationality')
+                        th.contract_type = t('.contract_type')
+                      - employees = @drc_company_employees_byyear[year].each do |emp|
+                        - unless emp.nil?
+                        tr
+                          td.count = number_with_delimiter(emp.count)
+                          td.gender = emp.gender
+                          td.nationality = emp.nationality
+                          td.contract_type = emp.contract_type
 
 
         li.accordion-navigation

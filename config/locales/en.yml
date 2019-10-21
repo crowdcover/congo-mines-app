@@ -299,6 +299,10 @@ en:
       taxation: Taxation
       environnementales_sociaux: Environmental / Social Obligations
       actionnaires: Shareholders
+      gender: Gender
+      count: Count
+      nationality: Nationality
+      contract_type: Contract Type
   layouts:
     header:
       header-text: Portal for information on the industrial mining sector in the Democratic Republic of the Congo

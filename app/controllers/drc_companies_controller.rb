@@ -8,6 +8,16 @@ class DrcCompaniesController < ApplicationController
     @drc_company_reports = @drc_company.reports.order(actual_post_date: :desc)
       .page(params[:page]).per(12)
 
+    @drc_company_employees_years = []
+    @drc_company_employees_byyear = {}
+    @drc_company.employees.each { |employee| 
+      if ! @drc_company_employees_byyear[employee.year]
+        @drc_company_employees_byyear[employee.year] = []
+        @drc_company_employees_years.push(employee.year)
+      end
+      @drc_company_employees_byyear[employee.year].push(employee)
+    }
+
     #render :show
   end
 
