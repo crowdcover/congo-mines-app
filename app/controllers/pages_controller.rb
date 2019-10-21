@@ -1,11 +1,15 @@
+# frozen_string_literal: true
+
 class PagesController < ApplicationController
   before_action :sicomines?
 
   def show
     # @page = Page.includes(:reports).find(params[:id]) # , :drc_company_reports
 
-    @reports = @page.reports.order('actual_post_date DESC')
-                .page(params[:page]).per(12) unless @page.reports.empty?
+    unless @page.reports.empty?
+      @reports = @page.reports.order('actual_post_date DESC')
+                      .page(params[:page]).per(12)
+    end
     # @drc_company_reports = @page.drc_company.reports
     #                         .order(actual_post_date: :desc)
     #                         .page(params[:page])
@@ -22,17 +26,18 @@ class PagesController < ApplicationController
     @search = sicomines_search
     @reports = @search.results
     # @reports = @page.drc_company.reports.order(actual_post_date: :desc)
-                                  # .page(params[:page])
-                                  # .per(12)
+    # .page(params[:page])
+    # .per(12)
     # fail
     render :show
   end
 
   protected
+
   def sicomines_search
     Report.search do
       any do
-        fulltext "Sicomines"
+        fulltext 'Sicomines'
         fulltext '"La Sino Congolaise Des Mines"'
         with(:drc_company_ids, 74)
       end

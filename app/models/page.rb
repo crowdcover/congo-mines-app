@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Page < ActiveRecord::Base
   acts_as_list
 
@@ -9,32 +11,31 @@ class Page < ActiveRecord::Base
 
   belongs_to :drc_company
 
-  validates_uniqueness_of :topic, if: :topic_changed?
+  validates :topic, uniqueness: { if: :topic_changed? }
 
   DEFAULT_URL = "#{Rails.configuration.action_controller.asset_host}#{Rails.configuration.assets.prefix}/default_topic_img.jpg"
   has_attached_file :banner,
-    styles: { :medium => "300x300>", :thumb => "100x100>" }
-    #default_url: DEFAULT_URL
-    #default_url: ActionController::Base.helpers.asset_path('default_topic_img.jpg')
-    #:default_url => "/assets/default_topic_img.jpg"
-    # default_url: ->(attachment) { 'default_topic_img.jpg' }
+                    styles: { medium: '300x300>', thumb: '100x100>' }
+  # default_url: DEFAULT_URL
+  # default_url: ActionController::Base.helpers.asset_path('default_topic_img.jpg')
+  #:default_url => "/assets/default_topic_img.jpg"
+  # default_url: ->(attachment) { 'default_topic_img.jpg' }
 
-  validates_attachment_content_type :banner, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :banner, content_type: %r{\Aimage/.*\Z}
 
   def label
     try(:topic)
   end
 
   def topic_url
-    self.topic.split.join('_')
+    topic.split.join('_')
   end
 
-  #def to_param
-#    "#{id}_#{topic_url}"
-  #end
+  # def to_param
+  #    "#{id}_#{topic_url}"
+  # end
 
   def to_param
-    "#{id}-#{topic.try(:parameterize)}"  if id
+    "#{id}-#{topic.try(:parameterize)}" if id
   end
-
 end

@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
+# Site Map
 class SitemapController < ApplicationController
-
   def index
-
     @staticpages = ['', 'about', 'reports', 'drc_companies', 'rapport-gecamines']
 
     @companies = DrcCompany.all
@@ -18,5 +19,4 @@ class SitemapController < ApplicationController
       format.xml
     end
   end
-
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class ReportsControllerTest < ActionController::TestCase
@@ -5,18 +7,18 @@ class ReportsControllerTest < ActionController::TestCase
     @report = reports(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index
     assert_response :success
     assert_not_nil assigns(:reports)
   end
 
-  test "should get new" do
+  test 'should get new' do
     get :new
     assert_response :success
   end
 
-  test "should create report" do
+  test 'should create report' do
     assert_difference('Report.count') do
       post :create, report: { author_id: @report.author_id, date: @report.date, source_id: @report.source_id, title: @report.title }
     end
@@ -24,22 +26,22 @@ class ReportsControllerTest < ActionController::TestCase
     assert_redirected_to report_path(assigns(:report))
   end
 
-  test "should show report" do
+  test 'should show report' do
     get :show, id: @report
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get :edit, id: @report
     assert_response :success
   end
 
-  test "should update report" do
+  test 'should update report' do
     patch :update, id: @report, report: { author_id: @report.author_id, date: @report.date, source_id: @report.source_id, title: @report.title }
     assert_redirected_to report_path(assigns(:report))
   end
 
-  test "should destroy report" do
+  test 'should destroy report' do
     assert_difference('Report.count', -1) do
       delete :destroy, id: @report
     end

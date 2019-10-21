@@ -1,24 +1,27 @@
-class DrcCompaniesController < ApplicationController
+# frozen_string_literal: true
 
+# Companies
+class DrcCompaniesController < ApplicationController
   def show
     @drc_company = DrcCompany.includes(:tax_obligations, :employees,
-      :env_and_social_obligation, :flows_payable_under_contract,
-      :production_exports).find(params[:id])
+                                       :env_and_social_obligation, :flows_payable_under_contract,
+                                       :production_exports).find(params[:id])
 
     @drc_company_reports = @drc_company.reports.order(actual_post_date: :desc)
-      .page(params[:page]).per(12)
+                                       .page(params[:page]).per(12)
 
     @drc_company_employees_years = []
     @drc_company_employees_byyear = {}
-    @drc_company.employees.each { |employee| 
-      if ! @drc_company_employees_byyear[employee.year]
-        @drc_company_employees_byyear[employee.year] = []
-        @drc_company_employees_years.push(employee.year)
+    @drc_company.employees.each do |employee|
+      @year = employee.year
+      unless @drc_company_employees_byyear[@year]
+        @drc_company_employees_byyear[@year] = []
+        @drc_company_employees_years.push(@year)
       end
-      @drc_company_employees_byyear[employee.year].push(employee)
-    }
+      @drc_company_employees_byyear[@year].push(employee)
+    end
 
-    #render :show
+    # render :show
   end
 
   def index
@@ -32,12 +35,12 @@ class DrcCompaniesController < ApplicationController
   end
   skip_before_action :verify_authenticity_token
   def get_geodata
-    #get_geodata_drc_company_path(@drc_company)
+    # get_geodata_drc_company_path(@drc_company)
     @drc_company = DrcCompany.includes(:deposits, :social_projects,
-      :processing_infrastructures).find(params[:id])
+                                       :processing_infrastructures).find(params[:id])
     # render :json
   end
-  
+
   def get_deposits_geodata
     @drc_company = DrcCompany.includes(:deposits).find(params[:id])
   end
@@ -51,8 +54,6 @@ class DrcCompaniesController < ApplicationController
   end
 
   private
-  def drc_company_params
-  end
 
-
+  def drc_company_params; end
 end

@@ -1,7 +1,8 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   get 'static_pages/home'
-  
+
   namespace :admin do
     resources :deposit_sources do as_routes end
     resources :mineral_resources do as_routes end
@@ -34,7 +35,7 @@ Rails.application.routes.draw do
     resources :tax_obligations do as_routes end
     resources :production_exports do as_routes end
     resources :drc_companies do as_routes end
-    
+
     resources :special_reports do as_routes end
   end
 
@@ -45,7 +46,7 @@ Rails.application.routes.draw do
   get '/about', to: 'static_pages#about'
   get '/rapport-gecamines', to: 'static_pages#specialreport'
 
-  resources :drc_companies, only: [:show, :index] do  #, only: [:show, :index]
+  resources :drc_companies, only: %i[show index] do # , only: [:show, :index]
     member do
       get 'get_geodata'
       get 'get_deposits_geodata'
@@ -53,8 +54,8 @@ Rails.application.routes.draw do
       get 'get_social_projects_geodata'
     end
   end
-  resources :reports, only: [:show, :index]
-  resources :shareholders, only: [:show, :index]
+  resources :reports, only: %i[show index]
+  resources :shareholders, only: %i[show index]
   resources :categories, only: :show do
   end
 
@@ -70,8 +71,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get "/sitemap.xml" => "sitemap#index", :format => "xml", :as => :sitemap
-
+  get '/sitemap.xml' => 'sitemap#index', :format => 'xml', :as => :sitemap
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

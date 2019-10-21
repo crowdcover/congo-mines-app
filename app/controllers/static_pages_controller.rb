@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Static Pages
 class StaticPagesController < ApplicationController
   def home
     @rec_reports = Report.where(recommended: true).order('actual_post_date DESC').take(4)
@@ -7,10 +10,9 @@ class StaticPagesController < ApplicationController
     @reports = Report.all.order('actual_post_date DESC').take(4)
   end
 
-  def about
-  end
+  def about; end
 
   def specialreport
     @special_report = SpecialReport.all.take(1)
-  end 
+  end
 end

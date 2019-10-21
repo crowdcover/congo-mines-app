@@ -1,6 +1,6 @@
 - if @special_report && @special_report.size > 0
   title = @special_report[0].try(:title)
-  - set_tags(meta_title: @special_report[0].try(:title), og_title: @special_report[0].try(:title) )
+  - tags(meta_title: @special_report[0].try(:title), og_title: @special_report[0].try(:title) )
 
   div.row
     div.large-12.columns

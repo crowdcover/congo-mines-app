@@ -1,13 +1,12 @@
 # congo-mines-app
 Rails app for the CongoMines project
 
-
 ### bundle install
 ### rake db:migrate
-### rake import:import_wp_posts
 
 #  Start solr or search and admin will not work.
-### rake sunspot:solr:start
+### bundle exec rake sunspot:solr:start
+### bundle exec rake sunspot:solr:reindex
 
 to stop solr
-### rake sunspot:solr:stop
+### bundle exec rake sunspot:solr:stop

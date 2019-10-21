@@ -1,15 +1,15 @@
 .header
   ul.nav.nav-pills.pull-right
 
-    li[class="#{is_active?(admin_drc_companies_path)}"] = link_to "RDC Entreprises", admin_drc_companies_path
-    li[class="#{is_active?(admin_mineral_resources_path)}"] = link_to "Minerais", admin_mineral_resources_path
-    li[class="#{is_active?(admin_shareholders_path)}"] = link_to "Actionnaire", admin_shareholders_path
-    li[class="#{is_active?(admin_reports_path)}"] = link_to "Documents", admin_reports_path
-    li[class="#{is_active?(admin_sources_path)}"] = link_to "Sources de Documents", admin_sources_path
+    li[class="#{active?(admin_drc_companies_path)}"] = link_to "RDC Entreprises", admin_drc_companies_path
+    li[class="#{active?(admin_mineral_resources_path)}"] = link_to "Minerais", admin_mineral_resources_path
+    li[class="#{active?(admin_shareholders_path)}"] = link_to "Actionnaire", admin_shareholders_path
+    li[class="#{active?(admin_reports_path)}"] = link_to "Documents", admin_reports_path
+    li[class="#{active?(admin_sources_path)}"] = link_to "Sources de Documents", admin_sources_path
     / li = link_to "Minerals", admin_mineral_resources_path
-    li[class="#{is_active?(admin_intermediary_companies_path)}"] = link_to "Enterpries Intermédiaires", admin_intermediary_companies_path
-    li[class="#{is_active?(admin_pages_path)}"] = link_to "Pages", admin_pages_path
-    li[class="#{is_active?(admin_special_reports_path)}"] = link_to "Rapport Spécial", admin_special_reports_path
+    li[class="#{active?(admin_intermediary_companies_path)}"] = link_to "Enterpries Intermédiaires", admin_intermediary_companies_path
+    li[class="#{active?(admin_pages_path)}"] = link_to "Pages", admin_pages_path
+    li[class="#{active?(admin_special_reports_path)}"] = link_to "Rapport Spécial", admin_special_reports_path
     / li = link_to "Deposit Sources", admin_deposit_sources_path
     / li = link_to "Categories", admin_categories_path
 

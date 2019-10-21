@@ -1,7 +1,8 @@
-class DrcCompany < ActiveRecord::Base
-  #include FriendlyId
-  #friendly_id :name #, :use => [:slugged] #, :simple_i18n]
+# frozen_string_literal: true
 
+class DrcCompany < ActiveRecord::Base
+  # include FriendlyId
+  # friendly_id :name #, :use => [:slugged] #, :simple_i18n]
 
   has_many :production_exports, dependent: :destroy
   has_many :tax_obligations, dependent: :destroy
@@ -24,7 +25,7 @@ class DrcCompany < ActiveRecord::Base
 
   has_one :page
 
-  #validates_presence_of :name #, :legal_status, :project_phase, :project_type, :acronym, :contact
+  # validates_presence_of :name #, :legal_status, :project_phase, :project_type, :acronym, :contact
 
   validates :name, uniqueness: true, presence: true
 
@@ -35,26 +36,23 @@ class DrcCompany < ActiveRecord::Base
   end
 
   searchable do
-    text :name, :boost => 5
+    text :name, boost: 5
 
     text :description, :acronym, :nrc, :rccm, :contact, :website, :legal_status,
-      :legal_status, :project_type, :project_phase, :legal_regime, :permits
+         :legal_status, :project_type, :project_phase, :legal_regime, :permits
 
-    #time reports do
+    # time reports do
     #  time :published_at
-    #string :publish_month
+    # string :publish_month
     text :reports do
       reports.pluck(:summary)
     end
 
-      #time :published_at
-      #string :publish_month
-
+    # time :published_at
+    # string :publish_month
   end
 
   def to_param
-   "#{id}-#{name.try(:parameterize)}" if id
+    "#{id}-#{name.try(:parameterize)}" if id
   end
-
-
 end

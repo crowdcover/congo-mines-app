@@ -1,0 +1,11 @@
+require: rubocop-rails
+Metrics/MethodLength:
+  Max: 400
+Metrics/BlockLength:
+   Max: 400
+Metrics/LineLength:
+  Max: 250
+Style/Documentation:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false

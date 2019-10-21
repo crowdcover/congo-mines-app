@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 # do jbuilder for geojson for map
 
-json.type "FeatureCollection"
-validDeposits = @drc_company.deposits.select { |deposit| deposit.lng != nil && deposit.lat != nil && deposit.lng != 0 && deposit.lat != 0 }
+json.type 'FeatureCollection'
+valid_deposits = @drc_company.deposits.select { |deposit| !deposit.lng.nil? && !deposit.lat.nil? && deposit.lng != 0 && deposit.lat != 0 }
 
-json.features validDeposits do |deposit|
-  json.type "Feature"
+json.features valid_deposits do |deposit|
+  json.type 'Feature'
   json.properties do
     json.name deposit.name
     json.drc_company deposit.drc_company.name
@@ -17,7 +19,7 @@ json.features validDeposits do |deposit|
   end
 
   json.geometry do
-    json.type "Point"
+    json.type 'Point'
     json.coordinates do
       json.array! [deposit.lng.to_f, deposit.lat.to_f]
     end

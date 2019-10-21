@@ -42,6 +42,8 @@ group :development, :test do
     gem 'railroady'
     gem 'sqlite3'
     gem 'debugger2', :git => "git://github.com/ko1/debugger2.git"
+    gem 'rubocop', '~> 0.75.1'
+    gem 'rubocop-rails'
 end
 
 

@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 class MapsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  def show
-  end
-  
+  def show; end
+
   def get_all_deposits
     @deposits = Deposit.all
   end

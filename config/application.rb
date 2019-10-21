@@ -1,4 +1,6 @@
-require File.expand_path('../boot', __FILE__)
+# frozen_string_literal: true
+
+require File.expand_path('boot', __dir__)
 
 require 'rails/all'
 
@@ -21,22 +23,22 @@ module ActiveScaffold
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = 'fr'
-    config.i18n.available_locales = %w(fr en)
+    config.i18n.available_locales = %w[fr en]
   end
 end
 
-  #fix_cp1252_utf8(text)
+# fix_cp1252_utf8(text)
 class String
   def fix_encoding
-    self.encode('cp1252',
-                :fallback => {
-                  "\u0081" => "\x81".force_encoding("cp1252"),
-                  "\u008D" => "\x8D".force_encoding("cp1252"),
-                  "\u008F" => "\x8F".force_encoding("cp1252"),
-                  "\u0090" => "\x90".force_encoding("cp1252"),
-                  "\u009D" => "\x9D".force_encoding("cp1252")
-                })
-        .force_encoding("utf-8")
+    encode('cp1252',
+           fallback: {
+             "\u0081" => "\x81".force_encoding('cp1252'),
+             "\u008D" => "\x8D".force_encoding('cp1252'),
+             "\u008F" => "\x8F".force_encoding('cp1252'),
+             "\u0090" => "\x90".force_encoding('cp1252'),
+             "\u009D" => "\x9D".force_encoding('cp1252')
+           })
+      .force_encoding('utf-8')
   end
 end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class MineralResourcesControllerTest < ActionController::TestCase
@@ -5,18 +7,18 @@ class MineralResourcesControllerTest < ActionController::TestCase
     @mineral_resource = mineral_resources(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index
     assert_response :success
     assert_not_nil assigns(:mineral_resources)
   end
 
-  test "should get new" do
+  test 'should get new' do
     get :new
     assert_response :success
   end
 
-  test "should create mineral_resource" do
+  test 'should create mineral_resource' do
     assert_difference('MineralResource.count') do
       post :create, mineral_resource: { name: @mineral_resource.name }
     end
@@ -24,22 +26,22 @@ class MineralResourcesControllerTest < ActionController::TestCase
     assert_redirected_to mineral_resource_path(assigns(:mineral_resource))
   end
 
-  test "should show mineral_resource" do
+  test 'should show mineral_resource' do
     get :show, id: @mineral_resource
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get :edit, id: @mineral_resource
     assert_response :success
   end
 
-  test "should update mineral_resource" do
+  test 'should update mineral_resource' do
     patch :update, id: @mineral_resource, mineral_resource: { name: @mineral_resource.name }
     assert_redirected_to mineral_resource_path(assigns(:mineral_resource))
   end
 
-  test "should destroy mineral_resource" do
+  test 'should destroy mineral_resource' do
     assert_difference('MineralResource.count', -1) do
       delete :destroy, id: @mineral_resource
     end
