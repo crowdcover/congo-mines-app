@@ -12,6 +12,11 @@ class StaticPagesController < ApplicationController
 
   def about
     @about = SpecialReport.where(tag: 'about').fetch(0)
+    @title_localized = if I18n.locale == :en
+      @about.title_en
+    else
+      @about.title
+    end
   end
 
   def specialreport

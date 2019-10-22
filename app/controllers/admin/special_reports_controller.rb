@@ -6,6 +6,7 @@ class Admin::SpecialReportsController < Admin::Auth
   # create_columns = columns - [:topic]
 
   active_scaffold :special_report do |config|
+    config.label = 'Pages Spécial'
     # config.actions = [:list, :update, :show]
     config.list.columns = %i[tag title title_en]
 

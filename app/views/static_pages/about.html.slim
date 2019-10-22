@@ -1,10 +1,10 @@
 - if @about
-  title = t('.title')
-  - tags(meta_title: t('.title'), og_title: t('.title') )
+  title = @title_localized
+  - tags(meta_title: @title_localized, og_title: @title_localized )
 
   div.row
     div.large-12.columns
-      h1 #{t('.title')} 
+      h1 #{@title_localized} 
   div.row
     div.large-12.columns.pvl.keyline-bottom
       - if I18n.locale = "en"
