@@ -6,25 +6,29 @@
   </ul>
 
   <section class="top-bar-section">
-
     <ul class="left">
 
-
-
       <li class="divider"></li>
+      
 
       <li class="has-dropdown map-dropdown mining-data">
         <a class="title" href="#"><%= t('mines_et_infrastructures') %><span class="layer-title"></span></a>
         <ul class="dropdown">
-          <li>
-            <a class="add-layer" href="#" data-type="deposit" data-url="<%= get_deposits_geodata_drc_company_path{@drc_company} %>"><%= t('gisements') %></a>
-          </li>
-          <li>
-            <a class="add-layer" href="#" data-type="processing_infrastructure" data-url="<%= get_processing_infrastructures_geodata_drc_company_path{@drc_company} %>"><%= t('installations_de_traitement') %></a>
-          </li>
-          <li>
-            <a class="add-layer" href="#" data-type="social_project" data-url="<%= get_social_projects_geodata_drc_company_path{@drc_company} %>"><%= t('projets_sociaux') %></a>
-          </li>
+          <% if @drc_company.deposits.count > 0 %>
+            <li>
+              <a class="add-layer" href="#" data-type="deposit" data-url="<%= get_deposits_geodata_drc_company_path{@drc_company} %>"><%= t('gisements') %></a>
+            </li>
+          <% end %>
+          <% if @drc_company.processing_infrastructures.count > 0 %>
+            <li>
+              <a class="add-layer" href="#" data-type="processing_infrastructure" data-url="<%= get_processing_infrastructures_geodata_drc_company_path{@drc_company} %>"><%= t('installations_de_traitement') %></a>
+            </li>
+          <% end %>
+          <% if @drc_company.social_projects.count > 0 %>
+            <li>
+              <a class="add-layer" href="#" data-type="social_project" data-url="<%= get_social_projects_geodata_drc_company_path{@drc_company} %>"><%= t('projets_sociaux') %></a>
+            </li>
+          <% end %>
         </ul>
       </li>
 
