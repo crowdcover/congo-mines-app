@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191022174517) do
+ActiveRecord::Schema.define(version: 20191022191719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -281,6 +281,7 @@ ActiveRecord::Schema.define(version: 20191022174517) do
     t.datetime "updated_at"
     t.string   "direct_shareholder"
     t.integer  "source_id"
+    t.integer  "year_end"
   end
 
   add_index "shareholder_relationships", ["drc_company_id"], name: "index_shareholder_relationships_on_drc_company_id", using: :btree

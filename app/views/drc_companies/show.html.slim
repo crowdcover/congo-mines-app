@@ -256,6 +256,10 @@ div
                         div.clearfix
                           h4.small-6.medium-4.columns.quiet.pll= t('.ann_e')
                           span.small-6.medium-8.columns = sr.year
+                        - if sr.year_end
+                          div.clearfix
+                            h4.small-6.medium-4.columns.quiet.pll= t('.end_date')
+                            span.small-6.medium-8.columns = sr.year_end
                         div.clearfix
                           h4.small-6.medium-4.columns.quiet.pll= t('.actionnaires_directs')
                           span.small-6.medium-8.columns = sr.direct_shareholder
