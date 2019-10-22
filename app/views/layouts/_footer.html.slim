@@ -42,11 +42,11 @@ footer
     div.row
       div.small-12.columns
         ul.text-center
-          li © 2017 CongoMines
-          li: a href="#{about_url}" =t('a_propos')
-          li: a href="mailto:transparency@congomines.org" =t('nous_contacter')
+          li © 2019 CongoMines
+          li: a href="#{about_url}" = t('.a_propos')
+          li: a href="mailto:transparency@congomines.org" = t('.nous_contacter')
           li
-            a[href="/admin" target="_blank"] =t('se_connecter')
+            a[href="/admin" target="_blank"] = t('.se_connecter')
             - if @report
               span  |
               = link_to 'Manage', edit_admin_report_url(@report), {target: 'blank'}
