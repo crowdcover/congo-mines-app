@@ -23,7 +23,7 @@ class DrcCompany < ActiveRecord::Base
   has_one :flows_payable_under_contract, dependent: :destroy
   has_one :env_and_social_obligation, dependent: :destroy
 
-  has_one :page
+  has_one :page, dependent: :destroy
 
   # validates_presence_of :name #, :legal_status, :project_phase, :project_type, :acronym, :contact
 
