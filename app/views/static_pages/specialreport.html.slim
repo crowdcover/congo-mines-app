@@ -1,11 +1,13 @@
-- if @special_report && @special_report.size > 0
-  title = @special_report[0].try(:title)
-  - tags(meta_title: @special_report[0].try(:title), og_title: @special_report[0].try(:title) )
+- if @special_report
+  title = @title_localized
+  - tags(meta_title: @title_localized, og_title: @title_localized )
 
   div.row
     div.large-12.columns
-      h1 #{@special_report[0].try(:title)} 
-
+      h1 #{@title_localized} 
   div.row
     div.large-12.columns.pvl.keyline-bottom
-      div.topic-special_report-content [lang="fr"] = @special_report[0].try(:content).try(:html_safe)
+      - if I18n.locale = "en"
+        div.topic-special_report-content [lang= "en"] = @special_report.try(:content_en).try(:html_safe)
+      - else
+        div.topic-special_report-content [lang= "fr"] = @special_report.try(:content).try(:html_safe)

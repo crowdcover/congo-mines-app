@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191021225643) do
+ActiveRecord::Schema.define(version: 20191022174517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -332,6 +332,9 @@ ActiveRecord::Schema.define(version: 20191021225643) do
   create_table "special_reports", force: :cascade do |t|
     t.string "title"
     t.text   "content"
+    t.string "tag"
+    t.string "title_en"
+    t.text   "content_en"
   end
 
   create_table "stock_exchange_countries", force: :cascade do |t|

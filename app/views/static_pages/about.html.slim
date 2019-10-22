@@ -1,25 +1,13 @@
-title= title
-div.row.about
-  div.small-12.columns.mvl
+- if @about
+  title = t('.title')
+  - tags(meta_title: t('.title'), og_title: t('.title') )
 
-    h1.text-left.quiet= t('.propos')
-
-    p= t('.ce_site_est_un')
-
-    p= t('.le_site_regroupe_pr')
-
-    ul.list
-      li= t('.th_me')
-      li= t('.type_de_document')
-      li= t('.type_de_source')
-      li= t('.province')
-
-    p= t('.la_documentation_vise_couvrir')
-
-    p= t('.par_ailleurs_le_site')
-
-    p= t('.ce_centre_de_documentation')
-
-    p Ce site a été développé en partenariat avec <a href="http://rdc.moabi.org/" target="_blank">Moabi RDC</a>, une initiative indépendante de suivi de l’utilisation des ressources naturelles en République Démocratique du Congo.
-
-    p= t('.moabi_a_produit_une')
+  div.row
+    div.large-12.columns
+      h1 #{t('.title')} 
+  div.row
+    div.large-12.columns.pvl.keyline-bottom
+      - if I18n.locale = "en"
+        div.topic-special_report-content [lang= "en"] = @about.try(:content_en).try(:html_safe)
+      - else
+        div.topic-special_report-content [lang= "fr"] = @about.try(:content).try(:html_safe)

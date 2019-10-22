@@ -10,9 +10,16 @@ class StaticPagesController < ApplicationController
     @reports = Report.all.order('actual_post_date DESC').take(4)
   end
 
-  def about; end
+  def about
+    @about = SpecialReport.where(tag: 'about').fetch(0)
+  end
 
   def specialreport
-    @special_report = SpecialReport.all.take(1)
+    @special_report = SpecialReport.where(tag: 'special').fetch(0)
+    @title_localized = if I18n.locale == :en
+      @special_report.title_en
+    else
+      @special_report.title
+    end
   end
 end
