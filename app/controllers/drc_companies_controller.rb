@@ -3,7 +3,7 @@
 # Companies
 class DrcCompaniesController < ApplicationController
   def show
-    @drc_company = DrcCompany.includes(:tax_obligations, :employees,
+    @drc_company = DrcCompany.includes(:tax_obligations, :employees, :deposits, :processing_infrastructures, :social_projects,
                                        :env_and_social_obligation, :flows_payable_under_contract,
                                        :production_exports).find(params[:id])
 

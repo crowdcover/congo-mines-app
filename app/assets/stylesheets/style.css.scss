@@ -329,6 +329,11 @@ $summary-lines-to-show: 4;
   padding-bottom: 40px;
 }
 
+.accordion-navigation .active {
+  max-height: 450px;
+  overflow: auto;
+}
+
 
 .pagination {
   text-align: center;
@@ -436,7 +441,7 @@ $summary-lines-to-show: 4;
 
 #map {
   width:100%;
-  height:560px;
+  height:400px;
   z-index: 500;
 }
 

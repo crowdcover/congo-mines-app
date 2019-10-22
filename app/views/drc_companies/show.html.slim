@@ -4,7 +4,7 @@ title = @drc_company.name
 div.row
   div.large-12.columns
 
-div.row
+div
   div.large-12.columns
     h1.left
       span = @drc_company.name
@@ -13,237 +13,264 @@ div.row
           |  (
           = @drc_company.acronym
           | )
+div
+  
+  div.large-6.columns
+    
+    div.grey.company-stats
+      div.row
+        div.large-12.columns
 
-= render "company_map_nav"
-
-div.row
-  div.large-12.columns
-
-    table.mine-table
-      /.display [cellpadding="0" cellspacing="0" border="0"]
-
-
-div.grey.company-stats
-  div.row
-    div.large-12.columns
-
-      ul.accordion[data-accordion data-options="multi_expand:true"]
-        li.accordion-navigation
-          a[href="#accordion-general"]= t('.informations_generales')
-          div#accordion-general.content.clearfix[onclick="event.cancelBubble = true;"]
-            div.row.collapse
-              div.small-12.medium-6.columns
-                div.clearfix
-                  h4.small-6.columns.quiet= t('.nrc')
-                  span.small-6.columns = @drc_company.nrc
-                div.clearfix
-                  h4.small-6.columns.quiet= t('.rccm')
-                  span.small-6.columns = @drc_company.rccm
-                div.clearfix
-                  h4.small-6.columns.quiet= t('.statut_l_gal')
-                  span.small-6.columns = @drc_company.legal_status
-                div.clearfix
-                  h4.small-6.columns.quiet= t('.r_gime_l_gal')
-                  span.small-6.columns = @drc_company.legal_regime
-
-              div.small-12.medium-6.columns
-                div.clearfix
-                  h4.small-6.columns.quiet= t('.type_de_projet')
-                  span.small-6.columns = @drc_company.project_type
-                div.clearfix
-                  h4.small-6.columns.quiet= t('.phase_du_projet')
-                  span.small-6.columns = @drc_company.project_phase
-                div.clearfix
-                  h4.small-6.columns.quiet= t('.contact')
-                  span.small-6.columns = @drc_company.contact
-                div.clearfix
-                  h4.small-6.columns.quiet= t('.site_web')
-                  - if @drc_company.website
-                    span.small-6.columns = link_to @drc_company.website, @drc_company.website
-
-            - if @drc_company.description
-              div.row.collapse
-                h4.medium-3.columns.quiet= t('.description')
-                p.medium-9.columns.description = @drc_company.description
-
-            - if @drc_company.permits
-              div.row.collapse
-                h4.medium-3.columns.quiet= t('.permis')
-                p.medium-9.columns.permits : em = @drc_company.permits
-
-            div.row.collapse
-              h4.medium-3.columns.quiet= t('.employ_s')
-              div.medium-9.columns.employees
-                - years = @drc_company_employees_years.each do |year|
-                  div.small-12.pbs
-                    h4.small-12.columns.dark.pbs = year.to_s  
-                    table
-                      tr
-                        th.count = t('.count')
-                        th.gender = t('.gender')
-                        th.nationality = t('.nationality')
-                        th.contract_type = t('.contract_type')
-                      - employees = @drc_company_employees_byyear[year].each do |emp|
-                        - unless emp.nil?
-                        tr
-                          td.count = number_with_delimiter(emp.count)
-                          td.gender = emp.gender
-                          td.nationality = emp.nationality
-                          td.contract_type = emp.contract_type
-
-
-        li.accordion-navigation
-          a[href="#accordion-production"] = t('.production_et_exportation')
-          div#accordion-production.content.clearfix[onclick="event.cancelBubble = true;"]
-            div.row
-              div.small-12.columns
-                - if @drc_company.production_exports.length == 0
-                  / if empty array, output headers only
-                  h4.small-12.columns.quiet= t('.type_de_produit')
-                  h4.small-12.columns.quiet= t('.tonnage')
-                  h4.small-12.columns.quiet= t('.teneur')
-                  h4.small-12.columns.quiet= t('.valeur_export_e')
-                - @drc_company.production_exports.each do |pe|
-                  - unless pe.nil?
-                    div.mbm
-                      h4.small-12.columns.dark = pe.year
-                      div.clearfix.mls
-                        h4.small-6.medium-4.columns.quiet= t('.type_de_produit')
-                        span.small-6.medium-8.columns = pe.type_of_product
-                      div.clearfix.mls
-                        h4.small-6.medium-4.columns.quiet= t('.tonnage')
-                        span.small-6.medium-8.columns = number_with_delimiter(pe.tonnage)
-                      div.clearfix.mls
-                        h4.small-6.medium-4.columns.quiet= t('.teneur')
-                        span.small-6.medium-8.columns = number_to_percentage(pe.grade, precision: 2, separator: '.')
-                      div.clearfix.mls
-                        h4.small-6.medium-4.columns.quiet= t('.valeur_export_e')
-                        span.small-6.medium-8.columns = number_to_currency(pe.export_value, locale: :en, unit: "USD ")
-
-
-        li.accordion-navigation
-          a[href="#accordion-tax"] = t('.taxation')
-          div#accordion-tax.content.clearfix[onclick="event.cancelBubble = true;"]
-            div.row
-              - if ! @drc_company.flows_payable_under_contract
-                h4.small-12.columns.quiet= t('.pas_de_porte')
-                h4.small-12.columns.quiet= t('.royalties')
-                h4.small-12.columns.quiet= t('.loyer_annuel')
-                h4.small-12.columns.quiet= t('.cession_des_actifs')
-                h4.small-12.columns.quiet= t('.b_n_ficiaire_contractuel')
-              - else
-                h3.small-12.columns.quiet= t('.flux_payable_au_contrat')
-                div.clearfix.mls
-                  h4.small-6.medium-4.columns.quiet= t('.pas_de_porte')
-                  span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.signature_bonus, locale: :en, unit: "USD ")
-                div.clearfix.mls
-                  h4.small-6.medium-4.columns.quiet= t('.royalties')
-                  span.small-6.medium-8.columns
-                    span = number_to_percentage(@drc_company.flows_payable_under_contract.royalties, precision: 2, separator: '.', format: "%n% du chiffres d'affaires")
-                div.clearfix.mls
-                  h4.small-6.medium-4.columns.quiet= t('.loyer_annuel')
-                  span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.annuity, locale: :en, unit: "USD ")
-                div.clearfix.mls
-                  h4.small-6.medium-4.columns.quiet= t('.cession_des_actifs')
-                  span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.transfer_of_shares, locale: :en, unit: "USD ")
-                div.clearfix.mls
-                  h4.small-6.medium-4.columns.quiet= t('.b_n_ficiaire_contractuel')
-                  span.small-6.medium-8.columns = @drc_company.flows_payable_under_contract.contract_cash_recipient
-
-            div.row
-              h3.small-12.columns.quiet= t('.paiement_des_taxes')
-              - if @drc_company.tax_obligations.length == 0
-                / if empty array, output headers only
-                h4.small-12.columns.quiet= t('.total_pay')
-                h4.small-12.columns.quiet= t('.redevances')
-                h4.small-12.columns.quiet= t('.imp_t_b_n')
-                h4.small-12.columns.quiet= t('.droit_de_douane_l')
-                h4.small-12.columns.quiet= t('.droits_superficiaires')
-                h4.small-12.columns.quiet= t('.pas_de_porte')
-                h4.small-12.columns.quiet= t('.royalties')
-                h4.small-12.columns.quiet= t('.autres')
-              - @drc_company.tax_obligations.each do |tax_ob|
-                - unless tax_ob.nil?
-                  h4.small-12.columns.dark.mls = tax_ob.year
-                  div.clearfix.mlm
-                    h4.small-6.medium-4.columns.quiet= t('.total_pay')
-                    span.small-6.medium-8.columns = number_to_currency(tax_ob.total_paid, locale: :en, unit: "USD ")
-                  div.clearfix.mlm
-                    h4.small-6.medium-4.columns.quiet= t('.redevances')
-                    span.small-6.medium-8.columns = number_to_currency(tax_ob.redevance, locale: :en, unit: "USD ")
-                  div.clearfix.mlm
-                    h4.small-6.medium-4.columns.quiet= t('.imp_t_b_n')
-                    span.small-6.medium-8.columns = number_to_currency(tax_ob.ibp, locale: :en, unit: "USD ")
-                  div.clearfix.mlm
-                    h4.small-6.medium-4.columns.quiet= t('.droit_de_douane_l')
-                    span.small-6.medium-8.columns = number_to_currency(tax_ob.import_customs_duty, locale: :en, unit: "USD ")
-                  div.clearfix.mlm
-                    h4.small-6.medium-4.columns.quiet= t('.droits_superficiaires')
-                    span.small-6.medium-8.columns = number_to_currency(tax_ob.surface_rights, locale: :en, unit: "USD ")
-                  div.clearfix.mlm
-                    h4.small-6.medium-4.columns.quiet= t('.pas_de_porte')
-                    span.small-6.medium-8.columns = number_to_currency(tax_ob.signature_bonus, locale: :en, unit: "USD ")
-                  div.clearfix.mlm
-                    h4.small-6.medium-4.columns.quiet= t('.royalties')
-                    span.small-6.medium-8.columns = number_to_currency(tax_ob.royalties, locale: :en, unit: "USD ")
-                    / span.small-6.medium-8.columns = number_to_percentage(tax_ob.royalties, precision: 2, separator: '.', format: "% du chiffres d'affaires")
-                  div.clearfix.mlm
-                    h4.small-6.medium-4.columns.quiet= t('.autres')
-                    span.small-6.medium-8.columns = number_to_currency(tax_ob.other, locale: :en, unit: "USD ")
-
-        li.accordion-navigation
-          a[href="#accordion-enviro"] = t('.environnementales_sociaux')
-          div#accordion-enviro.content.clearfix[onclick="event.cancelBubble = true;"]
-            div.row
-              - if ! @drc_company.env_and_social_obligation
-                h4.small-12.columns.quiet= t('.fonds_communautaire')
-                h4.small-12.columns.quiet= t('.date_d_impact_environnemental')
-                h4.small-12.columns.quiet= t('.lien_d_impact_environnemental')
-                h4.small-12.columns.quiet= t('.plan_de_d_veloppement')
-                h4.small-12.columns.quiet= t('.plateforme_de_dialogue_communautaire')
-                h4.small-12.columns.quiet= t('.investissement_social')
-              - else
-                div.clearfix
-                  h4.small-6.medium-4.columns.quiet= t('.fonds_communautaire')
-                  span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.community_fund
-                div.clearfix
-                  h4.small-6.medium-4.columns.quiet= t('.date_d_impact_environnemental')
-                  span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.enviro_impact_date
-                div.clearfix
-                  h4.small-6.medium-4.columns.quiet= t('.lien_d_impact_environnemental')
-                  span.small-6.medium-8.columns = link_to @drc_company.env_and_social_obligation.enviro_impact_link, @drc_company.env_and_social_obligation.enviro_impact_link
-                div.clearfix
-                  h4.small-6.medium-4.columns.quiet= t('.plan_de_d_veloppement')
-                  span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.sustainable_dev_plan
-                div.clearfix
-                  h4.small-6.medium-4.columns.quiet= t('.plateforme_de_dialogue_communautaire')
-                  span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.community_dialogue_platform
-                div.clearfix
-                  h4.small-6.medium-4.columns.quiet= t('.investissement_social')
-                  span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.social_investment
-
-        li.accordion-navigation
-          a[href="#accordion-shareholder"] = t('.actionnaires')
-          div#accordion-shareholder.content.clearfix[onclick="event.cancelBubble = true;"]
-            - if @drc_company.shareholder_relationships == 0
-              div
-                em.text-center= t('.aucun_actionnaire_list')
-            - else
-              - @drc_company.shareholder_relationships.each do |sr|
-                - unless sr.shareholder.blank?
-                  div.row
-                    h3.small-12.columns.dark
-                      = link_to sr.shareholder.name, sr.shareholder
+          ul.accordion[data-accordion data-options="multi_expand:true"]
+            li.accordion-navigation
+              a[href="#accordion-general"]= t('.informations_generales')
+              div#accordion-general.content.clearfix[onclick="event.cancelBubble = true;"]
+                div.row.collapse
+                  div.small-12.medium-6.columns
                     div.clearfix
-                      h4.small-6.medium-4.columns.quiet.pll= t('.pourcentage')
-                      span.small-6.medium-8.columns = number_to_percentage(sr.percentage, precision: 2, separator: '.')
+                      h4.small-6.columns.quiet= t('.nrc')
+                      span.small-6.columns = @drc_company.nrc
                     div.clearfix
-                      h4.small-6.medium-4.columns.quiet.pll= t('.ann_e')
-                      span.small-6.medium-8.columns = sr.year
+                      h4.small-6.columns.quiet= t('.rccm')
+                      span.small-6.columns = @drc_company.rccm
                     div.clearfix
-                      h4.small-6.medium-4.columns.quiet.pll= t('.actionnaires_directs')
-                      span.small-6.medium-8.columns = sr.direct_shareholder
+                      h4.small-6.columns.quiet= t('.statut_l_gal')
+                      span.small-6.columns = @drc_company.legal_status
+                    div.clearfix
+                      h4.small-6.columns.quiet= t('.r_gime_l_gal')
+                      span.small-6.columns = @drc_company.legal_regime
 
+                  div.small-12.medium-6.columns
+                    div.clearfix
+                      h4.small-6.columns.quiet= t('.type_de_projet')
+                      span.small-6.columns = @drc_company.project_type
+                    div.clearfix
+                      h4.small-6.columns.quiet= t('.phase_du_projet')
+                      span.small-6.columns = @drc_company.project_phase
+                    div.clearfix
+                      h4.small-6.columns.quiet= t('.contact')
+                      span.small-6.columns = @drc_company.contact
+                    div.clearfix
+                      h4.small-6.columns.quiet= t('.site_web')
+                      - if @drc_company.website
+                        span.small-6.columns = link_to @drc_company.website, @drc_company.website
+
+                - if @drc_company.description
+                  div.row.collapse
+                    h4.medium-3.columns.quiet= t('.description')
+                    p.medium-9.columns.description = @drc_company.description
+
+                - if @drc_company.permits
+                  div.row.collapse
+                    h4.medium-3.columns.quiet= t('.permis')
+                    p.medium-9.columns.permits : em = @drc_company.permits
+
+                div.row.collapse
+                  h4.medium-3.columns.quiet= t('.employ_s')
+                  div.medium-9.columns.employees
+                    - years = @drc_company_employees_years.each do |year|
+                      div.small-12.pbs
+                        h4.small-12.columns.dark.pbs = year.to_s  
+                        table
+                          tr
+                            th.count = t('.count')
+                            th.gender = t('.gender')
+                            th.nationality = t('.nationality')
+                            th.contract_type = t('.contract_type')
+                            th.source = t('.source')
+                          - employees = @drc_company_employees_byyear[year].each do |emp|
+                            - unless emp.nil?
+                            tr
+                              td.count = number_with_delimiter(emp.count)
+                              td.gender = emp.gender
+                              td.nationality = emp.nationality
+                              td.contract_type = emp.contract_type
+                              td.source = emp.source ? emp.source.name : ''
+
+
+            li.accordion-navigation
+              a[href="#accordion-production"] = t('.production_et_exportation')
+              div#accordion-production.content.clearfix[onclick="event.cancelBubble = true;"]
+                div.row
+                  div.small-12.columns
+                    - if @drc_company.production_exports.length == 0
+                      / if empty array, output headers only
+                      h4.small-12.columns.quiet= t('.type_de_produit')
+                      h4.small-12.columns.quiet= t('.tonnage')
+                      h4.small-12.columns.quiet= t('.teneur')
+                      h4.small-12.columns.quiet= t('.valeur_export_e')
+                      h4.small-12.columns.quiet= t('.source')
+                    - @drc_company.production_exports.each do |pe|
+                      - unless pe.nil?
+                        div.mbm
+                          h4.small-12.columns.dark = pe.year
+                          div.clearfix.mls
+                            h4.small-6.medium-4.columns.quiet= t('.type_de_produit')
+                            span.small-6.medium-8.columns = pe.type_of_product
+                          div.clearfix.mls
+                            h4.small-6.medium-4.columns.quiet= t('.tonnage')
+                            span.small-6.medium-8.columns = number_with_delimiter(pe.tonnage)
+                          div.clearfix.mls
+                            h4.small-6.medium-4.columns.quiet= t('.teneur')
+                            span.small-6.medium-8.columns = number_to_percentage(pe.grade, precision: 2, separator: '.')
+                          div.clearfix.mls
+                            h4.small-6.medium-4.columns.quiet= t('.valeur_export_e')
+                            span.small-6.medium-8.columns = number_to_currency(pe.export_value, locale: :en, unit: "USD ")
+                          - if pe.source
+                            div.clearfix.mls
+                              h4.small-6.medium-4.columns.quiet= t('.source')
+                              span.small-6.medium-8.columns = pe.source.name
+
+
+            li.accordion-navigation
+              a[href="#accordion-tax"] = t('.taxation')
+              div#accordion-tax.content.clearfix[onclick="event.cancelBubble = true;"]
+                div.row
+                  - if ! @drc_company.flows_payable_under_contract
+                    h4.small-12.columns.quiet= t('.pas_de_porte')
+                    h4.small-12.columns.quiet= t('.royalties')
+                    h4.small-12.columns.quiet= t('.loyer_annuel')
+                    h4.small-12.columns.quiet= t('.cession_des_actifs')
+                    h4.small-12.columns.quiet= t('.b_n_ficiaire_contractuel')
+                    h4.small-12.columns.quiet= t('.source')
+                  - else
+                    h3.small-12.columns.quiet= t('.flux_payable_au_contrat')
+                    div.clearfix.mls
+                      h4.small-6.medium-4.columns.quiet= t('.pas_de_porte')
+                      span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.signature_bonus, locale: :en, unit: "USD ")
+                    div.clearfix.mls
+                      h4.small-6.medium-4.columns.quiet= t('.royalties')
+                      span.small-6.medium-8.columns
+                        span = number_to_percentage(@drc_company.flows_payable_under_contract.royalties, precision: 2, separator: '.', format: "%n% du chiffres d'affaires")
+                    div.clearfix.mls
+                      h4.small-6.medium-4.columns.quiet= t('.loyer_annuel')
+                      span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.annuity, locale: :en, unit: "USD ")
+                    div.clearfix.mls
+                      h4.small-6.medium-4.columns.quiet= t('.cession_des_actifs')
+                      span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.transfer_of_shares, locale: :en, unit: "USD ")
+                    div.clearfix.mls
+                      h4.small-6.medium-4.columns.quiet= t('.b_n_ficiaire_contractuel')
+                      span.small-6.medium-8.columns = @drc_company.flows_payable_under_contract.contract_cash_recipient
+                    - if @drc_company.flows_payable_under_contract.source
+                      div.clearfix.mls
+                        h4.small-6.medium-4.columns.quiet= t('.source')
+                        span.small-6.medium-8.columns = @drc_company.flows_payable_under_contract.source.name
+
+                div.row
+                  h3.small-12.columns.quiet= t('.paiement_des_taxes')
+                  - if @drc_company.tax_obligations.length == 0
+                    / if empty array, output headers only
+                    h4.small-12.columns.quiet= t('.total_pay')
+                    h4.small-12.columns.quiet= t('.redevances')
+                    h4.small-12.columns.quiet= t('.imp_t_b_n')
+                    h4.small-12.columns.quiet= t('.droit_de_douane_l')
+                    h4.small-12.columns.quiet= t('.droits_superficiaires')
+                    h4.small-12.columns.quiet= t('.pas_de_porte')
+                    h4.small-12.columns.quiet= t('.royalties')
+                    h4.small-12.columns.quiet= t('.autres')
+                    h4.small-12.columns.quiet= t('.source')
+                  - @drc_company.tax_obligations.each do |tax_ob|
+                    - unless tax_ob.nil?
+                      h4.small-12.columns.dark.mls = tax_ob.year
+                      div.clearfix.mlm
+                        h4.small-6.medium-4.columns.quiet= t('.total_pay')
+                        span.small-6.medium-8.columns = number_to_currency(tax_ob.total_paid, locale: :en, unit: "USD ")
+                      div.clearfix.mlm
+                        h4.small-6.medium-4.columns.quiet= t('.redevances')
+                        span.small-6.medium-8.columns = number_to_currency(tax_ob.redevance, locale: :en, unit: "USD ")
+                      div.clearfix.mlm
+                        h4.small-6.medium-4.columns.quiet= t('.imp_t_b_n')
+                        span.small-6.medium-8.columns = number_to_currency(tax_ob.ibp, locale: :en, unit: "USD ")
+                      div.clearfix.mlm
+                        h4.small-6.medium-4.columns.quiet= t('.droit_de_douane_l')
+                        span.small-6.medium-8.columns = number_to_currency(tax_ob.import_customs_duty, locale: :en, unit: "USD ")
+                      div.clearfix.mlm
+                        h4.small-6.medium-4.columns.quiet= t('.droits_superficiaires')
+                        span.small-6.medium-8.columns = number_to_currency(tax_ob.surface_rights, locale: :en, unit: "USD ")
+                      div.clearfix.mlm
+                        h4.small-6.medium-4.columns.quiet= t('.pas_de_porte')
+                        span.small-6.medium-8.columns = number_to_currency(tax_ob.signature_bonus, locale: :en, unit: "USD ")
+                      div.clearfix.mlm
+                        h4.small-6.medium-4.columns.quiet= t('.royalties')
+                        span.small-6.medium-8.columns = number_to_currency(tax_ob.royalties, locale: :en, unit: "USD ")
+                        / span.small-6.medium-8.columns = number_to_percentage(tax_ob.royalties, precision: 2, separator: '.', format: "% du chiffres d'affaires")
+                      div.clearfix.mlm
+                        h4.small-6.medium-4.columns.quiet= t('.autres')
+                        span.small-6.medium-8.columns = number_to_currency(tax_ob.other, locale: :en, unit: "USD ")
+                      - if tax_ob.source
+                        div.clearfix.mlm
+                          h4.small-6.medium-4.columns.quiet= t('.source')
+                          span.small-6.medium-8.columns = tax_ob.source.name
+
+            li.accordion-navigation
+              a[href="#accordion-enviro"] = t('.environnementales_sociaux')
+              div#accordion-enviro.content.clearfix[onclick="event.cancelBubble = true;"]
+                div.row
+                  - if ! @drc_company.env_and_social_obligation
+                    h4.small-12.columns.quiet= t('.fonds_communautaire')
+                    h4.small-12.columns.quiet= t('.date_d_impact_environnemental')
+                    h4.small-12.columns.quiet= t('.lien_d_impact_environnemental')
+                    h4.small-12.columns.quiet= t('.plan_de_d_veloppement')
+                    h4.small-12.columns.quiet= t('.plateforme_de_dialogue_communautaire')
+                    h4.small-12.columns.quiet= t('.investissement_social')
+                  - else
+                    div.clearfix
+                      h4.small-6.medium-4.columns.quiet= t('.fonds_communautaire')
+                      span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.community_fund
+                    div.clearfix
+                      h4.small-6.medium-4.columns.quiet= t('.date_d_impact_environnemental')
+                      span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.enviro_impact_date
+                    div.clearfix
+                      h4.small-6.medium-4.columns.quiet= t('.lien_d_impact_environnemental')
+                      -if @drc_company.env_and_social_obligation.enviro_impact_link
+                        span.small-6.medium-8.columns = link_to @drc_company.env_and_social_obligation.enviro_impact_link, @drc_company.env_and_social_obligation.enviro_impact_link
+                    div.clearfix
+                      h4.small-6.medium-4.columns.quiet= t('.plan_de_d_veloppement')
+                      span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.sustainable_dev_plan
+                    div.clearfix
+                      h4.small-6.medium-4.columns.quiet= t('.plateforme_de_dialogue_communautaire')
+                      span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.community_dialogue_platform
+                    div.clearfix
+                      h4.small-6.medium-4.columns.quiet= t('.investissement_social')
+                      span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.social_investment
+                    - if @drc_company.env_and_social_obligation.source
+                      div.clearfix
+                        h4.small-6.medium-4.columns.quiet= t('.source')
+                        span.small-6.medium-8.columns = @drc_company.env_and_social_obligation.source.name
+
+            li.accordion-navigation
+              a[href="#accordion-shareholder"] = t('.actionnaires')
+              div#accordion-shareholder.content.clearfix[onclick="event.cancelBubble = true;"]
+                - if @drc_company.shareholder_relationships == 0
+                  div
+                    em.text-center= t('.aucun_actionnaire_list')
+                - else
+                  - @drc_company.shareholder_relationships.each do |sr|
+                    - unless sr.shareholder.blank?
+                      div.row
+                        h3.small-12.columns.dark
+                          = link_to sr.shareholder.name, sr.shareholder
+                        div.clearfix
+                          h4.small-6.medium-4.columns.quiet.pll= t('.pourcentage')
+                          span.small-6.medium-8.columns = number_to_percentage(sr.percentage, precision: 2, separator: '.')
+                        div.clearfix
+                          h4.small-6.medium-4.columns.quiet.pll= t('.ann_e')
+                          span.small-6.medium-8.columns = sr.year
+                        div.clearfix
+                          h4.small-6.medium-4.columns.quiet.pll= t('.actionnaires_directs')
+                          span.small-6.medium-8.columns = sr.direct_shareholder
+                        - if sr.source
+                          div.clearfix
+                            h4.small-6.medium-4.columns.quiet.pll= t('.source')
+                            span.small-6.medium-8.columns = sr.source.name
+
+  div.large-6.columns
+    - if @drc_company.deposits.count > 0 || @drc_company.social_projects.count > 0 || @drc_company.processing_infrastructures.count > 0
+      = render "company_map_nav"
+      table.mine-table
+    - else 
+      div.row
+        h1.quiet= 'No Data'
 
 div.row
   div.large-12.columns
