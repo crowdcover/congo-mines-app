@@ -2,6 +2,7 @@
 
 class SocialProject < ActiveRecord::Base
   belongs_to :drc_company
+  belongs_to :source
 
   validates :lat, numericality: { greater_than_or_equal_to: -90,
                                   less_than_or_equal_to: 90 } # ,presence: true

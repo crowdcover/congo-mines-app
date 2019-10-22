@@ -5,7 +5,7 @@ class Admin::EnvAndSocialObligationsController < Admin::Auth # ApplicationContro
     config.label = 'Obligations environnementales et sociales (Relations communautaires)'
 
     config.columns = %i[community_fund enviro_impact_date enviro_impact_link
-                        sustainable_dev_plan community_dialogue_platform social_investment]
+                        sustainable_dev_plan community_dialogue_platform social_investment source]
 
     config.columns.exclude(:created_at, :updated_at)
 

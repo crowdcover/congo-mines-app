@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191018032537) do
+ActiveRecord::Schema.define(version: 20191021225643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
+    t.string   "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "attachments", force: :cascade do |t|
     t.string   "asset_file_name"
@@ -111,6 +117,7 @@ ActiveRecord::Schema.define(version: 20191018032537) do
     t.string   "contract_type"
     t.string   "nationality"
     t.string   "gender"
+    t.integer  "source_id"
   end
 
   add_index "employees", ["drc_company_id"], name: "index_employees_on_drc_company_id", using: :btree
@@ -123,6 +130,7 @@ ActiveRecord::Schema.define(version: 20191018032537) do
     t.float   "social_investment"
     t.string  "community_fund"
     t.string  "community_dialogue_platform"
+    t.integer "source_id"
   end
 
   add_index "env_and_social_obligations", ["drc_company_id"], name: "index_env_and_social_obligations_on_drc_company_id", using: :btree
@@ -136,6 +144,7 @@ ActiveRecord::Schema.define(version: 20191018032537) do
     t.string   "contract_cash_recipient"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "source_id"
   end
 
   add_index "flows_payable_under_contracts", ["drc_company_id"], name: "index_flows_payable_under_contracts_on_drc_company_id", using: :btree
@@ -198,6 +207,7 @@ ActiveRecord::Schema.define(version: 20191018032537) do
     t.decimal  "lng",            precision: 15, scale: 10
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
+    t.integer  "source_id"
   end
 
   add_index "processing_infrastructures", ["drc_company_id"], name: "index_processing_infrastructures_on_drc_company_id", using: :btree
@@ -212,6 +222,7 @@ ActiveRecord::Schema.define(version: 20191018032537) do
     t.decimal  "export_value"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "source_id"
   end
 
   add_index "production_exports", ["drc_company_id"], name: "index_production_exports_on_drc_company_id", using: :btree
@@ -269,6 +280,7 @@ ActiveRecord::Schema.define(version: 20191018032537) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "direct_shareholder"
+    t.integer  "source_id"
   end
 
   add_index "shareholder_relationships", ["drc_company_id"], name: "index_shareholder_relationships_on_drc_company_id", using: :btree
@@ -287,6 +299,7 @@ ActiveRecord::Schema.define(version: 20191018032537) do
     t.string   "stock_symbol"
     t.string   "stock"
     t.string   "public_private"
+    t.integer  "source_id"
   end
 
   add_index "shareholders", ["drc_company_id"], name: "index_shareholders_on_drc_company_id", using: :btree
@@ -304,6 +317,7 @@ ActiveRecord::Schema.define(version: 20191018032537) do
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
     t.integer  "year"
+    t.integer  "source_id"
   end
 
   add_index "social_projects", ["drc_company_id"], name: "index_social_projects_on_drc_company_id", using: :btree
@@ -373,6 +387,7 @@ ActiveRecord::Schema.define(version: 20191018032537) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "import_customs_duty"
+    t.integer  "source_id"
   end
 
   add_index "tax_obligations", ["drc_company_id"], name: "index_tax_obligations_on_drc_company_id", using: :btree
@@ -386,13 +401,22 @@ ActiveRecord::Schema.define(version: 20191018032537) do
 
   add_foreign_key "deposits", "drc_companies"
   add_foreign_key "employees", "drc_companies"
+  add_foreign_key "employees", "sources"
+  add_foreign_key "env_and_social_obligations", "sources"
   add_foreign_key "flows_payable_under_contracts", "drc_companies"
+  add_foreign_key "flows_payable_under_contracts", "sources"
   add_foreign_key "page_categories", "categories"
   add_foreign_key "page_categories", "pages"
   add_foreign_key "processing_infrastructures", "drc_companies"
+  add_foreign_key "processing_infrastructures", "sources"
+  add_foreign_key "production_exports", "sources"
   add_foreign_key "report_categories", "categories"
   add_foreign_key "report_categories", "reports"
   add_foreign_key "shareholder_intermediaries", "intermediary_companies"
   add_foreign_key "shareholder_intermediaries", "shareholder_relationships"
+  add_foreign_key "shareholder_relationships", "sources"
+  add_foreign_key "shareholders", "sources"
   add_foreign_key "social_projects", "drc_companies"
+  add_foreign_key "social_projects", "sources"
+  add_foreign_key "tax_obligations", "sources"
 end

@@ -2,6 +2,7 @@
 
 class ProductionExport < ActiveRecord::Base
   belongs_to :drc_company
+  belongs_to :source
 
   # validates_presence_of :year
 

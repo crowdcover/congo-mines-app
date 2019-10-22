@@ -3,7 +3,7 @@
 class Admin::SocialProjectsController < Admin::Auth
   active_scaffold :social_project do |config|
     config.columns = %i[drc_company project_type year amount_planned
-                        amount_spent stage description lat lng]
+                        amount_spent stage description lat lng source]
 
     config.columns[:year].form_ui = :select
     config.columns[:year].options = {

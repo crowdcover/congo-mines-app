@@ -42,6 +42,8 @@ json.features @drc_company.social_projects do |social|
 
     presets << { 'tag' => 'link', 'label' => { 'en' => 'Link', 'fr' => 'Lien' } }
 
+    json.source social.source ? social.source.name : ''
+
     json.maphubs_metadata do
       json.presets presets do |preset|
         json.tag preset['tag']

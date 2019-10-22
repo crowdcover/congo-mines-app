@@ -24,6 +24,8 @@ json.features @drc_company.processing_infrastructures do |p_infra|
     json.link base_url + '/drc_companies/' + p_infra.drc_company.to_param
     presets << { 'tag' => 'link', 'label' => { 'en' => 'Link', 'fr' => 'Lien' } }
 
+    json.source p_infra.source ? p_infra.source.name : ''
+
     json.maphubs_metadata do
       json.presets presets do |preset|
         json.tag preset['tag']

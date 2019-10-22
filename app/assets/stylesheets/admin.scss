@@ -66,3 +66,7 @@ li.form-element.checkbox {
 .active-scaffold .form-element.checkbox input[type="checkbox"]{
   margin-left: 0;
 }
+
+.active-scaffold .sub-form select {
+  max-width: 300px;
+}

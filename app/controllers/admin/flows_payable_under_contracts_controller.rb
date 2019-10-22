@@ -3,7 +3,7 @@
 class Admin::FlowsPayableUnderContractsController < Admin::Auth # ApplicationController
   active_scaffold :flows_payable_under_contract do |config|
     config.columns = %i[signature_bonus royalties annuity
-                        transfer_of_shares contract_cash_recipient]
+                        transfer_of_shares contract_cash_recipient source]
 
     config.columns[:contract_cash_recipient].form_ui = :select
     config.columns[:contract_cash_recipient].options = {
