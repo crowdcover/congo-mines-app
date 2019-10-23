@@ -50,8 +50,8 @@ class Admin::DrcCompaniesController < Admin::Auth
     config.columns[:legal_regime].options = {
       include_blank: 'Sélectionnez Statut juridique',
       options: ['Convention',
-                'Mining Code 2002',
-                'Revised Mining Code']
+                'Code minier 2002',
+                'Code minier révisé']
     }
 
     config.columns[:legal_status].form_ui = :select
