@@ -1,6 +1,6 @@
 {
   "name": "congo-mines-app",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Rails app for the CongoMines project",
   "directories": {
     "doc": "doc",
