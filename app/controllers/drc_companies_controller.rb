@@ -2,14 +2,25 @@
 
 # Companies
 class DrcCompaniesController < ApplicationController
-  def show
-    @drc_company = DrcCompany.includes(:tax_obligations, :employees, :deposits, :processing_infrastructures, :social_projects,
-                                       :env_and_social_obligation, :flows_payable_under_contract,
-                                       :production_exports).find(params[:id])
+  before_action :company, only: [:show]
+  before_action :employees_by_year, only: [:show]
+  before_action :production_exports_by_year, only: [:show]
+  before_action :tax_obligations_by_year, only: [:show]
 
+  def show
     @drc_company_reports = @drc_company.reports.order(actual_post_date: :desc)
                                        .page(params[:page]).per(12)
+  end
 
+  def company
+    @drc_company = DrcCompany.includes(
+      :tax_obligations, :employees, :deposits, :processing_infrastructures, :social_projects,
+      :env_and_social_obligation, :flows_payable_under_contract,
+      :production_exports
+    ).find(params[:id])
+  end
+
+  def employees_by_year
     @drc_company_employees_years = []
     @drc_company_employees_byyear = {}
     @drc_company.employees.each do |employee|
@@ -20,8 +31,32 @@ class DrcCompaniesController < ApplicationController
       end
       @drc_company_employees_byyear[@year].push(employee)
     end
+  end
 
-    # render :show
+  def production_exports_by_year
+    @drc_company_production_exports_years = []
+    @drc_company_production_exports_byyear = {}
+    @drc_company.production_exports.each do |pe|
+      @year = pe.year
+      unless @drc_company_production_exports_byyear[@year]
+        @drc_company_production_exports_byyear[@year] = []
+        @drc_company_production_exports_years.push(@year)
+      end
+      @drc_company_production_exports_byyear[@year].push(pe)
+    end
+  end
+
+  def tax_obligations_by_year
+    @drc_company_tax_obligations_years = []
+    @drc_company_tax_obligations_byyear = {}
+    @drc_company.tax_obligations.each do |to|
+      @year = to.year
+      unless @drc_company_tax_obligations_byyear[@year]
+        @drc_company_tax_obligations_byyear[@year] = []
+        @drc_company_tax_obligations_years.push(@year)
+      end
+      @drc_company_tax_obligations_byyear[@year].push(to)
+    end
   end
 
   def index

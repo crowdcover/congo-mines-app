@@ -100,27 +100,24 @@ div
                       h4.small-12.columns.quiet= t('.teneur')
                       h4.small-12.columns.quiet= t('.valeur_export_e')
                       h4.small-12.columns.quiet= t('.source')
-                    - @drc_company.production_exports.each do |pe|
-                      - unless pe.nil?
-                        div.mbm
-                          h4.small-12.columns.dark = pe.year
-                          div.clearfix.mls
-                            h4.small-6.medium-4.columns.quiet= t('.type_de_produit')
-                            span.small-6.medium-8.columns = pe.type_of_product
-                          div.clearfix.mls
-                            h4.small-6.medium-4.columns.quiet= t('.tonnage')
-                            span.small-6.medium-8.columns = number_with_delimiter(pe.tonnage)
-                          div.clearfix.mls
-                            h4.small-6.medium-4.columns.quiet= t('.teneur')
-                            span.small-6.medium-8.columns = number_to_percentage(pe.grade, precision: 2, separator: '.')
-                          div.clearfix.mls
-                            h4.small-6.medium-4.columns.quiet= t('.valeur_export_e')
-                            span.small-6.medium-8.columns = number_to_currency(pe.export_value, locale: I18n.locale, unit: "USD ")
-                          - if pe.source
-                            div.clearfix.mls
-                              h4.small-6.medium-4.columns.quiet= t('.source')
-                              span.small-6.medium-8.columns = pe.source.name
-
+                    - years = @drc_company_production_exports_years.each do |year|
+                      div.small-12.pbs
+                        h4.small-12.columns.dark.pbs = year.to_s
+                        table
+                          tr
+                            th.type = t('.type_de_produit')
+                            th.tonnage = t('.tonnage')
+                            th.grade = t('.teneur')
+                            th.exportvalue = t('.valeur_export_e')
+                            th.source = t('.source')
+                          - @drc_company_production_exports_byyear[year].each do |pe|
+                            - unless pe.nil?
+                            tr
+                              td.type = pe.type_of_product
+                              td.tonnage = number_with_delimiter(pe.tonnage)
+                              td.grade = number_to_percentage(pe.grade, precision: 2, separator: '.')
+                              td.exportvalue = number_to_currency(pe.export_value, locale: I18n.locale, unit: "USD ")
+                              td.source = pe.source ? pe.source.name : ''
 
             li.accordion-navigation
               a[href="#accordion-tax"] = t('.taxation')
@@ -135,26 +132,33 @@ div
                     h4.small-12.columns.quiet= t('.source')
                   - else
                     h3.small-12.columns.quiet= t('.flux_payable_au_contrat')
-                    div.clearfix.mls
-                      h4.small-6.medium-4.columns.quiet= t('.pas_de_porte')
-                      span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.signature_bonus, locale: I18n.locale, unit: "USD ")
-                    div.clearfix.mls
-                      h4.small-6.medium-4.columns.quiet= t('.royalties')
-                      span.small-6.medium-8.columns
-                        span = number_to_percentage(@drc_company.flows_payable_under_contract.royalties, precision: 2, separator: '.', format: "%n% du chiffres d'affaires")
-                    div.clearfix.mls
-                      h4.small-6.medium-4.columns.quiet= t('.loyer_annuel')
-                      span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.annuity, locale: I18n.locale, unit: "USD ")
-                    div.clearfix.mls
-                      h4.small-6.medium-4.columns.quiet= t('.cession_des_actifs')
-                      span.small-6.medium-8.columns = number_to_currency(@drc_company.flows_payable_under_contract.transfer_of_shares, locale: I18n.locale, unit: "USD ")
-                    div.clearfix.mls
-                      h4.small-6.medium-4.columns.quiet= t('.b_n_ficiaire_contractuel')
-                      span.small-6.medium-8.columns = @drc_company.flows_payable_under_contract.contract_cash_recipient
-                    - if @drc_company.flows_payable_under_contract.source
-                      div.clearfix.mls
-                        h4.small-6.medium-4.columns.quiet= t('.source')
-                        span.small-6.medium-8.columns = @drc_company.flows_payable_under_contract.source.name
+                    table.mls
+                      tr
+                        td
+                          b = t('.pas_de_porte')
+                        td = number_to_currency(@drc_company.flows_payable_under_contract.signature_bonus, locale: I18n.locale, unit: "USD ")
+                      tr
+                        td
+                          b = t('.royalties')
+                        td
+                          span = number_to_percentage(@drc_company.flows_payable_under_contract.royalties, precision: 2, separator: '.', format: "%n% du chiffres d'affaires")
+                      tr
+                        td
+                          b = t('.loyer_annuel')
+                        td = number_to_currency(@drc_company.flows_payable_under_contract.annuity, locale: I18n.locale, unit: "USD ")
+                      tr
+                        td
+                          b = t('.cession_des_actifs')
+                        td = number_to_currency(@drc_company.flows_payable_under_contract.transfer_of_shares, locale: I18n.locale, unit: "USD ")
+                      tr
+                        td
+                          b = t('.b_n_ficiaire_contractuel')
+                        td = @drc_company.flows_payable_under_contract.contract_cash_recipient
+                      - if @drc_company.flows_payable_under_contract.source
+                        tr
+                          td
+                            b = t('.source')
+                          td = @drc_company.flows_payable_under_contract.source.name
 
                 div.row
                   h3.small-12.columns.quiet= t('.paiement_des_taxes')
@@ -169,38 +173,49 @@ div
                     h4.small-12.columns.quiet= t('.royalties')
                     h4.small-12.columns.quiet= t('.autres')
                     h4.small-12.columns.quiet= t('.source')
+
                   - @drc_company.tax_obligations.each do |tax_ob|
                     - unless tax_ob.nil?
-                      h4.small-12.columns.dark.mls = tax_ob.year
-                      div.clearfix.mlm
-                        h4.small-6.medium-4.columns.quiet= t('.total_pay')
-                        span.small-6.medium-8.columns = number_to_currency(tax_ob.total_paid, locale: I18n.locale, unit: "USD ")
-                      div.clearfix.mlm
-                        h4.small-6.medium-4.columns.quiet= t('.redevances')
-                        span.small-6.medium-8.columns = number_to_currency(tax_ob.redevance, locale: I18n.locale, unit: "USD ")
-                      div.clearfix.mlm
-                        h4.small-6.medium-4.columns.quiet= t('.imp_t_b_n')
-                        span.small-6.medium-8.columns = number_to_currency(tax_ob.ibp, locale: I18n.locale, unit: "USD ")
-                      div.clearfix.mlm
-                        h4.small-6.medium-4.columns.quiet= t('.droit_de_douane_l')
-                        span.small-6.medium-8.columns = number_to_currency(tax_ob.import_customs_duty, locale: I18n.locale, unit: "USD ")
-                      div.clearfix.mlm
-                        h4.small-6.medium-4.columns.quiet= t('.droits_superficiaires')
-                        span.small-6.medium-8.columns = number_to_currency(tax_ob.surface_rights, locale: I18n.locale, unit: "USD ")
-                      div.clearfix.mlm
-                        h4.small-6.medium-4.columns.quiet= t('.pas_de_porte')
-                        span.small-6.medium-8.columns = number_to_currency(tax_ob.signature_bonus, locale: I18n.locale, unit: "USD ")
-                      div.clearfix.mlm
-                        h4.small-6.medium-4.columns.quiet= t('.royalties')
-                        span.small-6.medium-8.columns = number_to_currency(tax_ob.royalties, locale: I18n.locale, unit: "USD ")
-                        / span.small-6.medium-8.columns = number_to_percentage(tax_ob.royalties, precision: 2, separator: '.', format: "% du chiffres d'affaires")
-                      div.clearfix.mlm
-                        h4.small-6.medium-4.columns.quiet= t('.autres')
-                        span.small-6.medium-8.columns = number_to_currency(tax_ob.other, locale: I18n.locale, unit: "USD ")
-                      - if tax_ob.source
-                        div.clearfix.mlm
-                          h4.small-6.medium-4.columns.quiet= t('.source')
-                          span.small-6.medium-8.columns = tax_ob.source.name
+                      h4.small-12.dark.mls = tax_ob.year
+                      table.mls
+                        tr
+                          td
+                            b = t('.total_pay')
+                          td = number_to_currency(tax_ob.total_paid, locale: I18n.locale, unit: "USD ")
+                        tr
+                          td 
+                            b = t('.redevances')
+                          td = number_to_currency(tax_ob.redevance, locale: I18n.locale, unit: "USD ")
+                        tr
+                          td 
+                            b = t('.imp_t_b_n')
+                          td = number_to_currency(tax_ob.ibp, locale: I18n.locale, unit: "USD ")
+                        tr
+                          td
+                            b = t('.droit_de_douane_l')
+                          td = number_to_currency(tax_ob.import_customs_duty, locale: I18n.locale, unit: "USD ")
+                        tr
+                          td
+                            b = t('.droits_superficiaires')
+                          td = number_to_currency(tax_ob.surface_rights, locale: I18n.locale, unit: "USD ")
+                        tr
+                          td 
+                            b = t('.pas_de_porte')
+                          td = number_to_currency(tax_ob.signature_bonus, locale: I18n.locale, unit: "USD ")
+                        tr
+                          td
+                            b = t('.royalties')
+                          td = number_to_currency(tax_ob.royalties, locale: I18n.locale, unit: "USD ")
+                          / span.small-6.medium-8.columns = number_to_percentage(tax_ob.royalties, precision: 2, separator: '.', format: "% du chiffres d'affaires")
+                        tr
+                          td
+                            b = t('.autres')
+                          td  = number_to_currency(tax_ob.other, locale: I18n.locale, unit: "USD ")
+                        - if tax_ob.source
+                          tr
+                            td
+                              b = t('.source')
+                            td = tax_ob.source.name
 
             li.accordion-navigation
               a[href="#accordion-enviro"] = t('.environnementales_sociaux')
