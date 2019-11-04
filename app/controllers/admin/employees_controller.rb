@@ -23,7 +23,7 @@ class Admin::EmployeesController < Admin::Auth # ApplicationController
     config.columns[:gender].form_ui = :select
     config.columns[:gender].options = {
       include_blank: 'Sélectionnez le sexe',
-      options: %w[mâle femelle]
+      options: %w[Masculin Féminin]
     }
   end
 end

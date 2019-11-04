@@ -292,7 +292,7 @@ fr:
       environnementales_sociaux: Obligations environnementales / sociaux
       actionnaires: Actionnaires
       gender: Sexe
-      count: Dénombrer
+      count: Nombre
       nationality: Nationalité
       contract_type: Type de contrat
   layouts:

@@ -109,7 +109,7 @@ fr:
 
       employee:
         contract_type: Type de contrat  #g
-        count: Dénombrer  #g
+        count: Nombre  #g
         drc_company: :activerecord.models.drc_company  #g
         gender: Sexe  #g
         nationality: Nationalité  #g
