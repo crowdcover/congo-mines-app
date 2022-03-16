@@ -5,7 +5,7 @@ gem 'i18n_generators'
 gem 'active_scaffold', '3.5.5'
 gem 'acts_as_list'
 gem 'acts_as_tree'
-gem 'active_scaffold_export', github: 'naaano/active_scaffold_export' 
+gem 'active_scaffold_export', git: 'https://github.com/naaano/active_scaffold_export' 
 gem 'chosen-rails'
 gem 'http_accept_language'
 gem 'rack-cors'
@@ -25,7 +25,7 @@ gem 'acts-as-taggable-on'
 gem 'slim-rails'
 gem 'foundation-rails' #, '5.4.5'
 
-gem "compass-rails", github: "Compass/compass-rails", branch: "master"
+gem "compass-rails", git: "https://github.com/Compass/compass-rails"
 
 gem 'underscore-rails'
 
