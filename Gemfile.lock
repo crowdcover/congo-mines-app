@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/Compass/compass-rails.git
+  remote: https://github.com/Compass/compass-rails.git
   revision: 3e88f991150ffa39b0a539dffb3326248d18e6ad
   branch: master
   specs:
@@ -9,7 +9,7 @@ GIT
       sprockets (< 2.13)
 
 GIT
-  remote: git://github.com/ko1/debugger2.git
+  remote: https://github.com/ko1/debugger2.git
   revision: c5bbb3ccaf3b6642d60951c738967db53285a2d0
   specs:
     debugger2 (1.0.0.beta2)
@@ -17,7 +17,7 @@ GIT
       debugger-linecache (~> 1.2.0)
 
 GIT
-  remote: git://github.com/naaano/active_scaffold_export.git
+  remote: https://github.com/naaano/active_scaffold_export.git
   revision: 879ceb549b871ebb597ae5339a2e67498beb70d1
   specs:
     active_scaffold_export (3.3.2)
